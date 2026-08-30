@@ -5,58 +5,101 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tikamporn Werawithayaset | Digital Portal</title>
     <!-- Google Fonts & Font Awesome Icons -->
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600;700&family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         :root {
-            /* Light Theme Blue Palette */
-            --bg-gradient: linear-gradient(135deg, #e0f2fe 0%, #f0f9ff 50%, #bae6fd 100%);
-            --card-bg: rgba(255, 255, 255, 0.92);
-            --item-bg: #f8fafc;
+            /* 💎 Light Blue Frosted Glass Palette */
+            --glass-bg: rgba(255, 255, 255, 0.82);
+            --glass-sub: rgba(240, 249, 255, 0.85);
+            --glass-border: rgba(255, 255, 255, 0.95);
             --primary-blue: #0284c7;
             --deep-blue: #0369a1;
             --accent-gold: #d97706;
-            --accent-gold-light: #fef3c7;
-            --accent-blue-light: #e0f2fe;
             --accent-emerald: #059669;
             --text-main: #0f172a;
-            --text-sub: #475569;
+            --text-sub: #334155;
             --text-muted: #64748b;
-            --border-color: rgba(186, 230, 253, 0.8);
-            --card-border: rgba(255, 255, 255, 0.8);
-            --shadow-subtle: 0 10px 30px -5px rgba(2, 132, 199, 0.15), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --shadow-glass: 0 20px 45px rgba(2, 132, 199, 0.12), 0 4px 12px rgba(0, 0, 0, 0.04);
         }
 
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Prompt', sans-serif;
+            font-family: 'Prompt', 'Fira Code', sans-serif;
         }
 
         body {
-            background: var(--bg-gradient);
+            /* 🌤️ Bright Blue Gradient + Scenic Glass Wallpaper */
+            background-color: #f0f9ff;
+            background-image: 
+                linear-gradient(135deg, rgba(224, 242, 254, 0.7) 0%, rgba(240, 249, 255, 0.85) 100%),
+                url('assets/bg-executive.png');
+            background-repeat: no-repeat;
+            background-position: center center;
             background-attachment: fixed;
+            background-size: cover;
             color: var(--text-main);
             min-height: 100vh;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
-            padding: 28px 16px;
+            padding: 24px 16px 40px 16px;
         }
 
+        /* --- 🌐 Floating Top Navigation Pill --- */
+        .nav-pill {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(186, 230, 253, 0.8);
+            border-radius: 40px;
+            padding: 8px 24px;
+            box-shadow: 0 8px 20px rgba(2, 132, 199, 0.1);
+            margin-bottom: 24px;
+            z-index: 10;
+            flex-wrap: wrap;
+        }
+
+        .nav-pill a {
+            color: var(--deep-blue);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 5px 12px;
+            border-radius: 20px;
+            transition: all 0.25s ease;
+        }
+
+        .nav-pill a:hover {
+            color: var(--primary-blue);
+            background: #e0f2fe;
+            transform: translateY(-1px);
+        }
+
+        /* --- 🛡️ Main Frosted Glass Card --- */
         .card-container {
             width: 100%;
             max-width: 540px;
-            background: var(--card-bg);
-            border: 1px solid var(--card-border);
-            border-radius: 24px;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 28px;
             padding: 34px 26px;
-            backdrop-filter: blur(20px);
-            box-shadow: var(--shadow-subtle);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            box-shadow: var(--shadow-glass);
             position: relative;
             overflow: hidden;
+            transition: max-width 0.3s ease;
         }
 
         /* Top Elegant Accent Bar */
@@ -66,7 +109,7 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 5px;
+            height: 4px;
             background: linear-gradient(90deg, var(--primary-blue), #38bdf8, var(--accent-gold));
         }
 
@@ -77,40 +120,46 @@
         }
 
         .avatar {
-            width: 110px;
-            height: 110px;
+            width: 115px;
+            height: 115px;
             border-radius: 50%;
             border: 3px solid #ffffff;
             padding: 2px;
             background: #ffffff;
-            box-shadow: 0 4px 14px rgba(2, 132, 199, 0.25);
+            box-shadow: 0 8px 20px rgba(2, 132, 199, 0.2);
             object-fit: cover;
             margin-bottom: 12px;
+            transition: transform 0.3s ease;
+        }
+
+        .avatar:hover {
+            transform: scale(1.05);
         }
 
         .name-en {
-            font-size: 1.3rem;
+            font-size: 1.35rem;
             font-weight: 700;
-            color: #0f172a;
+            color: var(--text-main);
             letter-spacing: 0.2px;
         }
 
         .name-th {
             font-size: 1.05rem;
-            font-weight: 500;
+            font-weight: 600;
             color: var(--deep-blue);
             margin-bottom: 8px;
         }
 
         .position-box {
-            font-size: 0.86rem;
+            font-size: 0.84rem;
             color: var(--text-sub);
-            line-height: 1.5;
-            background: #f0f9ff;
+            line-height: 1.55;
+            background: var(--glass-sub);
             border: 1px solid #bae6fd;
             border-radius: 14px;
             padding: 12px 14px;
             margin-bottom: 14px;
+            text-align: center;
         }
 
         .position-box strong {
@@ -153,15 +202,16 @@
         }
 
         .section-header {
-            font-size: 0.8rem;
+            font-size: 0.82rem;
             color: var(--deep-blue);
             text-transform: uppercase;
-            letter-spacing: 0.8px;
+            letter-spacing: 1px;
             margin-bottom: 10px;
             display: flex;
             align-items: center;
             gap: 7px;
             font-weight: 700;
+            font-family: 'Fira Code', monospace;
         }
 
         /* Links List */
@@ -176,8 +226,8 @@
             align-items: center;
             justify-content: space-between;
             padding: 12px 16px;
-            background: var(--item-bg);
-            border: 1px solid #e2e8f0;
+            background: var(--glass-sub);
+            border: 1px solid rgba(186, 230, 253, 0.6);
             border-radius: 14px;
             color: var(--text-main);
             text-decoration: none;
@@ -185,20 +235,20 @@
         }
 
         .link-item:hover {
-            background: #f0f9ff;
+            background: #e0f2fe;
             border-color: #38bdf8;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(2, 132, 199, 0.1);
+            transform: translateX(4px);
+            box-shadow: 0 4px 12px rgba(2, 132, 199, 0.12);
         }
 
         .link-item.highlight {
             border-color: #fcd34d;
-            background: linear-gradient(135deg, #fffbeb 0%, #ffffff 100%);
+            background: linear-gradient(135deg, #fffdf5 0%, #fef3c7 100%);
         }
 
         .link-item.highlight:hover {
             border-color: #f59e0b;
-            background: #fef3c7;
+            background: #fde68a;
         }
 
         .link-left {
@@ -225,13 +275,13 @@
         }
 
         .link-subtext {
-            font-size: 0.72rem;
+            font-size: 0.74rem;
             color: var(--text-muted);
             margin-top: 1px;
         }
 
         .link-arrow {
-            color: #94a3b8;
+            color: var(--text-muted);
             font-size: 0.75rem;
         }
 
@@ -246,10 +296,16 @@
             background: #f0f9ff;
             border: 1px solid #bae6fd;
             color: #0369a1;
-            padding: 5px 10px;
+            padding: 6px 12px;
             border-radius: 8px;
-            font-size: 0.75rem;
+            font-size: 0.78rem;
             font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .service-tag:hover {
+            background: #e0f2fe;
+            transform: translateY(-2px);
         }
 
         /* Certifications & Licenses */
@@ -260,10 +316,10 @@
         }
 
         .cert-card {
-            background: var(--item-bg);
-            border: 1px solid #e2e8f0;
+            background: var(--glass-sub);
+            border: 1px solid rgba(186, 230, 253, 0.6);
             border-radius: 12px;
-            padding: 11px 14px;
+            padding: 12px 14px;
             font-size: 0.82rem;
         }
 
@@ -285,7 +341,7 @@
 
         .cert-issuer {
             color: var(--text-sub);
-            font-size: 0.75rem;
+            font-size: 0.76rem;
         }
 
         .cert-meta {
@@ -297,11 +353,11 @@
 
         /* Experience Items */
         .exp-item {
-            background: var(--item-bg);
-            border: 1px solid #e2e8f0;
+            background: var(--glass-sub);
+            border: 1px solid rgba(186, 230, 253, 0.6);
             border-left: 4px solid var(--primary-blue);
             border-radius: 12px;
-            padding: 11px 14px;
+            padding: 12px 14px;
             margin-bottom: 8px;
             font-size: 0.83rem;
             line-height: 1.45;
@@ -319,6 +375,7 @@
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
+            gap: 4px;
         }
 
         .exp-org {
@@ -335,11 +392,11 @@
 
         /* Education Box */
         .edu-item {
-            background: var(--item-bg);
-            border: 1px solid #e2e8f0;
+            background: var(--glass-sub);
+            border: 1px solid rgba(186, 230, 253, 0.6);
             border-left: 4px solid var(--accent-emerald);
             border-radius: 12px;
-            padding: 11px 14px;
+            padding: 12px 14px;
             font-size: 0.82rem;
             line-height: 1.45;
         }
@@ -358,155 +415,222 @@
         .footer {
             margin-top: 24px;
             text-align: center;
-            font-size: 0.72rem;
+            font-size: 0.74rem;
             color: var(--text-muted);
             font-family: 'Fira Code', monospace;
-            letter-spacing: 0.5px;
+            letter-spacing: 0.8px;
+        }
+
+        /* ---------------------------------------------------- */
+        /* 💻 DESKTOP VIEW (>= 992px)                           */
+        /* ---------------------------------------------------- */
+        @media (min-width: 992px) {
+            body {
+                padding: 40px 24px 60px 24px;
+            }
+
+            .card-container {
+                max-width: 1060px;
+                padding: 40px 36px;
+            }
+
+            .portal-grid {
+                display: grid;
+                grid-template-columns: 360px 1fr;
+                gap: 36px;
+                align-items: start;
+            }
+
+            .sidebar-col {
+                position: sticky;
+                top: 20px;
+            }
+
+            .avatar {
+                width: 130px;
+                height: 130px;
+            }
+
+            .name-en {
+                font-size: 1.45rem;
+            }
+
+            .name-th {
+                font-size: 1.15rem;
+            }
+
+            .position-box {
+                font-size: 0.88rem;
+            }
+
+            .footer {
+                grid-column: 1 / -1;
+                margin-top: 32px;
+                padding-top: 16px;
+                border-top: 1px solid rgba(186, 230, 253, 0.6);
+            }
         }
     </style>
 </head>
 <body>
 
+    <!-- 🌐 Floating Top Navigation Pill -->
+    <nav class="nav-pill">
+        <a href="#"><i class="fa-solid fa-house"></i> Home</a>
+        <a href="https://2provi.github.io/fin-irr-calculator/index.html" target="_blank"><i class="fa-solid fa-calculator"></i> IRR Tool</a>
+        <a href="https://www.linkedin.com/in/tikamporn-werawithayaset-1b15778b/" target="_blank"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+        <a href="mailto:tikamporn.wer@thailife.com"><i class="fa-solid fa-envelope"></i> Contact</a>
+    </nav>
+
+    <!-- 🛡️ Main Frosted Glass Card -->
     <div class="card-container">
         
-        <!-- Profile Header -->
-        <div class="profile-section">
-            <img src="https://media.licdn.com/dms/image/v2/C4E03AQEJ1dcsVoDKYA/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1517361668391?e=1789603200&v=beta&t=K-4Mz4ltwjGc5yWAW0by6OhiqZCNMXGejA55_piaUdM" alt="Avatar" class="avatar">
-            
-            <h1 class="name-en">Tikamporn Werawithayaset</h1>
-            <div class="name-th">(ฑิฆัมพร วีรวิทยาเศรษฐ์)</div>
-            
-            <div class="position-box">
-                <strong>Senior District Manager</strong> (ผู้บริหารภาคอาวุโส)
-                <br>บริษัท ไทยประกันชีวิต จำกัด (มหาชน) — สาขาธนบุรี
-                <br><span style="color: var(--accent-gold); font-size: 0.8rem; font-weight: 600;">Investment Consultant on Complex Product Type 2</span>
-            </div>
-           
-            <div class="team-badges">
-                <span class="badge-pill badge-thailife"><i class="fa-solid fa-shield-heart"></i> Thai Life Insurance (36+ Yrs)</span>
-                <span class="badge-pill badge-consultant"><i class="fa-solid fa-chart-line"></i> Financial Advisor</span>
-            </div>
-        </div>
+        <div class="portal-grid">
 
-        <!-- Links & Contact Section -->
-        <div class="section-box">
-            <div class="section-header"><i class="fa-solid fa-address-card"></i> Contact & Financial Tools</div>
-            <div class="links-group">
+            <!-- LEFT COLUMN (Profile & Quick Links) -->
+            <div class="sidebar-col">
+                <div class="profile-section">
+                    <img src="https://media.licdn.com/dms/image/v2/C4E03AQEJ1dcsVoDKYA/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1517361668391?e=1789603200&v=beta&t=K-4Mz4ltwjGc5yWAW0by6OhiqZCNMXGejA55_piaUdM" alt="Avatar" class="avatar">
+                    
+                    <h1 class="name-en">Tikamporn Werawithayaset</h1>
+                    <div class="name-th">(ฑิฆัมพร วีรวิทยาเศรษฐ์)</div>
+                    
+                    <div class="position-box">
+                        <strong>Senior District Manager</strong> (ผู้บริหารภาคอาวุโส)<br>
+                        บริษัท ไทยประกันชีวิต จำกัด (มหาชน) — สาขาธนบุรี<br>
+                        <span style="color: var(--accent-gold); font-size: 0.8rem; font-weight: 600;">Investment Consultant on Complex Product Type 2</span>
+                    </div>
+                   
+                    <div class="team-badges">
+                        <span class="badge-pill badge-thailife"><i class="fa-solid fa-shield-heart"></i> Thai Life Insurance (36+ Yrs)</span>
+                        <span class="badge-pill badge-consultant"><i class="fa-solid fa-chart-line"></i> Financial Advisor</span>
+                    </div>
+                </div>
+
+                <!-- Links & Contact Section -->
+                <div class="section-box">
+                    <div class="section-header"><i class="fa-solid fa-address-card"></i> Contact & Financial Tools</div>
+                    <div class="links-group">
+                        
+                        <a href="https://2provi.github.io/fin-irr-calculator/index.html" target="_blank" class="link-item highlight">
+                            <div class="link-left">
+                                <i class="fa-solid fa-calculator"></i>
+                                <div>
+                                    <div class="link-text">Financial IRR Calculator Tool</div>
+                                    <div class="link-subtext">เครื่องมือคำนวณและวางแผนการเงิน</div>
+                                </div>
+                            </div>
+                            <i class="fa-solid fa-arrow-up-right-from-square link-arrow"></i>
+                        </a>
+
+                        <a href="https://www.linkedin.com/in/tikamporn-werawithayaset-1b15778b/" target="_blank" class="link-item">
+                            <div class="link-left">
+                                <i class="fa-brands fa-linkedin" style="color: #0284c7;"></i>
+                                <span class="link-text">LinkedIn Profile</span>
+                            </div>
+                            <i class="fa-solid fa-arrow-up-right-from-square link-arrow"></i>
+                        </a>
+
+                        <a href="mailto:tikamporn.wer@thailife.com" class="link-item">
+                            <div class="link-left">
+                                <i class="fa-solid fa-envelope" style="color: #0284c7;"></i>
+                                <span class="link-text">tikamporn.wer@thailife.com</span>
+                            </div>
+                            <i class="fa-solid fa-paper-plane link-arrow"></i>
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- RIGHT COLUMN (Services, Licenses, Experience & Education) -->
+            <div class="main-content-col">
                 
-                <!-- Financial Tool (Highlighted) -->
-                <a href="https://2provi.github.io/fin-irr-calculator/index.html" target="_blank" class="link-item highlight">
-                    <div class="link-left">
-                        <i class="fa-solid fa-calculator"></i>
-                        <div>
-                            <div class="link-text">Financial IRR Calculator Tool</div>
-                            <div class="link-subtext">เครื่องมือคำนวณและวางแผนการเงิน</div>
+                <!-- Services & Focus Areas -->
+                <div class="section-box">
+                    <div class="section-header"><i class="fa-solid fa-briefcase"></i> Services & Expertise</div>
+                    <div class="services-grid">
+                        <span class="service-tag">Financial Advisory</span>
+                        <span class="service-tag">Life & Health Insurance</span>
+                        <span class="service-tag">Retirement Planning</span>
+                        <span class="service-tag">Financial Planning</span>
+                        <span class="service-tag">Investments</span>
+                        <span class="service-tag">Team Building</span>
+                        <span class="service-tag">Public Speaking</span>
+                    </div>
+                </div>
+
+                <!-- Key Licenses & Certifications -->
+                <div class="section-box">
+                    <div class="section-header"><i class="fa-solid fa-id-card-clip"></i> Licenses & Certifications</div>
+                    <div class="cert-list">
+                        <div class="cert-card gold-border">
+                            <div class="cert-title">Investment Consultant on Complex Product Type 2</div>
+                            <div class="cert-issuer">Securities and Exchange Commission, Thailand (ก.ล.ต.)</div>
+                            <div class="cert-meta">ID: 095172 · Expires: Dec 2027</div>
+                        </div>
+
+                        <div class="cert-card blue-border">
+                            <div class="cert-title">ใบอนุญาตตัวแทนประกันชีวิต / ประกันวินาศภัย</div>
+                            <div class="cert-issuer">Office of Insurance Commission (คปภ.)</div>
+                            <div class="cert-meta">Life License ID: 3901032720 · Expires: Aug 2029</div>
+                        </div>
+
+                        <div class="cert-card">
+                            <div class="cert-title">LIMRA Professional Programs & Training</div>
+                            <div class="cert-issuer">LIMRA & Thai Life Insurance Public Company Limited</div>
+                            <div class="cert-meta">Crossroads Program · Financial Advisor Skill Training · Management Skills</div>
                         </div>
                     </div>
-                    <i class="fa-solid fa-arrow-up-right-from-square link-arrow"></i>
-                </a>
+                </div>
 
-                <!-- LinkedIn -->
-                <a href="https://www.linkedin.com/in/tikamporn-werawithayaset-1b15778b/" target="_blank" class="link-item">
-                    <div class="link-left">
-                        <i class="fa-brands fa-linkedin" style="color: #0a66c2;"></i>
-                        <span class="link-text">LinkedIn Profile</span>
+                <!-- Professional Experience Summary -->
+                <div class="section-box">
+                    <div class="section-header"><i class="fa-solid fa-clock-rotate-left"></i> Experience Highlights</div>
+                    
+                    <div class="exp-item current">
+                        <div class="exp-role">
+                            <span>Senior District Manager (ผู้บริหารภาคอาวุโส)</span>
+                            <span class="exp-time">2013 - Present</span>
+                        </div>
+                        <div class="exp-org">บริษัท ไทยประกันชีวิต จำกัด (มหาชน) — สาขาธนบุรี</div>
                     </div>
-                    <i class="fa-solid fa-arrow-up-right-from-square link-arrow"></i>
-                </a>
 
-                <!-- Email -->
-                <a href="mailto:tikamporn.wer@thailife.com" class="link-item">
-                    <div class="link-left">
-                        <i class="fa-solid fa-envelope" style="color: #0284c7;"></i>
-                        <span class="link-text">tikamporn.wer@thailife.com</span>
+                    <div class="exp-item">
+                        <div class="exp-role">
+                            <span>ผู้จัดการภาค / ผู้บริหารภาค / ผู้บริหารศูนย์</span>
+                            <span class="exp-time">1990 - 2013</span>
+                        </div>
+                        <div class="exp-org">บริษัท ไทยประกันชีวิต จำกัด (มหาชน)</div>
                     </div>
-                    <i class="fa-solid fa-paper-plane link-arrow"></i>
-                </a>
 
-            </div>
-        </div>
-
-        <!-- Services & Focus Areas -->
-        <div class="section-box">
-            <div class="section-header"><i class="fa-solid fa-briefcase"></i> Services & Expertise</div>
-            <div class="services-grid">
-                <span class="service-tag">Financial Advisory</span>
-                <span class="service-tag">Life & Health Insurance</span>
-                <span class="service-tag">Retirement Planning</span>
-                <span class="service-tag">Financial Planning</span>
-                <span class="service-tag">Investments</span>
-                <span class="service-tag">Team Building</span>
-                <span class="service-tag">Public Speaking</span>
-            </div>
-        </div>
-
-        <!-- Key Licenses & Certifications -->
-        <div class="section-box">
-            <div class="section-header"><i class="fa-solid fa-id-card-clip"></i> Licenses & Certifications</div>
-            <div class="cert-list">
-                <div class="cert-card gold-border">
-                    <div class="cert-title">Investment Consultant on Complex Product Type 2</div>
-                    <div class="cert-issuer">Securities and Exchange Commission, Thailand (ก.ล.ต.)</div>
-                    <div class="cert-meta">ID: 095172</div>
+                    <div class="exp-item">
+                        <div class="exp-role">
+                            <span>หัวหน้าสินเชื่อ & พัฒนาธุรกิจ</span>
+                            <span class="exp-time">1978 - 1988</span>
+                        </div>
+                        <div class="exp-org">ธนาคารกรุงไทย / ธนาคารสยาม / ธนาคารเอเชียทรัสต์</div>
+                    </div>
                 </div>
 
-                <div class="cert-card blue-border">
-                    <div class="cert-title">ใบอนุญาตตัวแทนประกันชีวิต / ประกันวินาศภัย</div>
-                    <div class="cert-issuer">Office of Insurance Commission (คปภ.)</div>
-                    <div class="cert-meta">Life License ID: 3901032720</div>
+                <!-- Executive Education & Training -->
+                <div class="section-box">
+                    <div class="section-header"><i class="fa-solid fa-graduation-cap"></i> Executive Education & Training</div>
+                    <div class="edu-item">
+                        <div class="degree">โครงการพัฒนาผู้บริหาร (Mini MBA) รุ่นที่ 7</div>
+                        <div class="univ">Thammasat University (มหาวิทยาลัยธรรมศาสตร์) · 2009</div>
+                        <div class="degree" style="margin-top: 6px;">หลักสูตรโรงเรียนอบรมการธนาคาร</div>
+                        <div class="univ">สมาคมธนาคารไทย · 1983</div>
+                    </div>
                 </div>
 
-                <div class="cert-card">
-                    <div class="cert-title">LIMRA Professional Programs & Training</div>
-                    <div class="cert-issuer">LIMRA & Thai Life Insurance Public Company Limited</div>
-                    <div class="cert-meta">Crossroads Program · Financial Advisor Skill Training · Management Skills</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Professional Experience Summary -->
-        <div class="section-box">
-            <div class="section-header"><i class="fa-solid fa-clock-rotate-left"></i> Experience Highlights</div>
-            
-            <div class="exp-item current">
-                <div class="exp-role">
-                    <span>Senior District Manager (ผู้บริหารภาคอาวุโส)</span>
-                    <span class="exp-time">2013 - Present</span>
-                </div>
-                <div class="exp-org">บริษัท ไทยประกันชีวิต จำกัด (มหาชน) — สาขาธนบุรี</div>
             </div>
 
-            <div class="exp-item">
-                <div class="exp-role">
-                    <span>ผู้จัดการภาค / ผู้บริหารภาค / ผู้บริหารศูนย์</span>
-                    <span class="exp-time">1990 - 2013</span>
-                </div>
-                <div class="exp-org">บริษัท ไทยประกันชีวิต จำกัด (มหาชน)</div>
+            <!-- Footer -->
+            <div class="footer">
+                [ THAILIFE INSURANCE // VERIFIED EXECUTIVE PROFILE ]
             </div>
 
-            <div class="exp-item">
-                <div class="exp-role">
-                    <span>หัวหน้าสินเชื่อ & พัฒนาธุรกิจ</span>
-                    <span class="exp-time">1978 - 1988</span>
-                </div>
-                <div class="exp-org">ธนาคารกรุงไทย / ธนาคารสยาม / ธนาคารเอเชียทรัสต์</div>
-            </div>
-        </div>
-
-        <!-- Executive Education & Training -->
-        <div class="section-box">
-            <div class="section-header"><i class="fa-solid fa-graduation-cap"></i> Executive Education & Training</div>
-            <div class="edu-item">
-                <div class="degree">โครงการพัฒนาผู้บริหาร (Mini MBA) รุ่นที่ 7</div>
-                <div class="univ">Thammasat University (มหาวิทยาลัยธรรมศาสตร์) · 2009</div>
-                <div class="degree" style="margin-top: 6px;">หลักสูตรโรงเรียนอบรมการธนาคาร</div>
-                <div class="univ">สมาคมธนาคารไทย · 1983</div>
-            </div>
-        </div>
-
-        <!-- Footer -->
-        <div class="footer">
-            [ THAILIFE INSURANCE // VERIFIED EXECUTIVE PROFILE ]
         </div>
 
     </div>
