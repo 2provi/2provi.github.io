@@ -244,13 +244,19 @@
         }
 
         .link-item.highlight {
-            border-color: #B8860B;
-            background: linear-gradient(135deg, #fffdf5 0%, #fef3c7 100%);
+            border: 2px solid #B8860B; /* เพิ่มความหนาของเส้นขอบให้คมขึ้น */
+            background: linear-gradient(135deg, #fef08a 0%, #fde047 100%); /* ปรับเฉดสีเหลืองทองให้เข้มและแน่นขึ้น */
+            box-shadow: 0 4px 12px rgba(184, 134, 11, 0.2); /* เพิ่มเงาให้ดูมีมิติ */
         }
 
         .link-item.highlight:hover {
-            border-color: #f59e0b;
-            background: #B8860B;
+            border-color: #996515; /* สีขอบตอนเอาเมาส์ชี้เข้มขึ้นอีก */
+            background: linear-gradient(135deg, #fde047 100%, #facc15 100%); /* ตอนชี้สีจะสดและเข้มขึ้น */
+            box-shadow: 0 6px 16px rgba(184, 134, 11, 0.35);
+        }
+
+        .link-item.highlight .link-subtext {
+            color: #713f12; /* ปรับสีตัวหนังสือบรรทัดล่างให้เข้มตาม เพื่อให้อ่านง่ายและไม่กลืนกับพื้นหลัง */
         }
 
         .link-left {
