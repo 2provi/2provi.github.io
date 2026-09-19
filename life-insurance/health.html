@@ -1,0 +1,1624 @@
+<!DOCTYPE html>
+<html lang="th" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>ค่ารักษาที่กินเงินเก็บทั้งชีวิต — ประกันสุขภาพ &amp; โรคร้ายแรง | 2Provi Group</title>
+<meta name="description" content="เข้าใจค่ารักษาพยาบาลที่โตปีละ 10.8% มาตรฐานประกันสุขภาพแบบใหม่ เงื่อนไข Copayment 2568 และเครื่องคำนวณวงเงินสุขภาพกับทุนโรคร้ายแรงที่ควรมี">
+<meta name="theme-color" content="#04060d">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%2304060d'/%3E%3Cpath d='M4 17h5l2.5-6 4 12 3-7 2 2h7' fill='none' stroke='%232ee6a8' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<meta name="color-scheme" content="dark light">
+
+<script>
+(function(){var t="";try{t=localStorage.getItem("ls-theme")||""}catch(e){}
+if(t!=="dark"&&t!=="light"){try{t=matchMedia("(prefers-color-scheme:light)").matches?"light":"dark"}catch(e){t="dark"}}
+document.documentElement.setAttribute("data-theme",t)})();
+</script>
+
+<!-- รูปภาพประจำหน้า — ใส่ลิงก์รูปตรงนี้เพื่อให้ทุกคนเห็นเหมือนกัน
+     หรือกดปุ่ม 🖼️ มุมขวาล่างเพื่อใส่ผ่านหน้าเว็บ แล้วกด "คัดลอกโค้ด" มาวางทับ
+     slot: opening · anatomy · plans · standard · ci · closing -->
+<script>
+window.LS_IMAGES = {
+  // "opening": { "src": "images/hospital.jpg", "caption": "คำบรรยายใต้ภาพ" }
+};
+</script>
+
+<style>
+/* ══════════════════════════════════════════════════════════════
+   HEALTHSHIELD — Dark Cinematic
+   โทนคนละแบบกับหน้าหลัก: พื้นดำลึก แสงออร่า เส้นเรืองแสง
+   ══════════════════════════════════════════════════════════════ */
+:root{
+  --jade:#2ee6a8; --cyan:#22d3ee; --violet:#a78bfa; --rose:#fb7185; --amber:#fbbf24; --blue:#4b8cf7;
+
+  --ink:#04060d; --ink2:#070c18; --ink3:#0b1222;
+  --panel:rgba(255,255,255,.045);
+  --panel2:rgba(255,255,255,.075);
+  --line:rgba(255,255,255,.11);
+  --line2:rgba(255,255,255,.2);
+  --tx:#eaf2ff; --tx2:#a9bfda; --tx3:#728aa8;
+
+  --gJade:linear-gradient(120deg,#2ee6a8,#22d3ee);
+  --gWarn:linear-gradient(120deg,#fb7185,#fbbf24);
+  --gVio:linear-gradient(120deg,#a78bfa,#22d3ee);
+
+  --r:16px; --r2:24px; --r3:34px;
+  --ease:cubic-bezier(.22,.9,.24,1);
+  --maxw:1180px;
+  --safeb:env(safe-area-inset-bottom,0px);
+  color-scheme:dark;
+}
+[data-theme="light"]{
+  --ink:#f4f7fd; --ink2:#ffffff; --ink3:#eef3fb;
+  --panel:#ffffff; --panel2:#f4f8fe;
+  --line:#dde6f3; --line2:#c3d2e6;
+  /* โทนสว่าง: เข้มพอผ่านเกณฑ์คอนทราสต์ AA สำหรับตัวอักษรขนาดเล็ก */
+  --tx:#08101f; --tx2:#3a4f6b; --tx3:#54687f;
+  --jade:#046f52; --cyan:#0e7490; --violet:#6d28d9; --rose:#be123c; --amber:#96590b; --blue:#1d4ed8;
+  --gJade:linear-gradient(120deg,#059669,#0e7490);
+  --gWarn:linear-gradient(120deg,#e11d48,#b45309);
+  --gVio:linear-gradient(120deg,#6d28d9,#0e7490);
+  color-scheme:light;
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;scroll-padding-top:142px;overflow-x:hidden;overflow-y:scroll}
+body{
+  font-family:"IBM Plex Sans Thai","Noto Sans Thai","Sarabun",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  background:var(--ink); color:var(--tx); line-height:1.8; font-size:16px;
+  -webkit-font-smoothing:antialiased;
+  transition:background .5s var(--ease),color .5s var(--ease);
+}
+/* ออร่าเรืองแสงพื้นหลัง — ตรึงไว้กับจอ ไม่ขวางการคลิก */
+body::before{
+  content:"";position:fixed;inset:0;z-index:-2;pointer-events:none;
+  background:
+    radial-gradient(58vw 46vw at 12% -6%, rgba(46,230,168,.16), transparent 62%),
+    radial-gradient(52vw 44vw at 88% 4%, rgba(167,139,250,.15), transparent 62%),
+    radial-gradient(64vw 50vw at 50% 108%, rgba(34,211,238,.12), transparent 64%);
+}
+[data-theme="light"] body::before{
+  background:
+    radial-gradient(58vw 46vw at 12% -6%, rgba(5,150,105,.10), transparent 62%),
+    radial-gradient(52vw 44vw at 88% 4%, rgba(109,40,217,.09), transparent 62%),
+    radial-gradient(64vw 50vw at 50% 108%, rgba(14,116,144,.08), transparent 64%);
+}
+/* ผิวสัมผัสแบบฟิล์ม — เกรนละเอียดทับทั้งหน้า */
+body::after{
+  content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.5;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='.05'/%3E%3C/svg%3E");
+}
+[data-theme="light"] body::after{opacity:.35}
+
+a{color:inherit;text-decoration:none}
+img,svg{display:block;max-width:100%}
+ul,ol{list-style:none}
+h1,h2,h3,h4{line-height:1.24;letter-spacing:-.022em;font-weight:800}
+::selection{background:var(--jade);color:#04120c}
+:where(a,button,input,select,textarea,[tabindex]):focus-visible{outline:2px solid var(--jade);outline-offset:3px;border-radius:6px}
+*{scrollbar-width:thin;scrollbar-color:var(--line2) transparent}
+::-webkit-scrollbar{width:11px;height:11px}
+::-webkit-scrollbar-thumb{background:var(--line2);border-radius:99px;border:3px solid transparent;background-clip:content-box}
+
+.wrap{width:min(var(--maxw),92%);margin-inline:auto}
+.narrow{width:min(880px,92%);margin-inline:auto}
+.gJ{background:var(--gJade);-webkit-background-clip:text;background-clip:text;color:transparent}
+.gW{background:var(--gWarn);-webkit-background-clip:text;background-clip:text;color:transparent}
+.gV{background:var(--gVio);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+/* ── REVEAL ── */
+.rv{opacity:1;transform:none}
+.rv.pre{opacity:0;transform:translateY(30px) scale(.985);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.rv.pre.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  .rv.pre{opacity:1!important;transform:none!important}
+  *{animation-duration:.001ms!important;transition-duration:.001ms!important}
+}
+
+/* ── NAV ── */
+#prog{position:fixed;top:0;left:0;right:0;height:3px;z-index:200;pointer-events:none}
+#prog b{display:block;height:100%;width:0;background:var(--gJade);box-shadow:0 0 14px var(--jade)}
+.nav{position:sticky;top:0;z-index:150;background:color-mix(in srgb,var(--ink) 78%,transparent);
+  border-bottom:1px solid transparent;transition:border-color .4s,background .4s}
+@supports (backdrop-filter:blur(6px)){.nav{backdrop-filter:blur(20px) saturate(170%)}}
+@supports not (backdrop-filter:blur(6px)){.nav{background:var(--ink)}}
+.nav.stuck{border-bottom-color:var(--line);background:color-mix(in srgb,var(--ink) 92%,transparent)}
+.nav-in{display:flex;align-items:center;gap:.8rem;padding:.75rem 0;min-height:64px}
+.brand{display:flex;align-items:center;gap:.65rem;font-weight:800;font-size:1.14rem;flex:none;letter-spacing:-.02em}
+.mark{width:40px;height:40px;border-radius:13px;display:grid;place-items:center;flex:none;
+  background:var(--gJade);color:#03130d;box-shadow:0 8px 26px -8px rgba(46,230,168,.75)}
+.brand i{font-style:normal;color:var(--jade)}
+.links{display:flex;gap:.1rem;margin-inline:auto;flex-wrap:wrap}
+.links a{padding:.5rem .82rem;border-radius:999px;font-size:.9rem;font-weight:600;color:var(--tx3);
+  transition:color .25s,background .25s}
+.links a:hover{color:var(--tx);background:var(--panel2)}
+.links a.act{color:var(--jade);background:color-mix(in srgb,var(--jade) 14%,transparent)}
+.acts{display:flex;align-items:center;gap:.5rem;flex:none}
+.ibtn{width:42px;height:42px;border-radius:50%;border:1px solid var(--line);background:var(--panel);
+  color:var(--tx);cursor:pointer;font-size:1.08rem;display:grid;place-items:center;flex:none;
+  transition:transform .4s var(--ease),border-color .3s}
+.ibtn:hover{transform:rotate(-22deg) scale(1.1);border-color:var(--jade)}
+.burger{display:none;width:42px;height:42px;border-radius:12px;border:1px solid var(--line);
+  background:var(--panel);cursor:pointer;flex-direction:column;gap:5px;align-items:center;justify-content:center}
+.burger span{width:18px;height:2px;background:var(--tx);border-radius:2px;transition:transform .3s,opacity .3s}
+.burger.on span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.burger.on span:nth-child(2){opacity:0}
+.burger.on span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+@media (max-width:980px){
+  .burger{display:flex}
+  .links{position:absolute;top:100%;left:0;right:0;flex-direction:column;gap:.2rem;padding:.8rem;
+    background:var(--ink2);border:1px solid var(--line);border-radius:0 0 var(--r2) var(--r2);
+    box-shadow:0 30px 60px -30px rgba(0,0,0,.9);display:none}
+  .links.open{display:flex}
+  .nav-in{position:relative}
+  /* ต้องเจาะจงกว่า .btn ที่ประกาศทีหลัง ไม่งั้นปุ่มยังโผล่และดันแถบบนจนล้นจอ */
+  .nav .nosm{display:none}
+}
+
+/* ── BUTTONS ── */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.55rem;padding:.92rem 1.7rem;
+  border-radius:999px;border:0;font-family:inherit;font-size:1rem;font-weight:700;cursor:pointer;
+  position:relative;overflow:hidden;white-space:nowrap;min-height:48px;
+  transition:transform .3s var(--ease),box-shadow .3s,filter .3s,background .3s,color .3s,border-color .3s}
+.btn-p{background:var(--gJade);color:#03130d;box-shadow:0 14px 34px -14px rgba(46,230,168,.85)}
+.btn-p:hover{transform:translateY(-3px);filter:brightness(1.06);box-shadow:0 20px 44px -16px rgba(46,230,168,.95)}
+.btn-p::after{content:"";position:absolute;inset:0;background:linear-gradient(115deg,transparent,rgba(255,255,255,.45),transparent);
+  transform:translateX(-130%);transition:transform .8s var(--ease)}
+.btn-p:hover::after{transform:translateX(130%)}
+.btn-o{border:1.6px solid var(--line2);color:var(--tx);background:transparent}
+.btn-o:hover{border-color:var(--jade);color:var(--jade);transform:translateY(-3px)}
+.btn-lg{padding:1.05rem 2.1rem;font-size:1.06rem;min-height:56px}
+.btn:active{transform:translateY(0) scale(.985)}
+.cta-row{display:flex;gap:.8rem;flex-wrap:wrap;margin-top:1.8rem}
+
+/* ── SECTION ── */
+.sec{padding:clamp(4.5rem,9vw,8rem) 0;position:relative}
+.eye{display:inline-flex;align-items:center;gap:.5rem;font-size:.76rem;font-weight:800;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--jade);margin-bottom:.8rem}
+.eye::before{content:"";width:26px;height:1px;background:currentColor;opacity:.7}
+.head{max-width:800px;margin-bottom:3.2rem}
+.head.mid{margin-inline:auto;text-align:center}
+.head.mid .eye::after{content:"";width:26px;height:1px;background:currentColor;opacity:.7}
+.head h2{font-size:clamp(1.65rem,3.7vw,2.55rem);margin-bottom:.85rem;text-wrap:balance}
+.head p{color:var(--tx2);font-size:clamp(.98rem,2vw,1.1rem);text-wrap:pretty}
+
+/* ── HERO ── */
+.hero{position:relative;padding:clamp(3.5rem,8vw,7rem) 0 clamp(3rem,6vw,5rem);overflow:hidden}
+.hero-grid{position:absolute;inset:0;z-index:-1;opacity:.5;
+  background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);
+  background-size:64px 64px;
+  -webkit-mask-image:radial-gradient(70% 60% at 50% 30%,#000,transparent 78%);
+  mask-image:radial-gradient(70% 60% at 50% 30%,#000,transparent 78%)}
+.hero-g{display:grid;grid-template-columns:1.12fr .88fr;gap:clamp(2rem,4vw,4rem);align-items:center}
+@media (max-width:980px){.hero-g{grid-template-columns:1fr}}
+.pill{display:inline-flex;align-items:center;gap:.55rem;padding:.42rem 1rem;border-radius:999px;
+  background:var(--panel);border:1px solid var(--line);font-size:.83rem;color:var(--tx2);margin-bottom:1.3rem}
+.pill i{font-style:normal;width:7px;height:7px;border-radius:50%;background:var(--jade);
+  box-shadow:0 0 0 4px color-mix(in srgb,var(--jade) 22%,transparent);animation:pulse 2.2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+.hero h1{font-size:clamp(1.95rem,5vw,3.55rem);letter-spacing:-.032em;margin-bottom:1.1rem;text-wrap:balance}
+.hero .lead{color:var(--tx2);font-size:clamp(1rem,2.2vw,1.16rem);max-width:56ch;text-wrap:pretty}
+
+.hero-chips{display:flex;gap:.7rem;flex-wrap:wrap;margin-top:2.2rem}
+.chip{padding:.62rem 1rem;border-radius:14px;background:var(--panel);border:1px solid var(--line);
+  font-size:.84rem;color:var(--tx2);display:inline-flex;align-items:center;gap:.45rem}
+.chip b{color:var(--tx);font-weight:800}
+
+/* การ์ดภาพหลัก */
+.stage{position:relative;border-radius:var(--r3);padding:clamp(1.2rem,2.5vw,2rem);
+  background:linear-gradient(160deg,var(--panel2),var(--panel));
+  border:1px solid var(--line);box-shadow:0 40px 90px -50px rgba(0,0,0,.95);overflow:hidden}
+.stage::before{content:"";position:absolute;inset:-1px;border-radius:inherit;padding:1px;
+  background:linear-gradient(140deg,color-mix(in srgb,var(--jade) 55%,transparent),transparent 45%,color-mix(in srgb,var(--violet) 45%,transparent));
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
+.stage-h{display:flex;justify-content:space-between;align-items:center;gap:1rem;margin-bottom:1rem}
+.stage-h h4{font-size:.95rem;font-weight:700}
+.stage-h span{font-size:.74rem;color:var(--tx3);display:inline-flex;align-items:center;gap:.35rem}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--rose);animation:pulse 1.6s infinite}
+
+/* ── ตัวเลขสถิติ ── */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.1rem}
+.stat{padding:1.7rem 1.5rem;border-radius:var(--r2);background:var(--panel);border:1px solid var(--line);
+  position:relative;overflow:hidden;transition:transform .4s var(--ease),border-color .4s}
+.stat:hover{transform:translateY(-6px);border-color:color-mix(in srgb,var(--jade) 45%,transparent)}
+.stat::before{content:"";position:absolute;inset:0 0 auto 0;height:2px;background:var(--gJade);opacity:.85}
+.stat.warn::before{background:var(--gWarn)}
+.stat.vio::before{background:var(--gVio)}
+.stat .v{font-size:clamp(2rem,5vw,2.9rem);font-weight:800;letter-spacing:-.04em;line-height:1.05;
+  font-variant-numeric:tabular-nums}
+.stat .k{font-size:.83rem;color:var(--tx3);font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin:.5rem 0 .35rem}
+.stat p{font-size:.9rem;color:var(--tx2);line-height:1.7}
+
+/* ── การ์ดทั่วไป ── */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.2rem}
+.card{padding:1.9rem 1.7rem;border-radius:var(--r2);background:var(--panel);border:1px solid var(--line);
+  transition:transform .4s var(--ease),border-color .4s,background .4s;position:relative;overflow:hidden}
+.card:hover{transform:translateY(-6px);border-color:var(--line2);background:var(--panel2)}
+.card .ic{width:52px;height:52px;border-radius:16px;display:grid;place-items:center;font-size:1.5rem;
+  background:color-mix(in srgb,var(--jade) 14%,transparent);border:1px solid color-mix(in srgb,var(--jade) 30%,transparent);
+  margin-bottom:1.1rem}
+.card.w .ic{background:color-mix(in srgb,var(--rose) 14%,transparent);border-color:color-mix(in srgb,var(--rose) 30%,transparent)}
+.card.v .ic{background:color-mix(in srgb,var(--violet) 14%,transparent);border-color:color-mix(in srgb,var(--violet) 30%,transparent)}
+.card h3{font-size:1.1rem;margin-bottom:.5rem}
+.card p{font-size:.93rem;color:var(--tx2);line-height:1.75}
+.card b{color:var(--tx)}
+
+/* ── บิลค่ารักษา ── */
+.billwrap{display:grid;grid-template-columns:1.15fr .85fr;gap:2.4rem;align-items:center}
+@media (max-width:900px){.billwrap{grid-template-columns:1fr}}
+.billbars{display:grid;gap:.7rem}
+.bb{display:grid;grid-template-columns:minmax(120px,auto) 1fr auto;gap:.9rem;align-items:center;
+  padding:.55rem .2rem;border-radius:10px;transition:background .3s}
+.bb:hover{background:var(--panel)}
+.bb .nm{font-size:.88rem;color:var(--tx2)}
+.bb .tk{height:12px;border-radius:99px;background:var(--panel2);overflow:hidden;border:1px solid var(--line)}
+.bb .tk i{display:block;height:100%;border-radius:99px;background:var(--gJade);width:0;
+  transition:width 1.1s var(--ease)}
+.bb.a .tk i{background:var(--gWarn)}
+.bb.b .tk i{background:var(--gVio)}
+.bb .pc{font-size:.85rem;font-weight:800;color:var(--tx);font-variant-numeric:tabular-nums;min-width:44px;text-align:right}
+
+/* ── ตารางเทียบ ── */
+.vsgrid{display:grid;grid-template-columns:1fr 1fr;gap:1.3rem}
+@media (max-width:820px){.vsgrid{grid-template-columns:1fr}}
+.vcard{padding:1.9rem 1.7rem;border-radius:var(--r2);background:var(--panel);border:1px solid var(--line);position:relative}
+.vcard.best{border-color:color-mix(in srgb,var(--jade) 45%,transparent);
+  background:linear-gradient(160deg,color-mix(in srgb,var(--jade) 10%,transparent),var(--panel))}
+.vcard .tagbest{position:absolute;top:-11px;right:18px;font-size:.7rem;font-weight:800;letter-spacing:.08em;
+  padding:.28rem .8rem;border-radius:999px;background:var(--gJade);color:#03130d}
+.vcard h3{font-size:1.18rem;margin-bottom:.3rem}
+.vcard .sub{font-size:.85rem;color:var(--tx3);margin-bottom:1.2rem}
+.vlist{display:grid;gap:.7rem}
+.vlist li{display:flex;gap:.6rem;font-size:.92rem;color:var(--tx2);align-items:flex-start;line-height:1.7}
+.vlist i{font-style:normal;flex:none;width:20px;height:20px;border-radius:50%;display:grid;place-items:center;
+  font-size:.68rem;margin-top:.32rem;color:#03130d;background:var(--jade)}
+.vlist li.no i{background:var(--rose);color:#fff}
+
+/* ── ขั้นบันได / ไทม์ไลน์ ── */
+.rail{display:grid;gap:1.1rem;position:relative;padding-left:2.4rem}
+.rail::before{content:"";position:absolute;left:11px;top:14px;bottom:14px;width:2px;
+  background:linear-gradient(180deg,var(--jade),var(--violet),var(--rose))}
+.rl{position:relative;padding:1.4rem 1.5rem;border-radius:var(--r);background:var(--panel);border:1px solid var(--line)}
+.rl::before{content:"";position:absolute;left:-2.4rem;top:1.6rem;width:24px;height:24px;border-radius:50%;
+  background:var(--ink2);border:2px solid var(--jade);box-shadow:0 0 0 5px color-mix(in srgb,var(--jade) 12%,transparent)}
+.rl:nth-child(2)::before{border-color:var(--cyan);box-shadow:0 0 0 5px color-mix(in srgb,var(--cyan) 12%,transparent)}
+.rl:nth-child(3)::before{border-color:var(--violet);box-shadow:0 0 0 5px color-mix(in srgb,var(--violet) 12%,transparent)}
+.rl:nth-child(4)::before{border-color:var(--rose);box-shadow:0 0 0 5px color-mix(in srgb,var(--rose) 12%,transparent)}
+.rl h3{font-size:1.05rem;margin-bottom:.3rem;display:flex;align-items:center;gap:.6rem;flex-wrap:wrap}
+.rl h3 small{font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--tx3)}
+.rl p{font-size:.92rem;color:var(--tx2)}
+
+/* ── กล่องคำเตือน/ข้อมูล ── */
+.note{padding:1.15rem 1.4rem;border-radius:var(--r);background:var(--panel);border:1px solid var(--line);
+  font-size:.9rem;color:var(--tx2);line-height:1.8}
+.note b{color:var(--tx)}
+.note.warn{background:color-mix(in srgb,var(--rose) 10%,transparent);border-color:color-mix(in srgb,var(--rose) 32%,transparent)}
+.note.ok{background:color-mix(in srgb,var(--jade) 10%,transparent);border-color:color-mix(in srgb,var(--jade) 32%,transparent)}
+
+/* ── เครื่องคำนวณ ── */
+.calc{display:grid;grid-template-columns:1fr 1fr;gap:1.6rem;align-items:start}
+@media (max-width:920px){.calc{grid-template-columns:1fr}}
+.form{padding:1.9rem;border-radius:var(--r3);background:var(--panel);border:1px solid var(--line);display:grid;gap:1.1rem}
+.f label{display:block;font-size:.9rem;font-weight:700;margin-bottom:.3rem}
+.f small{display:block;font-size:.78rem;color:var(--tx3);font-weight:400;line-height:1.6;margin-bottom:.5rem}
+.f input,.f select{width:100%;padding:.85rem 1rem;border-radius:12px;border:1px solid var(--line2);
+  background:var(--ink3);color:var(--tx);font-family:inherit;font-size:1rem;
+  font-variant-numeric:tabular-nums;-webkit-appearance:none;appearance:none;transition:border-color .25s,box-shadow .25s}
+.f select{cursor:pointer;padding-right:2.4rem;
+  background-image:linear-gradient(45deg,transparent 50%,var(--tx3) 50%),linear-gradient(135deg,var(--tx3) 50%,transparent 50%);
+  background-position:calc(100% - 20px) 55%,calc(100% - 14px) 55%;background-size:6px 6px;background-repeat:no-repeat}
+.f input:focus,.f select:focus{outline:none;border-color:var(--jade);box-shadow:0 0 0 3px color-mix(in srgb,var(--jade) 20%,transparent)}
+.f input[type=number]{-moz-appearance:textfield}
+.f input::-webkit-outer-spin-button,.f input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+@media (max-width:520px){.frow{grid-template-columns:1fr}}
+
+.out{padding:1.9rem;border-radius:var(--r3);position:relative;overflow:hidden;
+  background:linear-gradient(155deg,color-mix(in srgb,var(--jade) 16%,var(--ink2)),var(--ink2) 62%);
+  border:1px solid color-mix(in srgb,var(--jade) 34%,transparent);
+  box-shadow:0 40px 90px -50px rgba(0,0,0,.9)}
+.out .lbl{font-size:.84rem;color:var(--tx2);letter-spacing:.04em}
+.out .big{font-size:clamp(2rem,5.4vw,3rem);font-weight:800;letter-spacing:-.04em;line-height:1.1;margin:.25rem 0 .1rem;
+  font-variant-numeric:tabular-nums;background:var(--gJade);-webkit-background-clip:text;background-clip:text;color:transparent}
+.out .sub{font-size:.86rem;color:var(--tx3)}
+.orow{display:flex;justify-content:space-between;gap:1rem;padding:.6rem 0;border-bottom:1px solid var(--line);font-size:.9rem}
+.orow:last-of-type{border-bottom:0}
+.orow span{color:var(--tx2)}
+.orow b{font-variant-numeric:tabular-nums;color:var(--tx);font-weight:700}
+.orow.tot{border-top:1px solid var(--line2);margin-top:.4rem;padding-top:.75rem;font-size:1rem}
+.formula{margin-top:1rem;padding:.9rem 1.1rem;border-radius:12px;background:rgba(0,0,0,.28);
+  border:1px solid var(--line);font-size:.82rem;color:var(--tx2);line-height:1.9}
+[data-theme="light"] .formula{background:var(--ink3)}
+.hintbox{margin-top:.9rem;font-size:.86rem;color:var(--tx2);line-height:1.75}
+.stamp{margin-top:.6rem;font-size:.74rem;color:var(--tx3)}
+
+/* ── กราฟค่ารักษา vs วงเงิน ── */
+.chartbox{padding:1.6rem;border-radius:var(--r2);background:var(--panel);border:1px solid var(--line);margin-top:1.4rem}
+.chartbox svg{width:100%;height:auto;overflow:visible}
+.legend{display:flex;gap:1.2rem;flex-wrap:wrap;font-size:.82rem;color:var(--tx2);margin-top:.9rem}
+.legend i{width:18px;height:3px;border-radius:2px;display:inline-block;vertical-align:middle;margin-right:.4rem}
+
+/* ── FAQ ── */
+.acc{display:grid;gap:.75rem}
+.acc details{border-radius:var(--r);background:var(--panel);border:1px solid var(--line);overflow:hidden;
+  transition:border-color .3s}
+.acc details[open]{border-color:color-mix(in srgb,var(--jade) 40%,transparent)}
+.acc summary{padding:1.1rem 1.4rem;cursor:pointer;font-weight:700;font-size:.98rem;list-style:none;
+  display:flex;justify-content:space-between;gap:1rem;align-items:center}
+.acc summary::-webkit-details-marker{display:none}
+.acc summary::after{content:"+";font-size:1.3rem;color:var(--jade);flex:none;transition:transform .3s}
+.acc details[open] summary::after{transform:rotate(45deg)}
+.acc p{padding:0 1.4rem 1.2rem;font-size:.92rem;color:var(--tx2);line-height:1.85}
+
+/* ── CTA + FOOTER ── */
+.cta{padding:clamp(4rem,8vw,6.5rem) 0;text-align:center;position:relative;overflow:hidden}
+.cta::before{content:"";position:absolute;inset:0;z-index:-1;
+  background:radial-gradient(60% 90% at 50% 50%,color-mix(in srgb,var(--jade) 16%,transparent),transparent 70%)}
+.cta h2{font-size:clamp(1.65rem,3.9vw,2.6rem);margin-bottom:.9rem;text-wrap:balance}
+.cta p{color:var(--tx2);max-width:58ch;margin:0 auto}
+.foot{border-top:1px solid var(--line);padding:3rem 0 2rem;background:var(--ink2)}
+.foot-g{display:grid;grid-template-columns:1.7fr 1fr 1fr 1fr;gap:2rem}
+@media (max-width:1024px){.foot-g{grid-template-columns:1fr 1fr}}
+@media (max-width:620px){.foot-g{grid-template-columns:1fr}}
+.foot p{font-size:.88rem;color:var(--tx3);line-height:1.85;margin-top:.8rem;max-width:46ch}
+.foot h4{font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;color:var(--tx3);margin-bottom:.8rem}
+.foot a{display:block;font-size:.92rem;color:var(--tx2);padding:.22rem 0;transition:color .25s}
+.foot a:hover{color:var(--jade)}
+.foot-b{margin-top:2.4rem;padding-top:1.4rem;border-top:1px solid var(--line);font-size:.82rem;color:var(--tx3);text-align:center}
+#toTop{position:fixed;right:1.1rem;bottom:calc(1.2rem + var(--safeb));z-index:120;width:48px;height:48px;border-radius:50%;
+  border:1px solid var(--line);background:var(--panel2);color:var(--tx);cursor:pointer;font-size:1.1rem;
+  opacity:0;pointer-events:none;transition:opacity .35s,transform .35s var(--ease);
+  -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+#toTop.on{opacity:1;pointer-events:auto}
+#toTop:hover{transform:translateY(-4px);border-color:var(--jade)}
+
+/* ── ช่องใส่รูปภาพ (ระบบเดียวกับหน้าหลัก) ── */
+.imgslot{position:relative;margin:2.4rem 0 0;border-radius:var(--r2)}
+.imgslot.empty{display:none}
+body.imgedit .imgslot.empty{display:block}
+.imgslot img{width:100%;height:auto;border-radius:var(--r2);border:1px solid var(--line);
+  box-shadow:0 40px 90px -50px rgba(0,0,0,.95)}
+.imgslot figcaption{margin-top:.7rem;font-size:.84rem;color:var(--tx3);text-align:center}
+.imgslot figcaption:empty{display:none}
+.imgslot .ph{display:none;place-items:center;min-height:200px;border-radius:var(--r2);
+  border:2px dashed var(--line2);background:var(--panel);color:var(--tx3);text-align:center;padding:1.5rem;font-size:.92rem}
+.imgslot .ph b{display:block;font-size:1.8rem;margin-bottom:.3rem}
+body.imgedit .imgslot.empty .ph{display:grid}
+body.imgedit .imgslot{outline:2px dashed color-mix(in srgb,var(--jade) 55%,transparent);outline-offset:6px}
+.imgbar{display:none;gap:.5rem;flex-wrap:wrap;align-items:center;margin-top:.8rem;padding:.8rem;
+  border-radius:var(--r);background:var(--panel2);border:1px solid var(--line)}
+body.imgedit .imgbar{display:flex}
+.imgbar .tag{font-size:.7rem;font-weight:800;letter-spacing:.06em;color:var(--jade);
+  background:color-mix(in srgb,var(--jade) 15%,transparent);border-radius:999px;padding:.22rem .65rem;flex:none}
+.imgbar input[type=text]{flex:1 1 220px;min-width:0;padding:.6rem .8rem;border-radius:10px;border:1px solid var(--line2);
+  background:var(--ink3);color:var(--tx);font-family:inherit;font-size:.86rem}
+.imgbar input[type=text]:focus{outline:none;border-color:var(--jade)}
+.imgbar .mini{padding:.58rem .9rem;font-size:.83rem;border-radius:10px;border:1px solid var(--line2);
+  background:var(--ink3);color:var(--tx2);cursor:pointer;font-family:inherit;font-weight:600;white-space:nowrap}
+.imgbar .mini:hover{border-color:var(--jade);color:var(--jade)}
+.imgbar .mini.del:hover{border-color:var(--rose);color:var(--rose)}
+.imgbar input[type=file]{display:none}
+#imgFab{position:fixed;right:1.1rem;bottom:calc(5.2rem + var(--safeb));z-index:120;width:48px;height:48px;border-radius:50%;
+  border:0;cursor:pointer;background:var(--gVio);color:#fff;font-size:1.15rem;
+  box-shadow:0 16px 34px -14px rgba(167,139,250,.9);transition:transform .3s var(--ease)}
+#imgFab:hover{transform:translateY(-4px) scale(1.06)}
+#imgFab.on{background:var(--gWarn)}
+#imgPanel{position:fixed;right:1.1rem;bottom:calc(10rem + var(--safeb));z-index:121;width:min(92vw,420px);
+  background:var(--ink2);border:1px solid var(--line2);border-radius:var(--r2);
+  box-shadow:0 40px 90px -40px rgba(0,0,0,.95);padding:1.2rem;display:none}
+#imgPanel.on{display:block}
+#imgPanel h4{font-size:1rem;margin-bottom:.4rem}
+#imgPanel p{font-size:.82rem;color:var(--tx3);line-height:1.75;margin-bottom:.8rem}
+#imgPanel textarea{width:100%;height:120px;font-family:ui-monospace,Menlo,monospace;font-size:.73rem;
+  border-radius:10px;border:1px solid var(--line2);background:var(--ink3);color:var(--tx);padding:.6rem;resize:vertical}
+#imgPanel .prow{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.6rem}
+#imgQuota{font-size:.75rem;color:var(--tx3);margin-top:.5rem}
+
+/* ── SVG art ── */
+.art-ecg .beat{stroke-dasharray:1400;stroke-dashoffset:1400;animation:draw 3.4s var(--ease) forwards .3s}
+@keyframes draw{to{stroke-dashoffset:0}}
+.art-ecg .glow{filter:blur(7px);opacity:.55}
+.floaty{animation:float 7s ease-in-out infinite}
+.floaty.d1{animation-delay:-2.4s}
+.floaty.d2{animation-delay:-4.6s}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+
+/* ---- แถบเลื่อนคู่กับช่องกรอก ---- */
+.sld{margin-top:1.5rem;position:relative}
+.sld input[type=range]{
+  -webkit-appearance:none;appearance:none;width:100%;height:8px;border-radius:99px;outline:none;cursor:pointer;
+  background:
+    linear-gradient(90deg,transparent 0%,color-mix(in srgb,#fff 34%,transparent) 50%,transparent 100%) 0 0/220% 100% no-repeat,
+    linear-gradient(90deg,var(--jade) 0%,color-mix(in srgb,var(--jade) 72%,#7ef2c8) var(--p,50%),
+                    var(--line2) var(--p,50%),var(--line2) 100%);
+  transition:background .06s linear,box-shadow .2s ease}
+.sld.is-drag input[type=range]{
+  animation:sldSheen 1.5s linear infinite;
+  box-shadow:0 0 16px color-mix(in srgb,var(--jade) 34%,transparent)}
+@keyframes sldSheen{from{background-position:-120% 0,0 0}to{background-position:220% 0,0 0}}
+.sld input[type=range]::-webkit-slider-thumb{
+  -webkit-appearance:none;width:24px;height:24px;border-radius:50%;background:var(--ink2);
+  border:3px solid var(--jade);box-shadow:0 0 0 4px color-mix(in srgb,var(--jade) 18%,transparent);
+  cursor:grab;margin-top:-8px;transition:transform .16s cubic-bezier(.34,1.56,.64,1),box-shadow .16s ease}
+.sld input[type=range]::-webkit-slider-thumb:active{
+  cursor:grabbing;transform:scale(1.24);
+  box-shadow:0 0 0 9px color-mix(in srgb,var(--jade) 24%,transparent)}
+.sld input[type=range]::-moz-range-thumb{
+  width:20px;height:20px;border-radius:50%;background:var(--ink2);border:3px solid var(--jade);
+  box-shadow:0 0 0 4px color-mix(in srgb,var(--jade) 18%,transparent);cursor:grab;
+  transition:transform .16s cubic-bezier(.34,1.56,.64,1),box-shadow .16s ease}
+.sld input[type=range]:active::-moz-range-thumb{
+  transform:scale(1.24);box-shadow:0 0 0 9px color-mix(in srgb,var(--jade) 24%,transparent)}
+.sld input[type=range]::-moz-range-track{height:8px;border-radius:99px;background:transparent}
+.sld input[type=range]:focus-visible{outline:2px solid var(--jade);outline-offset:4px}
+.sld-b{
+  position:absolute;top:-1.55rem;transform:translateX(-50%);pointer-events:none;
+  padding:.16rem .5rem;border-radius:.5rem;font-size:.76rem;font-weight:800;
+  background:var(--jade);color:#04211a;white-space:nowrap;font-variant-numeric:tabular-nums;
+  opacity:0;transition:opacity .18s ease,transform .18s cubic-bezier(.34,1.56,.64,1);
+  box-shadow:0 6px 16px color-mix(in srgb,var(--jade) 32%,transparent)}
+.sld-b::after{
+  content:"";position:absolute;left:50%;top:100%;transform:translateX(-50%);
+  border:5px solid transparent;border-top-color:var(--jade)}
+.sld.is-drag .sld-b{opacity:1;transform:translateX(-50%) translateY(-2px)}
+.sld-t{display:flex;justify-content:space-between;font-size:.73rem;color:var(--tx3);margin-top:.4rem;
+  font-variant-numeric:tabular-nums}
+.sld-t .mid{opacity:.62}
+@media(prefers-reduced-motion:reduce){
+  .sld.is-drag input[type=range]{animation:none}
+  .sld-b,.sld input[type=range]::-webkit-slider-thumb{transition:none}}
+/* ================= แถบลิงก์ข้ามหน้า (ใช้โทนสีของหน้านี้) ================= */
+.tools{border-top:1px solid var(--line)}
+.tools-in{display:flex;gap:.3rem;padding:.42rem 0;overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none}
+.tools-in::-webkit-scrollbar{display:none}
+.tools a{flex:none;display:inline-flex;align-items:center;gap:.4rem;padding:.42rem .9rem;border-radius:999px;
+  font-size:.85rem;font-weight:700;color:var(--tx3);white-space:nowrap;text-decoration:none;
+  transition:color .25s,background .25s,transform .25s var(--ease)}
+.tools a:hover{color:var(--jade);background:color-mix(in srgb,var(--jade) 13%,transparent);transform:translateY(-1px)}
+.tools a.cur{background:var(--gJade);color:#04211a;box-shadow:0 8px 18px -10px color-mix(in srgb,var(--jade) 80%,transparent)}
+.tools a.cur:hover{color:#04211a;transform:none}
+.tools a.home{border:1.5px solid var(--line2)}
+.tools a.home:hover{border-color:var(--jade)}
+@media (max-width:640px){
+  .tools-in{padding:.36rem 0}
+  .tools a{font-size:.79rem;padding:.36rem .7rem}
+}
+/* เมนูมือถือต้องเปิดลงมาใต้ทั้งแถบหัว (รวมแถบลิงก์ข้ามหน้า) */
+.nav-in{position:static}
+@media (max-width:640px){html{scroll-padding-top:124px}}
+
+/* ---- ปุ่มขอรับข้อเสนอ ท้ายแถบลิงก์ข้ามหน้า ----
+   ใช้โทนอำพันให้ต่างจากปุ่มไล่สีที่ใช้บอก "หน้าปัจจุบัน" จะได้ไม่สับสนว่าเป็นหน้าไหน
+   สีคงที่ทั้งสองโหมด เพราะเป็นปุ่มกระทำหลัก ไม่ใช่ลิงก์นำทาง */
+.tools a.askq{
+  margin-left:auto;background:linear-gradient(120deg,#f59e0b,#fbbf24);color:#3a1d00;
+  box-shadow:0 8px 18px -10px rgba(245,158,11,.95)}
+.tools a.askq:hover{
+  color:#3a1d00;background:linear-gradient(120deg,#ea8c04,#f8b617);
+  transform:translateY(-1px);box-shadow:0 10px 22px -10px rgba(245,158,11,1)}
+.tools a.askq span{display:inline-block;transition:transform .3s var(--ease)}
+.tools a.askq:hover span{transform:translateX(4px)}
+@media (max-width:1080px){.tools a.askq{margin-left:.55rem}}
+
+/* ---- สีประจำเครื่องมือแต่ละตัว ----
+   ลิงก์ในแถบจะติดสีของหน้าปลายทางตอนชี้เมาส์ ทำให้จำได้ว่าสีไหนคือหน้าไหน
+   แม้จะยังไม่ได้เข้าไปในหน้านั้น */
+.tools a[href="money.html"]:hover    {color:#0b4a8f;background:rgba(43,139,242,.14)}
+.tools a[href="health.html"]:hover   {color:#046f52;background:rgba(16,185,129,.15)}
+.tools a[href="retire.html"]:hover   {color:#5b21b6;background:rgba(139,92,246,.16)}
+.tools a[href="education.html"]:hover{color:#9f1239;background:rgba(225,29,72,.13)}
+[data-theme="dark"] .tools a[href="money.html"]:hover    {color:#7dd3fc;background:rgba(56,189,248,.16)}
+[data-theme="dark"] .tools a[href="health.html"]:hover   {color:#5eead4;background:rgba(45,212,191,.16)}
+[data-theme="dark"] .tools a[href="retire.html"]:hover   {color:#c4b5fd;background:rgba(167,139,250,.18)}
+[data-theme="dark"] .tools a[href="education.html"]:hover{color:#fda4af;background:rgba(251,113,133,.16)}
+/* หน้าปัจจุบันเป็นปุ่มไล่สีอยู่แล้ว ไม่ต้องเปลี่ยนตอน hover */
+.tools a.cur:hover{background:var(--grad);color:#fff}
+
+/* [แก้บั๊ก] เดิมตั้งชื่อคลาสปุ่มนี้ว่า .quote ซึ่งชนกับ .quote ของกล่องคำพูด
+   ทำให้เครื่องหมาย ❝ ขนาด 5.5rem ทะลุมาทับตัวหนังสือบนปุ่ม จึงเปลี่ยนเป็น .askq */
+.tools a::before,.tools a::after{content:none}
+</style>
+</head>
+<body>
+
+<div id="prog"><b></b></div>
+
+<header class="nav" id="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="index.html">
+      <span class="mark" aria-hidden="true">
+        <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h4l2-5 4 10 2.5-6L17 12h5"/></svg>
+      </span>
+      <span>2Provi<i>Group</i></span>
+    </a>
+    <nav class="links" id="menu" aria-label="เมนูหลัก">
+      <a href="#cost">ค่ารักษาวันนี้</a>
+      <a href="#bill">บิลโรงพยาบาล</a>
+      <a href="#plans">เลือกแบบไหน</a>
+      <a href="#standard">มาตรฐานใหม่</a>
+      <a href="#ci">โรคร้ายแรง</a>
+      <a href="#calc">คำนวณ</a>
+      <a href="#faq">คำถามพบบ่อย</a>
+    </nav>
+    <div class="acts">
+      <button class="ibtn" id="themeBtn" type="button" aria-label="สลับโหมดสี" title="สลับโหมดสว่าง/มืด">🌙</button>
+      <a class="btn btn-p nosm" href="#calc" style="padding:.7rem 1.3rem;min-height:42px;font-size:.92rem">คำนวณวงเงิน</a>
+      <button class="burger" id="burger" type="button" aria-label="เปิดเมนู" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+  <div class="tools">
+    <nav class="wrap tools-in" aria-label="เมนูข้ามหน้า"><a href="index.html" class="home">🏠 หน้าหลัก</a><a href="money.html" class="">🛡️ ประกันชีวิต</a><a href="health.html" class="cur" aria-current="page">🩺 สุขภาพ</a><a href="retire.html" class="">🌱 วางแผนเกษียณ</a><a href="education.html" class="">🎓 การศึกษาบุตร</a><a href="quote.html" class="askq">ขอรับข้อเสนอเบื้องต้น <span>→</span></a></nav>
+  </div>
+</header>
+
+<!-- ══════════ HERO ══════════ -->
+<section class="hero" id="top">
+  <div class="hero-grid" aria-hidden="true"></div>
+  <div class="wrap hero-g">
+    <div class="rv">
+      <span class="pill"><i></i> ประกันสุขภาพ &amp; โรคร้ายแรง · ฉบับเข้าใจง่าย</span>
+      <h1>ค่ารักษาไม่ได้พรากใครไป<br><span class="gW">แต่มันพรากเงินเก็บทั้งชีวิต</span></h1>
+      <p class="lead">คนส่วนใหญ่เตรียมเงินไว้เผื่อ “วันที่จากไป” แต่ลืมเตรียมเผื่อ <b>“วันที่ยังอยู่ แต่ต้องจ่าย”</b> —
+        และนั่นคือเหตุการณ์ที่เกิดบ่อยกว่ากันหลายเท่า</p>
+      <div class="cta-row">
+        <a class="btn btn-p btn-lg" href="#calc">🩺 คำนวณวงเงินที่ควรมี</a>
+        <a class="btn btn-o btn-lg" href="#cost">ดูตัวเลขจริง ↓</a>
+      </div>
+      <div class="hero-chips">
+        <span class="chip">📈 <b>10.8%</b> เงินเฟ้อค่ารักษาไทย ปี 2569</span>
+        <span class="chip">🌏 <b>10.3%</b> ค่าเฉลี่ยทั่วโลก</span>
+        <span class="chip">🛒 <b>−0.1%</b> เงินเฟ้อทั่วไปของไทย</span>
+      </div>
+    </div>
+
+    <div class="rv" data-delay="160">
+      <div class="stage floaty">
+        <div class="stage-h">
+          <h4>สัญญาณชีพของเงินเก็บ</h4>
+          <span><i class="dot"></i> กำลังเฝ้าระวัง</span>
+        </div>
+        <svg class="art-ecg" viewBox="0 0 460 250" role="img" aria-label="กราฟคลื่นหัวใจที่ค่อย ๆ ราบลงพร้อมยอดเงินเก็บที่ลดลง">
+          <defs>
+            <linearGradient id="ecgG" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0" stop-color="#2ee6a8"/><stop offset=".55" stop-color="#22d3ee"/><stop offset="1" stop-color="#fb7185"/>
+            </linearGradient>
+            <linearGradient id="fillG" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#2ee6a8" stop-opacity=".28"/><stop offset="1" stop-color="#2ee6a8" stop-opacity="0"/>
+            </linearGradient>
+          </defs>
+          <g stroke="currentColor" opacity=".12">
+            <line x1="0" y1="60" x2="460" y2="60"/><line x1="0" y1="110" x2="460" y2="110"/>
+            <line x1="0" y1="160" x2="460" y2="160"/><line x1="0" y1="210" x2="460" y2="210"/>
+          </g>
+          <path d="M0 210 L40 210 L60 160 L100 160 L120 210 L460 210 Z" fill="url(#fillG)" opacity=".5"/>
+          <path class="beat glow" fill="none" stroke="url(#ecgG)" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"
+            d="M0 150 H52 l14 -46 l16 96 l15 -104 l14 54 h44 l12 -34 l14 62 l13 -46 h40 l16 -26 l14 44 l12 -22 h46 l18 22 l14 -12 h96"/>
+          <path class="beat" fill="none" stroke="url(#ecgG)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"
+            d="M0 150 H52 l14 -46 l16 96 l15 -104 l14 54 h44 l12 -34 l14 62 l13 -46 h40 l16 -26 l14 44 l12 -22 h46 l18 22 l14 -12 h96"/>
+          <circle cx="430" cy="138" r="6" fill="#fb7185"><animate attributeName="r" values="5;9;5" dur="1.7s" repeatCount="indefinite"/></circle>
+        </svg>
+        <div class="billbars" style="margin-top:1.2rem">
+          <div class="bb"><span class="nm">เงินเก็บเริ่มต้น</span><span class="tk"><i data-w="100"></i></span><span class="pc">100%</span></div>
+          <div class="bb b"><span class="nm">หลังผ่าตัดครั้งแรก</span><span class="tk"><i data-w="58"></i></span><span class="pc">58%</span></div>
+          <div class="bb a"><span class="nm">หลังรักษาต่อเนื่อง 1 ปี</span><span class="tk"><i data-w="17"></i></span><span class="pc">17%</span></div>
+        </div>
+        <p style="font-size:.79rem;color:var(--tx3);margin-top:.9rem">ภาพจำลองเพื่อการศึกษา · ไม่ใช่สถิติเฉพาะราย</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ 01 ค่ารักษาวันนี้ ══════════ -->
+<section class="sec" id="cost">
+  <div class="wrap">
+    <div class="head rv">
+      <span class="eye">01 — ตัวเลขที่ต้องรู้</span>
+      <h2>ค่ารักษาไม่ได้แพงขึ้น <span class="gW">“ตามเงินเฟ้อ”</span><br>มันแพงขึ้นเป็นคนละเรื่องกันเลย</h2>
+      <p>ข้าวของทั่วไปแทบไม่ขึ้นราคา แต่ค่ารักษากลับวิ่งเลขสองหลักติดต่อกันหลายปี
+        นี่คือเหตุผลที่วงเงินประกันสุขภาพซึ่ง “เคยพอ” เมื่อสิบปีก่อน วันนี้อาจไม่พอแม้แต่ครั้งเดียว</p>
+    </div>
+
+    <div class="stats rv">
+      <div class="stat">
+        <div class="v"><span class="num" data-to="10.8" data-dec="1">0</span>%</div>
+        <div class="k">Medical Inflation · ไทย 2569</div>
+        <p>อัตราการเติบโตของค่ารักษาพยาบาลในไทยปี 2569 จากรายงาน Global Medical Trends ของ WTW</p>
+      </div>
+      <div class="stat vio">
+        <div class="v"><span class="num" data-to="10.3" data-dec="1">0</span>%</div>
+        <div class="k">ค่าเฉลี่ยทั่วโลก</div>
+        <p>ไทยโตเร็วกว่าค่าเฉลี่ยโลกเล็กน้อย แปลว่านี่ไม่ใช่ปัญหาเฉพาะบ้านเรา แต่บ้านเราหนักกว่าค่าเฉลี่ย</p>
+      </div>
+      <div class="stat warn">
+        <div class="v">−<span class="num" data-to="0.1" data-dec="1">0</span>%</div>
+        <div class="k">เงินเฟ้อทั่วไปของไทย</div>
+        <p>ขณะที่ราคาสินค้าทั่วไปแทบไม่ขยับ ค่ารักษากลับวิ่งสวนทางแบบคนละทิศ</p>
+      </div>
+    </div>
+
+    <div class="note warn rv" style="margin-top:1.6rem">
+      🧮 <b>ลองคิดเล่น ๆ:</b> ที่อัตรา 10.8% ต่อปี ค่ารักษาจะ <b>เพิ่มเป็นสองเท่าในเวลาประมาณ 7 ปี</b>
+      และเป็นราว <b>2.8 เท่าใน 10 ปี</b> — วงเงิน 1 ล้านบาทวันนี้ จึงมีอำนาจซื้อเท่ากับราว 360,000 บาทในอีกสิบปีข้างหน้า
+    </div>
+
+    <figure class="imgslot rv empty" data-slot="opening" data-label="ภาพประกอบ · เปิดเรื่อง"></figure>
+  </div>
+</section>
+
+<!-- ══════════ 02 บิลโรงพยาบาล ══════════ -->
+<section class="sec" id="bill">
+  <div class="wrap">
+    <div class="head rv">
+      <span class="eye">02 — กายวิภาคของบิล</span>
+      <h2>บิลโรงพยาบาลหนึ่งใบ <span class="gJ">ประกอบด้วยอะไรบ้าง</span></h2>
+      <p>หลายคนคิดว่าประกันสุขภาพ “จ่ายค่าห้อง” แต่ความจริงค่าห้องเป็นเพียงส่วนน้อยของบิล
+        ส่วนที่ใหญ่กว่ามากคือค่าแพทย์ ค่าผ่าตัด ค่ายา และค่าตรวจวินิจฉัย</p>
+    </div>
+
+    <div class="billwrap rv">
+      <div>
+        <div class="billbars" id="billChart">
+          <div class="bb"><span class="nm">ค่าห้อง ค่าอาหาร ค่าบริการ</span><span class="tk"><i data-w="18"></i></span><span class="pc">18%</span></div>
+          <div class="bb b"><span class="nm">ค่าผ่าตัด / หัตถการ</span><span class="tk"><i data-w="26"></i></span><span class="pc">26%</span></div>
+          <div class="bb"><span class="nm">ค่ายาและเวชภัณฑ์</span><span class="tk"><i data-w="22"></i></span><span class="pc">22%</span></div>
+          <div class="bb b"><span class="nm">ค่าแพทย์ผู้เชี่ยวชาญ</span><span class="tk"><i data-w="16"></i></span><span class="pc">16%</span></div>
+          <div class="bb a"><span class="nm">ค่าตรวจวินิจฉัย · แล็บ · ภาพถ่าย</span><span class="tk"><i data-w="12"></i></span><span class="pc">12%</span></div>
+          <div class="bb a"><span class="nm">ค่าบริการอื่น ๆ</span><span class="tk"><i data-w="6"></i></span><span class="pc">6%</span></div>
+        </div>
+        <p class="note" style="margin-top:1.3rem">
+          📌 สัดส่วนข้างต้นเป็น <b>ภาพประกอบเพื่อความเข้าใจ</b> ไม่ใช่สถิติทางการ
+          สัดส่วนจริงต่างกันมากตามโรค โรงพยาบาล และความซับซ้อนของการรักษา
+          แต่ข้อสรุปที่เป็นจริงเสมอคือ <b>ค่าห้องไม่ใช่ก้อนที่ใหญ่ที่สุด</b>
+        </p>
+      </div>
+
+      <div>
+        <div class="stage">
+          <div class="stage-h"><h4>ทำไมการดูแค่ “ค่าห้อง” ถึงพลาด</h4><span>ตัวอย่าง</span></div>
+          <svg viewBox="0 0 320 260" role="img" aria-label="แผนภาพเปรียบเทียบวงเงินค่าห้องกับยอดบิลจริง">
+            <defs>
+              <linearGradient id="barA" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#2ee6a8"/><stop offset="1" stop-color="#22d3ee"/></linearGradient>
+              <linearGradient id="barB" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#fb7185"/><stop offset="1" stop-color="#fbbf24"/></linearGradient>
+            </defs>
+            <g font-size="11" fill="currentColor" opacity=".55">
+              <text x="0" y="16">บาท</text>
+            </g>
+            <rect x="46" y="176" width="74" height="60" rx="10" fill="url(#barA)"/>
+            <rect x="186" y="46" width="74" height="190" rx="10" fill="url(#barB)"/>
+            <g font-size="12" fill="currentColor" text-anchor="middle">
+              <text x="83" y="252" opacity=".72">วงเงินค่าห้อง</text>
+              <text x="223" y="252" opacity=".72">ยอดบิลจริง</text>
+            </g>
+            <g font-size="13" font-weight="700" fill="currentColor" text-anchor="middle">
+              <text x="83" y="166">4,000/คืน</text>
+              <text x="223" y="36">180,000</text>
+            </g>
+            <path d="M130 120 H176" stroke="currentColor" stroke-width="1.4" opacity=".4" stroke-dasharray="4 4"/>
+            <text x="153" y="112" font-size="11" fill="currentColor" text-anchor="middle" opacity=".6">ส่วนต่าง</text>
+          </svg>
+          <p style="font-size:.87rem;color:var(--tx2);margin-top:1rem;line-height:1.75">
+            ค่าห้องคือตัวเลขที่คนจำได้ง่ายที่สุด จึงมักถูกใช้เป็นตัวเปรียบเทียบเวลาเลือกแบบประกัน
+            แต่สิ่งที่ตัดสินว่า “พอหรือไม่พอ” จริง ๆ คือ <b>วงเงินรวมต่อการรักษาหนึ่งครั้ง</b> ต่างหาก
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <figure class="imgslot rv empty" data-slot="anatomy" data-label="ภาพประกอบ · บิลโรงพยาบาล"></figure>
+  </div>
+</section>
+
+<!-- ══════════ 03 เลือกแบบไหน ══════════ -->
+<section class="sec" id="plans">
+  <div class="wrap">
+    <div class="head rv">
+      <span class="eye">03 — เลือกแบบให้เป็น</span>
+      <h2>แยกค่าใช้จ่าย หรือ <span class="gJ">เหมาจ่าย</span></h2>
+      <p>ประกันสุขภาพในตลาดแบ่งใหญ่ ๆ ได้สองทรง และความต่างของมันจะปรากฏชัดที่สุด
+        ในวันที่บิลมีตัวเลขเจ็ดหลัก ไม่ใช่วันที่เป็นไข้หวัด</p>
+    </div>
+
+    <div class="vsgrid rv">
+      <div class="vcard">
+        <h3>แบบแยกค่าใช้จ่าย</h3>
+        <div class="sub">Schedule of Benefits · กำหนดเพดานย่อยรายหมวด</div>
+        <ul class="vlist">
+          <li><i>✓</i> เบี้ยถูกกว่าที่ทุนใกล้เคียงกัน เหมาะกับงบจำกัด</li>
+          <li><i>✓</i> เหมาะเป็นตัวเสริมเมื่อมีสวัสดิการบริษัทอยู่แล้ว</li>
+          <li class="no"><i>✕</i> ทุกหมวดมีเพดานของตัวเอง ค่าห้องพอแต่ค่ายาอาจไม่พอ</li>
+          <li class="no"><i>✕</i> ส่วนเกินเพดานย่อยต้องจ่ายเอง แม้วงเงินรวมยังเหลือ</li>
+          <li class="no"><i>✕</i> เมื่อค่ารักษาเฟ้อขึ้นทุกปี เพดานย่อยจะล้าสมัยเร็วมาก</li>
+        </ul>
+      </div>
+      <div class="vcard best">
+        <span class="tagbest">เหมาะกับคนส่วนใหญ่</span>
+        <h3>แบบเหมาจ่าย</h3>
+        <div class="sub">Lump Sum · วงเงินรวมก้อนเดียวต่อปีหรือต่อครั้ง</div>
+        <ul class="vlist">
+          <li><i>✓</i> ยืดหยุ่น ค่าใช้จ่ายหมวดไหนสูงก็ดึงจากวงเงินก้อนเดียวกันได้</li>
+          <li><i>✓</i> รับมือค่ารักษาที่เฟ้อขึ้นได้ดีกว่ามาก</li>
+          <li><i>✓</i> เหมาะกับโรคซับซ้อนที่ค่ายาและค่าแพทย์พุ่งพร้อมกัน</li>
+          <li class="no"><i>✕</i> เบี้ยสูงกว่า และมักยังมีเพดานค่าห้องแยกอยู่ดี</li>
+          <li class="no"><i>✕</i> ต้องอ่านให้ชัดว่าวงเงินเป็น “ต่อปี” หรือ “ต่อการรักษาครั้งหนึ่ง”</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="note ok rv" style="margin-top:1.6rem">
+      💡 <b>คำถามที่ควรถามตัวแทนเสมอ:</b> “ถ้าผมนอนโรงพยาบาลด้วยโรคนี้ ค่าใช้จ่ายรวม 800,000 บาท
+      กรมธรรม์นี้จ่ายให้เท่าไร และผมต้องควักเองเท่าไร” — คำถามเดียวนี้เปิดโปงเพดานย่อยที่ซ่อนอยู่ได้ทั้งหมด
+    </div>
+
+    <figure class="imgslot rv empty" data-slot="plans" data-label="ภาพประกอบ · เลือกแบบประกัน"></figure>
+  </div>
+</section>
+
+<!-- ══════════ 04 มาตรฐานใหม่ ══════════ -->
+<section class="sec" id="standard">
+  <div class="wrap">
+    <div class="head rv">
+      <span class="eye">04 — กติกาที่เปลี่ยนไป</span>
+      <h2>มาตรฐานประกันสุขภาพแบบใหม่<br>และเงื่อนไข <span class="gV">Copayment</span></h2>
+      <p>สองเรื่องนี้เปลี่ยนวิธีที่เราควรเลือกและใช้ประกันสุขภาพไปพอสมควร รู้ไว้ก่อนซื้อดีกว่ารู้ตอนต่ออายุ</p>
+    </div>
+
+    <div class="cards rv">
+      <div class="card">
+        <div class="ic" aria-hidden="true">📋</div>
+        <h3>ผลประโยชน์ 13 หมวดมาตรฐาน</h3>
+        <p>New Health Standard กำหนดให้ทุกบริษัทใช้โครงสร้างผลประโยชน์ <b>13 หมวดเหมือนกัน</b>
+          ตั้งแต่ค่าห้อง ค่าผ่าตัด ค่าแพทย์ ไปจนถึงค่าล้างไต เคมีบำบัด รังสีรักษา และรถพยาบาลฉุกเฉิน
+          ทำให้เปรียบเทียบข้ามบริษัทได้ตรง ๆ เป็นครั้งแรก</p>
+      </div>
+      <div class="card v">
+        <div class="ic" aria-hidden="true">🔀</div>
+        <h3>ตัวเลือกลดเบี้ยที่ต้องเข้าใจ</h3>
+        <p><b>Deductible</b> คือความรับผิดส่วนแรกที่เราจ่ายเองก่อน ส่วน <b>Co-payment</b> คือการร่วมจ่ายเป็นสัดส่วน
+          เช่นบริษัทจ่าย 70% เราจ่าย 30% ทั้งสองแบบแลกมาด้วยเบี้ยที่ถูกลง
+          เหมาะกับคนที่มีสวัสดิการรองรับส่วนแรกอยู่แล้ว</p>
+      </div>
+      <div class="card w">
+        <div class="ic" aria-hidden="true">⚠️</div>
+        <h3>Copayment ตอนต่ออายุ (เริ่ม 2568)</h3>
+        <p>ตั้งแต่ 20–21 มีนาคม 2568 กรมธรรม์สุขภาพแบบใหม่มีเงื่อนไขว่า
+          หากปีก่อนหน้าเคลม <b>ผู้ป่วยใน</b> ถี่และสูงผิดปกติ บริษัทอาจกำหนดให้ <b>ร่วมจ่ายในปีถัดไป</b>
+          เงื่อนไขนี้ <b>ไม่ใช้กับ OPD</b> และมีข้อยกเว้นสำหรับโรคร้ายแรงและการผ่าตัดใหญ่</p>
+      </div>
+    </div>
+
+    <div class="rail rv" style="margin-top:2.4rem">
+      <div class="rl">
+        <h3>ร่วมจ่าย 30% <small>กรณีที่ 1</small></h3>
+        <p>เคลมผู้ป่วยในด้วย <b>โรคที่ไม่รุนแรง</b> ตั้งแต่ <b>3 ครั้งขึ้นไปต่อปี</b>
+          และอัตราการเคลมรวม <b>ตั้งแต่ 200%</b> ของเบี้ยประกันปีนั้น</p>
+      </div>
+      <div class="rl">
+        <h3>ร่วมจ่าย 30% <small>กรณีที่ 2</small></h3>
+        <p>เคลมผู้ป่วยในด้วย <b>โรคทั่วไป</b> ตั้งแต่ <b>3 ครั้งขึ้นไปต่อปี</b>
+          และอัตราการเคลมรวม <b>เกิน 400%</b> ของเบี้ยประกันปีนั้น</p>
+      </div>
+      <div class="rl">
+        <h3>ร่วมจ่าย 50% <small>เข้าทั้งสองกรณี</small></h3>
+        <p>หากเข้าเงื่อนไขทั้งข้อ 1 และข้อ 2 พร้อมกันในปีเดียว สัดส่วนร่วมจ่ายจะขยับเป็น 50%</p>
+      </div>
+      <div class="rl">
+        <h3>สิ่งที่ไม่เข้าข่าย <small>ข้อยกเว้น</small></h3>
+        <p>การเคลม <b>ผู้ป่วยนอก (OPD)</b> ไม่ถูกนับ และ <b>โรคร้ายแรงกับการผ่าตัดใหญ่</b>
+          อยู่ในกลุ่มที่ได้รับการยกเว้นจากเงื่อนไขนี้</p>
+      </div>
+    </div>
+
+    <div class="note rv" style="margin-top:1.6rem">
+      🧭 <b>อ่านให้ถูก:</b> เงื่อนไขนี้ไม่ได้ลงโทษคนป่วยหนัก แต่ออกแบบมาคุมการเคลมถี่ ๆ ด้วยโรคเล็กน้อย
+      ซึ่งดันต้นทุนรวมของกองกลางขึ้นจนเบี้ยของทุกคนแพงตาม
+      ทางที่ปลอดภัยที่สุดคือ <b>ตรวจถ้อยคำในกรมธรรม์ฉบับของตัวเอง</b> เพราะรายละเอียดต่างกันได้ตามแบบประกันและบริษัท
+    </div>
+
+    <figure class="imgslot rv empty" data-slot="standard" data-label="ภาพประกอบ · มาตรฐานใหม่"></figure>
+  </div>
+</section>
+
+<!-- ══════════ 05 โรคร้ายแรง ══════════ -->
+<section class="sec" id="ci">
+  <div class="wrap">
+    <div class="head rv">
+      <span class="eye">05 — ช่องว่างที่คนมองข้าม</span>
+      <h2>มีประกันสุขภาพแล้ว <span class="gW">ยังต้องมีโรคร้ายแรงอีกไหม</span></h2>
+      <p>สองอย่างนี้แก้คนละปัญหา และตรงนี้คือจุดที่คนเข้าใจผิดกันมากที่สุด</p>
+    </div>
+
+    <div class="vsgrid rv">
+      <div class="vcard">
+        <h3>ประกันสุขภาพ</h3>
+        <div class="sub">จ่ายตามค่าใช้จ่ายที่เกิดขึ้นจริง</div>
+        <ul class="vlist">
+          <li><i>✓</i> จ่าย <b>ค่ารักษา</b> ให้โรงพยาบาลตามบิล</li>
+          <li><i>✓</i> ใช้ได้ทุกครั้งที่ป่วย ตราบที่วงเงินยังเหลือ</li>
+          <li class="no"><i>✕</i> ไม่ได้ชดเชย <b>รายได้ที่หายไป</b> ระหว่างพักรักษา</li>
+          <li class="no"><i>✕</i> ไม่ได้จ่ายค่าเดินทาง ค่าคนดูแล ค่าอาหารเสริม ค่าวิกผม</li>
+          <li class="no"><i>✕</i> ไม่ครอบคลุมการรักษาทางเลือกหรือยานอกบัญชีบางกรณี</li>
+        </ul>
+      </div>
+      <div class="vcard best">
+        <span class="tagbest">เติมช่องว่าง</span>
+        <h3>ประกันโรคร้ายแรง</h3>
+        <div class="sub">จ่ายเป็นเงินก้อนเมื่อได้รับการวินิจฉัย</div>
+        <ul class="vlist">
+          <li><i>✓</i> ได้ <b>เงินก้อน</b> ทันทีที่ตรวจพบตามนิยามในกรมธรรม์</li>
+          <li><i>✓</i> ใช้จ่ายอะไรก็ได้ — ทดแทนรายได้ ผ่อนบ้าน จ้างคนดูแล</li>
+          <li><i>✓</i> ซื้อเวลาให้ได้ “หยุดพักรักษาจริง ๆ” โดยไม่ต้องรีบกลับไปทำงาน</li>
+          <li class="no"><i>✕</i> จ่ายตามนิยามโรคและระยะที่ระบุไว้เท่านั้น ต้องอ่านให้ละเอียด</li>
+          <li class="no"><i>✕</i> มีระยะเวลารอคอย และไม่คุ้มครองภาวะที่เป็นมาก่อน</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="chartbox rv">
+      <h3 style="font-size:1.05rem;margin-bottom:.3rem">ภาระที่เกิดขึ้นจริงเมื่อป่วยหนักหนึ่งปี</h3>
+      <p style="font-size:.87rem;color:var(--tx2);margin-bottom:1.2rem">
+        ประกันสุขภาพปิดแท่งซ้าย ส่วนแท่งขวาไม่มีใครจ่ายให้ นอกจากเงินเก็บของเราเอง หรือเงินก้อนจากประกันโรคร้ายแรง
+      </p>
+      <svg viewBox="0 0 640 240" role="img" aria-label="แผนภาพเปรียบเทียบค่ารักษาที่ประกันสุขภาพจ่าย กับรายได้และค่าใช้จ่ายอื่นที่ต้องจ่ายเอง">
+        <defs>
+          <linearGradient id="cvd" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#2ee6a8"/><stop offset="1" stop-color="#22d3ee"/></linearGradient>
+          <linearGradient id="gap" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#fb7185"/><stop offset="1" stop-color="#fbbf24"/></linearGradient>
+        </defs>
+        <line x1="30" y1="200" x2="620" y2="200" stroke="currentColor" opacity=".22"/>
+        <rect x="70" y="60" width="90" height="140" rx="12" fill="url(#cvd)"/>
+        <rect x="185" y="126" width="90" height="74" rx="12" fill="url(#cvd)" opacity=".55"/>
+        <rect x="360" y="96" width="90" height="104" rx="12" fill="url(#gap)"/>
+        <rect x="475" y="150" width="90" height="50" rx="12" fill="url(#gap)" opacity=".6"/>
+        <g font-size="12" fill="currentColor" text-anchor="middle" opacity=".8">
+          <text x="115" y="222">ค่ารักษาในโรงพยาบาล</text>
+          <text x="230" y="222">ค่ายาต่อเนื่อง</text>
+          <text x="405" y="222">รายได้ที่หายไป</text>
+          <text x="520" y="222">ค่าดูแล/เดินทาง</text>
+        </g>
+        <g font-size="11" font-weight="700" fill="currentColor" text-anchor="middle" opacity=".92">
+          <text x="115" y="50">ประกันสุขภาพจ่าย</text>
+          <text x="405" y="86">ต้องจ่ายเอง</text>
+        </g>
+        <path d="M317 40 V210" stroke="currentColor" stroke-dasharray="5 6" opacity=".28"/>
+      </svg>
+      <div class="legend">
+        <span><i style="background:linear-gradient(90deg,#2ee6a8,#22d3ee)"></i>ส่วนที่ประกันสุขภาพรับผิดชอบ</span>
+        <span><i style="background:linear-gradient(90deg,#fb7185,#fbbf24)"></i>ส่วนที่ตกอยู่กับครอบครัว</span>
+      </div>
+      <p style="font-size:.79rem;color:var(--tx3);margin-top:.9rem">สัดส่วนในภาพเป็นการจำลองเพื่ออธิบายแนวคิด ไม่ใช่สถิติเฉพาะโรค</p>
+    </div>
+
+    <figure class="imgslot rv empty" data-slot="ci" data-label="ภาพประกอบ · โรคร้ายแรง"></figure>
+  </div>
+</section>
+
+<!-- ══════════ 06 เครื่องคำนวณ ══════════ -->
+<section class="sec" id="calc">
+  <div class="wrap">
+    <div class="head mid rv">
+      <span class="eye">06 — เครื่องมือ</span>
+      <h2>วงเงินสุขภาพ และทุนโรคร้ายแรง <span class="gJ">ที่ควรมี</span></h2>
+      <p><b>ลากแถบเลื่อน</b>ให้ตรงกับสถานการณ์ของคุณ ผลลัพธ์จะอัปเดตทันที หรือจะพิมพ์ตัวเลขลงช่องเองก็ได้ — ระบบคิดผลของเงินเฟ้อค่ารักษาให้ด้วย</p>
+    </div>
+
+    <div class="calc rv">
+      <form class="form" id="hForm" autocomplete="off" novalidate>
+        <div class="f">
+          <label for="hosp">โรงพยาบาลที่ตั้งใจจะใช้</label>
+          <small>ตัวเลือกนี้ใช้ประเมินค่าห้องและระดับค่ารักษาโดยประมาณ</small>
+          <select id="hosp">
+            <option value="2500">โรงพยาบาลรัฐ / ห้องรวม</option>
+            <option value="4500" selected>เอกชนทั่วไป ต่างจังหวัด</option>
+            <option value="8000">เอกชนในเมือง</option>
+            <option value="14000">เอกชนระดับพรีเมียม</option>
+          </select>
+        </div>
+        <div class="frow">
+          <div class="f">
+            <label for="age">อายุปัจจุบัน</label>
+            <small>ใช้ประมาณจำนวนปีที่ต้องพึ่งกรมธรรม์</small>
+            <input type="number" id="age" value="35" min="1" max="80" inputmode="numeric" data-min="18" data-max="80" data-step="1">
+          </div>
+          <div class="f">
+            <label for="horizon">มองไปข้างหน้ากี่ปี</label>
+            <small>วงเงินควรพอใช้ไปอีกกี่ปีก่อนทบทวนใหม่</small>
+            <input type="number" id="horizon" value="10" min="1" max="40" inputmode="numeric" data-min="1" data-max="40" data-step="1">
+          </div>
+        </div>
+        <div class="frow">
+          <div class="f">
+            <label for="income">รายได้ต่อเดือน (บาท)</label>
+            <small>ใช้คำนวณรายได้ที่หายไประหว่างพักรักษา</small>
+            <input type="text" id="income" value="45,000" data-money inputmode="decimal" autocomplete="off" data-min="0" data-max="200000" data-step="1000">
+          </div>
+          <div class="f">
+            <label for="offwork">หยุดงานกี่เดือน</label>
+            <small>ระยะพักรักษาและฟื้นตัวโดยประมาณ</small>
+            <input type="number" id="offwork" value="12" min="0" max="60" inputmode="numeric" data-min="0" data-max="36" data-step="1">
+          </div>
+        </div>
+        <div class="frow">
+          <div class="f">
+            <label for="care">ค่าดูแล/เดินทางต่อเดือน (บาท)</label>
+            <small>ค่าคนดูแล ค่าเดินทาง อาหารเฉพาะโรค</small>
+            <input type="text" id="care" value="8,000" data-money inputmode="decimal" autocomplete="off" data-min="0" data-max="50000" data-step="500">
+          </div>
+          <div class="f">
+            <label for="save">เงินเก็บที่ใช้ได้ (บาท)</label>
+            <small>เงินสำรองที่ยอมใช้กับเรื่องนี้ได้จริง</small>
+            <input type="text" id="save" value="300,000" data-money inputmode="decimal" autocomplete="off" data-min="0" data-max="5000000" data-step="50000">
+          </div>
+        </div>
+        <div class="f">
+          <label for="infl">เงินเฟ้อค่ารักษาต่อปี (%)</label>
+          <small>ค่าเริ่มต้น 10.8% ตามอัตราของไทยปี 2569</small>
+          <input type="number" id="infl" value="10.8" min="0" max="30" step="0.1" inputmode="decimal" data-min="0" data-max="20" data-step="0.1">
+        </div>
+        <div class="cta-row" style="margin-top:.4rem">
+          <button class="btn btn-p" type="submit" id="hBtn">🩺 คำนวณ</button>
+          <button class="btn btn-o" type="button" id="hReset">รีเซ็ต</button>
+        </div>
+      </form>
+
+      <div>
+        <div class="out">
+          <span class="lbl">วงเงินสุขภาพเหมาจ่ายที่ควรมี (วันนี้)</span>
+          <div class="big" id="oNow">—</div>
+          <div class="sub" id="oNowSub">—</div>
+          <div style="margin-top:1.3rem">
+            <div class="orow"><span>ค่าห้องที่เลือก</span><b id="oRoom">—</b></div>
+            <div class="orow"><span>วงเงินที่ควรมีในอีก <span id="oYears">10</span> ปี</span><b id="oFuture">—</b></div>
+            <div class="orow tot"><span>ทุนโรคร้ายแรงที่ควรมี</span><b id="oCI">—</b></div>
+          </div>
+          <div class="formula" id="oFormula">—</div>
+          <p class="hintbox" id="oHint">กรอกข้อมูลแล้วกดคำนวณเพื่อดูผลลัพธ์</p>
+          <p class="stamp" id="oStamp"></p>
+        </div>
+
+        <div class="chartbox">
+          <h3 style="font-size:1rem;margin-bottom:.2rem">วงเงินวันนี้จะพอไปอีกกี่ปี</h3>
+          <p style="font-size:.84rem;color:var(--tx2);margin-bottom:.8rem">
+            เส้นแดงคือค่ารักษาที่โตตามเงินเฟ้อ เส้นเขียวคือวงเงินคงที่ที่เราซื้อไว้ — จุดตัดคือปีที่วงเงินเริ่มไม่พอ
+          </p>
+          <svg id="gapChart" viewBox="0 0 560 240" role="img" aria-label="กราฟเปรียบเทียบค่ารักษาที่เพิ่มขึ้นทุกปีกับวงเงินประกันที่คงที่"></svg>
+          <div class="legend">
+            <span><i style="background:#2ee6a8"></i>วงเงินที่ซื้อไว้ (คงที่)</span>
+            <span><i style="background:#fb7185"></i>ค่ารักษาที่โตปีละ <span id="lgInfl">10.8</span>%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="note rv" style="margin-top:1.8rem">
+      ⚖️ <b>วิธีคิดที่ใช้:</b> วงเงินสุขภาพประเมินจากค่าห้องที่เลือก คูณด้วยตัวคูณตามระดับโรงพยาบาล
+      (ยิ่งค่าห้องสูง ค่าแพทย์และค่าผ่าตัดยิ่งสูงตาม) ส่วนทุนโรคร้ายแรงคิดจาก
+      <b>รายได้ที่หายไป + ค่าดูแลระหว่างพักรักษา + ค่ารักษาส่วนที่ประกันสุขภาพไม่ครอบคลุม − เงินเก็บ</b>
+      ทั้งหมดเป็นการประมาณเพื่อการศึกษา ไม่ใช่คำแนะนำเฉพาะบุคคล
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ 07 ก่อนซื้อ ══════════ -->
+<section class="sec" id="before">
+  <div class="wrap">
+    <div class="head rv">
+      <span class="eye">07 — ก่อนเซ็นชื่อ</span>
+      <h2>สี่เรื่องที่ทำให้เคลมไม่ผ่าน <span class="gW">มากที่สุด</span></h2>
+      <p>ประกันสุขภาพเป็นสัญญาที่ปฏิเสธการจ่ายได้ตามเงื่อนไข การรู้ล่วงหน้าจึงสำคัญกว่าการเปรียบเทียบเบี้ยเสียอีก</p>
+    </div>
+    <div class="cards rv">
+      <div class="card w">
+        <div class="ic" aria-hidden="true">⏳</div>
+        <h3>ระยะเวลารอคอย</h3>
+        <p>กรมธรรม์สุขภาพโดยทั่วไปมีระยะรอคอย <b>ราว 30 วัน</b> สำหรับการเจ็บป่วยทั่วไป
+          และ <b>ยาวกว่านั้น</b> สำหรับกลุ่มโรคที่ระบุไว้เฉพาะ ส่วนโรคร้ายแรงมักมีระยะรอคอยของตัวเองอีกชั้น
+          ระยะเวลาที่แน่นอนต้องดูจากกรมธรรม์ฉบับของตัวเอง</p>
+      </div>
+      <div class="card w">
+        <div class="ic" aria-hidden="true">🩹</div>
+        <h3>ภาวะที่เป็นมาก่อน</h3>
+        <p>โรคที่มีอยู่ก่อนทำประกันมักถูก <b>ยกเว้นความคุ้มครอง</b> หรือถูกระบุเป็นข้อยกเว้นเฉพาะราย
+          การปกปิดไม่ช่วยอะไร เพราะบริษัทตรวจสอบประวัติการรักษาย้อนหลังได้ในขั้นตอนพิจารณาสินไหม</p>
+      </div>
+      <div class="card w">
+        <div class="ic" aria-hidden="true">✍️</div>
+        <h3>แถลงสุขภาพไม่ครบ</h3>
+        <p>สาเหตุอันดับหนึ่งของการถูกปฏิเสธ ให้แถลงทุกอย่างตามจริง <b>รวมถึงเรื่องที่คิดว่าไม่สำคัญ</b>
+          เช่น เคยตรวจพบค่าตับสูงครั้งเดียวเมื่อสามปีก่อน</p>
+      </div>
+      <div class="card w">
+        <div class="ic" aria-hidden="true">📄</div>
+        <h3>เข้าใจนิยามผิด</h3>
+        <p>โรคร้ายแรงจ่ายตาม <b>นิยามและระยะที่กรมธรรม์กำหนด</b> ไม่ใช่ตามชื่อโรค
+          มะเร็งระยะเริ่มต้นบางชนิดอาจได้รับความคุ้มครองบางส่วนหรือไม่ได้เลย ต้องอ่านนิยามให้ครบก่อนซื้อ</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ 08 FAQ ══════════ -->
+<section class="sec" id="faq">
+  <div class="narrow">
+    <div class="head mid rv">
+      <span class="eye">08 — FAQ</span>
+      <h2>คำถามที่พบบ่อย</h2>
+    </div>
+    <div class="acc rv">
+      <details open><summary>มีประกันกลุ่มของบริษัทแล้ว ยังต้องซื้อเองไหม</summary>
+        <p>ประกันกลุ่มมักมีวงเงินจำกัดและ <b>หายไปทันทีในวันที่ออกจากงาน</b> ซึ่งมักเป็นช่วงที่อายุมากขึ้นและซื้อใหม่ยากกว่าเดิม
+          แนวทางที่ปลอดภัยคือมีกรมธรรม์ส่วนตัวเป็นฐาน แล้วใช้ประกันกลุ่มเป็นส่วนเสริมที่ช่วยรับผิดชอบส่วนแรก</p></details>
+      <details><summary>ซื้อแบบมีความรับผิดส่วนแรกดีไหม</summary>
+        <p>ดีมากสำหรับคนที่มีประกันกลุ่มหรือเงินสำรองพอจะรับส่วนแรกไหว เพราะช่วยลดเบี้ยได้อย่างมีนัย
+          แต่ไม่เหมาะกับคนที่ไม่มีสภาพคล่องสำรอง เพราะเวลาป่วยจริงจะต้องหาเงินก้อนแรกให้ได้ก่อน</p></details>
+      <details><summary>เคลมบ่อยแล้วเบี้ยจะขึ้นไหม</summary>
+        <p>โดยหลักการ เบี้ยประกันสุขภาพปรับตามอายุและต้นทุนค่ารักษาของกลุ่ม ไม่ได้ปรับรายบุคคลตามประวัติเคลม
+          แต่ตั้งแต่ปี 2568 มีเงื่อนไข <b>ร่วมจ่ายตอนต่ออายุ</b> สำหรับผู้ที่เคลมผู้ป่วยในถี่และสูงผิดปกติ ตามเกณฑ์ที่อธิบายไว้ด้านบน</p></details>
+      <details><summary>ควรซื้อโรคร้ายแรงเท่าไรถึงพอ</summary>
+        <p>แนวทางที่ใช้กันคือให้ครอบคลุม <b>รายได้ราว 1–2 ปี</b> บวกค่าใช้จ่ายระหว่างรักษาที่ประกันสุขภาพไม่จ่ายให้
+          เครื่องคำนวณด้านบนคิดตามหลักนี้ ลองปรับจำนวนเดือนที่หยุดงานให้ตรงกับอาชีพของตัวเอง
+          อาชีพอิสระควรเผื่อมากกว่าพนักงานประจำที่มีสิทธิลาป่วย</p></details>
+      <details><summary>อายุเท่าไรควรเริ่มทำ</summary>
+        <p>เร็วที่สุดเท่าที่สุขภาพยังดี เพราะสองอย่างที่ย้อนกลับไม่ได้คือ <b>อายุที่ใช้คำนวณเบี้ย</b>
+          และ <b>ประวัติสุขภาพที่ยังสะอาด</b> เมื่อตรวจพบอะไรบางอย่างแล้ว โรคนั้นมักกลายเป็นข้อยกเว้นถาวรของกรมธรรม์ฉบับใหม่</p></details>
+      <details><summary>ทำไมวงเงินที่เคยพอ ตอนนี้ถึงไม่พอ</summary>
+        <p>เพราะค่ารักษาโตปีละเลขสองหลัก ขณะที่วงเงินในกรมธรรม์เป็นตัวเลขคงที่
+          กราฟในเครื่องคำนวณด้านบนแสดงให้เห็นว่าวงเงินเท่าเดิมจะถูกค่ารักษาแซงในปีที่เท่าไร
+          จึงควร <b>ทบทวนวงเงินทุก 3–5 ปี</b> แทนที่จะซื้อครั้งเดียวแล้วลืมไป</p></details>
+    </div>
+  </div>
+</section>
+
+<figure class="imgslot rv empty wrap" data-slot="closing" data-label="ภาพประกอบ · ปิดท้าย" style="margin-bottom:2rem"></figure>
+
+<!-- ══════════ CTA ══════════ -->
+<section class="cta">
+  <div class="wrap rv">
+    <h2>สุขภาพดีไม่ได้แปลว่าไม่ต้องเตรียม<br><span class="gJ">มันแปลว่ายังเตรียมทัน</span></h2>
+    <p>วันที่เราแข็งแรงที่สุด คือวันเดียวที่เรามีสิทธิเลือกแบบประกันได้ครบทุกแบบ
+      และเป็นวันที่เบี้ยถูกที่สุดในชีวิตที่เหลืออยู่</p>
+    <div class="cta-row" style="justify-content:center">
+      <a class="btn btn-p btn-lg" href="quote.html">ขอรับข้อเสนอเบื้องต้น →</a>
+      <a class="btn btn-o btn-lg" href="index.html">อ่านเรื่องประกันชีวิต →</a>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap foot-g">
+    <div>
+      <a class="brand" href="index.html">
+        <span class="mark" aria-hidden="true">
+          <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h4l2-5 4 10 2.5-6L17 12h5"/></svg>
+        </span>
+        <span>2Provi<i>Group</i></span>
+      </a>
+      <p>หน้าให้ความรู้เรื่องประกันสุขภาพและโรคร้ายแรง จัดทำเพื่อการศึกษาเท่านั้น
+        ไม่ใช่คำแนะนำการลงทุนหรือการเสนอขายกรมธรรม์ ตัวเลขทั้งหมดควรตรวจสอบกับ คปภ. และบริษัทประกันโดยตรง</p>
+    </div>
+    <div>
+      <h4>ในหน้านี้</h4>
+      <a href="#cost">ค่ารักษาวันนี้</a><a href="#bill">บิลโรงพยาบาล</a>
+      <a href="#plans">เลือกแบบไหน</a><a href="#standard">มาตรฐานใหม่</a>
+      <a href="#ci">โรคร้ายแรง</a><a href="#calc">เครื่องคำนวณ</a><a href="#faq">คำถามพบบ่อย</a>
+    </div>
+    <div>
+      <h4>ไปหน้าอื่น</h4>
+      <a href="index.html">หน้าหลัก</a>
+      <a href="money.html">ประกันชีวิต</a>
+      <a href="retire.html">วางแผนเกษียณ</a>
+      <a href="education.html">การศึกษาบุตร</a>
+      <a href="quote.html">ขอรับข้อเสนอ</a>
+    </div>
+    <div>
+      <h4>ติดต่อเรา</h4>
+      <a href="https://2provi.github.io" target="_blank" rel="noopener">🌐 2provi.com</a>
+      <a href="mailto:2provi@gmail.com">✉️ 2provi@gmail.com</a>
+      <p style="margin-top:.6rem">ติดต่อผ่านเว็บไซต์และอีเมลเท่านั้น</p>
+    </div>
+  </div>
+  <div class="wrap foot-b">
+    © 2026 2Provi Group · จัดทำเพื่อการศึกษา · ข้อมูลอ้างอิงควรตรวจสอบกับ คปภ. และบริษัทประกันโดยตรง<br>
+    <a href="privacy-policy.html" style="display:inline;text-decoration:underline">นโยบายความเป็นส่วนตัว</a>
+  </div>
+</footer>
+
+<button id="toTop" type="button" aria-label="กลับขึ้นด้านบน">↑</button>
+
+<script>
+(function(){
+"use strict";
+var D=document,W=window,ROOT=D.documentElement,BUILD="2Provi Group";
+function $1(s,p){return (p||D).querySelector(s)}
+function $(s,p){return Array.prototype.slice.call((p||D).querySelectorAll(s))}
+function run(n,f){try{f()}catch(e){console.error("[2Provi Group] "+n+":",e)}}
+function fmt(n){n=Math.round(Number(n)||0);var g=n<0;if(g)n=-n;
+  return (g?"-":"")+String(n).replace(/\B(?=(\d{3})+(?!\d))/g,",")}
+function numOf(id){var e=D.getElementById(id);if(!e)return 0;
+  var v=Number(String(e.value).replace(/[,\s]/g,""));return isFinite(v)&&v>=0?v:0}
+function setT(id,s){var e=D.getElementById(id);if(e)e.textContent=s}
+
+/* ── ธีม (ใช้คีย์เดียวกับหน้าหลัก จึงจำค่าข้ามหน้าได้) ── */
+run("theme",function(){
+  var btn=D.getElementById("themeBtn"),meta=$1('meta[name="theme-color"]');
+  function get(){return ROOT.getAttribute("data-theme")==="dark"?"dark":"light"}
+  function set(m){
+    var t=m==="dark"?"dark":"light";
+    ROOT.setAttribute("data-theme",t);
+    if(btn){btn.textContent=t==="dark"?"☀️":"🌙";
+      btn.setAttribute("aria-label",t==="dark"?"สลับเป็นโหมดสว่าง":"สลับเป็นโหมดมืด")}
+    if(meta)meta.setAttribute("content",t==="dark"?"#04060d":"#f4f7fd");
+    try{localStorage.setItem("ls-theme",t)}catch(e){}
+  }
+  if(btn)btn.addEventListener("click",function(){set(get()==="dark"?"light":"dark")},false);
+  set(get());
+});
+
+/* ── เมนู ── */
+run("menu",function(){
+  var b=D.getElementById("burger"),m=D.getElementById("menu");
+  if(!b||!m)return;
+  function close(){m.classList.remove("open");b.classList.remove("on");b.setAttribute("aria-expanded","false")}
+  b.addEventListener("click",function(e){e.stopPropagation();
+    var o=m.classList.toggle("open");b.classList.toggle("on");b.setAttribute("aria-expanded",o?"true":"false")},false);
+  $("a",m).forEach(function(a){a.addEventListener("click",close,false)});
+  D.addEventListener("click",function(e){
+    if(m.classList.contains("open")&&!m.contains(e.target)&&!b.contains(e.target))close()},false);
+  W.addEventListener("keydown",function(e){if(e.key==="Escape")close()},false);
+});
+
+/* ── สกรอลล์: แถบความคืบหน้า / เงาแถบบน / ปุ่มขึ้นบน / ไฮไลต์เมนู ── */
+run("scroll",function(){
+  var bar=$1("#prog b"),nav=D.getElementById("nav"),top=D.getElementById("toTop"),tick=false;
+  function upd(){
+    var y=W.pageYOffset||ROOT.scrollTop||0,h=ROOT.scrollHeight-W.innerHeight;
+    if(bar)bar.style.width=(h>0?(y/h)*100:0)+"%";
+    if(nav)nav.classList[y>8?"add":"remove"]("stuck");
+    if(top)top.classList[y>500?"add":"remove"]("on");
+    tick=false;
+  }
+  W.addEventListener("scroll",function(){if(!tick){tick=true;W.requestAnimationFrame(upd)}},{passive:true});
+  W.addEventListener("resize",upd,{passive:true});
+  upd();
+  if(top)top.addEventListener("click",function(){
+    try{W.scrollTo({top:0,behavior:"smooth"})}catch(e){W.scrollTo(0,0)}},false);
+
+  if("IntersectionObserver" in W){
+    var links=$("#menu a[href^='#']");
+    if(links.length){
+      var io=new IntersectionObserver(function(l){
+        l.forEach(function(en){
+          if(!en.isIntersecting)return;
+          links.forEach(function(a){a.classList[a.getAttribute("href")==="#"+en.target.id?"add":"remove"]("act")});
+        });
+      },{threshold:.22});
+      $("section[id]").forEach(function(s){io.observe(s)});
+    }
+  }
+});
+
+/* ── ค่อย ๆ ปรากฏ ── */
+run("reveal",function(){
+  var items=$(".rv");
+  if(!items.length||!("IntersectionObserver" in W))return;
+  var reduce=false;try{reduce=W.matchMedia("(prefers-reduced-motion:reduce)").matches}catch(e){}
+  if(reduce)return;
+  items.forEach(function(e){e.classList.add("pre")});
+  var io=new IntersectionObserver(function(l){
+    l.forEach(function(en){
+      if(!en.isIntersecting)return;
+      var t=en.target,d=parseInt(t.getAttribute("data-delay")||"0",10)||0;
+      W.setTimeout(function(){t.classList.add("in")},d);
+      io.unobserve(t);
+    });
+  },{threshold:.05,rootMargin:"0px 0px -4% 0px"});
+  items.forEach(function(e){io.observe(e)});
+  W.setTimeout(function(){$(".rv.pre").forEach(function(e){e.classList.add("in")})},4500);
+});
+
+/* ── ตัวเลขนับขึ้น ── */
+run("counters",function(){
+  var els=$(".num");if(!els.length)return;
+  function anim(el){
+    var to=parseFloat(el.getAttribute("data-to"))||0,
+        dec=parseInt(el.getAttribute("data-dec")||"0",10)||0,
+        t0=Date.now(),dur=1500;
+    (function step(){
+      var p=Math.min((Date.now()-t0)/dur,1);
+      el.textContent=(to*(1-Math.pow(1-p,3))).toFixed(dec);
+      if(p<1)W.requestAnimationFrame(step);else el.textContent=to.toFixed(dec);
+    })();
+  }
+  if(!("IntersectionObserver" in W)){els.forEach(anim);return}
+  var io=new IntersectionObserver(function(l){
+    l.forEach(function(en){if(en.isIntersecting){anim(en.target);io.unobserve(en.target)}})},{threshold:.4});
+  els.forEach(function(e){io.observe(e)});
+});
+
+/* ── แถบสัดส่วน ── */
+run("bars",function(){
+  var bars=$(".bb .tk i");if(!bars.length)return;
+  function fill(el){el.style.width=(parseFloat(el.getAttribute("data-w"))||0)+"%"}
+  if(!("IntersectionObserver" in W)){bars.forEach(fill);return}
+  var io=new IntersectionObserver(function(l){
+    l.forEach(function(en){if(en.isIntersecting){fill(en.target);io.unobserve(en.target)}})},{threshold:.3});
+  bars.forEach(function(e){io.observe(e)});
+});
+
+/* ══════════════════════════════════════════════════
+   เครื่องคำนวณวงเงินสุขภาพ + ทุนโรคร้ายแรง
+   ────────────────────────────────────────────────
+   วงเงินสุขภาพ  = ค่าห้อง/คืน × ตัวคูณระดับโรงพยาบาล
+     ตัวคูณสะท้อนว่าค่าห้องเป็นเพียงส่วนหนึ่งของบิล
+     (ยิ่งโรงพยาบาลแพง ค่าแพทย์/ค่าผ่าตัดยิ่งสูงตามสัดส่วน)
+   วงเงินอนาคต   = วงเงินวันนี้ × (1+เงินเฟ้อ)^ปี
+   ทุนโรคร้ายแรง = รายได้ที่หายไป + ค่าดูแล + ส่วนที่ประกันสุขภาพไม่จ่าย − เงินเก็บ
+   ══════════════════════════════════════════════════ */
+run("calculator",function(){
+  var form=D.getElementById("hForm");if(!form)return;
+
+  /* ── ใส่คอมมาให้ช่องจำนวนเงินขณะพิมพ์ ──
+     input[type=number] แสดงคอมมาไม่ได้ตามสเปก HTML จึงใช้ช่องข้อความแล้วจัดรูปแบบเอง
+     ตำแหน่งเคอร์เซอร์คำนวณจากจำนวนหลักที่อยู่ก่อนหน้า ไม่ใช่ผลต่างความยาว */
+  function bindMoney(el){
+    if(!el||el.dataset.moneyBound==="1")return;
+    el.dataset.moneyBound="1";
+    function format(){
+      var caret=el.selectionStart,before=String(el.value);
+      var digitsBefore=(before.slice(0,caret).match(/[\d.]/g)||[]).length;
+      var raw=before.replace(/[^\d.]/g,"");
+      var dot=raw.indexOf(".");
+      if(dot!==-1)raw=raw.slice(0,dot+1)+raw.slice(dot+1).replace(/\./g,"");
+      if(raw===""||raw==="."){el.value=raw;return}
+      var parts=raw.split("."),out=Number(parts[0]||"0").toLocaleString("en-US");
+      if(parts.length>1)out+="."+parts[1];
+      el.value=out;
+      var seen=0,pos=out.length,i;
+      for(i=0;i<out.length;i++){
+        if(/[\d.]/.test(out[i]))seen++;
+        if(seen>=digitsBefore){pos=i+1;break}
+      }
+      try{el.setSelectionRange(pos,pos)}catch(e){}
+    }
+    el.addEventListener("input",format,false);
+    format();
+  }
+  $("[data-money]",form).forEach(bindMoney);
+
+  /* ══ แถบเลื่อนคู่กับช่องกรอก ══
+     เลื่อน → เติมค่าลงช่อง (ใส่คอมมาให้) แล้วคำนวณสดทันที
+     พิมพ์  → เลื่อนหัวแถบตาม โดยไม่เขียนค่ากลับ ช่องจึงใส่เลขเกินสุดแถบได้ */
+  function shortNum(v){
+    if(v>=1000000)return (v/1000000).toFixed(v%1000000?1:0).replace(/\.0$/,"")+" ล้าน";
+    return Number(v).toLocaleString("en-US");
+  }
+  function attachSlider(el){
+    if(!el||el.dataset.sldBound==="1")return;
+    var lo=parseFloat(el.dataset.min),hi=parseFloat(el.dataset.max),st=parseFloat(el.dataset.step);
+    if(!isFinite(lo)||!isFinite(hi))return;
+    el.dataset.sldBound="1";
+    var isMoney=el.hasAttribute("data-money");
+    var dec=(String(st).split(".")[1]||"").length;
+
+    var box=D.createElement("div");box.className="sld";
+    var r=D.createElement("input");
+    r.type="range";r.min=lo;r.max=hi;r.step=st;
+    var f=el.closest(".f"),lb=f&&f.querySelector("label");
+    r.setAttribute("aria-label","แถบเลื่อนสำหรับ "+((lb&&lb.textContent||el.id).trim()));
+    var bub=D.createElement("span");bub.className="sld-b";
+    var t=D.createElement("div");t.className="sld-t";
+    var mid=Math.round(((lo+hi)/2)/st)*st;
+    t.innerHTML="<span>"+shortNum(lo)+"</span><span class='mid'>"+shortNum(mid)+"</span><span>"+
+                shortNum(hi)+(isMoney?"+":"")+"</span>";
+    box.appendChild(bub);box.appendChild(r);box.appendChild(t);
+    el.parentNode.insertBefore(box,el.nextSibling);
+
+    function paint(){
+      var pc=hi>lo?((Number(r.value)-lo)/(hi-lo))*100:0;
+      pc=Math.max(0,Math.min(100,pc));
+      r.style.setProperty("--p",pc.toFixed(2)+"%");
+      bub.style.left=pc.toFixed(2)+"%";
+      var v=Number(r.value);
+      bub.textContent=isMoney?shortNum(v):v.toFixed(dec);
+    }
+    function fromField(){
+      var v=Number(String(el.value).replace(/[^\d.\-]/g,""));
+      if(!isFinite(v))v=lo;
+      r.value=Math.max(lo,Math.min(hi,v));
+      paint();
+    }
+    r.addEventListener("input",function(){
+      var v=Number(r.value);
+      el.value=isMoney?v.toLocaleString("en-US"):v.toFixed(dec);
+      paint();
+      safe();
+    },false);
+    ["pointerdown","focus"].forEach(function(ev){
+      r.addEventListener(ev,function(){box.classList.add("is-drag")},false);});
+    ["pointerup","pointercancel","blur"].forEach(function(ev){
+      r.addEventListener(ev,function(){box.classList.remove("is-drag")},false);});
+    el.addEventListener("input",fromField,false);
+    fromField();
+  }
+  $("[data-min]",form).forEach(attachSlider);
+
+  /* ตัวคูณ: ค่าห้องยิ่งสูง บิลรวมยิ่งสูงกว่าค่าห้องหลายเท่า */
+  function multiplier(room){
+    if(room<=2500)return 150;
+    if(room<=4500)return 170;
+    if(room<=8000)return 190;
+    return 210;
+  }
+  /* สัดส่วนค่าใช้จ่ายที่ประกันสุขภาพมักไม่ครอบคลุม (ยา/อุปกรณ์นอกบัญชี ฯลฯ) */
+  var UNCOVERED=0.15;
+
+  function calc(){
+    var room=numOf("hosp")||Number(D.getElementById("hosp").value)||4500,
+        yrs=Math.max(1,Math.min(40,numOf("horizon")||10)),
+        income=numOf("income"),months=Math.max(0,Math.min(60,numOf("offwork"))),
+        care=numOf("care"),save=numOf("save"),
+        g=Math.max(0,Math.min(30,numOf("infl")))/100;
+
+    var mult=multiplier(room);
+    var now=Math.round(room*mult/100000)*100000;      // ปัดเป็นหลักแสนให้อ่านง่าย
+    if(now<500000)now=500000;
+    var future=now*Math.pow(1+g,yrs);
+
+    var lostIncome=income*months;
+    var careCost=care*months;
+    var uncovered=now*UNCOVERED;
+    var ci=lostIncome+careCost+uncovered-save;
+    if(ci<0)ci=0;
+    ci=Math.round(ci/50000)*50000;
+
+    setT("oNow",fmt(now)+" บาท");
+    setT("oNowSub","อิงค่าห้อง "+fmt(room)+" บาท/คืน · ประมาณ "+mult+" เท่าของค่าห้อง");
+    setT("oRoom",fmt(room)+" บาท/คืน");
+    setT("oYears",String(yrs));
+    setT("oFuture",fmt(future)+" บาท");
+    setT("oCI",fmt(ci)+" บาท");
+
+    var f=D.getElementById("oFormula");
+    if(f)f.innerHTML=
+      "วงเงินสุขภาพ: ค่าห้อง "+fmt(room)+" × "+mult+" ≈ <b>"+fmt(now)+"</b><br>"+
+      "ในอีก "+yrs+" ปี ที่เงินเฟ้อ "+(g*100).toFixed(1)+"% : "+fmt(now)+" × "+Math.pow(1+g,yrs).toFixed(2)+" = <b>"+fmt(future)+"</b><br>"+
+      "ทุนโรคร้ายแรง: รายได้ที่หาย "+fmt(lostIncome)+" + ค่าดูแล "+fmt(careCost)+
+      " + ส่วนที่ไม่ครอบคลุม "+fmt(uncovered)+" − เงินเก็บ "+fmt(save)+" = <b>"+fmt(ci)+"</b>";
+
+    var msg;
+    if(income<=0)msg="ยังไม่ได้กรอกรายได้ ทุนโรคร้ายแรงจึงคิดเฉพาะค่าดูแลและส่วนที่ประกันไม่ครอบคลุม";
+    else if(months<6)msg="ระยะหยุดงานที่กรอกค่อนข้างสั้น หากเป็นโรคที่ต้องรักษาต่อเนื่อง ลองเผื่อเป็น 12–24 เดือนดู";
+    else if(ci===0)msg="เงินเก็บที่มีครอบคลุมภาระช่วงพักรักษาได้แล้ว แต่ควรตรวจว่าเงินก้อนนั้นตั้งใจไว้ใช้เรื่องอื่นหรือเปล่า";
+    else msg="ทุนโรคร้ายแรงราว "+fmt(ci)+" บาท จะช่วยให้หยุดพักรักษาได้จริงโดยไม่ต้องรีบกลับไปทำงาน";
+    setT("oHint",msg);
+
+    var t=new Date(),p=function(n){return n<10?"0"+n:""+n};
+    setT("oStamp","คำนวณล่าสุด "+p(t.getHours())+":"+p(t.getMinutes())+":"+p(t.getSeconds())+" · "+BUILD);
+    setT("lgInfl",(g*100).toFixed(1));
+
+    drawChart(now,g,yrs);
+    return {now:now,future:future,ci:ci};
+  }
+
+  /* กราฟ: ค่ารักษาโตตามเงินเฟ้อ ตัดกับวงเงินคงที่ปีไหน */
+  function drawChart(budget,g,yrs){
+    var svg=D.getElementById("gapChart");if(!svg)return;
+    var W0=560,H0=240,L=52,R=16,T=18,B=42;
+    var span=Math.max(yrs,10);
+    var base=budget*0.55;                        /* ค่ารักษาตั้งต้นสมมติ = 55% ของวงเงิน */
+    var maxV=Math.max(budget,base*Math.pow(1+g,span))*1.08;
+    var x=function(i){return L+(W0-L-R)*(i/span)};
+    var y=function(v){return T+(H0-T-B)*(1-v/maxV)};
+
+    var pts=[],i;
+    for(i=0;i<=span;i++)pts.push([x(i),y(base*Math.pow(1+g,i))]);
+    var costPath="M"+pts.map(function(p){return p[0].toFixed(1)+" "+p[1].toFixed(1)}).join(" L");
+    var areaPath=costPath+" L"+x(span).toFixed(1)+" "+y(0).toFixed(1)+" L"+x(0).toFixed(1)+" "+y(0).toFixed(1)+" Z";
+
+    /* ปีที่ค่ารักษาแซงวงเงิน */
+    var cross=null;
+    if(g>0&&base<budget){
+      var n=Math.log(budget/base)/Math.log(1+g);
+      if(n<=span)cross=n;
+    } else if(base>=budget) cross=0;
+
+    var grid="",gv;
+    for(gv=0;gv<=4;gv++){
+      var yy=T+(H0-T-B)*(gv/4);
+      grid+='<line x1="'+L+'" y1="'+yy.toFixed(1)+'" x2="'+(W0-R)+'" y2="'+yy.toFixed(1)+'" stroke="currentColor" opacity=".12"/>';
+    }
+    var ticks="",ti;
+    for(ti=0;ti<=span;ti+=Math.max(1,Math.round(span/5))){
+      ticks+='<text x="'+x(ti).toFixed(1)+'" y="'+(H0-B+22)+'" font-size="11" fill="currentColor" opacity=".6" text-anchor="middle">ปีที่ '+ti+'</text>';
+    }
+
+    var crossMark="";
+    if(cross!==null&&cross>=0&&cross<=span){
+      var cx=x(cross),cy=y(budget);
+      crossMark=
+        '<line x1="'+cx.toFixed(1)+'" y1="'+T+'" x2="'+cx.toFixed(1)+'" y2="'+(H0-B)+'" stroke="#fbbf24" stroke-dasharray="5 5" opacity=".8"/>'+
+        '<circle cx="'+cx.toFixed(1)+'" cy="'+cy.toFixed(1)+'" r="6" fill="#fbbf24"/>'+
+        '<text x="'+Math.min(cx+10,W0-R-96).toFixed(1)+'" y="'+(T+16)+'" font-size="12" font-weight="700" fill="#fbbf24">ไม่พอตั้งแต่ปีที่ '+Math.ceil(cross)+'</text>';
+    }
+
+    svg.innerHTML=
+      '<defs><linearGradient id="ar" x1="0" y1="0" x2="0" y2="1">'+
+      '<stop offset="0" stop-color="#fb7185" stop-opacity=".34"/><stop offset="1" stop-color="#fb7185" stop-opacity="0"/>'+
+      '</linearGradient></defs>'+
+      grid+
+      '<path d="'+areaPath+'" fill="url(#ar)"/>'+
+      '<line x1="'+L+'" y1="'+y(budget).toFixed(1)+'" x2="'+(W0-R)+'" y2="'+y(budget).toFixed(1)+
+        '" stroke="#2ee6a8" stroke-width="3" stroke-linecap="round"/>'+
+      '<path d="'+costPath+'" fill="none" stroke="#fb7185" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>'+
+      crossMark+ticks+
+      '<text x="'+(L-8)+'" y="'+(y(budget)+4).toFixed(1)+'" font-size="11" fill="#2ee6a8" text-anchor="end" font-weight="700">วงเงิน</text>';
+  }
+
+  function safe(e){
+    if(e&&e.preventDefault)e.preventDefault();
+    try{calc()}catch(err){console.error(err)}
+    return false;
+  }
+  form.addEventListener("submit",safe,false);
+  D.getElementById("hBtn").addEventListener("click",safe,false);
+  $("input:not([type=range]),select",form).forEach(function(i){
+    i.addEventListener("change",safe,false);
+    i.addEventListener("keydown",function(e){if(e.key==="Enter"){e.preventDefault();safe()}},false);
+  });
+  D.getElementById("hReset").addEventListener("click",function(){
+    var def={age:35,horizon:10,income:"45,000",offwork:12,care:"8,000",save:"300,000",infl:10.8},k,el;
+    for(k in def){if(Object.prototype.hasOwnProperty.call(def,k)){
+      el=D.getElementById(k);
+      if(el){el.value=def[k];
+        /* แจ้ง input เพื่อให้แถบเลื่อนและคอมมาอัปเดตตาม */
+        try{el.dispatchEvent(new Event("input",{bubbles:true}))}catch(e){}
+      }}}
+    D.getElementById("hosp").value="4500";
+    safe();
+  },false);
+  safe();
+  W.HScalc=calc;
+});
+
+/* ══════════ ช่องใส่รูปภาพ (ระบบเดียวกับหน้าหลัก) ══════════ */
+run("images",function(){
+  var KEY="ls-images-health";
+  var slots=$(".imgslot");if(!slots.length)return;
+  var store={};try{store=JSON.parse(localStorage.getItem(KEY)||"{}")||{}}catch(e){store={}}
+  var baked=(W.LS_IMAGES&&typeof W.LS_IMAGES==="object")?W.LS_IMAGES:{};
+
+  function dataOf(id){var b=baked[id]||{},u=store[id]||{};
+    return{src:(u.src!==undefined?u.src:b.src)||"",caption:(u.caption!==undefined?u.caption:b.caption)||""}}
+  function save(){
+    try{localStorage.setItem(KEY,JSON.stringify(store));quota()}
+    catch(e){alert("บันทึกรูปไม่สำเร็จ พื้นที่เก็บในเบราว์เซอร์เต็ม ลองใช้ลิงก์รูปแทนการอัปโหลดไฟล์ค่ะ")}
+    if(D.body.classList.contains("imgedit"))refreshPanel();
+  }
+  function quota(){var q=D.getElementById("imgQuota");if(!q)return;
+    var b=0;try{b=(localStorage.getItem(KEY)||"").length}catch(e){}
+    q.textContent="พื้นที่ที่ใช้อยู่ ≈ "+(b/1024).toFixed(0)+" KB (เบราว์เซอร์มักจำกัดราว 5,000 KB)"}
+
+  function render(fig){
+    var id=fig.getAttribute("data-slot"),d=dataOf(id),img=$1("img",fig),cap=$1("figcaption",fig);
+    if(d.src){
+      if(!img){
+        img=D.createElement("img");img.loading="lazy";img.decoding="async";
+        img.addEventListener("error",function(){
+          fig.classList.add("empty");
+          var t=$1(".ph span",fig);if(t)t.textContent="เปิดรูปจากลิงก์นี้ไม่ได้ — ตรวจว่าเป็นลิงก์รูปโดยตรงและเปิดสาธารณะ";
+        },false);
+        fig.insertBefore(img,fig.firstChild);
+      }
+      if(img.getAttribute("src")!==d.src)img.src=d.src;
+      img.alt=d.caption||"ภาพประกอบเนื้อหา";
+      fig.classList.remove("empty");
+    }else{ if(img)img.remove(); fig.classList.add("empty") }
+    if(cap)cap.textContent=d.src?(d.caption||""):"";
+    var u=$1(".u-url",fig),c=$1(".u-cap",fig);
+    if(u)u.value=/^data:/.test(d.src)?"":d.src;
+    if(c)c.value=d.caption;
+    var fn=$1(".u-file-name",fig);
+    if(fn)fn.textContent=/^data:/.test(d.src)?"ใช้ไฟล์จากเครื่อง":"";
+  }
+
+  function shrink(file,cb){
+    var fr=new FileReader();
+    fr.onload=function(){
+      var im=new Image();
+      im.onload=function(){
+        var MAX=1600,w=im.width,h=im.height;
+        if(w>MAX){h=Math.round(h*MAX/w);w=MAX}
+        try{
+          var cv=D.createElement("canvas");cv.width=w;cv.height=h;
+          var cx=cv.getContext("2d");cx.fillStyle="#fff";cx.fillRect(0,0,w,h);cx.drawImage(im,0,0,w,h);
+          cb(cv.toDataURL("image/jpeg",.82));
+        }catch(e){cb(fr.result)}
+      };
+      im.onerror=function(){cb(fr.result)};
+      im.src=fr.result;
+    };
+    fr.onerror=function(){alert("อ่านไฟล์รูปไม่สำเร็จค่ะ")};
+    fr.readAsDataURL(file);
+  }
+
+  slots.forEach(function(fig){
+    var id=fig.getAttribute("data-slot");if(!id)return;
+    if(!$1(".ph",fig)){
+      var ph=D.createElement("div");ph.className="ph";
+      ph.innerHTML='<b>🖼️</b><span>ช่องใส่รูปภาพ · '+(fig.getAttribute("data-label")||id)+'</span>';
+      fig.appendChild(ph);
+    }
+    if(!$1("figcaption",fig))fig.appendChild(D.createElement("figcaption"));
+    var bar=D.createElement("div");bar.className="imgbar";
+    bar.innerHTML='<span class="tag">'+(fig.getAttribute("data-label")||id)+'</span>'+
+      '<input type="text" class="u-url" placeholder="วางลิงก์รูปภาพ https://…">'+
+      '<button type="button" class="mini u-pick">📁 เลือกไฟล์</button>'+
+      '<span class="u-file-name" style="font-size:.76rem;color:var(--tx3)"></span>'+
+      '<input type="file" class="u-file" accept="image/*">'+
+      '<input type="text" class="u-cap" placeholder="คำบรรยายใต้ภาพ (ไม่ใส่ก็ได้)">'+
+      '<button type="button" class="mini del u-del">ลบรูป</button>';
+    fig.appendChild(bar);
+
+    var url=$1(".u-url",bar),cap=$1(".u-cap",bar),file=$1(".u-file",bar),
+        pick=$1(".u-pick",bar),del=$1(".u-del",bar);
+    function set(k,v){store[id]=store[id]||{};store[id][k]=v;save();render(fig)}
+    url.addEventListener("change",function(){set("src",url.value.trim())},false);
+    url.addEventListener("keydown",function(e){if(e.key==="Enter"){e.preventDefault();url.blur()}},false);
+    cap.addEventListener("change",function(){set("caption",cap.value)},false);
+    pick.addEventListener("click",function(){file.click()},false);
+    file.addEventListener("change",function(){
+      var f=file.files&&file.files[0];if(!f)return;
+      shrink(f,function(u){set("src",u)});file.value="";
+    },false);
+    del.addEventListener("click",function(){store[id]={src:"",caption:""};save();render(fig)},false);
+    render(fig);
+  });
+
+  var fab=D.createElement("button");
+  fab.id="imgFab";fab.type="button";fab.textContent="🖼️";
+  fab.setAttribute("aria-label","เปิด/ปิดโหมดจัดการรูปภาพ");
+  fab.title="โหมดจัดการรูปภาพ";
+  D.body.appendChild(fab);
+
+  var panel=D.createElement("div");panel.id="imgPanel";
+  panel.innerHTML='<h4>🖼️ โหมดจัดการรูปภาพ</h4>'+
+    '<p>ใส่ได้ทั้ง <b>ลิงก์รูป</b> และ <b>ไฟล์จากเครื่อง</b> — รูปจะถูกจำไว้ในเบราว์เซอร์เครื่องนี้<br>'+
+    'ถ้าต้องการให้ทุกคนเห็น ให้กด “คัดลอกโค้ด” แล้ววางทับบรรทัด <code>window.LS_IMAGES</code> ในไฟล์ health.html</p>'+
+    '<textarea id="imgCode" readonly spellcheck="false"></textarea>'+
+    '<div class="prow"><button type="button" class="mini" id="imgCopy">📋 คัดลอกโค้ด</button>'+
+    '<button type="button" class="mini del" id="imgClear">ล้างรูปทั้งหมด</button>'+
+    '<button type="button" class="mini" id="imgClose">ปิด</button></div><div id="imgQuota"></div>';
+  D.body.appendChild(panel);
+
+  function code(){
+    var out={};
+    slots.forEach(function(f){var id=f.getAttribute("data-slot"),d=dataOf(id);
+      if(d.src)out[id]={src:d.src,caption:d.caption}});
+    return "window.LS_IMAGES = "+JSON.stringify(out,null,2)+";";
+  }
+  function refreshPanel(){var ta=D.getElementById("imgCode");if(ta)ta.value=code();quota()}
+
+  fab.addEventListener("click",function(){
+    var on=D.body.classList.toggle("imgedit");
+    fab.classList.toggle("on",on);panel.classList.toggle("on",on);
+    fab.textContent=on?"✕":"🖼️";
+    if(on)refreshPanel();
+  },false);
+  D.getElementById("imgClose").addEventListener("click",function(){fab.click()},false);
+  D.getElementById("imgCopy").addEventListener("click",function(){
+    var ta=D.getElementById("imgCode");ta.select();ta.setSelectionRange(0,ta.value.length);
+    var ok=false;try{ok=D.execCommand("copy")}catch(e){}
+    if(!ok&&navigator.clipboard)navigator.clipboard.writeText(ta.value).then(function(){},function(){});
+    var b=this;b.textContent="✅ คัดลอกแล้ว";W.setTimeout(function(){b.textContent="📋 คัดลอกโค้ด"},1600);
+  },false);
+  D.getElementById("imgClear").addEventListener("click",function(){
+    if(!W.confirm("ลบรูปทั้งหมดที่ใส่ไว้ในเครื่องนี้ใช่ไหม"))return;
+    store={};save();slots.forEach(render);refreshPanel();
+  },false);
+});
+
+console.log("[2Provi Group] โหลดสมบูรณ์ "+BUILD);
+})();
+</script>
+</body>
+</html>
