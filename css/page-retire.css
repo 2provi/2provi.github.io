@@ -1,0 +1,84 @@
+/* ================= โทนสีประจำหน้า: ม่วง (วางแผนเกษียณ) ================= */
+:root{
+  --b900:#170b2e;--b800:#2e1065;--b700:#5b21b6;--b600:#7c3aed;--b500:#8b5cf6;
+  --sky:#a78bfa;--cyan:#c4b5fd;
+  --a5:139,92,246; --a6:124,58,237; --a7:91,33,182; --a9:23,11,46; --aSky:167,139,250;
+
+  --bg:#faf8ff;--bg2:#f1ecfe;--surface:#ffffff;--surface2:#fbfaff;
+  --text:#140a26;--text2:#42345c;--muted:#645a7d;--line:#e7dffb;
+  --glass:rgba(255,255,255,.72);
+
+  --grad:linear-gradient(120deg,#4c1d95 0%,#6d28d9 34%,#8b5cf6 66%,#a78bfa 100%);
+  --grad2:linear-gradient(120deg,#c4b5fd,#8b5cf6);
+  --tint:linear-gradient(160deg,#f3edff 0%,#fcfbff 100%);
+
+  --sh1:0 4px 14px -6px rgba(91,33,182,.2);
+  --sh2:0 18px 44px -20px rgba(91,33,182,.36);
+  --sh3:0 34px 70px -28px rgba(23,11,46,.44);
+}
+[data-theme="dark"]{
+  --bg:#0c0620;--bg2:#150a2c;--surface:#1b1036;--surface2:#160c2d;
+  --text:#f1ecff;--text2:#cfc2ee;--muted:#a394cb;--line:#332059;
+  --glass:rgba(27,16,54,.72);
+  --tint:linear-gradient(160deg,#180d31 0%,#0f0724 100%);
+}
+/* ================= เฉพาะหน้าเกษียณ ================= */
+.ageline{position:relative;margin:2.6rem 0 1rem;padding:2.4rem 1.4rem 1.6rem;border-radius:var(--r3);
+  background:var(--surface);border:1px solid var(--line);box-shadow:var(--sh2);overflow:hidden}
+.ageline h3{font-size:1.1rem;text-align:center;margin-bottom:1.6rem}
+.albar{position:relative;height:74px}
+.albar .seg{position:absolute;top:22px;height:26px;border-radius:99px;display:grid;place-items:center;
+  font-size:.78rem;font-weight:800;color:#fff;white-space:nowrap;overflow:hidden}
+.albar .s1{left:0;width:46%;background:linear-gradient(120deg,#0b4a8f,#2b8bf2)}
+.albar .s2{left:47.5%;right:0;background:linear-gradient(120deg,#fb7185,#fb923c)}
+.albar .tick{position:absolute;top:0;font-size:.72rem;font-weight:800;color:var(--muted);
+  transform:translateX(-50%);white-space:nowrap}
+.albar .tick i{display:block;width:2px;height:14px;background:var(--line);margin:.25rem auto 0}
+.albar .cap{position:absolute;top:54px;font-size:.73rem;color:var(--muted);transform:translateX(-50%);
+  text-align:center;white-space:nowrap}
+@media (max-width:640px){
+  .albar{height:96px}
+  .albar .seg{font-size:.68rem}
+  .albar .tick{font-size:.66rem}
+  .albar .cap{font-size:.66rem;white-space:normal;width:9rem}
+}
+.pillars{display:grid;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));gap:1.2rem;margin-top:1.4rem}
+.pil{position:relative;padding:1.7rem 1.4rem;border-radius:var(--r2);background:var(--surface);
+  border:1px solid var(--line);box-shadow:var(--sh1);display:flex;flex-direction:column;gap:.5rem;
+  transition:transform .35s var(--ease),box-shadow .35s,border-color .35s}
+.pil:hover{transform:translateY(-7px);box-shadow:var(--sh2);border-color:var(--b500)}
+.pil::before{content:"";position:absolute;top:0;left:1.4rem;right:1.4rem;height:4px;border-radius:0 0 6px 6px;background:var(--grad)}
+.pil .pn{font-size:.7rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--b700)}
+[data-theme="dark"] .pil .pn{color:var(--sky)}
+.pil h3{font-size:1.08rem}
+.pil p{font-size:.9rem;color:var(--muted)}
+.pil .amt{margin-top:auto;padding-top:.75rem;border-top:1px dashed var(--line);font-size:.84rem;color:var(--text2)}
+.pil .amt b{color:var(--b600);font-variant-numeric:tabular-nums}
+[data-theme="dark"] .pil .amt b{color:var(--sky)}
+.risk4{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.1rem;margin-top:1.2rem}
+.rk{padding:1.5rem 1.35rem;border-radius:var(--r2);background:rgba(255,255,255,.05);
+  border:1px solid rgba(251,113,133,.3);position:relative;overflow:hidden;
+  transition:transform .35s var(--ease),border-color .35s}
+.rk:hover{transform:translateY(-6px);border-color:var(--rose)}
+.rk::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--gradWarn)}
+.rk .n{font-size:1.8rem;margin-bottom:.4rem}
+.rk h4{font-size:1.02rem;margin-bottom:.3rem;color:#fff}
+.rk p{font-size:.89rem;color:#a8c3e6;line-height:1.7}
+.rk b{color:#fda4af}
+/* กราฟเส้นเงินเกษียณ */
+.gwrap{margin-top:1.2rem;padding:1.1rem;border-radius:var(--r2);background:rgba(255,255,255,.12)}
+.gwrap svg{width:100%;height:auto;display:block;overflow:visible}
+.glg{display:flex;gap:1.1rem;flex-wrap:wrap;font-size:.76rem;margin-top:.7rem;opacity:.95}
+.glg span{display:inline-flex;align-items:center;gap:.35rem}
+.glg i{width:16px;height:4px;border-radius:99px;display:inline-block}
+.kpis{display:grid;grid-template-columns:1fr 1fr;gap:.7rem;margin:1.1rem 0 .3rem}
+.kpi{padding:.85rem 1rem;border-radius:14px;background:rgba(255,255,255,.15)}
+.kpi span{display:block;font-size:.76rem;opacity:.92}
+.kpi b{font-size:1.15rem;font-weight:800;font-variant-numeric:tabular-nums;line-height:1.35}
+.kpi.ok b{color:#86efac}
+.kpi.bad b{color:#fecaca}
+.kpis.k3{grid-template-columns:1fr 1fr 1fr}
+.kpis.k3 .kpi b{font-size:1.02rem}
+@media (max-width:900px){.kpis.k3{grid-template-columns:1fr 1fr}}
+@media (max-width:460px){.kpis,.kpis.k3{grid-template-columns:1fr}}
+.glg i{border:1px solid rgba(255,255,255,.45)}

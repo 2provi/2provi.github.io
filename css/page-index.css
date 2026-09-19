@@ -1,0 +1,74 @@
+/* ================= เฉพาะหน้าหลัก ================= */
+/* ---- รูปภาพที่ล้มเหลวต้องไม่ทิ้งกล่องว่าง จึงมีพื้นไล่สี + ไอคอนรออยู่ข้างหลังเสมอ ---- */
+.ph{position:relative;overflow:hidden;border-radius:var(--r3);background:var(--grad);isolation:isolate}
+.ph::after{content:attr(data-ico);position:absolute;inset:0;display:grid;place-items:center;
+  font-size:3.4rem;opacity:.5;z-index:0}
+.ph img{position:relative;z-index:1;width:100%;height:100%;object-fit:cover;display:block}
+.ph img[data-failed]{display:none}
+.hero-ph{height:380px;border:8px solid var(--surface);box-shadow:var(--sh3)}
+[data-theme="dark"] .hero-ph{border-color:var(--surface)}
+/* ---- การ์ดเครื่องมือ 4 ใบ ---- */
+.tgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));gap:1.3rem}
+.tool{position:relative;display:flex;flex-direction:column;gap:.55rem;padding:2rem 1.6rem 1.6rem;
+  border-radius:var(--r2);background:var(--surface);border:1px solid var(--line);box-shadow:var(--sh1);
+  overflow:hidden;transition:transform .4s var(--ease),box-shadow .4s var(--ease),border-color .4s}
+.tool::after{content:"";position:absolute;top:0;left:0;width:100%;height:4px;background:var(--grad);
+  transform:scaleX(0);transform-origin:left;transition:transform .45s var(--ease)}
+.tool:hover{transform:translateY(-10px);box-shadow:var(--sh3);border-color:transparent}
+.tool:hover::after{transform:scaleX(1)}
+.tool .ico{width:58px;height:58px;display:grid;place-items:center;font-size:1.7rem;border-radius:18px;
+  background:linear-gradient(135deg,rgba(var(--a5),.16),rgba(var(--aSky),.16));
+  transition:transform .4s var(--ease)}
+.tool:hover .ico{transform:rotate(-8deg) scale(1.08)}
+.tool h3{font-size:1.14rem}
+.tool p{color:var(--muted);font-size:.92rem;flex:1}
+.tool .go{display:inline-flex;align-items:center;gap:.4rem;margin-top:.5rem;padding-top:.8rem;
+  border-top:1px dashed var(--line);font-size:.88rem;font-weight:800;color:var(--b600)}
+[data-theme="dark"] .tool .go{color:var(--sky)}
+.tool .go span{transition:transform .3s var(--ease)}
+.tool:hover .go span{transform:translateX(5px)}
+/* ---- การ์ดเครื่องมือใช้สีประจำหน้าปลายทาง ให้เห็นระบบสีตั้งแต่หน้าแรก ---- */
+.tool.t-money  {--c1:#0b4a8f;--c2:#38bdf8;--cRGB:43,139,242}
+.tool.t-health {--c1:#046f52;--c2:#2ee6a8;--cRGB:16,185,129}
+.tool.t-retire {--c1:#5b21b6;--c2:#a78bfa;--cRGB:139,92,246}
+.tool.t-edu    {--c1:#9f1239;--c2:#fb7185;--cRGB:225,29,72}
+.tool[class*="t-"]::after{background:linear-gradient(120deg,var(--c1),var(--c2))}
+.tool[class*="t-"] .ico{background:linear-gradient(135deg,rgba(var(--cRGB),.18),rgba(var(--cRGB),.08))}
+.tool[class*="t-"] .go{color:var(--c1)}
+[data-theme="dark"] .tool[class*="t-"] .go{color:var(--c2)}
+.tool[class*="t-"]:hover{box-shadow:0 26px 56px -26px rgba(var(--cRGB),.6)}
+/* เส้นบนการ์ดโผล่ถาวรในจอเล็ก เพราะไม่มี hover ให้ใช้ */
+@media (hover:none){.tool[class*="t-"]::after{transform:scaleX(1)}}
+/* ---- การ์ดบทความ ---- */
+.agrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(275px,1fr));gap:1.3rem}
+.art-c{display:flex;flex-direction:column;border-radius:var(--r2);background:var(--surface);
+  border:1px solid var(--line);box-shadow:var(--sh1);overflow:hidden;
+  transition:transform .4s var(--ease),box-shadow .4s var(--ease)}
+.art-c:hover{transform:translateY(-8px);box-shadow:var(--sh3)}
+.art-c .ph{height:186px;border-radius:0}
+.art-b{padding:1.4rem;display:flex;flex-direction:column;gap:.45rem;flex:1}
+.art-c h3{font-size:1.06rem;line-height:1.45}
+.art-c p{color:var(--muted);font-size:.88rem;flex:1}
+.art-c .go{font-size:.86rem;font-weight:800;color:var(--b600)}
+[data-theme="dark"] .art-c .go{color:var(--sky)}
+/* ---- แถบคุกกี้ ---- */
+.ck{position:fixed;z-index:300;right:16px;bottom:16px;left:16px;max-width:1040px;margin-inline:auto;
+  padding:1.1rem 1.25rem;border-radius:var(--r2);background:var(--surface);border:1px solid var(--line);
+  box-shadow:var(--sh3);display:none}
+@supports (backdrop-filter:blur(10px)){.ck{background:var(--glass);backdrop-filter:blur(18px) saturate(160%)}}
+.ck.on{display:block;animation:ckUp .45s var(--ease)}
+@keyframes ckUp{from{opacity:0;transform:translateY(18px)}}
+.ck-in{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:1rem}
+.ck-ico{width:46px;height:46px;display:grid;place-items:center;border-radius:14px;font-size:1.35rem;
+  background:linear-gradient(135deg,rgba(251,191,36,.22),rgba(var(--a5),.16))}
+.ck h3{font-size:1rem;margin-bottom:.15rem}
+.ck p{font-size:.82rem;color:var(--muted);line-height:1.6}
+.ck p a{color:var(--b600);font-weight:700;text-decoration:underline}
+[data-theme="dark"] .ck p a{color:var(--sky)}
+.ck-btns{display:flex;gap:.5rem;flex-wrap:wrap;justify-content:flex-end}
+.ck-btns .btn{padding:.6rem 1.1rem;font-size:.85rem}
+@media (max-width:820px){
+  .ck-in{grid-template-columns:auto 1fr}
+  .ck-btns{grid-column:1/-1;justify-content:stretch}
+  .ck-btns .btn{flex:1}
+}

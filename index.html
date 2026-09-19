@@ -1,740 +1,349 @@
 <!DOCTYPE html>
-<html lang="th">
+<html lang="th" data-theme="light">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="google-site-verification" content="bm0k7aaH1OT_cHtmFO7VxIdrySFBXvT0Wo1FndSADL8" />
-    
-    <!-- 🌟 ชื่อเว็บและคำค้นหาสำหรับ Google Search -->
-    <title>Tikamporn Werawithayaset | ฑิฆัมพร วีรวิทยาเศรษฐ์ - Thai Life Insurance</title>
-    <meta name="description" content="ฑิฆัมพร วีรวิทยาเศรษฐ์ (Tikamporn Werawithayaset) ผู้บริหารภาคอาวุโส บริษัท ไทยประกันชีวิต จำกัด (มหาชน) สาขาธนบุรี ผู้เชี่ยวชาญการวางแผนการเงิน ประกันชีวิต และเครื่องมือคำนวณ IRR">
-    <meta name="keywords" content="Tikamporn Werawithayaset, ฑิฆัมพร วีรวิทยาเศรษฐ์, ไทยประกันชีวิต, ผู้บริหารภาคอาวุโส, วางแผนการเงิน, ที่ปรึกษาการเงิน, คำนวณ IRR, 2Provi">
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://2provi.com/">
-
-    <!-- 🌐 Open Graph / สำหรับแชร์ลง LINE, Facebook -->
-    <meta property="og:type" content="profile">
-    <meta property="og:title" content="Tikamporn Werawithayaset | Digital Portal">
-    <meta property="og:description" content="ฑิฆัมพร วีรวิทยาเศรษฐ์ - ผู้บริหารภาคอาวุโส ไทยประกันชีวิต (สาขาธนบุรี) และที่ปรึกษาการวางแผนการเงิน">
-    <meta property="og:url" content="https://2provi.com/">
-    <meta property="og:image" content="https://2provi.com/assets/MBA.jpg">
-
-    <!-- 🏷️ 1. ระบุชื่อแบรนด์เว็บไซต์กับ Google (แก้ปัญหาขึ้นชื่อว่า GitHub) -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": "2Provi Group",
-      "alternateName": "Tikamporn Werawithayaset Portal",
-      "url": "https://2provi.com/"
-    }
-    </script>
-
-    <!-- 🤖 2. ระบุตัวตนบุคคล (Schema Person) -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Tikamporn Werawithayaset",
-      "alternateName": "ฑิฆัมพร วีรวิทยาเศรษฐ์",
-      "url": "https://2provi.com/",
-      "image": "https://2provi.com/assets/MBA.jpg",
-      "jobTitle": "Senior District Manager",
-      "worksFor": {
-        "@type": "Organization",
-        "name": "บริษัท ไทยประกันชีวิต จำกัด (มหาชน)"
-      },
-      "sameAs": [
-        "https://www.linkedin.com/in/tikamporn-werawithayaset-1b15778b/",
-        "https://www.facebook.com/2provi/",
-        "https://www.youtube.com/user/2provi/videos"
-      ]
-    }
-    </script>
-
-    <!-- 🖼️ 3. แก้ Favicon เป็น Raw Path (แก้ปัญหาไอคอนแมวดำ GitHub) -->
-    <link rel="icon" href="https://raw.githubusercontent.com/2provi/fin-irr-calculator/main/icons/icon.svg" type="image/svg+xml">
-    <link rel="icon" href="https://raw.githubusercontent.com/2provi/fin-irr-calculator/main/icons/favicon-32.png" sizes="32x32" type="image/png">
-    <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/2provi/fin-irr-calculator/main/icons/apple-touch-icon.png">
-
-    <!-- Google Fonts & Font Awesome Icons -->
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <style>
-        :root {
-            /* 💎 Light Blue Frosted Glass Palette */
-            --glass-bg: rgba(255, 255, 255, 0.82);
-            --glass-sub: rgba(240, 249, 255, 0.85);
-            --glass-border: rgba(255, 255, 255, 0.95);
-            --primary-blue: #0284c7;
-            --deep-blue: #0369a1;
-            --accent-gold: #d97706;
-            --accent-emerald: #059669;
-            --text-main: #0f172a;
-            --text-sub: #334155;
-            --text-muted: #64748b;
-            --shadow-glass: 0 20px 45px rgba(2, 132, 199, 0.12), 0 4px 12px rgba(0, 0, 0, 0.04);
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Prompt', 'Fira Code', sans-serif;
-        }
-
-        body {
-            /* 🌤️ Bright Blue Gradient + Scenic Glass Wallpaper */
-            background-color: #f0f9ff;
-            background-image: 
-                linear-gradient(135deg, rgba(224, 242, 254, 0.7) 0%, rgba(240, 249, 255, 0.85) 100%),
-                url('assets/bg-executive.png');
-            background-repeat: no-repeat;
-            background-position: center center;
-            background-attachment: fixed;
-            background-size: cover;
-            color: var(--text-main);
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 24px 16px 40px 16px;
-        }
-
-        /* --- 🌐 Floating Top Navigation Pill --- */
-        .nav-pill {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 16px;
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(186, 230, 253, 0.8);
-            border-radius: 40px;
-            padding: 8px 24px;
-            box-shadow: 0 8px 20px rgba(2, 132, 199, 0.1);
-            margin-bottom: 24px;
-            z-index: 10;
-            flex-wrap: wrap;
-        }
-
-        .nav-pill a {
-            color: var(--deep-blue);
-            text-decoration: none;
-            font-size: 0.85rem;
-            font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            padding: 5px 12px;
-            border-radius: 20px;
-            transition: all 0.25s ease;
-        }
-
-        .nav-pill a:hover {
-            color: var(--primary-blue);
-            background: #e0f2fe;
-            transform: translateY(-1px);
-        }
-
-        /* --- 🛡️ Main Frosted Glass Card --- */
-        .card-container {
-            width: 100%;
-            max-width: 540px;
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            border-radius: 28px;
-            padding: 34px 26px;
-            backdrop-filter: blur(25px);
-            -webkit-backdrop-filter: blur(25px);
-            box-shadow: var(--shadow-glass);
-            position: relative;
-            overflow: hidden;
-            transition: max-width 0.3s ease;
-        }
-
-        /* Top Elegant Accent Bar */
-        .card-container::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary-blue), #38bdf8, var(--accent-gold));
-        }
-
-        /* Profile Section */
-        .profile-section {
-            text-align: center;
-            margin-bottom: 22px;
-        }
-
-        .avatar {
-            width: 115px;
-            height: 115px;
-            border-radius: 50%;
-            border: 3px solid #ffffff;
-            padding: 2px;
-            background: #ffffff;
-            box-shadow: 0 8px 20px rgba(2, 132, 199, 0.2);
-            object-fit: cover;
-            margin-bottom: 12px;
-            transition: transform 0.3s ease;
-        }
-
-        .avatar:hover {
-            transform: scale(1.05);
-        }
-
-        .name-en {
-            font-size: 1.35rem;
-            font-weight: 700;
-            color: var(--text-main);
-            letter-spacing: 0.2px;
-        }
-
-        .name-th {
-            font-size: 1.05rem;
-            font-weight: 600;
-            color: var(--deep-blue);
-            margin-bottom: 8px;
-        }
-
-        .position-box {
-            font-size: 0.84rem;
-            color: var(--text-sub);
-            line-height: 1.55;
-            background: var(--glass-sub);
-            border: 1px solid #bae6fd;
-            border-radius: 14px;
-            padding: 12px 14px;
-            margin-bottom: 14px;
-            text-align: center;
-        }
-
-        .position-box strong {
-            color: #0c4a6e;
-            font-weight: 600;
-        }
-
-        .team-badges {
-            display: flex;
-            justify-content: center;
-            gap: 8px;
-            flex-wrap: wrap;
-        }
-
-        .badge-pill {
-            padding: 4px 14px;
-            border-radius: 20px;
-            font-size: 0.76rem;
-            font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .badge-thailife {
-            background: #e0f2fe;
-            border: 1px solid #7dd3fc;
-            color: #0369a1;
-        }
-
-        .badge-consultant {
-            background: #fef3c7;
-            border: 1px solid #fde68a;
-            color: #92400e;
-        }
-
-        /* Section Layout */
-        .section-box {
-            margin-bottom: 22px;
-        }
-
-        .section-header {
-            font-size: 0.82rem;
-            color: var(--deep-blue);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-            gap: 7px;
-            font-weight: 700;
-            font-family: 'Fira Code', monospace;
-        }
-
-        /* Links List */
-        .links-group {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .link-item {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 12px 16px;
-            background: var(--glass-sub);
-            border: 1px solid rgba(186, 230, 253, 0.6);
-            border-radius: 14px;
-            color: var(--text-main);
-            text-decoration: none;
-            transition: all 0.2s ease;
-        }
-
-        .link-item:hover {
-            background: #e0f2fe;
-            border-color: #38bdf8;
-            transform: translateX(4px);
-            box-shadow: 0 4px 12px rgba(2, 132, 199, 0.12);
-        }
-
-        .link-item.highlight {
-            border: 2px solid #B8860B;
-            background: linear-gradient(135deg, #fef08a 0%, #fde047 100%);
-            box-shadow: 0 4px 12px rgba(184, 134, 11, 0.2);
-        }
-
-        .link-item.highlight:hover {
-            border-color: #996515;
-            background: linear-gradient(135deg, #fde047 100%, #facc15 100%);
-            box-shadow: 0 6px 16px rgba(184, 134, 11, 0.35);
-        }
-
-        .link-item.highlight .link-subtext {
-            color: #713f12;
-        }
-
-        .link-left {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .link-left i {
-            font-size: 1.2rem;
-            width: 22px;
-            text-align: center;
-            color: var(--primary-blue);
-        }
-
-        .link-item.highlight .link-left i {
-            color: var(--accent-gold);
-        }
-
-        .link-text {
-            font-size: 0.88rem;
-            font-weight: 600;
-            color: #1e293b;
-        }
-
-        .link-subtext {
-            font-size: 0.74rem;
-            color: var(--text-muted);
-            margin-top: 1px;
-        }
-
-        .link-arrow {
-            color: var(--text-muted);
-            font-size: 0.75rem;
-        }
-
-        /* Services Tags */
-        .services-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-        }
-
-        .service-tag {
-            background: #f0f9ff;
-            border: 1px solid #bae6fd;
-            color: #0369a1;
-            padding: 6px 12px;
-            border-radius: 8px;
-            font-size: 0.78rem;
-            font-weight: 500;
-            transition: all 0.2s ease;
-        }
-
-        .service-tag:hover {
-            background: #e0f2fe;
-            transform: translateY(-2px);
-        }
-
-        /* Certifications & Licenses */
-        .cert-list {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .cert-card {
-            background: var(--glass-sub);
-            border: 1px solid rgba(186, 230, 253, 0.6);
-            border-radius: 12px;
-            padding: 12px 14px;
-            font-size: 0.82rem;
-        }
-
-        .cert-card.gold-border {
-            border-left: 4px solid var(--accent-gold);
-            background: #fffdf5;
-        }
-
-        .cert-card.blue-border {
-            border-left: 4px solid var(--primary-blue);
-            background: #f8fbff;
-        }
-
-        .cert-title {
-            color: #0f172a;
-            font-weight: 600;
-            margin-bottom: 2px;
-        }
-
-        .cert-issuer {
-            color: var(--text-sub);
-            font-size: 0.76rem;
-        }
-
-        .cert-meta {
-            color: var(--text-muted);
-            font-size: 0.72rem;
-            margin-top: 4px;
-            font-family: 'Fira Code', monospace;
-        }
-
-        /* Experience Items */
-        .exp-item {
-            background: var(--glass-sub);
-            border: 1px solid rgba(186, 230, 253, 0.6);
-            border-left: 4px solid var(--primary-blue);
-            border-radius: 12px;
-            padding: 12px 14px;
-            margin-bottom: 8px;
-            font-size: 0.83rem;
-            line-height: 1.45;
-        }
-
-        .exp-item.current {
-            border-left-color: var(--accent-gold);
-            background: #fffdf5;
-        }
-
-        .exp-role {
-            color: #0f172a;
-            font-weight: 600;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 4px;
-        }
-
-        .exp-org {
-            color: var(--deep-blue);
-            font-size: 0.78rem;
-            font-weight: 500;
-        }
-
-        .exp-time {
-            color: var(--text-muted);
-            font-size: 0.72rem;
-            font-family: 'Fira Code', monospace;
-        }
-
-        /* Education Box */
-        .edu-item {
-            background: var(--glass-sub);
-            border: 1px solid rgba(186, 230, 253, 0.6);
-            border-left: 4px solid var(--accent-emerald);
-            border-radius: 12px;
-            padding: 12px 14px;
-            font-size: 0.82rem;
-            line-height: 1.45;
-        }
-
-        .edu-item .degree {
-            color: #0f172a;
-            font-weight: 600;
-        }
-
-        .edu-item .univ {
-            color: var(--text-sub);
-            font-size: 0.76rem;
-        }
-
-        /* Footer */
-        .footer {
-            margin-top: 24px;
-            text-align: center;
-            font-size: 0.74rem;
-            color: var(--text-muted);
-            font-family: 'Fira Code', monospace;
-            letter-spacing: 0.8px;
-        }
-
-        /* ---------------------------------------------------- */
-        /* 💻 DESKTOP VIEW (>= 992px)                           */
-        /* ---------------------------------------------------- */
-        @media (min-width: 992px) {
-            body {
-                padding: 40px 24px 60px 24px;
-            }
-
-            .card-container {
-                max-width: 1060px;
-                padding: 40px 36px;
-            }
-
-            .portal-grid {
-                display: grid;
-                grid-template-columns: 360px 1fr;
-                gap: 36px;
-                align-items: start;
-            }
-
-            .sidebar-col {
-                position: sticky;
-                top: 20px;
-            }
-
-            .avatar {
-                width: 130px;
-                height: 130px;
-            }
-
-            .name-en {
-                font-size: 1.45rem;
-            }
-
-            .name-th {
-                font-size: 1.15rem;
-            }
-
-            .position-box {
-                font-size: 0.88rem;
-            }
-
-            .footer {
-                grid-column: 1 / -1;
-                margin-top: 32px;
-                padding-top: 16px;
-                border-top: 1px solid rgba(186, 230, 253, 0.6);
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>2Provi Group | วางแผนชีวิตอย่างมั่นใจ</title>
+<meta name="description" content="2Provi Group ให้คำปรึกษาด้านประกันชีวิต ประกันสุขภาพ การออมเงิน และการวางแผนเกษียณ พร้อมเครื่องคำนวณ 4 ตัวที่ใช้ได้ฟรี">
+<meta name="google-site-verification" content="bm0k7aaH1OT_cHtmFO7VxIdrySFBXvT0Wo1FndSADL8" />
+<link rel="canonical" href="https://2provi.com/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="2Provi Group | วางแผนชีวิตอย่างมั่นใจ">
+<meta property="og:description" content="ประกันชีวิต ประกันสุขภาพ การออมเงิน และการวางแผนเกษียณ พร้อมเครื่องคำนวณ 4 ตัวที่ใช้ได้ฟรี">
+<meta property="og:url" content="https://2provi.com/">
+<meta property="og:image" content="https://2provi.com/assets/og-cover.jpg">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "2Provi Group",
+  "alternateName": "2Provi Group | วางแผนชีวิตอย่างมั่นใจ",
+  "url": "https://2provi.com/"
+}
+</script>
+<meta name="theme-color" content="#0b4a8f">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230b4a8f'/%3E%3Cpath d='M16 6 9 8.6v5.2c0 4.3 2.9 8.1 7 9.5 4.1-1.4 7-5.2 7-9.5V8.6L16 6Z' fill='%2338bdf8'/%3E%3Cpath d='m12.8 15.4 2.2 2.2 4.2-4.2' fill='none' stroke='%23fff' stroke-width='2.1' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+
+<!-- ธีมถูกทาก่อนหน้าจะวาด กันอาการกระพริบขาวตอนเปิดในโหมดมืด -->
+<script>
+(function(){
+  var t="";
+  try{ t=localStorage.getItem("ls-theme")||""; }catch(e){}
+  if(t!=="dark"&&t!=="light"){
+    try{ t=window.matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light"; }catch(e){ t="light"; }
+  }
+  document.documentElement.setAttribute("data-theme",t);
+})();
+</script>
+<link rel="stylesheet" href="/css/core.css">
+<link rel="stylesheet" href="/css/page-index.css">
 </head>
 <body>
 
-   <!-- 🌐 Floating Top Navigation Pill -->
-    <nav class="nav-pill">
-        <a href="#"><i class="fa-solid fa-house"></i> Home</a>
-        <a href="https://2provi.com/life-insurance/index.html"><i class="fa-solid fa-shield-heart"></i> Life Insurance</a>
-        <a href="https://2provi.com/fin-irr-calculator/index.html" target="_blank"><i class="fa-solid fa-calculator"></i> IRR Tool</a>
-        <a href="https://www.linkedin.com/in/tikamporn-werawithayaset-1b15778b/" target="_blank"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
-        <a href="https://2provi.com/experience.html"><i class="fa-solid fa-id-card-clip"></i> Experience</a>
-    </nav>
+<div id="prog"><b></b></div>
 
-    <!-- 🛡️ Main Frosted Glass Card -->
-    <div class="card-container">
-        
-        <div class="portal-grid">
+<header class="nav" id="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="index.html">
+      <span class="mark">
+        <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M12 2 4 5v6c0 5 3.4 9.4 8 11 4.6-1.6 8-6 8-11V5l-8-3Z"/><path d="m9 12 2 2 4-4"/>
+        </svg>
+      </span>
+      <span>2Provi<b>Group</b></span>
+    </a>
+    <nav class="links" id="menu"><a href="#tools">เครื่องมือ</a><a href="#why-us">ทำไมต้อง 2Provi</a><a href="#process">ขั้นตอน</a><a href="#articles">สาระน่ารู้</a></nav>
+    <div class="acts">
+      <button class="ibtn" id="themeBtn" type="button" aria-label="สลับโหมดสี" title="สลับโหมดสว่าง/มืด">🌙</button>
+      <a class="btn btn-p nosm" href="join.html">สมัครเป็นตัวแทน</a>
+      <button class="burger" id="burger" type="button" aria-label="เปิดเมนู" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+  <div class="tools">
+    <nav class="wrap tools-in" aria-label="เมนูข้ามหน้า"><a href="index.html" class="home cur" aria-current="page">🏠 หน้าหลัก</a><a href="money.html" class="">🛡️ ประกันชีวิต</a><a href="health.html" class="">🩺 สุขภาพ</a><a href="retire.html" class="">🌱 วางแผนเกษียณ</a><a href="education.html" class="">🎓 การศึกษาบุตร</a><a href="/aboutme/">👥 ทีมงาน</a><a href="quote.html" class="askq">ขอรับข้อเสนอเบื้องต้น <span>→</span></a></nav>
+  </div>
+</header>
 
-            <!-- LEFT COLUMN (Profile & Quick Links) -->
-            <div class="sidebar-col">
-                <div class="profile-section">
-                    <img src="./assets/MBA.jpg" alt="Avatar" class="avatar">
-                    
-                    <h1 class="name-en">Tikamporn Werawithayaset</h1>
-                    <div class="name-th">(ฑิฆัมพร วีรวิทยาเศรษฐ์)</div>
-                    
-                    <div class="position-box">
-                        <strong>Senior District Manager</strong> (ผู้บริหารภาคอาวุโส)<br>
-                        บริษัท ไทยประกันชีวิต จำกัด (มหาชน) — สาขาธนบุรี<br>
-                        <span style="color: var(--accent-gold); font-size: 0.8rem; font-weight: 600;">Investment Consultant on Complex Product Type 2</span>
-                    </div>
-                   
-                    <div class="team-badges">
-                        <span class="badge-pill badge-thailife"><i class="fa-solid fa-shield-heart"></i> Thai Life Insurance (36+ Yrs)</span>
-                        <span class="badge-pill badge-consultant"><i class="fa-solid fa-chart-line"></i> Financial Advisor</span>
-                    </div>
-                </div>
-
-                <!-- Links & Contact Section -->
-                <div class="section-box">
-                    <div class="section-header"><i class="fa-solid fa-address-card"></i> Contact & Financial Tools</div>
-                    <div class="links-group">
-                        
-                        <a href="https://2provi.com/fin-irr-calculator/index.html" target="_blank" class="link-item highlight">
-                            <div class="link-left">
-                                <i class="fa-solid fa-calculator"></i>
-                                <div>
-                                    <div class="link-text">Financial Solution Tools</div>
-                                    <div class="link-subtext">เครื่องมือคำนวณและวางแผนการเงิน</div>
-                                </div>
-                            </div>
-                            <i class="fa-solid fa-arrow-up-right-from-square link-arrow"></i>
-                        </a>
-
-                        <a href="https://www.linkedin.com/in/tikamporn-werawithayaset-1b15778b/" target="_blank" class="link-item">
-                            <div class="link-left">
-                                <i class="fa-brands fa-linkedin" style="color: #0284c7;"></i>
-                                <span class="link-text">LinkedIn Profile</span>
-                            </div>
-                            <i class="fa-solid fa-arrow-up-right-from-square link-arrow"></i>
-                        </a>
-
-                        <a href="mailto:tikamporn.wer@thailife.com" class="link-item">
-                            <div class="link-left">
-                                <i class="fa-solid fa-envelope" style="color: #0284c7;"></i>
-                                <span class="link-text">tikamporn.wer@thailife.com</span>
-                            </div>
-                            <i class="fa-solid fa-paper-plane link-arrow"></i>
-                        </a>
-                        <a href="mailto:2provi@gmail.com" class="link-item">
-                            <div class="link-left">
-                                <i class="fa-solid fa-envelope" style="color: #0284c7;"></i>
-                                <span class="link-text">2provi@gmail.com</span>
-                            </div>
-                            <i class="fa-solid fa-paper-plane link-arrow"></i>
-                        </a>
-                        <a href="https://www.facebook.com/2provi/" target="_blank" class="link-item">
-                            <div class="link-left">
-                                <i class="fa-brands fa-facebook-f" style="color: #0284c7;"></i>
-                                <span class="link-text">Facebook</span>
-                            </div>
-                            <i class="fa-solid fa-arrow-up-right-from-square link-arrow"></i>
-                        </a>
-                        <a href="https://www.youtube.com/user/2provi/videos" target="_blank" class="link-item">
-                            <div class="link-left">
-                                <i class="fa-brands fa-youtube" style="color: #0284c7;"></i>
-                                <span class="link-text">YouTube</span>
-                            </div>
-                            <i class="fa-solid fa-arrow-up-right-from-square link-arrow"></i>
-                        </a>
-                         <a href="https://www.instagram.com/2provi/" target="_blank" class="link-item">
-                            <div class="link-left">
-                                <i class="fa-brands fa-instagram" style="color: #0284c7;"></i>
-                                <span class="link-text">Instagram</span>
-                            </div>
-                            <i class="fa-solid fa-arrow-up-right-from-square link-arrow"></i>
-                        </a>
-                        <a href="https://www.tiktok.com/@pom_tl" target="_blank" class="link-item">
-                            <div class="link-left">
-                                <i class="fa-brands fa-tiktok" style="color: #0284c7;"></i>
-                                <span class="link-text">TikTok</span>
-                            </div>
-                            <i class="fa-solid fa-arrow-up-right-from-square link-arrow"></i>
-                        </a>
-                         <a href="https://x.com/provigroup" target="_blank" class="link-item">
-                            <div class="link-left">
-                                <i class="fa-brands fa-x-twitter" style="color: #0284c7;"></i>
-                                <span class="link-text">X (Twitter)</span>
-                            </div>
-                            <i class="fa-solid fa-arrow-up-right-from-square link-arrow"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- RIGHT COLUMN (Services, Licenses, Experience & Education) -->
-            <div class="main-content-col">
-                
-                <!-- Services & Focus Areas -->
-                <div class="section-box">
-                    <div class="section-header"><i class="fa-solid fa-briefcase"></i> Services & Expertise</div>
-                    <div class="services-grid">
-                        <span class="service-tag">Financial Advisory</span>
-                        <span class="service-tag">Life & Health Insurance</span>
-                        <span class="service-tag">Retirement Planning</span>
-                        <span class="service-tag">Financial Planning</span>
-                        <span class="service-tag">Investments</span>
-                        <span class="service-tag">Team Building</span>
-                        <span class="service-tag">Public Speaking</span>
-                    </div>
-                </div>
-
-                <!-- Key Licenses & Certifications -->
-                <div class="section-box">
-                    <div class="section-header"><i class="fa-solid fa-id-card-clip"></i> Licenses & Certifications</div>
-                    <div class="cert-list">
-                        <div class="cert-card gold-border">
-                            <div class="cert-title">Investment Consultant on Complex Product Type 2</div>
-                            <div class="cert-issuer">Securities and Exchange Commission, Thailand (ก.ล.ต.)</div>
-                            <div class="cert-meta">ID: 095172 · Expires: Dec 2027</div>
-                        </div>
-
-                        <div class="cert-card blue-border">
-                            <div class="cert-title">ใบอนุญาตตัวแทนประกันชีวิต / ประกันวินาศภัย</div>
-                            <div class="cert-issuer">Office of Insurance Commission (คปภ.)</div>
-                            <div class="cert-meta">Life License ID: 3901032720 · Expires: Aug 2029</div>
-                        </div>
-
-                        <div class="cert-card">
-                            <div class="cert-title">LIMRA Professional Programs & Training</div>
-                            <div class="cert-issuer">LIMRA & Thai Life Insurance Public Company Limited</div>
-                            <div class="cert-meta">Crossroads Program · Financial Advisor Skill Training · Management Skills</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Professional Experience Summary -->
-                <div class="section-box">
-                    <div class="section-header"><i class="fa-solid fa-clock-rotate-left"></i> Experience Highlights</div>
-                    
-                    <div class="exp-item current">
-                        <div class="exp-role">
-                            <span>ผู้บริหารภาคอาวุโส</span>
-                            <span class="exp-time">2013 - Present</span>
-                        </div>
-                        <div class="exp-org">บริษัท ไทยประกันชีวิต จำกัด (มหาชน) — สาขาธนบุรี</div>
-                    </div>
-
-                    <div class="exp-item">
-                        <div class="exp-role">
-                            <span>ผู้บริหารศูนย์ / ผู้จัดการภาค / ผู้จัดการภาคอาวุโส</span>
-                            <span class="exp-time">1990 - 2013</span>
-                        </div>
-                        <div class="exp-org">บริษัท ไทยประกันชีวิต จำกัด (มหาชน)</div>
-                    </div>
-
-                    <div class="exp-item">
-                        <div class="exp-role">
-                            <span>หัวหน้าสินเชื่อ & พัฒนาธุรกิจ</span>
-                            <span class="exp-time">1978 - 1988</span>
-                        </div>
-                        <div class="exp-org">ธนาคารเอเชียทรัสต์ / ธนาคารสยาม / ธนาคารกรุงไทย</div>
-                    </div>
-                </div>
-
-                <!-- Executive Education & Training -->
-                <div class="section-box">
-                    <div class="section-header"><i class="fa-solid fa-graduation-cap"></i> Executive Education & Training</div>
-                    <div class="edu-item">
-                        <div class="degree">โครงการพัฒนาผู้บริหาร (Mini MBA) รุ่นที่ 7</div>
-                        <div class="univ">Thammasat University (มหาวิทยาลัยธรรมศาสตร์) · 2009</div>
-                        <div class="degree" style="margin-top: 6px;">โรงเรียนอบรมการธนาคาร สมาคมธนาคารไทย</div>
-                        <div class="univ">หลักสูตร 2 ปี · 1982 - 1983</div>
-                    </div>
-                </div>
-
-            </div>
-
-            <!-- Footer -->
-            <div class="footer">
-                [ THAILIFE INSURANCE // VERIFIED EXECUTIVE PROFILE ]
-            </div>
-
-        </div>
-
+<!-- ============ HERO ============ -->
+<section class="hero" id="top">
+  <div class="aur"><i></i><i></i><i></i></div>
+  <div class="grid-bg"></div>
+  <div class="wrap hero-g">
+    <div class="rv">
+      <span class="pill">✨ YOUR LIFE, WELL PLANNED</span>
+      <h1>วางแผนวันนี้<br>เพื่อชีวิตที่ <span class="grad">อุ่นใจ</span> ในทุกวัน</h1>
+      <p class="lead">2Provi Group พร้อมช่วยคุณวางแผนความคุ้มครอง การออมเงิน และอนาคตทางการเงิน
+        ให้เหมาะกับเป้าหมายของคุณและคนที่คุณรัก — พร้อม <b>เครื่องคำนวณ 4 ตัว</b> ที่ใช้ได้ฟรี
+        และคำนวณในเครื่องคุณเอง</p>
+      <div class="cta-row">
+        <a class="btn btn-p btn-lg" href="quote.html">ขอรับข้อเสนอเบื้องต้น →</a>
+        <a class="btn btn-o btn-lg" href="#tools">ลองเครื่องคำนวณก่อน ↓</a>
+      </div>
+      <div class="trust">
+        <span>✅ รับคำปรึกษาเบื้องต้นฟรี</span>
+        <span>✅ วิเคราะห์ตามเป้าหมายชีวิต</span>
+        <span>✅ ดูแลต่อเนื่อง</span>
+      </div>
+      <div class="stats">
+        <div class="stat"><b><span class="num" data-to="4">0</span> เครื่องมือ</b><span>คำนวณทุนประกัน ค่ารักษา เงินเกษียณ และค่าการศึกษาบุตร</span></div>
+        <div class="stat"><b><span class="num" data-to="100">0</span>%</b><span>คำนวณในเบราว์เซอร์ของคุณ ไม่มีการส่งตัวเลขออกไปไหน</span></div>
+        <div class="stat"><b><span class="num" data-to="0">0</span> บาท</b><span>ใช้งานทุกเครื่องมือได้ฟรี ไม่ต้องสมัครสมาชิก</span></div>
+      </div>
     </div>
 
+    <div class="art rv" data-delay="140">
+      <div class="ph hero-ph" data-ico="👨‍👩‍👧">
+        <img
+          src="https://images.unsplash.com/photo-1609220136736-443140cffec6?auto=format&fit=crop&w=1000&q=85"
+          alt="ครอบครัวมีความสุขร่วมกัน" loading="lazy">
+      </div>
+      <div class="tagA">🛡️ คุ้มครองครบ</div>
+      <div class="tagB">📈 วางแผนเป็นระบบ</div>
+    </div>
+  </div>
+</section>
+
+<div class="marq" aria-hidden="true">
+  <div>
+    <span>ประกันชีวิต · ถ่ายโอนความเสี่ยงก้อนใหญ่ให้ระบบที่รับไหวแทน</span><span>·</span>
+    <span>ประกันสุขภาพ · ค่ารักษาไม่ได้พรากใครไป แต่พรากเงินเก็บทั้งชีวิต</span><span>·</span>
+    <span>วางแผนเกษียณ · วันที่รายได้หยุด แต่รายจ่ายไม่หยุด</span><span>·</span>
+    <span>การศึกษาบุตร · ค่าเทอมไม่ได้รอจนกว่าคุณจะพร้อม</span><span>·</span>
+    <span>ประกันชีวิต · ถ่ายโอนความเสี่ยงก้อนใหญ่ให้ระบบที่รับไหวแทน</span><span>·</span>
+    <span>ประกันสุขภาพ · ค่ารักษาไม่ได้พรากใครไป แต่พรากเงินเก็บทั้งชีวิต</span><span>·</span>
+    <span>วางแผนเกษียณ · วันที่รายได้หยุด แต่รายจ่ายไม่หยุด</span><span>·</span>
+    <span>การศึกษาบุตร · ค่าเทอมไม่ได้รอจนกว่าคุณจะพร้อม</span><span>·</span>
+  </div>
+</div>
+
+<!-- ============ 1. เครื่องมือทั้งหมด ============ -->
+<section class="sec" id="tools">
+  <div class="wrap">
+    <div class="head rv">
+      <span class="eye">OUR TOOLS</span>
+      <h2>4 เครื่องมือ สำหรับ 4 เป้าหมายชีวิต</h2>
+      <p>แต่ละหน้าอธิบายเรื่องนั้นตั้งแต่ต้น พร้อมเครื่องคำนวณที่ปรับตัวเลขได้ตามชีวิตจริงของคุณ
+        ทุกอย่างคำนวณในเครื่องของคุณเอง ไม่มีการส่งข้อมูลออกไปไหน</p>
+    </div>
+
+    <div class="tgrid">
+      <a class="tool t-money rv" href="money.html">
+        <div class="ico">🛡️</div>
+        <h3>ประกันชีวิต</h3>
+        <p>ถ้าวันนั้นมาถึง ครอบครัวคุณจะอยู่ต่อได้กี่เดือน — พร้อมเครื่องคำนวณทุนประกันแบบ DIME</p>
+        <span class="go">เปิดเครื่องคำนวณ <span>→</span></span>
+      </a>
+
+      <a class="tool t-health rv" data-delay="80" href="health.html">
+        <div class="ico">🩺</div>
+        <h3>สุขภาพ &amp; โรคร้ายแรง</h3>
+        <p>ค่ารักษาไม่ได้พรากใครไป แต่พรากเงินเก็บทั้งชีวิต — คำนวณวงเงินค่ารักษาที่ควรมี</p>
+        <span class="go">เปิดเครื่องคำนวณ <span>→</span></span>
+      </a>
+
+      <a class="tool t-retire rv" data-delay="160" href="retire.html">
+        <div class="ico">🌱</div>
+        <h3>วางแผนเกษียณ</h3>
+        <p>วันที่หยุดทำงาน เงินของคุณยังทำงานอยู่ไหม — คำนวณเงินก้อนเกษียณและเงินที่ต้องออมเพิ่ม</p>
+        <span class="go">เปิดเครื่องคำนวณ <span>→</span></span>
+      </a>
+
+      <a class="tool t-edu rv" data-delay="240" href="education.html">
+        <div class="ico">🎓</div>
+        <h3>การศึกษาบุตร</h3>
+        <p>ค่าเทอมไม่ได้รอจนกว่าคุณจะพร้อม — คำนวณค่าการศึกษาตั้งแต่อนุบาลถึงปริญญาตรี</p>
+        <span class="go">เปิดเครื่องคำนวณ <span>→</span></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 2. ทำไมต้อง 2Provi ============ -->
+<section class="sec tinted" id="why-us">
+  <div class="wrap">
+    <div class="head rv">
+      <span class="eye">WHY 2PROVI GROUP</span>
+      <h2>เพราะการวางแผนที่ดี เริ่มต้นจากความเข้าใจ</h2>
+      <p>ทุกคนมีเป้าหมาย ภาระ และจังหวะชีวิตที่แตกต่างกัน
+        เราจึงเน้นรับฟังอย่างจริงใจ อธิบายข้อมูลให้เข้าใจง่าย และช่วยคุณเลือกแนวทางที่เหมาะสม</p>
+    </div>
+
+    <div class="split" style="margin-top:0">
+      <div class="rv">
+        <div class="ph" data-ico="🤝" style="height:370px;box-shadow:var(--sh3)">
+          <img
+            src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=900&q=85"
+            alt="การให้คำปรึกษาด้านการวางแผนการเงิน" loading="lazy">
+        </div>
+      </div>
+
+      <div class="rv" data-delay="120">
+        <h3>สิ่งที่เรายึดถือ</h3>
+        <ul class="tick" style="margin-top:1rem">
+          <li><b>เข้าใจง่าย</b> — อธิบายรายละเอียดสำคัญด้วยภาษาที่ไม่ซับซ้อน ไม่ใช้ศัพท์ประกันถล่มใส่</li>
+          <li><b>เหมาะกับคุณ</b> — ออกแบบจากเป้าหมายและงบประมาณของคุณ ไม่ใช่จากแบบที่ขายง่ายที่สุด</li>
+          <li><b>ดูแลต่อเนื่อง</b> — พร้อมช่วยเหลือเรื่องข้อมูลและการประสานงาน ไม่ใช่จบที่วันเซ็นสัญญา</li>
+          <li><b>ยืดหยุ่น</b> — นัดหมายได้ทั้งแบบออนไลน์และออฟไลน์ ตามเวลาที่คุณสะดวก</li>
+          <li><b>ตรงไปตรงมา</b> — บอกข้อจำกัดและข้อยกเว้นตั้งแต่ต้น ดีกว่าให้คุณไปเจอตอนเคลม</li>
+        </ul>
+        <div class="note">
+          <b>เนื้อหาทุกหน้าจัดทำเพื่อการศึกษา</b> — เราอยากให้คุณเข้าใจเรื่องนี้พอที่จะตัดสินใจเองได้
+          ไม่ว่าสุดท้ายจะเลือกทำประกันกับใครก็ตาม
+        </div>
+        <a class="btn btn-p" href="quote.html" style="margin-top:1.3rem">เริ่มวางแผนกับเรา →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 3. 3 ขั้นตอน ============ -->
+<section class="sec" id="process">
+  <div class="wrap">
+    <div class="head rv">
+      <span class="eye">SIMPLE PROCESS</span>
+      <h2>3 ขั้นตอนสู่แผนที่ใช่สำหรับคุณ</h2>
+      <p>เริ่มจากการพูดคุยอย่างสบาย ๆ และให้ทีมงานช่วยวิเคราะห์แนวทางเบื้องต้น</p>
+    </div>
+
+    <div class="steps">
+      <article class="step rv">
+        <div class="stepn">1</div>
+        <h3><small>STEP 01</small>บอกเป้าหมายของคุณ</h3>
+        <p>แจ้งไลฟ์สไตล์ เป้าหมาย ภาระหน้าที่ และสิ่งสำคัญที่คุณอยากวางแผน
+          ถ้าลองเครื่องคำนวณมาก่อนแล้ว ยิ่งคุยกันได้ตรงจุดเร็วขึ้น</p>
+      </article>
+      <article class="step rv hi" data-delay="80">
+        <div class="stepn">2</div>
+        <h3><small>STEP 02</small>รับข้อเสนอเบื้องต้น</h3>
+        <p>ทีมงานติดต่อกลับเพื่อให้ข้อมูลและนำเสนอแนวทางที่เหมาะกับความต้องการของคุณ
+          พร้อมอธิบายทั้งข้อดีและข้อจำกัด</p>
+      </article>
+      <article class="step rv" data-delay="160">
+        <div class="stepn">3</div>
+        <h3><small>STEP 03</small>เริ่มต้นและดูแลต่อเนื่อง</h3>
+        <p>เมื่อเลือกแผนที่เหมาะสมแล้ว เรายังคงพร้อมดูแลคุณในระยะยาว
+          ทั้งเรื่องเอกสาร การทบทวนแผน และการประสานงานเมื่อต้องใช้สิทธิ์</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 4. สาระน่ารู้ ============ -->
+<section class="sec tinted" id="articles">
+  <div class="wrap">
+    <div class="head rv">
+      <span class="eye">LIFE INSIGHTS</span>
+      <h2>สาระน่ารู้เพื่อการวางแผนที่มั่นใจขึ้น</h2>
+      <p>เรื่องใกล้ตัวที่ช่วยให้คุณเริ่มต้นวางแผนชีวิต การเงิน และสุขภาพได้อย่างเป็นระบบ</p>
+    </div>
+
+    <div class="agrid">
+      <a class="art-c rv" href="retire.html">
+        <div class="ph" data-ico="📊">
+          <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&q=85"
+               alt="การวางแผนการเงิน" loading="lazy">
+        </div>
+        <div class="art-b">
+          <span class="chip">วางแผนการเงิน</span>
+          <h3>เริ่มวางแผนการเงินอย่างไร เมื่อมีรายได้ก้อนแรก</h3>
+          <p>แนวคิดพื้นฐานในการจัดสรรรายรับ เพื่อเป้าหมายในวันนี้และอนาคต
+            เริ่มจากกันไว้ออมอย่างน้อย 10% ของรายได้ทุกเดือน</p>
+          <span class="go">อ่านต่อที่หน้าวางแผนเกษียณ →</span>
+        </div>
+      </a>
+
+      <a class="art-c rv" data-delay="90" href="health.html">
+        <div class="ph" data-ico="🏥">
+          <img src="https://images.unsplash.com/photo-1581579185169-17d06cfd1e05?auto=format&fit=crop&w=800&q=85"
+               alt="การดูแลสุขภาพ" loading="lazy">
+        </div>
+        <div class="art-b">
+          <span class="chip">สุขภาพ</span>
+          <h3>เช็กลิสต์ค่าใช้จ่ายสุขภาพที่ควรเตรียมพร้อม</h3>
+          <p>ทำความเข้าใจเรื่องค่ารักษาและการเตรียมแผนรับมืออย่างมีสติ
+            เมื่อเงินเฟ้อค่ารักษาโตเร็วกว่าเงินเฟ้อทั่วไปราว 3 เท่า</p>
+          <span class="go">อ่านต่อที่หน้าสุขภาพ →</span>
+        </div>
+      </a>
+
+      <a class="art-c rv" data-delay="180" href="education.html">
+        <div class="ph" data-ico="👨‍👧">
+          <img src="https://images.unsplash.com/photo-1504159506876-f8338247a14a?auto=format&fit=crop&w=800&q=85"
+               alt="ครอบครัวและอนาคต" loading="lazy">
+        </div>
+        <div class="art-b">
+          <span class="chip">ครอบครัว</span>
+          <h3>วางอนาคตให้ลูก ด้วยเป้าหมายเล็ก ๆ ที่เริ่มได้วันนี้</h3>
+          <p>เปลี่ยนความตั้งใจให้เป็นแผนที่ทำได้จริง เพราะสิ่งที่ทำงานแทนคุณคือเวลา
+            ไม่ใช่จำนวนเงินที่ออมได้ในเดือนแรก</p>
+          <span class="go">อ่านต่อที่หน้าการศึกษาบุตร →</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section class="cta">
+  <div class="wrap">
+    <span class="eye" style="color:#d7f5ff">FREE CONSULTATION</span>
+    <h2>ให้ 2Provi Group ช่วยวางแผน<br>เพื่ออนาคตที่คุณเลือกได้</h2>
+    <p style="max-width:640px;margin:0 auto;opacity:.94">แจ้งข้อมูลเบื้องต้นเพียงเล็กน้อย
+      แล้วทีมงานจะติดต่อกลับเพื่อพูดคุยและจัดทำข้อเสนอที่เหมาะกับคุณ</p>
+    <div class="cta-row">
+      <a class="btn btn-w btn-lg" href="quote.html">ขอรับข้อเสนอเบื้องต้น →</a>
+      <a class="btn btn-o btn-lg" style="border-color:#fff;color:#fff" href="#tools">ดูเครื่องมือทั้งหมด</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ แถบแจ้งการใช้คุกกี้ ============ -->
+<div id="ck" class="ck" role="dialog" aria-label="การแจ้งใช้คุกกี้" aria-live="polite">
+  <div class="ck-in">
+    <div class="ck-ico" aria-hidden="true">🍪</div>
+    <div>
+      <h3>เว็บไซต์นี้ใช้คุกกี้</h3>
+      <p>เราใช้พื้นที่จัดเก็บในเบราว์เซอร์เท่าที่จำเป็นต่อการทำงานของเว็บไซต์ เช่น จำโหมดสีที่คุณเลือก
+        อ่านรายละเอียดได้ที่ <a href="privacy-policy.html">นโยบายความเป็นส่วนตัว</a></p>
+    </div>
+    <div class="ck-btns">
+      <button class="btn btn-gh" id="ckNo" type="button">ปฏิเสธที่ไม่จำเป็น</button>
+      <button class="btn btn-p" id="ckYes" type="button">ยอมรับทั้งหมด</button>
+    </div>
+  </div>
+</div>
+
+<!-- ============ FOOTER (แถบเดียวกันทุกหน้า) ============ -->
+<footer class="foot">
+  <div class="wrap foot-g">
+    <div>
+      <a class="brand" href="index.html" style="color:#fff"><span class="mark">🛡️</span><span>2Provi<b>Group</b></span></a>
+      <p>เว็บไซต์ให้ความรู้ด้านการวางแผนการเงินและการบริหารความเสี่ยง จัดทำเพื่อการศึกษาเท่านั้น
+         ไม่ใช่คำแนะนำการลงทุน และไม่ใช่การเสนอขายกรมธรรม์</p>
+    </div>
+    <div><h4>ในหน้านี้</h4><a href="#tools">เครื่องมือทั้งหมด</a><a href="#why-us">ทำไมต้อง 2Provi</a><a href="#process">3 ขั้นตอน</a><a href="#articles">สาระน่ารู้</a></div>
+    <div>
+      <h4>ไปหน้าอื่น</h4>
+      <a href="money.html">ประกันชีวิต</a><a href="health.html">สุขภาพ &amp; โรคร้ายแรง</a><a href="retire.html">วางแผนเกษียณ</a><a href="education.html">การศึกษาบุตร</a><a href="quote.html">ขอรับข้อเสนอ</a>
+      <a href="/aboutme/">ทีมที่ปรึกษา</a><a href="join.html">สมัครเป็นตัวแทน</a>
+    </div>
+    <div>
+      <h4>ติดต่อเรา</h4>
+      <a href="https://2provi.com" target="_blank" rel="noopener">🌐 2provi.com</a>
+      <a href="mailto:2provi@gmail.com">✉️ 2provi@gmail.com</a>
+      <p style="margin-top:.6rem">ติดต่อผ่านเว็บไซต์และอีเมลเท่านั้น</p>
+    </div>
+  </div>
+  <div class="wrap foot-b">
+    © 2026 2Provi Group · จัดทำเพื่อการศึกษา · ข้อมูลอ้างอิงควรตรวจสอบกับ คปภ. และบริษัทประกันโดยตรง<br>
+    <a href="privacy-policy.html" style="display:inline;color:#9fc3ea;text-decoration:underline">นโยบายความเป็นส่วนตัว</a>
+  </div>
+</footer>
+
+<button id="toTop" type="button" aria-label="กลับขึ้นด้านบน">↑</button>
+
+<script src="/js/core.js"></script>
+<script src="/js/page-index.js"></script>
 </body>
 </html>

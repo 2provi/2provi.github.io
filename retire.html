@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="th" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>วางแผนเกษียณ — วันที่หยุดทำงาน เงินของคุณยังทำงานอยู่ไหม | 2Provi Group</title>
+<meta name="description" content="วางแผนเกษียณอายุฉบับเข้าใจง่าย พร้อมเครื่องคำนวณเงินก้อนเกษียณ ปรับเงินเฟ้อและผลตอบแทนได้ โดย 2Provi Group">
+<meta name="theme-color" content="#0b4a8f">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230b4a8f'/%3E%3Cpath d='M16 6 9 8.6v5.2c0 4.3 2.9 8.1 7 9.5 4.1-1.4 7-5.2 7-9.5V8.6L16 6Z' fill='%2338bdf8'/%3E%3Cpath d='m12.8 15.4 2.2 2.2 4.2-4.2' fill='none' stroke='%23fff' stroke-width='2.1' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+
+<!-- ธีมถูกทาก่อนหน้าจะวาด กันอาการกระพริบขาวตอนเปิดในโหมดมืด -->
+<script>
+(function(){
+  var t="";
+  try{ t=localStorage.getItem("ls-theme")||""; }catch(e){}
+  if(t!=="dark"&&t!=="light"){
+    try{ t=window.matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light"; }catch(e){ t="light"; }
+  }
+  document.documentElement.setAttribute("data-theme",t);
+})();
+</script>
+<link rel="stylesheet" href="/css/core.css">
+<link rel="stylesheet" href="/css/page-retire.css">
+</head>
+<body>
+
+<div id="prog"><b></b></div>
+
+<header class="nav" id="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="index.html">
+      <span class="mark">
+        <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M12 2 4 5v6c0 5 3.4 9.4 8 11 4.6-1.6 8-6 8-11V5l-8-3Z"/><path d="m9 12 2 2 4-4"/>
+        </svg>
+      </span>
+      <span>2Provi<b>Group</b></span>
+    </a>
+    <nav class="links" id="menu"><a href="#gap">ช่องว่างเกษียณ</a><a href="#rule">ต้องมีเท่าไร</a><a href="#pillars">3 เสาหลัก</a><a href="#calc">คำนวณ</a><a href="#steps">เริ่มวันนี้</a><a href="#faq">คำถามพบบ่อย</a></nav>
+    <div class="acts">
+      <button class="ibtn" id="themeBtn" type="button" aria-label="สลับโหมดสี" title="สลับโหมดสว่าง/มืด">🌙</button>
+      <a class="btn btn-p nosm" href="#calc">เริ่มคำนวณ</a>
+      <button class="burger" id="burger" type="button" aria-label="เปิดเมนู" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+  <div class="tools">
+    <nav class="wrap tools-in" aria-label="เมนูข้ามหน้า"><a href="index.html" class="home">🏠 หน้าหลัก</a><a href="money.html" class="">🛡️ ประกันชีวิต</a><a href="health.html" class="">🩺 สุขภาพ</a><a href="retire.html" class="cur" aria-current="page">🌱 วางแผนเกษียณ</a><a href="education.html" class="">🎓 การศึกษาบุตร</a><a href="/aboutme/">👥 ทีมงาน</a><a href="quote.html" class="askq">ขอรับข้อเสนอเบื้องต้น <span>→</span></a></nav>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="top">
+  <div class="aur"><i></i><i></i><i></i></div>
+  <div class="grid-bg"></div>
+  <div class="wrap hero-g">
+    <div class="rv">
+      <span class="pill">🌱 วางแผนเกษียณ · ฉบับเข้าใจง่าย</span>
+      <h1>วันที่หยุดทำงาน<br>เงินของคุณ<span class="grad">ยังทำงานอยู่ไหม?</span></h1>
+      <p class="lead">เกษียณไม่ใช่วันที่รายจ่ายหยุด — มีแต่วันที่ <b>รายได้หยุด</b> คนไทยวันนี้อายุยืนถึงราว 85 ปี
+        และผู้วางแผนที่ดีจะเผื่อถึง 90–100 ปี นั่นแปลว่าหลังเกษียณอาจต้องมีเงินเลี้ยงตัวเองต่ออีก <b>25–35 ปี</b>
+        โดยไม่มีสลิปเงินเดือนอีกเลย</p>
+      <div class="cta-row">
+        <a class="btn btn-p btn-lg" href="#calc">🧮 คำนวณเงินก้อนเกษียณ</a>
+        <a class="btn btn-o btn-lg" href="#gap">ดูช่องว่างที่คนส่วนใหญ่มองข้าม ↓</a>
+      </div>
+      <div class="trust">
+        <span>✅ คำนวณในเครื่องคุณ ไม่ส่งข้อมูลออก</span>
+        <span>✅ ปรับเงินเฟ้อและผลตอบแทนได้</span>
+        <span>✅ ใช้ได้ทั้งลูกจ้างและอาชีพอิสระ</span>
+      </div>
+      <div class="stats">
+        <div class="stat"><b>~<span class="num" data-to="85">0</span> ปี</b><span>อายุขัยเฉลี่ยคนไทย — นักวางแผนแนะนำให้เผื่ออีกราว 5 ปี</span></div>
+        <div class="stat"><b><span class="num" data-to="10">0</span>%</b><span>สัดส่วนรายได้ขั้นต่ำที่ควรกันไว้ออมทุกเดือน</span></div>
+        <div class="stat"><b>~<span class="num" data-to="10">0</span>%</b><span>เงินเฟ้อค่ารักษาพยาบาลต่อปี สูงกว่าเงินเฟ้อทั่วไปราว 3 เท่า</span></div>
+      </div>
+    </div>
+
+    <div class="art rv" data-delay="140">
+      <div class="board">
+        <div class="board-h">
+          <h4><span class="dot"></span>เส้นทางเงินก้อนเกษียณ</h4>
+          <span>สะสม → ใช้จ่าย</span>
+        </div>
+        <div class="chart" aria-hidden="true">
+          <i style="height:14%;animation-delay:.04s"></i>
+          <i style="height:26%;animation-delay:.10s"></i>
+          <i style="height:40%;animation-delay:.16s"></i>
+          <i style="height:57%;animation-delay:.22s"></i>
+          <i style="height:78%;animation-delay:.28s"></i>
+          <i style="height:100%;animation-delay:.34s"></i>
+          <i style="height:80%;animation-delay:.40s;opacity:.6"></i>
+          <i style="height:58%;animation-delay:.46s;opacity:.6"></i>
+          <i style="height:34%;animation-delay:.52s;opacity:.6"></i>
+          <i style="height:12%;animation-delay:.58s;opacity:.6"></i>
+        </div>
+        <div class="rows">
+          <div class="row">💼 ช่วงสะสม <em>อายุ 30–60</em></div>
+          <div class="row">🌴 ช่วงใช้จ่าย <em>อายุ 60–90</em></div>
+          <div class="row">⚠️ จุดที่เงินมักหมดก่อน <em>อายุ 75–80</em></div>
+        </div>
+        <div class="tagA">📈 ดอกเบี้ยทบต้น</div>
+        <div class="tagB">⏳ เวลาคือต้นทุน</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="marq" aria-hidden="true">
+  <div>
+    <span>เกษียณคือรายจ่าย 25–35 ปีที่ไม่มีเงินเดือน</span><span>·</span>
+    <span>ออมช้า 10 ปี ต้องออมหนักขึ้นเกือบเท่าตัว</span><span>·</span>
+    <span>ค่ารักษาคือ 70–80% ของรายจ่ายหลังเกษียณ</span><span>·</span>
+    <span>เงินเฟ้อ 3% ทำให้เงิน 1 ล้านวันนี้ เหลือค่าราว 4 แสนในอีก 30 ปี</span><span>·</span>
+    <span>เกษียณคือรายจ่าย 25–35 ปีที่ไม่มีเงินเดือน</span><span>·</span>
+    <span>ออมช้า 10 ปี ต้องออมหนักขึ้นเกือบเท่าตัว</span><span>·</span>
+    <span>ค่ารักษาคือ 70–80% ของรายจ่ายหลังเกษียณ</span><span>·</span>
+    <span>เงินเฟ้อ 3% ทำให้เงิน 1 ล้านวันนี้ เหลือค่าราว 4 แสนในอีก 30 ปี</span><span>·</span>
+  </div>
+</div>
+
+<!-- ============ 1. ช่องว่างเกษียณ ============ -->
+<section class="sec dark-sec" id="gap">
+  <div class="wrap">
+    <div class="head rv">
+      <span class="eye">THE RETIREMENT GAP</span>
+      <h2>ช่องว่างที่เงียบที่สุด<br>คือช่องว่างระหว่าง “เงินที่มี” กับ “ปีที่ต้องอยู่”</h2>
+      <p>คนส่วนใหญ่ประเมินว่าต้องใช้เงินหลังเกษียณ “ไม่เยอะหรอก” เพราะคิดจากรายจ่ายวันนี้
+        แต่ลืมว่าเงินจะถูกใช้ในอีก 20–30 ปีข้างหน้า ที่ราคาของทุกอย่างไม่เท่าเดิมแล้ว</p>
+    </div>
+
+    <div class="ageline rv" style="background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.16)">
+      <h3 style="color:#fff">ชีวิตหนึ่งแบ่งเป็น 2 ช่วง — ช่วงที่หาเงินได้ กับช่วงที่ต้องใช้เงินเก่า</h3>
+      <div class="albar" role="img" aria-label="แผนภาพเส้นเวลา: ช่วงทำงานอายุ 25 ถึง 60 ปี และช่วงหลังเกษียณอายุ 60 ถึง 90 ปี">
+        <div class="tick" style="left:0%;transform:translateX(0)">อายุ 25<i></i></div>
+        <div class="tick" style="left:46.7%">อายุ 60<i></i></div>
+        <div class="tick" style="left:100%;transform:translateX(-100%)">อายุ 90<i></i></div>
+        <div class="seg s1">สะสม 35 ปี — มีเงินเดือน</div>
+        <div class="seg s2">ใช้จ่าย 30 ปี — ไม่มีเงินเดือน</div>
+        <div class="cap" style="left:23%">เก็บได้เท่าไร ตัดสินตรงนี้</div>
+        <div class="cap" style="left:74%">ใช้ได้นานแค่ไหน ตัดสินตรงนี้</div>
+      </div>
+      <p style="text-align:center;color:#a8c3e6;font-size:.88rem;margin-top:.6rem">
+        สังเกตว่าสองช่วงยาว <b style="color:#fff">เกือบเท่ากัน</b> — แต่ช่วงหลังไม่มีรายได้เข้ามาเลย
+      </p>
+    </div>
+
+    <div class="risk4 rv" data-delay="80">
+      <div class="rk">
+        <div class="n">⏳</div>
+        <h4>อายุยืนกว่าที่คิด</h4>
+        <p>วางแผนถึง 80 แต่อยู่ถึง 92 แปลว่ามี <b>12 ปีที่ไม่มีเงินรองรับ</b> — และเป็น 12 ปีที่ร่างกายต้องการเงินมากที่สุด</p>
+      </div>
+      <div class="rk">
+        <div class="n">📈</div>
+        <h4>เงินเฟ้อกินเงียบ ๆ</h4>
+        <p>เงินเฟ้อ 3% ต่อปี ทำให้ค่าใช้จ่ายเดือนละ 20,000 บาทวันนี้ กลายเป็น <b>ราว 48,000 บาท</b> ในอีก 30 ปี</p>
+      </div>
+      <div class="rk">
+        <div class="n">🏥</div>
+        <h4>ค่ารักษาโตเร็วกว่าทุกอย่าง</h4>
+        <p>เงินเฟ้อค่ารักษาราว 10% ต่อปี และค่ารักษาคิดเป็น <b>70–80% ของรายจ่าย</b>ในช่วงปลายชีวิต</p>
+      </div>
+      <div class="rk">
+        <div class="n">📉</div>
+        <h4>ตลาดลงในปีแรก ๆ ที่เริ่มถอน</h4>
+        <p>ถอนเงินตอนพอร์ตติดลบ = ขายของถูก เงินต้นหายเร็วกว่าที่คำนวณไว้ เรียกว่า <b>ความเสี่ยงลำดับผลตอบแทน</b></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 2. เงินก้อนที่ต้องมี ============ -->
+<section class="sec" id="rule">
+  <div class="wrap">
+    <div class="head rv">
+      <span class="eye">HOW MUCH IS ENOUGH</span>
+      <h2>เงินก้อนเกษียณ “ที่พอ” คำนวณจากอะไร</h2>
+      <p>ไม่มีตัวเลขเดียวที่ใช้ได้กับทุกคน เพราะรูปแบบชีวิตต่างกัน
+        แต่มีหลักคิดที่ใช้ตั้งต้นได้ และเช็กความสมเหตุสมผลของตัวเลขที่ใครก็ตามเสนอให้คุณ</p>
+    </div>
+
+    <div class="split" style="margin-top:0">
+      <div class="rv">
+        <h3>หลักคิด 3 ชั้น</h3>
+        <ul class="pyr">
+          <li><b>1.</b> <span class="hl">รายจ่ายต่อเดือนที่อยากใช้</span> — คิดเป็น “เงินวันนี้” ก่อน แล้วค่อยปรับเงินเฟ้อ</li>
+          <li><b>2.</b> คูณด้วย <span class="hl">จำนวนปีหลังเกษียณ</span> — เผื่ออายุขัยเฉลี่ยบวกอีกราว 5 ปี</li>
+          <li><b>3.</b> หัก <span class="hl">รายได้ประจำที่จะได้อยู่แล้ว</span> — บำนาญประกันสังคม กบข. เงินปันผล ค่าเช่า</li>
+        </ul>
+        <div class="note">
+          <b>ตัวเลขตั้งต้นที่นักวางแผนมักใช้</b> — ถ้าหลังเกษียณใช้เดือนละ 20,000 บาท
+          และวางแผนไว้ 25 ปีที่เงินเฟ้อ 4% เงินก้อนที่ต้องเตรียมจะอยู่ราว <b>10 ล้านบาท</b>
+          ถ้าใช้เดือนละ 50,000 บาท ก็ราว <b>25 ล้านบาท</b> โดยยังไม่รวมบำนาญใด ๆ
+        </div>
+        <div class="note warn">
+          <b>อย่าหลงกับ “เลขกลม ๆ”</b> — 10 ล้านบาทไม่ได้แปลว่าพอสำหรับทุกคน
+          ถ้าคุณเกษียณเร็วกว่า อายุยืนกว่า หรือมีค่ารักษาสูงกว่าคนทั่วไป ตัวเลขจะขยับขึ้นทันที
+          ใช้เครื่องคำนวณด้านล่างกับตัวเลขของคุณเองดีกว่า
+        </div>
+      </div>
+
+      <div class="rv" data-delay="120">
+        <div class="mx" style="margin-top:0">
+          <h3>ถ้าอยากใช้เดือนละเท่านี้ ต้องมีเงินก้อนราวเท่าไร</h3>
+          <div class="mxg" style="grid-template-columns:1fr 1fr 1fr">
+            <div class="mc h">ใช้ต่อเดือน</div>
+            <div class="mc h">เกษียณ 20 ปี</div>
+            <div class="mc h">เกษียณ 30 ปี</div>
+
+            <div class="mc g1">15,000 บาท<span>พออยู่ได้ ไม่ฟุ่มเฟือย</span></div>
+            <div class="mc g2">≈ 5.3 ล้าน</div>
+            <div class="mc g2">≈ 9.4 ล้าน</div>
+
+            <div class="mc g1">25,000 บาท<span>ใช้ชีวิตปกติ มีเที่ยวบ้าง</span></div>
+            <div class="mc g2">≈ 8.8 ล้าน</div>
+            <div class="mc g4">≈ 15.6 ล้าน</div>
+
+            <div class="mc g1">40,000 บาท<span>ดูแลสุขภาพเต็มที่</span></div>
+            <div class="mc g3">≈ 14.1 ล้าน</div>
+            <div class="mc g3">≈ 25.0 ล้าน</div>
+          </div>
+          <p class="muted" style="font-size:.8rem;margin-top:1rem;text-align:center;color:var(--muted)">
+            สมมติเงินเฟ้อ 3% · ผลตอบแทนของเงินก้อนหลังเกษียณ 3% · ยังไม่หักบำนาญ<br>
+            ตัวเลขนี้ใช้ “เทียบขนาด” เท่านั้น ของจริงให้กรอกในเครื่องคำนวณ
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 3. สามเสาหลัก ============ -->
+<section class="sec tinted" id="pillars">
+  <div class="wrap">
+    <div class="head rv">
+      <span class="eye">THREE PILLARS</span>
+      <h2>รายได้หลังเกษียณมาจาก 3 ทาง</h2>
+      <p>ความมั่นคงหลังเกษียณไม่ได้มาจากทางเดียว แต่มาจากการมีหลายขาให้ยืน
+        ถ้าขาหนึ่งสั่น อีกสองขายังรับไหว</p>
+    </div>
+
+    <div class="pillars">
+      <div class="pil rv">
+        <span class="pn">เสาที่ 1 · ภาครัฐ</span>
+        <h3>บำนาญประกันสังคม / กบข.</h3>
+        <p>ฐานที่ได้อยู่แล้วจากการทำงาน จ่ายตลอดชีวิต แต่จำนวนไม่มาก และ
+          <b>ไม่ได้ปรับตามเงินเฟ้ออัตโนมัติ</b> จึงควรถือเป็น “พื้น” ไม่ใช่ “แผน”</p>
+        <div class="amt">มาตรา 33 · ตั้งแต่ 1 ม.ค. 2569 ใช้สูตรใหม่แบบ CARE คิดจากค่าจ้างตลอดชีวิตการทำงาน
+          เพดานค่าจ้างขยับเป็น <b>17,500 บาท</b> · อัตราบำนาญ 20% + 1.5% ต่อปีที่ส่งเกิน 15 ปี</div>
+      </div>
+
+      <div class="pil rv" data-delay="90">
+        <span class="pn">เสาที่ 2 · ตัวเราเอง</span>
+        <h3>เงินออมและการลงทุน</h3>
+        <p>กองทุนสำรองเลี้ยงชีพ RMF/SSF กองทุนรวม เงินฝาก ทอง อสังหาฯ
+          เสานี้ <b>ยืดหยุ่นที่สุดและมีโอกาสโตชนะเงินเฟ้อ</b> แต่ก็แกว่งตามตลาด</p>
+        <div class="amt">หลักปฏิบัติที่ใช้ได้จริง: กันไว้ออม <b>อย่างน้อย 10%</b> ของรายได้ทุกเดือน
+          และคุมภาระหนี้ไม่เกิน 45% ของรายได้</div>
+      </div>
+
+      <div class="pil rv" data-delay="180">
+        <span class="pn">เสาที่ 3 · โอนความเสี่ยง</span>
+        <h3>ประกันบำนาญ &amp; ประกันสุขภาพ</h3>
+        <p>ประกันบำนาญเปลี่ยนเงินก้อนเป็น <b>รายได้ที่การันตีจนถึงอายุที่กำหนด</b>
+          ช่วยตัดความเสี่ยง “อยู่นานกว่าที่เงินจะพอ” ส่วนประกันสุขภาพกันไม่ให้ค่ารักษาทุบเงินก้อน</p>
+        <div class="amt">เหมาะเป็น <b>ฐานรายได้ขั้นต่ำ</b> ที่ไม่ผันผวน ไม่ใช่เครื่องมือหาผลตอบแทนสูงสุด
+          — เงื่อนไขและผลประโยชน์เป็นไปตามกรมธรรม์</div>
+      </div>
+    </div>
+
+    <div class="note rv" data-delay="240" style="max-width:860px;margin-inline:auto">
+      <b>เช็กง่าย ๆ ว่าคุณพึ่งเสาไหนมากเกินไป</b> — ถ้ารายได้หลังเกษียณของคุณมาจากเสาเดียวเกิน 70%
+      แปลว่าแผนยังเปราะ ถ้าเสานั้นสะดุด (ตลาดลง กฎเกณฑ์เปลี่ยน สุขภาพทรุด) จะไม่มีอะไรมารับแทน
+    </div>
+  </div>
+</section>
+
+<!-- ============ 4. เครื่องคำนวณ ============ -->
+<section class="sec" id="calc">
+  <div class="wrap">
+    <div class="head rv">
+      <span class="eye">RETIREMENT CALCULATOR</span>
+      <h2>คำนวณเงินก้อนเกษียณของคุณ</h2>
+      <p>เลื่อนแถบหรือพิมพ์ตัวเลขลงไป ผลลัพธ์จะอัปเดตทันที
+        ทุกอย่างคำนวณในเครื่องของคุณ ไม่มีการส่งข้อมูลออกไปไหน</p>
+    </div>
+
+    <div class="calc">
+      <form class="cform rv" id="rForm" novalidate>
+        <div id="errbox" role="alert"></div>
+
+        <label for="age">อายุปัจจุบัน (ปี)
+          <small>จุดเริ่มนับเวลาที่เหลือให้สะสม</small>
+          <input type="number" id="age" value="35" min="20" max="69" step="1" inputmode="decimal"
+                 data-min="20" data-max="69" data-step="1"></label>
+
+        <label for="rage">อายุที่อยากเกษียณ (ปี)
+          <small>เกษียณเร็วขึ้น 5 ปี = สะสมน้อยลง 5 ปี และใช้เงินเพิ่มอีก 5 ปี</small>
+          <input type="number" id="rage" value="60" min="45" max="70" step="1" inputmode="decimal"
+                 data-min="45" data-max="70" data-step="1"></label>
+
+        <label for="eage">วางแผนใช้เงินถึงอายุ (ปี)
+          <small>อายุขัยเฉลี่ยคนไทยราว 85 ปี แนะนำเผื่อถึง 90</small>
+          <input type="number" id="eage" value="90" min="70" max="105" step="1" inputmode="decimal"
+                 data-min="70" data-max="105" data-step="1"></label>
+
+        <label for="exp">ค่าใช้จ่ายต่อเดือนหลังเกษียณ (บาท)
+          <small>คิดเป็น “ราคาวันนี้” ระบบจะปรับเงินเฟ้อให้เอง</small>
+          <input type="text" id="exp" value="25,000" inputmode="numeric" autocomplete="off"
+                 data-money data-min="0" data-max="500000" data-scale="log"></label>
+
+        <label for="pen">รายได้ประจำหลังเกษียณ ต่อเดือน (บาท)
+          <small>บำนาญประกันสังคม กบข. ค่าเช่า เงินปันผล — ใส่ 0 ได้ถ้าไม่มี</small>
+          <input type="text" id="pen" value="5,000" inputmode="numeric" autocomplete="off"
+                 data-money data-min="0" data-max="200000" data-scale="log"></label>
+
+        <label for="have">เงินออม/ลงทุนที่มีอยู่แล้ว (บาท)
+          <small>กองทุนสำรองเลี้ยงชีพ RMF/SSF เงินฝาก กองทุนรวม</small>
+          <input type="text" id="have" value="800,000" inputmode="numeric" autocomplete="off"
+                 data-money data-min="0" data-max="100000000" data-scale="log"></label>
+
+        <label for="save">ออมเพิ่มได้เดือนละ (บาท)
+          <small>รวมส่วนที่นายจ้างสมทบเข้ากองทุนสำรองเลี้ยงชีพด้วย</small>
+          <input type="text" id="save" value="8,000" inputmode="numeric" autocomplete="off"
+                 data-money data-min="0" data-max="500000" data-scale="log"></label>
+
+        <div class="adv">
+          <label class="advtog" for="advOn">
+            <input type="checkbox" id="advOn" checked>
+            <span>ปรับสมมติฐานเงินเฟ้อและผลตอบแทน
+              <small>ค่าเริ่มต้นเป็นค่ากลางที่ใช้กันทั่วไป ปรับได้ตามความเชื่อของคุณ</small></span>
+          </label>
+          <div class="advg" id="advBox">
+            <label for="infl">เงินเฟ้อทั่วไป (%)
+              <small>ค่าใช้จ่ายแพงขึ้นปีละเท่าไร</small>
+              <input type="number" id="infl" value="3" min="0" max="12" step="0.1" inputmode="decimal"
+                     data-min="0" data-max="12" data-step="0.1"></label>
+            <label for="r1">ผลตอบแทน ก่อน เกษียณ (%)
+              <small>ช่วงสะสม รับความเสี่ยงได้มากกว่า</small>
+              <input type="number" id="r1" value="5" min="0" max="15" step="0.1" inputmode="decimal"
+                     data-min="0" data-max="15" data-step="0.1"></label>
+            <label for="r2">ผลตอบแทน หลัง เกษียณ (%)
+              <small>ช่วงถอนใช้ ควรลงทุนระมัดระวังกว่าเดิม</small>
+              <input type="number" id="r2" value="3" min="0" max="15" step="0.1" inputmode="decimal"
+                     data-min="0" data-max="15" data-step="0.1"></label>
+          </div>
+        </div>
+
+        <div id="stale">ตัวเลขเปลี่ยนแล้ว — กดคำนวณอีกครั้งเพื่อดูผลใหม่</div>
+        <div class="cbtns">
+          <button class="btn btn-p" id="calcBtn" type="button">🧮 คำนวณแผนเกษียณ</button>
+          <button class="btn btn-gh" id="resetBtn" type="button">รีเซ็ต</button>
+        </div>
+      </form>
+
+      <div class="cout rv" data-delay="120">
+        <span class="lbl">เงินก้อนที่ควรมี ณ วันเกษียณ</span>
+        <div id="sumOut">—</div>
+        <div id="ratio">กรอกข้อมูลแล้วกดคำนวณ</div>
+
+        <div class="kpis k3">
+          <div class="kpi"><span>คาดว่าจะมีจริง ณ วันเกษียณ</span><b id="kHave">—</b></div>
+          <div class="kpi" id="kGapBox"><span id="kGapLbl">ยังขาดอยู่</span><b id="kGap">—</b></div>
+          <div class="kpi" id="kPmtBox"><span>ต้องออมเพิ่มเดือนละ</span><b id="kPmt">—</b></div>
+        </div>
+
+        <div class="bars">
+          <div class="brow"><span>ค่าใช้จ่ายรวม</span><div class="track"><i id="bExp"></i></div><b id="oExp">—</b></div>
+          <div class="brow mn"><span>หักรายได้ประจำ</span><div class="track"><i id="bPen"></i></div><b id="oPen">—</b></div>
+          <div class="brow"><span>เงินที่มีแล้ว</span><div class="track"><i id="bHave"></i></div><b id="oHave">—</b></div>
+          <div class="brow"><span>จากการออมต่อ</span><div class="track"><i id="bSave"></i></div><b id="oSave">—</b></div>
+        </div>
+
+        <div class="gwrap">
+          <svg id="gchart" viewBox="0 0 560 190" role="img"
+               aria-label="กราฟแสดงเงินก้อนเกษียณตามอายุ เส้นหนึ่งคือแผนปัจจุบัน อีกเส้นคือแผนที่ออมเพิ่มจนพอ">
+            <g id="gGrid"></g>
+            <path id="gArea" fill="url(#gFill)" opacity=".28"></path>
+            <path id="gNeed" fill="none" stroke="#a5f3fc" stroke-width="2.4" stroke-dasharray="6 5" stroke-linecap="round"></path>
+            <path id="gLine" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+            <g id="gMarks"></g>
+            <defs>
+              <linearGradient id="gFill" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#ffffff" stop-opacity=".85"/>
+                <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+              </linearGradient>
+            </defs>
+          </svg>
+          <div class="glg">
+            <span><i style="background:#fff"></i> เงินคงเหลือตามแผนปัจจุบัน</span>
+            <span><i style="background:#a5f3fc"></i> เส้นที่ควรเป็น (ถึงอายุที่วางแผน)</span>
+          </div>
+        </div>
+
+        <div id="formula">—</div>
+        <div id="hint">ตัวเลขนี้เป็นการประมาณเพื่อการวางแผนเบื้องต้น ไม่ใช่การรับประกันผลตอบแทน
+          และไม่ได้รวมภาษี ค่าธรรมเนียม หรือค่ารักษาพยาบาลก้อนใหญ่ที่อาจเกิดขึ้น</div>
+        <div id="stamp"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 5. เริ่มวันนี้ ============ -->
+<section class="sec tinted" id="steps">
+  <div class="wrap">
+    <div class="head rv">
+      <span class="eye">START TODAY</span>
+      <h2>4 ขั้นที่เริ่มได้ตั้งแต่เดือนนี้</h2>
+      <p>ไม่ต้องรอเงินเดือนขึ้น ไม่ต้องรอปีหน้า — สิ่งที่มีค่าที่สุดในการวางแผนเกษียณคือ “เวลา” ซึ่งลดลงทุกวัน</p>
+    </div>
+
+    <div class="steps">
+      <article class="step rv">
+        <div class="stepn">1</div>
+        <h3><small>รู้ตัวเลขจริง</small>รู้ก่อนว่าต้องมีเท่าไร</h3>
+        <p>ใช้เครื่องคำนวณด้านบนกับตัวเลขของคุณเอง จดไว้ 3 ค่า: เงินก้อนที่ต้องมี · เงินที่จะมี · ส่วนต่าง</p>
+      </article>
+      <article class="step rv hi" data-delay="80">
+        <div class="stepn">2</div>
+        <h3><small>ตั้งระบบ</small>ออมอัตโนมัติก่อนใช้</h3>
+        <p>ตั้งโอนเงินออกทันทีวันเงินเดือนออก อย่างน้อย 10% ของรายได้ — เหลือเท่าไรค่อยใช้ ไม่ใช่เหลือเท่าไรค่อยออม</p>
+      </article>
+      <article class="step rv" data-delay="160">
+        <div class="stepn">3</div>
+        <h3><small>กันรูรั่ว</small>ปิดความเสี่ยงค่ารักษา</h3>
+        <p>ค่ารักษาก้อนเดียวลบเงินเกษียณได้หลายปี ตรวจว่าความคุ้มครองสุขภาพยังใช้ได้หลังอายุ 60 หรือไม่</p>
+      </article>
+      <article class="step rv" data-delay="240">
+        <div class="stepn">4</div>
+        <h3><small>ทบทวน</small>เช็กแผนปีละครั้ง</h3>
+        <p>รายได้ ภาระ และเป้าหมายเปลี่ยนทุกปี แผนที่ไม่เคยทบทวนคือแผนของคนที่คุณเป็นเมื่อหลายปีก่อน</p>
+      </article>
+    </div>
+
+    <div class="split" style="margin-top:3.4rem">
+      <div class="rv">
+        <h3>ราคาของการเริ่มช้า</h3>
+        <p style="color:var(--text2)">สมมติเป้าหมายเท่ากันคือมีเงิน 10 ล้านบาทตอนอายุ 60
+          ที่ผลตอบแทน 5% ต่อปี — ตัวเลขด้านขวาคือจำนวนเงินที่ต้องออมต่อเดือน
+          ความต่างไม่ได้มาจากความขยัน แต่มาจาก <b>จำนวนปีที่ดอกเบี้ยได้ทำงาน</b></p>
+        <div class="note warn">
+          เริ่มช้า 10 ปี ไม่ได้แปลว่าต้องออมเพิ่มอีก 10 ปี แต่แปลว่าต้อง
+          <b>ออมหนักขึ้นเกือบเท่าตัวทุกเดือน</b> ตลอดเวลาที่เหลือ
+        </div>
+      </div>
+      <div class="rv" data-delay="120">
+        <div class="mx" style="margin-top:0">
+          <h3>ออมเดือนละเท่าไร ถึงจะได้ 10 ล้านตอน 60</h3>
+          <div class="mxg" style="grid-template-columns:1fr 1fr">
+            <div class="mc h">เริ่มตอนอายุ</div>
+            <div class="mc h">ต้องออมเดือนละ</div>
+            <div class="mc g1">25 ปี <span>เหลือเวลา 35 ปี</span></div>
+            <div class="mc g2">≈ 7,300 บาท</div>
+            <div class="mc g1">35 ปี <span>เหลือเวลา 25 ปี</span></div>
+            <div class="mc g2">≈ 16,800 บาท</div>
+            <div class="mc g1">45 ปี <span>เหลือเวลา 15 ปี</span></div>
+            <div class="mc g3">≈ 37,400 บาท</div>
+            <div class="mc g1">50 ปี <span>เหลือเวลา 10 ปี</span></div>
+            <div class="mc g3">≈ 64,400 บาท</div>
+          </div>
+          <p style="font-size:.8rem;margin-top:1rem;text-align:center;color:var(--muted)">
+            สมมติผลตอบแทน 5% ต่อปี ทบต้นรายเดือน · เริ่มจากเงินต้น 0 บาท
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 6. คำถามพบบ่อย ============ -->
+<section class="sec" id="faq">
+  <div class="wrap narrow">
+    <div class="head rv">
+      <span class="eye">FAQ</span>
+      <h2>คำถามที่คนวางแผนเกษียณถามบ่อย</h2>
+    </div>
+    <div class="acc rv">
+      <details>
+        <summary>มีประกันสังคมแล้ว ยังต้องออมเองอีกไหม<span></span></summary>
+        <p>ต้องครับ/ค่ะ บำนาญชราภาพออกแบบมาเป็น “ฐานกันจน” ไม่ใช่ “เงินเลี้ยงชีพเต็มจำนวน”
+          ตั้งแต่ 1 ม.ค. 2569 เปลี่ยนมาใช้สูตร CARE ที่คิดจากค่าจ้างตลอดชีวิตการทำงานและขยายเพดานค่าจ้างเป็น 17,500 บาท
+          ซึ่งช่วยให้บำนาญสูงขึ้นกว่าสูตรเดิม แต่ตัวเลขที่ได้ยังห่างจากค่าใช้จ่ายจริงของคนส่วนใหญ่มาก
+          และไม่ได้ปรับตามเงินเฟ้อทุกปี จึงควรถือเป็นเพียงเสาแรกใน 3 เสา</p>
+      </details>
+      <details>
+        <summary>ควรใช้ผลตอบแทนกี่เปอร์เซ็นต์ในการคำนวณ<span></span></summary>
+        <p>ไม่มีเลขถูกเลขผิด แต่มีเลขที่ “อธิบายได้” — หลักที่ใช้กันคือช่วงสะสมยังรับความเสี่ยงได้
+          จึงตั้งสูงกว่าช่วงถอนใช้ ค่าเริ่มต้นในเครื่องคำนวณนี้ตั้งไว้ 5% ก่อนเกษียณ และ 3% หลังเกษียณ
+          ข้อแนะนำคือลองปรับให้ต่ำลงกว่าที่คิดสัก 1–2% แล้วดูว่าแผนยังอยู่ได้ไหม ถ้าอยู่ได้แปลว่าแผนทนทาน</p>
+      </details>
+      <details>
+        <summary>เกษียณแล้วเงินหมดก่อนตาย ต้องทำอย่างไร<span></span></summary>
+        <p>ทางแก้มี 4 ทางเท่านั้น และมักต้องผสมกัน: เก็บเพิ่ม · ใช้ให้น้อยลง · เลื่อนวันเกษียณออกไป ·
+          หรือโอนความเสี่ยงอายุยืนให้ระบบผ่านประกันบำนาญที่จ่ายเป็นรายงวดจนถึงอายุที่กำหนด
+          ยิ่งรู้ตัวเร็ว ทางเลือกยิ่งเยอะและเจ็บน้อย</p>
+      </details>
+      <details>
+        <summary>ประกันบำนาญต่างจากกองทุนรวมอย่างไร<span></span></summary>
+        <p>กองทุนรวมให้ “โอกาสผลตอบแทน” แต่ไม่รับประกันว่าเงินจะพอถึงวันสุดท้าย
+          ส่วนประกันบำนาญให้ “ความแน่นอนของกระแสเงิน” เป็นงวด ๆ ตามเงื่อนไขกรมธรรม์
+          แลกกับผลตอบแทนที่มักต่ำกว่า — คนส่วนใหญ่จึงใช้ทั้งสองอย่าง โดยให้ประกันบำนาญคุมรายจ่ายจำเป็นขั้นต่ำ
+          และให้การลงทุนดูแลส่วนที่เหลือ รายละเอียดผลประโยชน์และเงื่อนไขเป็นไปตามกรมธรรม์ของแต่ละบริษัท</p>
+      </details>
+      <details>
+        <summary>ทำไมต้องคิดค่ารักษาพยาบาลแยกจากค่าใช้จ่ายทั่วไป<span></span></summary>
+        <p>เพราะมันโตคนละอัตรา ค่าใช้จ่ายทั่วไปโตราว 3% ต่อปี แต่ค่ารักษาพยาบาลโตราว 10% ต่อปี
+          และกระจุกตัวในช่วงปลายชีวิตซึ่งเป็นช่วงที่เรากลับมีรายได้น้อยที่สุด
+          ถ้ารวมสองอย่างไว้ด้วยกันแล้วใช้เงินเฟ้อเดียว จะประเมินต่ำกว่าความจริงมาก</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section class="cta">
+  <div class="wrap">
+    <h2>อยากรู้ว่าแผนของคุณ ยังขาดอะไร</h2>
+    <p style="max-width:620px;margin:0 auto;opacity:.94">ส่งข้อมูลเบื้องต้นมาพูดคุยกันได้
+      เราช่วยดูภาพรวมและบอกได้ว่าตัวเลขที่คุณคำนวณไว้สมเหตุสมผลแค่ไหน</p>
+    <div class="cta-row">
+      <a class="btn btn-w btn-lg" href="quote.html">ขอรับข้อเสนอเบื้องต้น →</a>
+      <a class="btn btn-o btn-lg" style="border-color:#fff;color:#fff" href="education.html">ดูแผนการศึกษาบุตร</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER (แถบเดียวกันทุกหน้า) ============ -->
+<footer class="foot">
+  <div class="wrap foot-g">
+    <div>
+      <a class="brand" href="index.html" style="color:#fff"><span class="mark">🛡️</span><span>2Provi<b>Group</b></span></a>
+      <p>เว็บไซต์ให้ความรู้ด้านการวางแผนการเงินและการบริหารความเสี่ยง จัดทำเพื่อการศึกษาเท่านั้น
+         ไม่ใช่คำแนะนำการลงทุน และไม่ใช่การเสนอขายกรมธรรม์</p>
+    </div>
+    <div><h4>เนื้อหาหลัก</h4><a href="#gap">ช่องว่างเกษียณ</a><a href="#rule">เงินก้อนที่ต้องมี</a><a href="#pillars">3 เสาหลัก</a><a href="#steps">เริ่มวันนี้</a></div><div><h4>เครื่องมือ</h4><a href="#calc">คำนวณเงินเกษียณ</a><a href="#faq">คำถามพบบ่อย</a><a href="education.html">คำนวณค่าการศึกษา</a></div>
+    <div>
+      <h4>ไปหน้าอื่น</h4>
+      <a href="index.html">หน้าหลัก</a><a href="money.html">ประกันชีวิต</a><a href="health.html">สุขภาพ &amp; โรคร้ายแรง</a><a href="education.html">การศึกษาบุตร</a><a href="quote.html">ขอรับข้อเสนอ</a>
+      <a href="/aboutme/">ทีมที่ปรึกษา</a><a href="join.html">สมัครเป็นตัวแทน</a>
+    </div>
+    <div>
+      <h4>ติดต่อเรา</h4>
+      <a href="https://2provi.com" target="_blank" rel="noopener">🌐 2provi.com</a>
+      <a href="mailto:2provi@gmail.com">✉️ 2provi@gmail.com</a>
+      <p style="margin-top:.6rem">ติดต่อผ่านเว็บไซต์และอีเมลเท่านั้น</p>
+    </div>
+  </div>
+  <div class="wrap foot-b">
+    © 2026 2Provi Group · จัดทำเพื่อการศึกษา · ข้อมูลอ้างอิงควรตรวจสอบกับ คปภ. และบริษัทประกันโดยตรง<br>
+    <a href="privacy-policy.html" style="display:inline;color:#9fc3ea;text-decoration:underline">นโยบายความเป็นส่วนตัว</a>
+  </div>
+</footer>
+
+<button id="toTop" type="button" aria-label="กลับขึ้นด้านบน">↑</button>
+
+<script src="/js/core.js"></script>
+<script src="/js/page-retire.js"></script>
+</body>
+</html>

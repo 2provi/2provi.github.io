@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="th" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>วางแผนการศึกษาบุตร — ค่าเทอมไม่ได้รอจนกว่าคุณจะพร้อม | 2Provi Group</title>
+<meta name="description" content="วางแผนค่าการศึกษาบุตรตั้งแต่อนุบาลถึงปริญญาตรี พร้อมเครื่องคำนวณที่ปรับเงินเฟ้อการศึกษาได้ โดย 2Provi Group">
+<meta name="theme-color" content="#0b4a8f">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230b4a8f'/%3E%3Cpath d='M16 6 9 8.6v5.2c0 4.3 2.9 8.1 7 9.5 4.1-1.4 7-5.2 7-9.5V8.6L16 6Z' fill='%2338bdf8'/%3E%3Cpath d='m12.8 15.4 2.2 2.2 4.2-4.2' fill='none' stroke='%23fff' stroke-width='2.1' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+
+<!-- ธีมถูกทาก่อนหน้าจะวาด กันอาการกระพริบขาวตอนเปิดในโหมดมืด -->
+<script>
+(function(){
+  var t="";
+  try{ t=localStorage.getItem("ls-theme")||""; }catch(e){}
+  if(t!=="dark"&&t!=="light"){
+    try{ t=window.matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light"; }catch(e){ t="light"; }
+  }
+  document.documentElement.setAttribute("data-theme",t);
+})();
+</script>
+<link rel="stylesheet" href="/css/core.css">
+<link rel="stylesheet" href="/css/page-education.css">
+</head>
+<body>
+
+<div id="prog"><b></b></div>
+
+<header class="nav" id="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="index.html">
+      <span class="mark">
+        <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M12 2 4 5v6c0 5 3.4 9.4 8 11 4.6-1.6 8-6 8-11V5l-8-3Z"/><path d="m9 12 2 2 4-4"/>
+        </svg>
+      </span>
+      <span>2Provi<b>Group</b></span>
+    </a>
+    <nav class="links" id="menu"><a href="#reality">ความจริงค่าเทอม</a><a href="#levels">แต่ละช่วงชั้น</a><a href="#calc">คำนวณ</a><a href="#ways">วิธีเตรียมเงิน</a><a href="#steps">เริ่มวันนี้</a><a href="#faq">คำถามพบบ่อย</a></nav>
+    <div class="acts">
+      <button class="ibtn" id="themeBtn" type="button" aria-label="สลับโหมดสี" title="สลับโหมดสว่าง/มืด">🌙</button>
+      <a class="btn btn-p nosm" href="#calc">เริ่มคำนวณ</a>
+      <button class="burger" id="burger" type="button" aria-label="เปิดเมนู" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+  <div class="tools">
+    <nav class="wrap tools-in" aria-label="เมนูข้ามหน้า"><a href="index.html" class="home">🏠 หน้าหลัก</a><a href="money.html" class="">🛡️ ประกันชีวิต</a><a href="health.html" class="">🩺 สุขภาพ</a><a href="retire.html" class="">🌱 วางแผนเกษียณ</a><a href="education.html" class="cur" aria-current="page">🎓 การศึกษาบุตร</a><a href="/aboutme/">👥 ทีมงาน</a><a href="quote.html" class="askq">ขอรับข้อเสนอเบื้องต้น <span>→</span></a></nav>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="top">
+  <div class="aur"><i></i><i></i><i></i></div>
+  <div class="grid-bg"></div>
+  <div class="wrap hero-g">
+    <div class="rv">
+      <span class="pill">🎓 วางแผนการศึกษาบุตร · ฉบับเข้าใจง่าย</span>
+      <h1>ค่าเทอมไม่ได้รอ<br>จนกว่าคุณ<span class="grad">จะพร้อม</span></h1>
+      <p class="lead">ค่าใช้จ่ายเปิดเทอมของครัวเรือนไทยปี 2569 เฉลี่ย <b>29,930 บาทต่อครั้ง</b>
+        และเพิ่มขึ้นราว <b>6% ทุกปี</b> — แปลว่าค่าเทอมที่คุณเห็นวันนี้ ไม่ใช่ตัวเลขที่คุณจะต้องจ่ายจริง
+        ในวันที่ลูกโตพอจะเข้าเรียน</p>
+      <div class="cta-row">
+        <a class="btn btn-p btn-lg" href="#calc">🧮 คำนวณเงินค่าการศึกษา</a>
+        <a class="btn btn-o btn-lg" href="#reality">ดูตัวเลขจริงก่อน ↓</a>
+      </div>
+      <div class="trust">
+        <span>✅ แยกค่าใช้จ่ายรายชั้นเรียน</span>
+        <span>✅ ปรับเงินเฟ้อการศึกษาได้</span>
+        <span>✅ บอกว่าต้องออมเดือนละเท่าไร</span>
+      </div>
+      <div class="stats">
+        <div class="stat"><b><span class="num" data-to="6">0</span>%</b><span>ค่าใช้จ่ายเปิดเทอมเพิ่มขึ้นต่อปี — สูงกว่าเงินเฟ้อทั่วไปราว 2 เท่า</span></div>
+        <div class="stat"><b><span class="num" data-to="19">0</span> ปี</b><span>ระยะเวลาที่ต้องจ่ายต่อเนื่อง ตั้งแต่อนุบาลถึงจบปริญญาตรี</span></div>
+        <div class="stat"><b><span class="num" data-to="27">0</span>%</b><span>ของครัวเรือนไทยบอกว่าเงินเปิดเทอมปีนี้ไม่พอ</span></div>
+      </div>
+    </div>
+
+    <div class="art rv" data-delay="140">
+      <div class="board">
+        <div class="board-h">
+          <h4><span class="dot"></span>ค่าใช้จ่ายรายปีตามอายุลูก</h4>
+          <span>อนุบาล → ปริญญาตรี</span>
+        </div>
+        <div class="chart" aria-hidden="true">
+          <i style="height:22%;animation-delay:.04s"></i>
+          <i style="height:26%;animation-delay:.09s"></i>
+          <i style="height:31%;animation-delay:.14s"></i>
+          <i style="height:37%;animation-delay:.19s"></i>
+          <i style="height:44%;animation-delay:.24s"></i>
+          <i style="height:53%;animation-delay:.29s"></i>
+          <i style="height:63%;animation-delay:.34s"></i>
+          <i style="height:75%;animation-delay:.39s"></i>
+          <i style="height:100%;animation-delay:.44s"></i>
+        </div>
+        <div class="rows">
+          <div class="row">🧸 อนุบาล <em>อายุ 3–5 ปี</em></div>
+          <div class="row">🎒 ประถม <em>อายุ 6–11 ปี</em></div>
+          <div class="row">📚 มัธยม <em>อายุ 12–17 ปี</em></div>
+          <div class="row">🎓 ปริญญาตรี <em>อายุ 18–21 ปี</em></div>
+        </div>
+        <div class="tagA">💡 เริ่มเร็ว = เบาทุกเดือน</div>
+        <div class="tagB">📈 เงินเฟ้อ 6%/ปี</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="marq" aria-hidden="true">
+  <div>
+    <span>เปิดเทอม 2569 เงินสะพัด 6.63 หมื่นล้าน สูงสุดในรอบ 17 ปี</span><span>·</span>
+    <span>ค่าเทอมมหาวิทยาลัยรัฐ 13,000–22,000 บาทต่อเทอม</span><span>·</span>
+    <span>โรงเรียนนานาชาติเริ่มที่หลักแสนต่อปี</span><span>·</span>
+    <span>เริ่มออมตั้งแต่ลูกแรกเกิด เบากว่ารอจนลูก 10 ขวบเกือบเท่าตัว</span><span>·</span>
+    <span>เปิดเทอม 2569 เงินสะพัด 6.63 หมื่นล้าน สูงสุดในรอบ 17 ปี</span><span>·</span>
+    <span>ค่าเทอมมหาวิทยาลัยรัฐ 13,000–22,000 บาทต่อเทอม</span><span>·</span>
+    <span>โรงเรียนนานาชาติเริ่มที่หลักแสนต่อปี</span><span>·</span>
+    <span>เริ่มออมตั้งแต่ลูกแรกเกิด เบากว่ารอจนลูก 10 ขวบเกือบเท่าตัว</span><span>·</span>
+  </div>
+</div>
+
+<!-- ============ 1. ความจริงเรื่องค่าเทอม ============ -->
+<section class="sec dark-sec" id="reality">
+  <div class="wrap">
+    <div class="head rv">
+      <span class="eye">THE REAL NUMBER</span>
+      <h2>ค่าเทอมที่คุณเห็นวันนี้<br>ไม่ใช่ราคาที่คุณจะจ่ายจริง</h2>
+      <p>เพราะเงินที่ต้องจ่าย อยู่ในอนาคต ไม่ใช่วันนี้ — และการศึกษาเป็นหนึ่งในไม่กี่อย่าง
+        ที่ราคาขึ้นเร็วกว่าค่าครองชีพทั่วไปเกือบทุกปี</p>
+    </div>
+
+    <div class="infl rv">
+      <div class="ib">
+        <div class="n">📈</div>
+        <h4>ขึ้นปีละราว 6%</h4>
+        <p>ค่าใช้จ่ายเปิดเทอมเฉลี่ยต่อครัวเรือนปี 2569 อยู่ที่ <b>29,930 บาท</b> เพิ่มขึ้นราว 6% จากปีก่อน
+          และเป็นระดับที่สูงที่สุดในรอบ 17 ปี</p>
+      </div>
+      <div class="ib">
+        <div class="n">🧾</div>
+        <h4>ค่าเทอมไม่ใช่ค่าใช้จ่ายเดียว</h4>
+        <p>ชุดนักเรียน อุปกรณ์ รถรับส่ง เรียนพิเศษ กิจกรรม — รวมกันมัก <b>มากกว่าค่าเทอมที่ประกาศไว้</b>
+          ควรคิดเป็น “ค่าใช้จ่ายรวมต่อปี” ไม่ใช่แค่ค่าเทอม</p>
+      </div>
+      <div class="ib">
+        <div class="n">⏱️</div>
+        <h4>จ่ายต่อเนื่อง 19 ปี</h4>
+        <p>ตั้งแต่อนุบาลถึงจบปริญญาตรีคือ <b>ราว 19 ปีติดต่อกัน</b> ไม่ใช่ก้อนเดียวจบ
+          แผนจึงต้องเป็น “กระแสเงิน” ไม่ใช่ “เงินก้อน”</p>
+      </div>
+      <div class="ib">
+        <div class="n">⚠️</div>
+        <h4>ความเสี่ยงที่คนลืม</h4>
+        <p>แผนการศึกษาส่วนใหญ่พังไม่ใช่เพราะออมน้อย แต่เพราะ <b>คนที่หาเงินเข้าบ้านหยุดหาได้</b>
+          — เจ็บหนัก ทุพพลภาพ หรือจากไปกลางทาง</p>
+      </div>
+    </div>
+
+    <div class="note rv" data-delay="120"
+         style="max-width:880px;margin:2.4rem auto 0;background:rgba(255,255,255,.08);
+                border-left-color:var(--sky);color:#dbeafe">
+      <b style="color:#fff">ลองคิดแบบนี้</b> — ถ้าค่าเทอมมหาวิทยาลัยวันนี้ปีละ 120,000 บาท
+      และขึ้นปีละ 6% เมื่อลูกที่เพิ่งเกิดวันนี้เข้ามหาวิทยาลัยในอีก 18 ปี
+      ค่าเทอมปีแรกจะอยู่ที่ราว <b style="color:#fff">342,000 บาท</b> — เกือบ 3 เท่าของราคาวันนี้
+    </div>
+  </div>
+</section>
+
+<!-- ============ 2. ค่าใช้จ่ายแต่ละช่วงชั้น ============ -->
+<section class="sec" id="levels">
+  <div class="wrap">
+    <div class="head rv">
+      <span class="eye">COST BY LEVEL</span>
+      <h2>แต่ละช่วงชั้น ใช้เงินประมาณเท่าไร</h2>
+      <p>ตัวเลขอ้างอิงปีการศึกษา 2569 เป็นช่วงกว้าง ๆ เพื่อให้เห็นขนาด
+        ของจริงต่างกันมากตามโรงเรียน จังหวัด และหลักสูตร</p>
+    </div>
+
+    <div class="ladder rv">
+      <div class="rung">
+        <div class="ic">🧸</div>
+        <div><h4><small>อายุ 3–5 ปี · 3 ปี</small>อนุบาล</h4>
+          <p>ช่วงที่ส่วนต่างระหว่างโรงเรียนรัฐกับเอกชนกว้างที่สุด และหลายบ้านเลือกเอกชนเพราะเรื่องเวลารับส่ง</p></div>
+        <div class="cost"><b>22,000 – 84,000</b><span>บาท/ปี · รัฐ → เอกชน</span></div>
+      </div>
+      <div class="rung">
+        <div class="ic">🎒</div>
+        <div><h4><small>อายุ 6–11 ปี · 6 ปี</small>ประถมศึกษา</h4>
+          <p>ช่วงยาวที่สุดช่วงหนึ่ง ค่าเรียนพิเศษเริ่มเข้ามาเป็นก้อนที่ไม่เล็ก โดยเฉพาะช่วง ป.4–ป.6</p></div>
+        <div class="cost"><b>22,000 – 84,000</b><span>บาท/ปี · รัฐ → เอกชน</span></div>
+      </div>
+      <div class="rung">
+        <div class="ic">📚</div>
+        <div><h4><small>อายุ 12–17 ปี · 6 ปี</small>มัธยมศึกษา</h4>
+          <p>ค่าเรียนพิเศษพุ่งสูงสุดในช่วง ม.5–ม.6 เพราะการเตรียมสอบเข้ามหาวิทยาลัย</p></div>
+        <div class="cost"><b>25,000 – 95,000</b><span>บาท/ปี · รัฐ → เอกชน</span></div>
+      </div>
+      <div class="rung">
+        <div class="ic">🎓</div>
+        <div><h4><small>อายุ 18–21 ปี · 4 ปี</small>ปริญญาตรี</h4>
+          <p>ค่าเทอมมหาวิทยาลัยรัฐ 13,000–22,000 บาท/เทอม (แพทย์ วิศวะ สูงกว่านี้)
+            เอกชน 25,000–45,000 บาท/เทอม · เมื่อรวมค่าหอ ค่ากิน ค่าเดินทาง มักต้องเตรียมปีละไม่ต่ำกว่า 100,000 บาท</p></div>
+        <div class="cost"><b>100,000 – 250,000</b><span>บาท/ปี · รวมค่าครองชีพ</span></div>
+      </div>
+      <div class="rung" style="border-style:dashed">
+        <div class="ic">🌏</div>
+        <div><h4><small>ทางเลือก</small>สองภาษา / นานาชาติ</h4>
+          <p>โรงเรียนสองภาษาและนานาชาติเริ่มต้นที่หลักแสนต่อปีและขึ้นไปถึงหลายแสน
+            หลักสูตรอินเตอร์ในมหาวิทยาลัยรัฐอยู่ที่ 40,000–120,000 บาท/เทอม</p></div>
+        <div class="cost"><b>150,000 – 800,000</b><span>บาท/ปี</span></div>
+      </div>
+    </div>
+
+    <div class="note rv" data-delay="100" style="max-width:900px;margin-inline:auto">
+      <b>ถ้ารายได้ครัวเรือนไม่เกิน 360,000 บาทต่อปี</b> ลูกมีสิทธิ์กู้กองทุนเงินให้กู้ยืมเพื่อการศึกษา (กยศ.)
+      ซึ่งครอบคลุมค่าเล่าเรียนและค่าครองชีพได้ถึงเดือนละ 3,000 บาท
+      — แต่ กยศ. คือ “หนี้ของลูก” ไม่ใช่ “แผนของพ่อแม่” ควรวางเป็นทางสำรอง ไม่ใช่ทางหลัก
+    </div>
+  </div>
+</section>
+
+<!-- ============ 3. เครื่องคำนวณ ============ -->
+<section class="sec tinted" id="calc">
+  <div class="wrap">
+    <div class="head rv">
+      <span class="eye">EDUCATION CALCULATOR</span>
+      <h2>คำนวณเงินค่าการศึกษาของลูกคุณ</h2>
+      <p>เลือกแนวโรงเรียนที่วางไว้ แล้วปรับตัวเลขให้ตรงกับของจริง
+        ระบบจะไล่คำนวณค่าใช้จ่ายทุกปีจนลูกเรียนจบ พร้อมบอกว่าต้องออมเดือนละเท่าไร</p>
+    </div>
+
+    <div class="calc">
+      <form class="cform rv" id="eForm" novalidate>
+        <div id="errbox" role="alert"></div>
+
+        <label for="kage">อายุลูกตอนนี้ (ปี)
+          <small>ใส่ 0 ได้ถ้ายังไม่เกิดหรือเพิ่งเกิด — ยิ่งเริ่มเร็ว ยิ่งเบา</small>
+          <input type="number" id="kage" value="3" min="0" max="21" step="1" inputmode="decimal"
+                 data-min="0" data-max="21" data-step="1"></label>
+
+        <label for="preset">แนวโรงเรียนที่วางไว้
+          <small>เลือกแล้วตัวเลขด้านล่างจะเติมให้ ปรับเองต่อได้</small>
+          <select id="preset">
+            <option value="gov">โรงเรียนรัฐบาล + มหาวิทยาลัยรัฐ</option>
+            <option value="mix" selected>รัฐบาล + เรียนพิเศษ + มหาวิทยาลัยรัฐ</option>
+            <option value="private">โรงเรียนเอกชน + มหาวิทยาลัยเอกชน</option>
+            <option value="bi">สองภาษา + หลักสูตรอินเตอร์</option>
+            <option value="inter">นานาชาติ + มหาวิทยาลัยต่างประเทศ</option>
+            <option value="custom">กำหนดเอง</option>
+          </select></label>
+
+        <label for="c1">ค่าใช้จ่ายรวมต่อปี · อนุบาล (บาท)
+          <small>อายุ 3–5 ปี · รวมค่าเทอม ชุด อุปกรณ์ รถรับส่ง</small>
+          <input type="text" id="c1" value="45,000" inputmode="numeric" autocomplete="off"
+                 data-money data-min="0" data-max="2000000" data-scale="log"></label>
+
+        <label for="c2">ค่าใช้จ่ายรวมต่อปี · ประถม (บาท)
+          <small>อายุ 6–11 ปี · รวมเรียนพิเศษและกิจกรรม</small>
+          <input type="text" id="c2" value="55,000" inputmode="numeric" autocomplete="off"
+                 data-money data-min="0" data-max="2000000" data-scale="log"></label>
+
+        <label for="c3">ค่าใช้จ่ายรวมต่อปี · มัธยม (บาท)
+          <small>อายุ 12–17 ปี · ช่วง ม.ปลาย ค่าติวมักสูงกว่านี้</small>
+          <input type="text" id="c3" value="75,000" inputmode="numeric" autocomplete="off"
+                 data-money data-min="0" data-max="2000000" data-scale="log"></label>
+
+        <label for="c4">ค่าใช้จ่ายรวมต่อปี · ปริญญาตรี (บาท)
+          <small>อายุ 18–21 ปี · รวมค่าหอ ค่ากิน ค่าเดินทาง</small>
+          <input type="text" id="c4" value="130,000" inputmode="numeric" autocomplete="off"
+                 data-money data-min="0" data-max="5000000" data-scale="log"></label>
+
+        <label for="saved">เงินที่เก็บไว้เพื่อการศึกษาแล้ว (บาท)
+          <small>เงินฝาก กองทุน ประกันสะสมทรัพย์ที่ตั้งใจใช้เพื่อการนี้</small>
+          <input type="text" id="saved" value="150,000" inputmode="numeric" autocomplete="off"
+                 data-money data-min="0" data-max="50000000" data-scale="log"></label>
+
+        <div class="adv">
+          <label class="advtog" for="advOn">
+            <input type="checkbox" id="advOn" checked>
+            <span>ปรับเงินเฟ้อการศึกษาและผลตอบแทนเงินออม
+              <small>ค่าเริ่มต้นอิงจากอัตราที่เกิดขึ้นจริงในปี 2569</small></span>
+          </label>
+          <div class="advg" id="advBox">
+            <label for="einf">เงินเฟ้อค่าการศึกษา (%)
+              <small>ค่าใช้จ่ายเปิดเทอมปี 2569 เพิ่มขึ้นราว 6%</small>
+              <input type="number" id="einf" value="6" min="0" max="15" step="0.1" inputmode="decimal"
+                     data-min="0" data-max="15" data-step="0.1"></label>
+            <label for="eret">ผลตอบแทนเงินออม (%)
+              <small>เงินการศึกษามีวันครบกำหนดแน่นอน จึงไม่ควรเสี่ยงสูง</small>
+              <input type="number" id="eret" value="3" min="0" max="12" step="0.1" inputmode="decimal"
+                     data-min="0" data-max="12" data-step="0.1"></label>
+          </div>
+        </div>
+
+        <div id="stale">ตัวเลขเปลี่ยนแล้ว — กดคำนวณอีกครั้งเพื่อดูผลใหม่</div>
+        <div class="cbtns">
+          <button class="btn btn-p" id="calcBtn" type="button">🧮 คำนวณแผนการศึกษา</button>
+          <button class="btn btn-gh" id="resetBtn" type="button">รีเซ็ต</button>
+        </div>
+      </form>
+
+      <div class="cout rv" data-delay="120">
+        <span class="lbl">ต้องเตรียมเงินเพิ่มอีก (มูลค่าวันนี้)</span>
+        <div id="sumOut">—</div>
+        <div id="ratio">กรอกข้อมูลแล้วกดคำนวณ</div>
+
+        <div class="kpis">
+          <div class="kpi"><span>ต้องออมเดือนละ</span><b id="kPmt">—</b></div>
+          <div class="kpi"><span>ค่าใช้จ่ายรวมที่จะจ่ายจริง</span><b id="kTotal">—</b></div>
+        </div>
+
+        <div class="bars">
+          <div class="brow"><span>อนุบาล</span><div class="track"><i id="b1"></i></div><b id="o1">—</b></div>
+          <div class="brow"><span>ประถม</span><div class="track"><i id="b2"></i></div><b id="o2">—</b></div>
+          <div class="brow"><span>มัธยม</span><div class="track"><i id="b3"></i></div><b id="o3">—</b></div>
+          <div class="brow"><span>ปริญญาตรี</span><div class="track"><i id="b4"></i></div><b id="o4">—</b></div>
+          <div class="brow mn"><span>หักเงินที่มีแล้ว</span><div class="track"><i id="b5"></i></div><b id="o5">—</b></div>
+        </div>
+
+        <div class="ychart">
+          <svg id="ychart" viewBox="0 0 560 180" role="img"
+               aria-label="กราฟแท่งแสดงค่าใช้จ่ายการศึกษาที่ต้องจ่ายจริงในแต่ละปี แยกสีตามช่วงชั้น">
+            <g id="yBars"></g>
+            <g id="yAxis"></g>
+          </svg>
+          <div class="ylg">
+            <span><i style="background:#bae6fd"></i> อนุบาล</span>
+            <span><i style="background:#7dd3fc"></i> ประถม</span>
+            <span><i style="background:#38bdf8"></i> มัธยม</span>
+            <span><i style="background:#ffffff"></i> ปริญญาตรี</span>
+          </div>
+        </div>
+
+        <div id="formula">—</div>
+        <div id="hint">ตัวเลขนี้เป็นการประมาณเพื่อการวางแผนเบื้องต้น ไม่ใช่การรับประกันผลตอบแทน</div>
+        <div id="stamp"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 4. 3 วิธีเตรียมเงิน ============ -->
+<section class="sec" id="ways">
+  <div class="wrap">
+    <div class="head rv">
+      <span class="eye">HOW TO FUND IT</span>
+      <h2>3 วิธีเตรียมเงินค่าการศึกษา</h2>
+      <p>ไม่มีวิธีไหนดีที่สุดในทุกสถานการณ์ — แต่ละวิธีแลกกันคนละอย่าง
+        คนส่วนใหญ่ใช้มากกว่าหนึ่งวิธีผสมกัน</p>
+    </div>
+
+    <div class="ways">
+      <article class="way rv">
+        <div class="wi">🏦</div>
+        <h3>เงินฝาก &amp; กองทุนรวม</h3>
+        <p>ยืดหยุ่นที่สุด ถอนได้ตลอด และเลือกระดับความเสี่ยงเองได้</p>
+        <ul class="wl">
+          <li class="p"><i>+</i> เข้าถึงเงินได้ทันทีเมื่อจำเป็น</li>
+          <li class="p"><i>+</i> ต้นทุนต่ำ เลือกกองทุนได้หลากหลาย</li>
+          <li class="m"><i>−</i> ต้องมีวินัยเอง ไม่มีอะไรบังคับให้ออมต่อ</li>
+          <li class="m"><i>−</i> ถ้าตลาดลงในปีที่ต้องใช้เงินพอดี จะเจ็บ</li>
+        </ul>
+      </article>
+
+      <article class="way rv" data-delay="90">
+        <div class="wi">📜</div>
+        <h3>ประกันสะสมทรัพย์</h3>
+        <p>กำหนดวันครบสัญญาให้ตรงกับปีที่ลูกเข้ามหาวิทยาลัยได้</p>
+        <ul class="wl">
+          <li class="p"><i>+</i> รู้ยอดที่จะได้รับล่วงหน้าตามกรมธรรม์</li>
+          <li class="p"><i>+</i> มีความคุ้มครองชีวิตติดมาด้วยส่วนหนึ่ง</li>
+          <li class="m"><i>−</i> ผลตอบแทนมักต่ำกว่าการลงทุน</li>
+          <li class="m"><i>−</i> เวนคืนก่อนกำหนดมักได้เงินคืนน้อยกว่าที่จ่ายไป</li>
+        </ul>
+      </article>
+
+      <article class="way rv" data-delay="180">
+        <div class="wi">🛡️</div>
+        <h3>ประกันชีวิตคุ้มครองผู้ปกครอง</h3>
+        <p>ไม่ได้สร้างเงินออม แต่ทำให้แผนไม่พังถ้าคนหาเงินหายไป</p>
+        <ul class="wl">
+          <li class="p"><i>+</i> ปิดความเสี่ยงที่ใหญ่ที่สุดของแผนการศึกษา</li>
+          <li class="p"><i>+</i> เบี้ยต่ำเมื่อเทียบกับทุนประกันที่ได้ (แบบชั่วระยะเวลา)</li>
+          <li class="m"><i>−</i> ถ้าไม่เกิดเหตุ ไม่มีเงินคืน (แบบชั่วระยะเวลา)</li>
+          <li class="m"><i>−</i> ต้องผ่านการพิจารณารับประกันตามสุขภาพ</li>
+        </ul>
+      </article>
+    </div>
+
+    <div class="split" style="margin-top:3.4rem">
+      <div class="rv">
+        <h3>ทำไมข้อ 3 ถึงสำคัญกว่าที่คิด</h3>
+        <p style="color:var(--text2)">สมมติคุณวางแผนออมเดือนละ 6,000 บาทเป็นเวลา 15 ปี
+          เพื่อส่งลูกเรียนจนจบ — แผนนี้ตั้งอยู่บนสมมติฐานเดียวที่ไม่มีใครพูดถึง คือ
+          <b>คุณยังทำงานอยู่ครบทั้ง 15 ปี</b></p>
+        <p style="color:var(--text2);margin-top:.8rem">ถ้าปีที่ 3 เกิดอะไรขึ้น เงินที่ออมไปแล้วคือ 216,000 บาท
+          ส่วนเงินที่ยังไม่ได้ออมคือกว่า 860,000 บาท — และไม่มีใครออมแทนได้</p>
+        <div class="note">
+          นี่คือเหตุผลที่แผนการศึกษาที่สมบูรณ์มักมี <b>2 ชั้น</b> เสมอ:
+          ชั้นแรกคือเงินออมที่โตไปเรื่อย ๆ ชั้นที่สองคือทุนประกันที่เข้ามาแทนที่เงินออมที่เหลือทันที
+          หากผู้ปกครองไม่อยู่
+        </div>
+        <a class="btn btn-p" href="money.html" style="margin-top:1.2rem">ดูเรื่องประกันชีวิต →</a>
+      </div>
+
+      <div class="rv" data-delay="120">
+        <div class="mx" style="margin-top:0">
+          <h3>เริ่มตอนลูกอายุเท่าไร ต้องออมเดือนละเท่าไร</h3>
+          <div class="mxg" style="grid-template-columns:1fr 1fr">
+            <div class="mc h">เริ่มตอนลูกอายุ</div>
+            <div class="mc h">ต้องออมเดือนละ</div>
+            <div class="mc g1">แรกเกิด <span>มีเวลา 22 ปี</span></div>
+            <div class="mc g2">≈ 6,100 บาท</div>
+            <div class="mc g1">5 ขวบ <span>มีเวลา 17 ปี</span></div>
+            <div class="mc g2">≈ 8,300 บาท</div>
+            <div class="mc g1">10 ขวบ <span>มีเวลา 12 ปี</span></div>
+            <div class="mc g4">≈ 12,400 บาท</div>
+            <div class="mc g1">15 ปี <span>มีเวลา 7 ปี</span></div>
+            <div class="mc g3">≈ 22,900 บาท</div>
+          </div>
+          <p style="font-size:.8rem;margin-top:1rem;text-align:center;color:var(--muted)">
+            อิงค่าใช้จ่ายเริ่มต้นแบบ “รัฐบาล + เรียนพิเศษ” · เงินเฟ้อการศึกษา 6% · ผลตอบแทนเงินออม 3%<br>
+            ลองเปลี่ยนอายุลูกในเครื่องคำนวณด้านบนแล้วดูตัวเลขของคุณเอง
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 5. เริ่มวันนี้ ============ -->
+<section class="sec tinted" id="steps">
+  <div class="wrap">
+    <div class="head rv">
+      <span class="eye">START TODAY</span>
+      <h2>4 ขั้นที่ทำได้ตั้งแต่เดือนนี้</h2>
+    </div>
+    <div class="steps">
+      <article class="step rv">
+        <div class="stepn">1</div>
+        <h3><small>ตั้งเป้า</small>เลือกเส้นทางก่อน</h3>
+        <p>รัฐ เอกชน สองภาษา หรืออินเตอร์ — ตัดสินใจคร่าว ๆ ก่อน เพราะตัวเลขต่างกันได้หลายเท่า</p>
+      </article>
+      <article class="step rv hi" data-delay="80">
+        <div class="stepn">2</div>
+        <h3><small>แยกกระเป๋า</small>เปิดบัญชีแยกเฉพาะ</h3>
+        <p>เงินการศึกษาต้องไม่ปนกับเงินใช้จ่ายประจำวัน ไม่งั้นมันจะถูกใช้ไปโดยไม่รู้ตัว</p>
+      </article>
+      <article class="step rv" data-delay="160">
+        <div class="stepn">3</div>
+        <h3><small>กันแผนพัง</small>คุ้มครองคนหาเงิน</h3>
+        <p>ทุนประกันควรครอบคลุมค่าการศึกษาที่ยังเหลืออยู่ ไม่ใช่แค่ค่าใช้จ่ายในบ้าน</p>
+      </article>
+      <article class="step rv" data-delay="240">
+        <div class="stepn">4</div>
+        <h3><small>ทบทวน</small>เช็กทุกปีตอนเปิดเทอม</h3>
+        <p>ค่าเทอมจริงที่จ่ายปีนี้ คือข้อมูลที่ดีที่สุดสำหรับปรับแผนปีหน้า</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 6. FAQ ============ -->
+<section class="sec" id="faq">
+  <div class="wrap narrow">
+    <div class="head rv">
+      <span class="eye">FAQ</span>
+      <h2>คำถามที่พ่อแม่ถามบ่อย</h2>
+    </div>
+    <div class="acc rv">
+      <details>
+        <summary>ควรเริ่มเตรียมเงินการศึกษาตอนลูกอายุเท่าไร<span></span></summary>
+        <p>เร็วที่สุดเท่าที่ทำได้ เพราะสิ่งที่ทำงานแทนคุณคือเวลา ไม่ใช่จำนวนเงิน
+          จากตารางด้านบน เริ่มตอนลูกแรกเกิดกับเริ่มตอนลูก 10 ขวบ ต่างกันประมาณเท่าตัวต่อเดือน
+          ทั้งที่เป้าหมายปลายทางเท่ากัน ถ้ายังเริ่มด้วยจำนวนมากไม่ได้ ให้เริ่มด้วยจำนวนน้อยแต่เริ่มจริง ๆ ดีกว่ารอ</p>
+      </details>
+      <details>
+        <summary>ควรใช้เงินเฟ้อการศึกษากี่เปอร์เซ็นต์<span></span></summary>
+        <p>ค่าเริ่มต้นในเครื่องคำนวณนี้ตั้งไว้ที่ 6% ซึ่งอ้างอิงจากค่าใช้จ่ายเปิดเทอมปี 2569
+          ที่เพิ่มขึ้นราว 6% จากปีก่อน หากลูกเรียนโรงเรียนนานาชาติหรือหลักสูตรอินเตอร์
+          อัตราการขึ้นราคามักสูงกว่านั้น ควรลองปรับขึ้นเป็น 7–8% แล้วดูว่าแผนยังไหวหรือไม่</p>
+      </details>
+      <details>
+        <summary>เอาเงินการศึกษาไปลงทุนหุ้นให้โตเร็ว ๆ ดีไหม<span></span></summary>
+        <p>ต้องระวังเป็นพิเศษ เพราะเงินก้อนนี้มี <b>วันครบกำหนดที่เลื่อนไม่ได้</b>
+          — ลูกเข้ามหาวิทยาลัยปีนั้นก็คือปีนั้น ถ้าตลาดลง 30% พอดีในปีที่ต้องใช้เงิน คุณไม่มีเวลารอให้มันฟื้น
+          หลักที่ใช้กันคือยิ่งใกล้วันใช้เงิน ยิ่งลดความเสี่ยงลง เช่น 10 ปีขึ้นไปลงทุนได้เต็มที่
+          แต่เหลือ 3 ปีควรย้ายมาอยู่ในสินทรัพย์ที่นิ่ง</p>
+      </details>
+      <details>
+        <summary>ทุนประกันเพื่อการศึกษาควรเท่าไร<span></span></summary>
+        <p>หลักคิดง่าย ๆ คือ <b>เท่ากับค่าการศึกษาที่ยังไม่ได้ออม</b> ณ วันนี้
+          ตัวเลข “ต้องเตรียมเงินเพิ่มอีก” ในเครื่องคำนวณด้านบนใช้เป็นจุดตั้งต้นได้เลย
+          แล้วนำไปรวมกับทุนประกันส่วนที่ดูแลค่าใช้จ่ายในบ้าน ซึ่งคำนวณได้ที่หน้าประกันชีวิต</p>
+      </details>
+      <details>
+        <summary>ถ้าลูกได้ทุน หรือเลือกไม่เรียนต่อ เงินที่เตรียมไว้จะเสียเปล่าไหม<span></span></summary>
+        <p>ไม่เสียเปล่า เพราะมันคือเงินออมของครอบครัวที่มีเป้าหมายชัดเจน
+          ถ้าไม่ได้ใช้กับการศึกษา มันก็กลายเป็นเงินก้อนตั้งต้นให้ลูก หรือเงินเกษียณของคุณเอง
+          ความเสี่ยงที่แท้จริงไม่ใช่ “เตรียมแล้วไม่ได้ใช้” แต่คือ “ถึงเวลาใช้แล้วไม่มี”</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section class="cta">
+  <div class="wrap">
+    <h2>อยากให้ช่วยดูแผนการศึกษาของลูก</h2>
+    <p style="max-width:620px;margin:0 auto;opacity:.94">ส่งข้อมูลเบื้องต้นมาคุยกันได้
+      เราช่วยดูว่าตัวเลขที่คุณคำนวณไว้สมเหตุสมผลไหม และยังมีช่องโหว่ตรงไหน</p>
+    <div class="cta-row">
+      <a class="btn btn-w btn-lg" href="quote.html">ขอรับข้อเสนอเบื้องต้น →</a>
+      <a class="btn btn-o btn-lg" style="border-color:#fff;color:#fff" href="retire.html">ดูแผนเกษียณ</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER (แถบเดียวกันทุกหน้า) ============ -->
+<footer class="foot">
+  <div class="wrap foot-g">
+    <div>
+      <a class="brand" href="index.html" style="color:#fff"><span class="mark">🛡️</span><span>2Provi<b>Group</b></span></a>
+      <p>เว็บไซต์ให้ความรู้ด้านการวางแผนการเงินและการบริหารความเสี่ยง จัดทำเพื่อการศึกษาเท่านั้น
+         ไม่ใช่คำแนะนำการลงทุน และไม่ใช่การเสนอขายกรมธรรม์</p>
+    </div>
+    <div><h4>เนื้อหาหลัก</h4><a href="#reality">ความจริงเรื่องค่าเทอม</a><a href="#levels">ค่าใช้จ่ายแต่ละชั้น</a><a href="#ways">3 วิธีเตรียมเงิน</a><a href="#steps">เริ่มวันนี้</a></div><div><h4>เครื่องมือ</h4><a href="#calc">คำนวณค่าการศึกษา</a><a href="#faq">คำถามพบบ่อย</a><a href="retire.html">คำนวณเงินเกษียณ</a></div>
+    <div>
+      <h4>ไปหน้าอื่น</h4>
+      <a href="index.html">หน้าหลัก</a><a href="money.html">ประกันชีวิต</a><a href="health.html">สุขภาพ &amp; โรคร้ายแรง</a><a href="retire.html">วางแผนเกษียณ</a><a href="quote.html">ขอรับข้อเสนอ</a>
+      <a href="/aboutme/">ทีมที่ปรึกษา</a><a href="join.html">สมัครเป็นตัวแทน</a>
+    </div>
+    <div>
+      <h4>ติดต่อเรา</h4>
+      <a href="https://2provi.com" target="_blank" rel="noopener">🌐 2provi.com</a>
+      <a href="mailto:2provi@gmail.com">✉️ 2provi@gmail.com</a>
+      <p style="margin-top:.6rem">ติดต่อผ่านเว็บไซต์และอีเมลเท่านั้น</p>
+    </div>
+  </div>
+  <div class="wrap foot-b">
+    © 2026 2Provi Group · จัดทำเพื่อการศึกษา · ข้อมูลอ้างอิงควรตรวจสอบกับ คปภ. และบริษัทประกันโดยตรง<br>
+    <a href="privacy-policy.html" style="display:inline;color:#9fc3ea;text-decoration:underline">นโยบายความเป็นส่วนตัว</a>
+  </div>
+</footer>
+
+<button id="toTop" type="button" aria-label="กลับขึ้นด้านบน">↑</button>
+
+<script src="/js/core.js"></script>
+<script src="/js/page-education.js"></script>
+</body>
+</html>

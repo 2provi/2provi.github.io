@@ -1,0 +1,122 @@
+.consent {
+      display: flex;
+      align-items: flex-start;
+      gap: 9px;
+      margin: 20px 0;
+      color: var(--muted);
+      font-size: 0.76rem;
+      line-height: 1.65;
+      cursor: pointer;
+    }
+.consent input {
+      width: auto;
+      margin-top: 4px;
+      accent-color: var(--blue);
+    }
+.policy-link {
+      color: var(--blue);
+      font-weight: 600;
+    }
+.submit-button {
+      width: 100%;
+      padding: 14px 20px;
+      border: 0;
+      border-radius: 12px;
+      cursor: pointer;
+      color: var(--white);
+      background: var(--blue);
+      box-shadow: 0 10px 22px rgba(15, 108, 187, 0.26);
+      font-family: inherit;
+      font-size: 0.95rem;
+      font-weight: 600;
+      transition: 0.2s ease;
+    }
+.submit-button:hover {
+      background: var(--blue-dark);
+      transform: translateY(-2px);
+    }
+.submit-button:disabled {
+      cursor: wait;
+      opacity: 0.75;
+      transform: none;
+    }
+.privacy-text {
+      margin: 12px 0 0;
+      color: var(--muted);
+      font-size: 0.7rem;
+      line-height: 1.6;
+      text-align: center;
+    }
+footer {
+      padding: 0 0 30px;
+      color: #7f919f;
+      font-size: 0.76rem;
+      text-align: center;
+    }
+.foot-links,
+    .foot-contact {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px 20px;
+    }
+.foot-links {
+      padding-bottom: 14px;
+      border-bottom: 1px solid #dbe7ee;
+      font-size: 0.82rem;
+      font-weight: 600;
+    }
+.foot-links a:hover,
+    .foot-contact a:hover {
+      color: var(--blue);
+    }
+.foot-contact {
+      margin-top: 14px;
+      color: var(--blue);
+      font-size: 0.84rem;
+      font-weight: 600;
+    }
+.foot-copy {
+      margin: 12px 0 0;
+      font-size: 0.73rem;
+    }
+@media (max-width: 850px) {
+      .quote-wrapper {
+        grid-template-columns: 1fr;
+      }
+
+      .intro-panel,
+      .form-panel {
+        padding: 38px 30px;
+      }
+    }
+@media (max-width: 540px) {
+      .container {
+        width: min(100% - 26px, 1100px);
+      }
+
+      .nav-contact {
+        display: none;
+      }
+
+      .page-content {
+        padding-top: 5px;
+      }
+
+      .quote-wrapper {
+        border-radius: 22px;
+      }
+
+      .intro-panel,
+      .form-panel {
+        padding: 31px 21px;
+      }
+
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .form-group.full {
+        grid-column: auto;
+      }
+    }

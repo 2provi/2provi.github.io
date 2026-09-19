@@ -1,0 +1,93 @@
+/* ================= โทนสีประจำหน้า: ชมพูกุหลาบ (การศึกษาบุตร) ================= */
+:root{
+  --b900:#2c0713;--b800:#5c0f24;--b700:#9f1239;--b600:#be123c;--b500:#e11d48;
+  --sky:#fb7185;--cyan:#fda4af;
+  --a5:225,29,72; --a6:190,18,60; --a7:159,18,57; --a9:44,7,19; --aSky:251,113,133;
+
+  --bg:#fff7f9;--bg2:#ffeaef;--surface:#ffffff;--surface2:#fffafb;
+  --text:#25060f;--text2:#5a3541;--muted:#7d5460;--line:#fbdfe6;
+  --glass:rgba(255,255,255,.72);
+
+  --grad:linear-gradient(120deg,#881337 0%,#be123c 34%,#e11d48 66%,#fb7185 100%);
+  --grad2:linear-gradient(120deg,#fda4af,#e11d48);
+  --tint:linear-gradient(160deg,#ffeef2 0%,#fffbfc 100%);
+
+  --sh1:0 4px 14px -6px rgba(159,18,57,.2);
+  --sh2:0 18px 44px -20px rgba(159,18,57,.34);
+  --sh3:0 34px 70px -28px rgba(44,7,19,.44);
+}
+[data-theme="dark"]{
+  --bg:#1a0509;--bg2:#280910;--surface:#2f0d17;--surface2:#270a13;
+  --text:#ffeef2;--text2:#f0c9d3;--muted:#c99aa8;--line:#4d1928;
+  --glass:rgba(47,13,23,.72);
+  --tint:linear-gradient(160deg,#2b0a13 0%,#1d060b 100%);
+}
+/* หน้านี้ใช้ชมพูเป็นสีหลักแล้ว กล่องเตือนจึงต้องเปลี่ยนไปใช้โทนอำพัน
+   ไม่งั้นจะกลืนกับสีประจำหน้าจนแยกไม่ออกว่าอันไหนคือคำเตือน */
+.ib{border-color:rgba(251,191,36,.42)}
+.ib:hover{border-color:#fbbf24}
+.ib::before{background:linear-gradient(120deg,#f59e0b,#fbbf24)}
+.ib b{color:#fde68a}
+/* ================= เฉพาะหน้าการศึกษาบุตร ================= */
+.ladder{display:grid;gap:.75rem;margin-top:1.4rem}
+.rung{display:grid;grid-template-columns:74px 1fr auto;align-items:center;gap:1rem;
+  padding:1.1rem 1.3rem;border-radius:var(--r2);background:var(--surface);border:1px solid var(--line);
+  box-shadow:var(--sh1);transition:transform .32s var(--ease),box-shadow .32s,border-color .32s}
+.rung:hover{transform:translateX(7px);box-shadow:var(--sh2);border-color:var(--b500)}
+.rung .ic{width:54px;height:54px;border-radius:16px;display:grid;place-items:center;font-size:1.5rem;
+  background:linear-gradient(135deg,rgba(var(--a5),.16),rgba(var(--aSky),.16))}
+.rung h4{font-size:1.02rem;margin-bottom:.1rem}
+.rung h4 small{display:block;font-size:.73rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--b700)}
+[data-theme="dark"] .rung h4 small{color:var(--sky)}
+.rung p{font-size:.87rem;color:var(--muted)}
+.rung .cost{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+.rung .cost b{display:block;font-size:1.1rem;color:var(--b600)}
+.rung .cost span{font-size:.74rem;color:var(--muted)}
+[data-theme="dark"] .rung .cost b{color:var(--sky)}
+@media (max-width:620px){
+  .rung{grid-template-columns:46px 1fr;row-gap:.55rem}
+  .rung .ic{width:46px;height:46px;font-size:1.2rem;border-radius:13px}
+  .rung .cost{grid-column:1/-1;text-align:left}
+  .rung .cost b{display:inline;margin-right:.5rem}
+}
+.infl{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1.1rem;margin-top:1.2rem}
+.ib{padding:1.5rem 1.35rem;border-radius:var(--r2);background:rgba(255,255,255,.05);
+  border:1px solid rgba(251,113,133,.3);position:relative;overflow:hidden;
+  transition:transform .35s var(--ease),border-color .35s}
+.ib:hover{transform:translateY(-6px);border-color:var(--rose)}
+.ib::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--gradWarn)}
+.ib .n{font-size:1.8rem;margin-bottom:.4rem}
+.ib h4{font-size:1.02rem;margin-bottom:.3rem;color:#fff}
+.ib p{font-size:.89rem;color:#a8c3e6;line-height:1.7}
+.ib b{color:#fda4af}
+.ways{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:1.2rem;margin-top:1.4rem}
+.way{padding:1.7rem 1.4rem;border-radius:var(--r2);background:var(--surface);border:1px solid var(--line);
+  box-shadow:var(--sh1);display:flex;flex-direction:column;gap:.55rem;
+  transition:transform .35s var(--ease),box-shadow .35s,border-color .35s}
+.way:hover{transform:translateY(-7px);box-shadow:var(--sh2);border-color:var(--b500)}
+.way .wi{width:52px;height:52px;border-radius:16px;display:grid;place-items:center;font-size:1.45rem;
+  background:linear-gradient(135deg,rgba(var(--a5),.16),rgba(var(--aSky),.16))}
+.way h3{font-size:1.08rem}
+.way>p{font-size:.9rem;color:var(--muted)}
+.wl{display:grid;gap:.4rem;margin-top:.4rem;font-size:.86rem}
+.wl li{display:flex;gap:.55rem;align-items:flex-start;color:var(--text2)}
+.wl li i{font-style:normal;flex:none;width:19px;height:19px;border-radius:50%;display:grid;place-items:center;
+  font-size:.62rem;color:#fff;margin-top:.32rem}
+.wl li.p i{background:var(--mint)}
+.wl li.m i{background:var(--rose)}
+/* กราฟแท่งค่าใช้จ่ายรายปี */
+.ychart{margin-top:1.2rem;padding:1.05rem;border-radius:var(--r2);background:rgba(255,255,255,.12)}
+.ychart svg{width:100%;height:auto;display:block;overflow:visible}
+.ylg{display:flex;gap:1rem;flex-wrap:wrap;font-size:.75rem;margin-top:.65rem;opacity:.95}
+.ylg span{display:inline-flex;align-items:center;gap:.35rem}
+.ylg i{width:13px;height:13px;border-radius:4px;display:inline-block;border:1px solid rgba(255,255,255,.5)}
+.kpis{display:grid;grid-template-columns:1fr 1fr;gap:.7rem;margin:1.1rem 0 .3rem}
+.kpi{padding:.85rem 1rem;border-radius:14px;background:rgba(255,255,255,.15)}
+.kpi span{display:block;font-size:.76rem;opacity:.92}
+.kpi b{font-size:1.15rem;font-weight:800;font-variant-numeric:tabular-nums;line-height:1.35}
+.kpi.ok b{color:#86efac}
+.kpi.bad b{color:#fecaca}
+@media (max-width:420px){.kpis{grid-template-columns:1fr}}
+.cform select{padding:.85rem 1rem;border-radius:12px;border:1.5px solid var(--line);background:var(--surface2);
+  color:var(--text);font-family:inherit;font-size:1.02rem;font-weight:700;width:100%;transition:.25s;cursor:pointer}
+.cform select:focus{outline:0;border-color:var(--b500);box-shadow:0 0 0 4px rgba(var(--a5),.18)}

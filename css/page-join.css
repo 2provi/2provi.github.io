@@ -1,0 +1,267 @@
+/* ══════════════════════════════════════════════════════════
+       แถบเลื่อนระดับการศึกษา — 3 ระดับ
+       ใช้ <input type="range"> ตัวจริง จึงเลื่อนด้วยลูกศรซ้าย/ขวาได้
+       และมีช่องซ่อนเก็บ "ข้อความไทย" ไว้ส่งแทนตัวเลข 0/1/2
+       ══════════════════════════════════════════════════════════ */
+.edu-wrap {
+      padding: 18px 16px 12px;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: #fbfdff;
+    }
+.edu-track {
+      padding: 0 11px;
+    }
+.edu-slider {
+      display: block;
+      width: 100%;
+      height: 26px;
+      padding: 0;
+      border: 0;
+      outline: none;
+      background: transparent;
+      -webkit-appearance: none;
+      appearance: none;
+      cursor: pointer;
+    }
+.edu-slider::-webkit-slider-runnable-track {
+      height: 8px;
+      border-radius: 99px;
+      background: linear-gradient(
+        90deg,
+        var(--blue) 0%,
+        var(--blue) var(--p, 50%),
+        #dbe7f1 var(--p, 50%),
+        #dbe7f1 100%
+      );
+    }
+.edu-slider::-moz-range-track {
+      height: 8px;
+      border-radius: 99px;
+      background: #dbe7f1;
+    }
+.edu-slider::-moz-range-progress {
+      height: 8px;
+      border-radius: 99px;
+      background: var(--blue);
+    }
+.edu-slider::-webkit-slider-thumb {
+      width: 26px;
+      height: 26px;
+      margin-top: -9px;
+      border: 4px solid var(--blue);
+      border-radius: 50%;
+      background: #ffffff;
+      box-shadow: 0 4px 12px rgba(15, 108, 187, 0.4);
+      cursor: grab;
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+.edu-slider::-moz-range-thumb {
+      width: 22px;
+      height: 22px;
+      border: 4px solid var(--blue);
+      border-radius: 50%;
+      background: #ffffff;
+      box-shadow: 0 4px 12px rgba(15, 108, 187, 0.4);
+      cursor: grab;
+    }
+.edu-slider:active::-webkit-slider-thumb {
+      transform: scale(1.14);
+      box-shadow: 0 0 0 8px rgba(15, 108, 187, 0.16);
+      cursor: grabbing;
+    }
+.edu-slider:focus-visible::-webkit-slider-thumb {
+      box-shadow: 0 0 0 8px rgba(15, 108, 187, 0.22);
+    }
+.edu-slider:focus-visible::-moz-range-thumb {
+      box-shadow: 0 0 0 8px rgba(15, 108, 187, 0.22);
+    }
+.edu-labels {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      margin-top: 10px;
+      gap: 4px;
+    }
+.edu-labels span {
+      color: var(--muted);
+      font-size: 0.78rem;
+      font-weight: 500;
+      line-height: 1.45;
+      text-align: center;
+      cursor: pointer;
+      transition: 0.2s ease;
+      -webkit-user-select: none;
+      user-select: none;
+    }
+.edu-labels span:first-child {
+      text-align: left;
+    }
+.edu-labels span:last-child {
+      text-align: right;
+    }
+.edu-labels span:hover {
+      color: var(--blue);
+    }
+.edu-labels span.on {
+      color: var(--navy);
+      font-weight: 700;
+    }
+.edu-note {
+      margin: 10px 0 0;
+      color: var(--muted);
+      font-size: 0.72rem;
+      line-height: 1.6;
+    }
+.consent {
+      display: flex;
+      align-items: flex-start;
+      gap: 9px;
+      margin: 20px 0;
+      color: var(--muted);
+      font-size: 0.76rem;
+      line-height: 1.65;
+      cursor: pointer;
+    }
+.consent input {
+      width: auto;
+      margin-top: 4px;
+      accent-color: var(--blue);
+    }
+.policy-link {
+      color: var(--blue);
+      font-weight: 600;
+    }
+.submit-button {
+      width: 100%;
+      padding: 14px 20px;
+      border: 0;
+      border-radius: 12px;
+      cursor: pointer;
+      color: var(--white);
+      background: var(--blue);
+      box-shadow: 0 10px 22px rgba(15, 108, 187, 0.26);
+      font-family: inherit;
+      font-size: 0.95rem;
+      font-weight: 600;
+      transition: 0.2s ease;
+    }
+.submit-button:hover {
+      background: var(--blue-dark);
+      transform: translateY(-2px);
+    }
+.submit-button:disabled {
+      cursor: wait;
+      opacity: 0.75;
+      transform: none;
+    }
+/* กล่องแจ้งเตือนในหน้า — ไม่ใช้ alert() เพราะถูกบล็อกเมื่อฝังใน iframe ของ Google Sites */
+.form-error {
+      display: none;
+      margin: 14px 0 0;
+      padding: 12px 14px;
+      border: 1px solid #f3c2c2;
+      border-radius: 11px;
+      color: #9b2c2c;
+      background: #fdf2f2;
+      font-size: 0.8rem;
+      line-height: 1.65;
+    }
+.form-error.on {
+      display: block;
+    }
+.form-error a {
+      color: #9b2c2c;
+      font-weight: 700;
+      text-decoration: underline;
+    }
+.privacy-text {
+      margin: 12px 0 0;
+      color: var(--muted);
+      font-size: 0.7rem;
+      line-height: 1.6;
+      text-align: center;
+    }
+footer {
+      padding: 0 0 30px;
+      color: #7f919f;
+      font-size: 0.76rem;
+      text-align: center;
+    }
+.foot-links,
+    .foot-contact {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px 20px;
+    }
+.foot-links {
+      padding-bottom: 14px;
+      border-bottom: 1px solid #dbe7ee;
+      font-size: 0.82rem;
+      font-weight: 600;
+    }
+.foot-links a:hover,
+    .foot-contact a:hover {
+      color: var(--blue);
+    }
+.foot-contact {
+      margin-top: 14px;
+      color: var(--blue);
+      font-size: 0.84rem;
+      font-weight: 600;
+    }
+.foot-copy {
+      margin: 12px 0 0;
+      font-size: 0.73rem;
+    }
+@media (max-width: 850px) {
+      .quote-wrapper {
+        grid-template-columns: 1fr;
+      }
+
+      .intro-panel,
+      .form-panel {
+        padding: 38px 30px;
+      }
+    }
+@media (max-width: 540px) {
+      .container {
+        width: min(100% - 26px, 1100px);
+      }
+
+      .nav-contact {
+        display: none;
+      }
+
+      .page-content {
+        padding-top: 5px;
+      }
+
+      .quote-wrapper {
+        border-radius: 22px;
+      }
+
+      .intro-panel,
+      .form-panel {
+        padding: 31px 21px;
+      }
+
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .form-group.full {
+        grid-column: auto;
+      }
+
+      .edu-labels span {
+        font-size: 0.72rem;
+      }
+    }
+@media (prefers-reduced-motion: reduce) {
+      * {
+        transition: none !important;
+      }
+    }

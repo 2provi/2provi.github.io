@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="th" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>2Provi Group — ถ้าวันนั้นมาถึง ครอบครัวคุณจะอยู่อย่างไร</title>
+<meta name="description" content="เว็บให้ความรู้เรื่องประกันชีวิต การบริหารความเสี่ยง การถ่ายโอนความเสี่ยง พร้อมเครื่องคำนวณทุนประกันแบบ DIME">
+<meta name="theme-color" content="#0b4a8f">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230b4a8f'/%3E%3Cpath d='M16 6 9 8.6v5.2c0 4.3 2.9 8.1 7 9.5 4.1-1.4 7-5.2 7-9.5V8.6L16 6Z' fill='%2338bdf8'/%3E%3Cpath d='m12.8 15.4 2.2 2.2 4.2-4.2' fill='none' stroke='%23fff' stroke-width='2.1' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<meta name="color-scheme" content="light dark">
+
+<!-- ============ [0] THEME PRE-PAINT : single source of truth = data-theme ============ -->
+<script>
+(function(){
+  var t="";
+  try{ t=localStorage.getItem("ls-theme")||""; }catch(e){}
+  if(t!=="dark"&&t!=="light"){
+    try{ t=window.matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light"; }catch(e){ t="light"; }
+  }
+  document.documentElement.setAttribute("data-theme",t);
+})();
+</script>
+
+<!-- ============ [0b] รูปภาพประจำหน้า ============
+     ใส่รูปให้ทุกคนเห็นเหมือนกันได้ที่นี่ (แนะนำเก็บไฟล์รูปไว้ในโฟลเดอร์ images/)
+     หรือจะใส่ผ่านหน้าเว็บโดยกดปุ่ม 🖼️ มุมขวาล่าง แล้วกด "คัดลอกโค้ด" มาวางทับบล็อกนี้ก็ได้
+     slot ที่มีให้: story · cost · why · transfer · types · claim · closing -->
+<script>
+window.LS_IMAGES = {
+  // "story": { "src": "images/story.jpg", "caption": "คำบรรยายใต้ภาพ" }
+};
+</script>
+<link rel="stylesheet" href="/css/core.css">
+<link rel="stylesheet" href="/css/page-money.css">
+</head>
+<body>
+
+<div id="prog"><b></b></div>
+
+<!-- ============ NAV ============ -->
+<header class="nav" id="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="index.html">
+      <span class="mark">
+        <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 2 4 5v6c0 5 3.4 9.4 8 11 4.6-1.6 8-6 8-11V5l-8-3Z"/><path d="m9 12 2 2 4-4"/>
+        </svg>
+      </span>
+      <span>2Provi<b>Group</b></span>
+    </a>
+    <nav class="links" id="menu">
+      <a href="#story">ถ้าวันนั้นมาถึง</a>
+      <a href="#cost">ต้นทุนของการไม่มี</a>
+      <a href="#risk">บริหารความเสี่ยง</a>
+      <a href="#types">ประเภท</a>
+      <a href="#calc">คำนวณ</a>
+      <a href="#myth">ความเข้าใจผิด</a>
+      <a href="#faq">คำถามพบบ่อย</a>
+    </nav>
+    <div class="acts">
+      <button class="ibtn" id="themeBtn" type="button" aria-label="สลับโหมดสี" title="สลับโหมดสว่าง/มืด">🌙</button>
+      <a class="btn btn-p nosm" href="#calc">เริ่มประเมิน</a>
+      <button class="burger" id="burger" type="button" aria-label="เปิดเมนู" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+  <div class="tools">
+    <nav class="wrap tools-in" aria-label="เมนูข้ามหน้า"><a href="index.html" class="home">🏠 หน้าหลัก</a><a href="money.html" class="cur" aria-current="page">🛡️ ประกันชีวิต</a><a href="health.html" class="">🩺 สุขภาพ</a><a href="retire.html" class="">🌱 วางแผนเกษียณ</a><a href="education.html" class="">🎓 การศึกษาบุตร</a><a href="/aboutme/">👥 ทีมงาน</a><a href="quote.html" class="askq">ขอรับข้อเสนอเบื้องต้น <span>→</span></a></nav>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="top">
+  <div class="aur"><i></i><i></i><i></i></div>
+  <div class="grid-bg"></div>
+  <div class="wrap hero-g">
+    <div class="rv">
+      <span class="pill">🛡️ ความรู้ทางการเงิน · ฉบับเข้าใจง่าย</span>
+      <h1>ถ้าพรุ่งนี้คุณไม่อยู่<br>ครอบครัวคุณจะ<span class="grad">อยู่ต่อได้กี่เดือน?</span></h1>
+      <p class="lead">คำถามนี้ไม่ได้ถามเพื่อให้กลัว แต่ถามเพื่อให้ <b>เตรียมตัว</b> — เพราะประกันชีวิตไม่ใช่การซื้อความตาย แต่คือการ <b>ถ่ายโอนความเสี่ยง</b> ก้อนใหญ่ที่คุณแบกไว้คนเดียว ไปให้ระบบที่รับไหวแทน</p>
+      <div class="cta-row">
+        <a class="btn btn-p btn-lg" href="#calc">🧮 คำนวณทุนประกันที่ควรมี</a>
+        <a class="btn btn-o btn-lg" href="#story">ดูสิ่งที่เกิดขึ้นจริง ↓</a>
+      </div>
+      <div class="trust">
+        <span>✅ เนื้อหาเพื่อการศึกษา</span>
+        <span>✅ ไม่เก็บข้อมูลส่วนตัว</span>
+        <span>✅ ไม่ขายกรมธรรม์</span>
+      </div>
+      <div class="stats">
+        <div class="stat"><b><span class="num" data-to="3">3</span> เดือน</b><span>คือระยะเวลาเฉลี่ยที่ครัวเรือนทั่วไปอยู่ได้ หากรายได้หลักหายไปกะทันหัน</span></div>
+        <div class="stat"><b><span class="num" data-to="100">100</span>x</b><span>เบี้ยประกันเพียงเล็กน้อย แลกความคุ้มครองได้หลายสิบถึงร้อยเท่า</span></div>
+        <div class="stat"><b><span class="num" data-to="24">24</span> ชม.</b><span>ความคุ้มครองทำงานทุกวัน ไม่มีวันหยุด ไม่ต้องต่อคิว</span></div>
+      </div>
+    </div>
+    <div class="art rv" data-delay="150">
+      <span class="tagA">📈 วางแผนระยะยาว</span>
+      <span class="tagB">💙 คุ้มครองคนที่รัก</span>
+      <div class="board">
+        <div class="board-h"><h4>แผนคุ้มครองของคุณ</h4><span><i class="dot"></i>กำลังคุ้มครอง</span></div>
+        <div class="chart">
+          <i style="height:34%;animation-delay:.05s"></i><i style="height:52%;animation-delay:.12s"></i>
+          <i style="height:44%;animation-delay:.19s"></i><i style="height:68%;animation-delay:.26s"></i>
+          <i style="height:58%;animation-delay:.33s"></i><i style="height:84%;animation-delay:.40s"></i>
+          <i style="height:100%;animation-delay:.47s"></i>
+        </div>
+        <div class="rows">
+          <div class="row">🏠 ภาระหนี้บ้าน <em>คุ้มครองแล้ว</em></div>
+          <div class="row">🎓 ทุนการศึกษาบุตร <em>คุ้มครองแล้ว</em></div>
+          <div class="row">⚕️ ค่ารักษาโรคร้ายแรง <em>คุ้มครองแล้ว</em></div>
+          <div class="row">👵 ค่าเลี้ยงดูพ่อแม่ <em>คุ้มครองแล้ว</em></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="marq">
+    <div>
+      <span>ความเสี่ยงไม่ได้หายไป • แต่ถ่ายโอนได้ • RISK TRANSFER • ทุนประกันคือมรดกที่สร้างได้ทันที • วางแผนวันนี้ อุ่นใจตลอดชีวิต • รักใครให้ทำประกันให้ตัวเอง •</span>
+      <span>ความเสี่ยงไม่ได้หายไป • แต่ถ่ายโอนได้ • RISK TRANSFER • ทุนประกันคือมรดกที่สร้างได้ทันที • วางแผนวันนี้ อุ่นใจตลอดชีวิต • รักใครให้ทำประกันให้ตัวเอง •</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STORY ============ -->
+<section class="sec" id="story">
+  <div class="wrap">
+    <div class="head rv">
+      <span class="eye">01 — ภาพที่ไม่มีใครอยากเห็น</span>
+      <h2>วันธรรมดาวันหนึ่ง ที่เปลี่ยนทุกอย่างไปตลอดกาล</h2>
+      <p>เรื่องราวสมมติที่สร้างจากรูปแบบปัญหาที่พบได้บ่อยในครอบครัวไทย</p>
+    </div>
+    <div class="story">
+      <div class="rv">
+        <blockquote class="quote">
+          คุณพ่อวัย 38 ปี รายได้เดือนละ 45,000 บาท เป็นเสาหลักคนเดียวของบ้าน<br><br>
+          ผ่อนบ้านเหลืออีก 18 ปี ลูกสองคนอยู่ ป.3 กับอนุบาล ภรรยาทำงานพาร์ตไทม์ได้เดือนละ 9,000 บาท<br><br>
+          เขาเคยคิดจะทำประกัน แต่บอกตัวเองว่า <b>“ไว้ปีหน้าค่อยทำ ตอนนี้ยังแข็งแรงดี”</b><br><br>
+          เช้าวันหนึ่งของเดือนตุลาคม เขาไม่ได้กลับบ้าน
+          <footer>— กรณีศึกษาสมมติเพื่อการเรียนรู้</footer>
+        </blockquote>
+      </div>
+      <div class="rv" data-delay="120">
+        <div class="timeline">
+          <div class="tl"><small>สัปดาห์ที่ 1</small><h4>เงินสดในบ้านหมดเร็วกว่าที่คิด</h4><p>ค่าจัดการงาน ค่าเดินทางญาติ ค่าใช้จ่ายเฉพาะหน้า เงินเก็บ 180,000 บาท หายไปเกินครึ่งภายในสิบวัน</p></div>
+          <div class="tl"><small>เดือนที่ 2</small><h4>ธนาคารส่งจดหมายฉบับแรก</h4><p>ค่างวดบ้าน 16,500 บาท/เดือน ไม่ได้หยุดตามคนจ่าย ภรรยามีรายได้ 9,000 บาท ไม่พอแม้แต่ค่างวดเดียว</p></div>
+          <div class="tl"><small>เดือนที่ 5</small><h4>ต้องเลือกระหว่างบ้านกับโรงเรียน</h4><p>ย้ายลูกออกจากโรงเรียนเดิม กู้เงินนอกระบบดอกเบี้ยสูงมาประคองสถานการณ์</p></div>
+          <div class="tl"><small>ปีที่ 2</small><h4>บ้านถูกยึด ครอบครัวแยกกันอยู่</h4><p>ลูกคนโตย้ายไปอยู่กับปู่ย่าต่างจังหวัด ความฝันเรื่องมหาวิทยาลัยถูกพับเก็บอย่างเงียบ ๆ</p></div>
+        </div>
+      </div>
+    </div>
+    <figure class="imgslot rv empty" data-slot="story" data-label="ภาพประกอบ · เรื่องเล่า"></figure>
+    <p class="note warn rv" style="margin-top:2rem">
+      💔 <b>สิ่งที่เจ็บที่สุดไม่ใช่การจากไป</b> — แต่คือการที่คนข้างหลังต้องจ่ายราคาของการ “ยังไม่ได้ทำ” ไปอีกสิบปี
+      และเบี้ยประกันที่จะป้องกันทั้งหมดนี้ได้ อาจอยู่ที่ราวเดือนละ 1,000–1,500 บาทเท่านั้น
+    </p>
+  </div>
+</section>
+
+<!-- ============ COST OF NOTHING ============ -->
+<section class="sec dark-sec" id="cost">
+  <div class="wrap">
+    <div class="head rv">
+      <span class="eye">02 — Cost of Doing Nothing</span>
+      <h2 style="color:#fff">ต้นทุนของการ <span class="gradW">“ไม่ทำอะไรเลย”</span></h2>
+      <p>หลายคนคิดว่าไม่ทำประกัน = ประหยัดเงิน ความจริงคือ คุณกำลัง <b style="color:#fda4af">รับความเสี่ยงไว้เอง 100%</b> โดยไม่รู้ตัว</p>
+    </div>
+    <div class="painwrap">
+      <div class="pain rv"><div class="n">🏚️</div><h4>บ้านที่ผ่อนมาครึ่งทาง อาจไม่ใช่ของครอบครัว</h4><p>สินเชื่อบ้านไม่ได้ตายตามผู้กู้ ธนาคารจะทวงจากกองมรดกและผู้ค้ำ <b>ผ่อนมา 8 ปีแล้วเสียบ้านไป</b> เกิดขึ้นได้จริง</p></div>
+      <div class="pain rv" data-delay="60"><div class="n">🎓</div><h4>ความฝันของลูก ถูกตัดจบกลางคัน</h4><p>ค่าเรียนตั้งแต่ประถมถึงปริญญาตรีอยู่ที่หลักล้าน หากไม่มีทุนสำรอง <b>ลูกจะเป็นคนแรกที่ถูกลดค่าใช้จ่าย</b></p></div>
+      <div class="pain rv" data-delay="120"><div class="n">💸</div><h4>เงินลงทุนถูกบังคับขายในเวลาที่แย่ที่สุด</h4><p>ครอบครัวต้องขายกองทุน ขายทอง ขายรถ ในจังหวะที่ราคาต่ำ <b>ขาดทุนซ้อนความสูญเสีย</b></p></div>
+      <div class="pain rv" data-delay="180"><div class="n">🕳️</div><h4>หนี้นอกระบบ กับดักที่ออกยากที่สุด</h4><p>เมื่อสถาบันการเงินไม่ปล่อยกู้ ทางเลือกสุดท้ายมักดอกเบี้ยร้อยละ 10–20 ต่อเดือน <b>หนี้โตเร็วกว่ารายได้เสมอ</b></p></div>
+      <div class="pain rv" data-delay="240"><div class="n">👵</div><h4>พ่อแม่วัยเกษียณ ต้องกลับมาทำงาน</h4><p>คนที่ควรได้พัก กลับต้องรับภาระเลี้ยงหลาน <b>ความเสี่ยงไหลย้อนขึ้นไปสองรุ่น</b></p></div>
+      <div class="pain rv" data-delay="300"><div class="n">💔</div><h4>ความขัดแย้งในครอบครัว</h4><p>ไม่มีเงินก้อน ไม่มีเอกสารชัดเจน นำไปสู่การทวงถามระหว่างญาติ <b>ทำลายความสัมพันธ์ที่เหลืออยู่</b></p></div>
+    </div>
+
+    <figure class="imgslot rv empty" data-slot="cost" data-label="ภาพประกอบ · ต้นทุนของการไม่มี"></figure>
+    <p class="note rv" style="margin-top:2.6rem">
+      🧾 <b>เปรียบเทียบบนสมมติฐานเดียวกันทุกข้อ</b> — รายได้ 45,000 บาท/เดือน (540,000 บาท/ปี) ·
+      หนี้บ้านคงเหลือ 2,400,000 บาท · เบี้ยประกัน 15,000 บาท/ปี · ทุนประกัน 7,000,000 บาท · มองไปข้างหน้า 10 ปี
+      <br>ทั้งสองครอบครัวเจอเหตุการณ์เดียวกัน จึงมี “รายการเดียวกัน” ต่างกันแค่ตัวเลขในบางบรรทัด
+    </p>
+    <div class="scale rv" style="margin-top:1.4rem">
+      <div class="pan-side bad">
+        <h3>❌ ครอบครัว A — ไม่มีประกัน</h3>
+        <p>รับความเสี่ยงไว้เองทั้งหมด 100%</p>
+        <ul>
+          <li><i>✕</i> ครอบครัวรับความเสียหายเต็มจำนวน</li>
+          <li><i>✕</i> ต้องขายสินทรัพย์ในราคาถูกกว่าตลาด</li>
+          <li><i>✕</i> ก่อหนี้ใหม่ดอกเบี้ยสูงเพื่อประคองตัว</li>
+          <li><i>✕</i> แผนการศึกษาและเกษียณพังพร้อมกัน</li>
+        </ul>
+        <div class="bill" data-bill>
+          <div><span>รายได้ครอบครัวที่หายไป 10 ปี</span><b data-v="-5400000"></b></div>
+          <div><span>หนี้บ้านที่ยังต้องผ่อนต่อ</span><b data-v="-2400000"></b></div>
+          <div><span>ดอกเบี้ยหนี้ใหม่ + ขาดทุนจากการเร่งขายสินทรัพย์</span><b data-v="-800000"></b></div>
+          <div><span>เบี้ยที่ไม่ได้จ่าย (ประหยัดได้)</span><b data-v="150000"></b></div>
+          <div class="tot"><span>ผลกระทบสุทธิต่อครอบครัว</span><b data-total></b></div>
+        </div>
+      </div>
+      <div class="vs">VS</div>
+      <div class="pan-side good">
+        <h3>✅ ครอบครัว B — มีประกัน</h3>
+        <p>เงื่อนไขเดียวกันทุกอย่าง ต่างกันแค่ “ตัดสินใจทำ” เมื่อ 10 ปีก่อน</p>
+        <ul>
+          <li><i>✓</i> จ่ายเบี้ยที่แน่นอน คาดการณ์ได้ทุกปี</li>
+          <li><i>✓</i> ความเสียหายก้อนใหญ่ตกเป็นของบริษัทประกัน</li>
+          <li><i>✓</i> ได้เงินก้อนโดยไม่ต้องเร่งขายอะไรเลย</li>
+          <li><i>✓</i> บ้าน การศึกษา และแผนเกษียณยังอยู่ครบ</li>
+        </ul>
+        <div class="bill" data-bill>
+          <div><span>รายได้ครอบครัวที่หายไป 10 ปี</span><b data-v="-5400000"></b></div>
+          <div><span>หนี้บ้านที่ยังต้องผ่อนต่อ</span><b data-v="-2400000"></b></div>
+          <div><span>ดอกเบี้ยหนี้ใหม่ + ขาดทุนจากการเร่งขายสินทรัพย์</span><b data-v="0"></b></div>
+          <div><span>เบี้ยที่จ่ายจริง 10 ปี</span><b data-v="-150000"></b></div>
+          <div><span>ทุนประกันที่ครอบครัวได้รับ</span><b data-v="7000000"></b></div>
+          <div class="tot"><span>ผลกระทบสุทธิต่อครอบครัว</span><b data-total></b></div>
+        </div>
+      </div>
+    </div>
+    <div class="gapbox rv" id="gapBox">
+      <span class="gl">ส่วนต่างระหว่างสองครอบครัว</span>
+      <b id="gapVal">—</b>
+      <span class="gs">คือมูลค่าที่ “การตัดสินใจทำประกัน” สร้างให้ครอบครัว โดยแลกกับเบี้ยรวม 150,000 บาท ตลอด 10 ปี</span>
+    </div>
+    <p class="note warn rv" style="margin-top:1.6rem">
+      📌 <b>ตัวเลขข้างต้นเป็นภาพจำลองเพื่อการศึกษา</b> เบี้ยและทุนประกันจริงขึ้นอยู่กับอายุ เพศ สุขภาพ อาชีพ และแบบประกันที่เลือก
+      สังเกตว่า <b>ครอบครัว B ก็ยังติดลบ</b> เพราะเงินไม่อาจทดแทนคนที่หายไปได้ ประกันเพียงทำให้ความเสียหาย
+      <b>เล็กลงจนครอบครัวยังยืนอยู่ได้</b> — นั่นคือหน้าที่ของมัน ไม่ใช่การทำกำไร
+    </p>
+  </div>
+</section>
+
+<!-- ============ WHY ============ -->
+<section class="sec" id="why">
+  <div class="wrap">
+    <div class="head rv">
+      <span class="eye">03 — ความสำคัญ</span>
+      <h2>ประกันชีวิตทำหน้าที่อะไรบ้างในแผนการเงิน</h2>
+      <p>ก่อนจะลงทุนให้ “รวย” เราต้องกันไม่ให้ “จน” เสียก่อน ประกันคือเกราะชั้นแรกที่ปกป้องแผนทั้งหมด</p>
+    </div>
+    <div class="cards">
+      <article class="card rv"><div class="ico">🏠</div><h3>สร้างรายได้ทดแทนให้ครอบครัว</h3><p>ทุนประกันทำหน้าที่เหมือน “เงินเดือนล่วงหน้า” ให้ครอบครัวใช้ต่อได้อีก 5–10 ปี โดยไม่ต้องเปลี่ยนวิถีชีวิตกะทันหัน</p></article>
+      <article class="card rv" data-delay="60"><div class="ico">🎓</div><h3>การันตีการศึกษาของลูก</h3><p>เปลี่ยน “ความตั้งใจจะส่งลูกเรียน” ให้กลายเป็น “ข้อผูกพันตามสัญญา” ที่บริษัทประกันต้องจ่ายแม้คุณไม่อยู่</p></article>
+      <article class="card rv" data-delay="120"><div class="ico">💳</div><h3>ปิดหนี้ ไม่ให้ตกถึงคนข้างหลัง</h3><p>หนี้บ้าน หนี้รถ หนี้ธุรกิจ ไม่หายไปพร้อมเรา แต่จะไปเรียกร้องจากกองมรดกและผู้ค้ำประกัน</p></article>
+      <article class="card rv" data-delay="180"><div class="ico">⚕️</div><h3>รับมือค่ารักษาก้อนใหญ่</h3><p>สัญญาเพิ่มเติมสุขภาพและโรคร้ายแรงช่วยไม่ให้เงินเก็บทั้งชีวิตหมดไปกับการรักษาเพียงครั้งเดียว</p></article>
+      <article class="card rv" data-delay="240"><div class="ico">🧾</div><h3>สิทธิลดหย่อนภาษี</h3><p>เบี้ยประกันชีวิตทั่วไปลดหย่อนได้สูงสุด 100,000 บาท และแบบบำนาญเพิ่มได้อีกตามเกณฑ์กรมสรรพากร</p></article>
+      <article class="card rv" data-delay="300"><div class="ico">🕊️</div><h3>ส่งต่อมรดกอย่างเป็นระบบ</h3><p>ระบุผู้รับประโยชน์ได้ชัดเจน จ่ายตรงถึงมือ ลดความขัดแย้ง และเป็นสภาพคล่องให้กองมรดกที่เป็นอสังหาฯ</p></article>
+      <article class="card rv" data-delay="360"><div class="ico">🧠</div><h3>ซื้อ “ความสงบใจ” ให้ตัวเอง</h3><p>ผลตอบแทนที่วัดเป็นตัวเลขไม่ได้ คือการได้ทำงาน ได้เสี่ยงลงทุน ได้ใช้ชีวิต โดยไม่ต้องกลัวว่าถ้าพลาดแล้วบ้านจะพัง</p></article>
+      <article class="card rv" data-delay="420"><div class="ico">⏳</div><h3>ล็อกเบี้ยไว้ที่อายุวันนี้</h3><p>เบี้ยประกันอิงอายุที่สมัคร ยิ่งเริ่มเร็วยิ่งถูกและตรวจสุขภาพผ่านง่าย รอไปอีก 10 ปี อาจแพงขึ้นเท่าตัวหรือสมัครไม่ได้เลย</p></article>
+    </div>
+
+    <figure class="imgslot rv empty" data-slot="why" data-label="ภาพประกอบ · ความสำคัญ"></figure>
+    <div class="split rv">
+      <div>
+        <span class="eye">พีระมิดการเงิน</span>
+        <h3>ลำดับที่ถูกต้องของการสร้างความมั่งคั่ง</h3>
+        <ul class="pyr">
+          <li><b>ชั้นที่ 4</b> ลงทุนเพื่อความมั่งคั่ง — หุ้น กองทุน อสังหาฯ</li>
+          <li><b>ชั้นที่ 3</b> ออมเพื่อเป้าหมาย — เกษียณ การศึกษา</li>
+          <li><b>ชั้นที่ 2</b> <span class="hl">ป้องกันความเสี่ยง — ประกันชีวิต/สุขภาพ</span></li>
+          <li><b>ชั้นที่ 1</b> เงินสำรองฉุกเฉิน 3–6 เท่าของรายจ่าย</li>
+        </ul>
+        <p class="note">💡 หลายคนข้ามชั้นที่ 2 ไปลงทุนเลย พอเกิดเหตุไม่คาดฝันจึงต้องขายสินทรัพย์ทิ้งในเวลาที่แย่ที่สุด — เหมือนสร้างบ้านสี่ชั้นบนเสาที่ยังไม่ได้ตอกเข็ม</p>
+      </div>
+      <div>
+        <div class="board">
+          <div class="board-h"><h4>ผลกระทบเมื่อไม่มีเกราะป้องกัน</h4><span>ข้อมูลจำลอง</span></div>
+          <div class="rows">
+            <div class="row">😰 ขายสินทรัพย์ก่อนกำหนด <em>-30%</em></div>
+            <div class="row">💸 กู้ยืมดอกเบี้ยสูง <em>+18%/ปี</em></div>
+            <div class="row">📉 แผนเกษียณล่าช้า <em>+7 ปี</em></div>
+            <div class="row">🎓 บุตรหยุดเรียนกลางคัน <em>เสี่ยงสูง</em></div>
+            <div class="row">🏦 เครดิตครอบครัวเสียหาย <em>ระยะยาว</em></div>
+          </div>
+          <p class="note warn">การไม่ทำอะไรเลย ไม่ใช่การไม่มีความเสี่ยง แต่คือการ <b>เลือกรับความเสี่ยงไว้เองทั้งหมด</b></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ RISK ============ -->
+<section class="sec tinted" id="risk">
+  <div class="wrap">
+    <div class="head rv">
+      <span class="eye">04 — Risk Management</span>
+      <h2>การบริหารความเสี่ยงในชีวิต 4 วิธี</h2>
+      <p>ความเสี่ยงคือ “ความไม่แน่นอนที่อาจทำให้เกิดความสูญเสีย” — เราจัดการมันได้ 4 แบบ และแต่ละแบบเหมาะกับสถานการณ์ต่างกัน</p>
+    </div>
+    <div class="steps">
+      <div class="step rv"><span class="stepn">1</span><h3>หลีกเลี่ยง<small>Avoidance</small></h3><p>ตัดต้นตอทิ้ง เช่น ไม่ขับรถเร็ว เลิกบุหรี่ ไม่ลงทุนในสิ่งที่ไม่เข้าใจ ได้ผลดีแต่ใช้ไม่ได้กับทุกเรื่อง เพราะเราหลีกเลี่ยง “ความตาย” ไม่ได้</p></div>
+      <div class="step rv" data-delay="70"><span class="stepn">2</span><h3>ลดและควบคุม<small>Reduction</small></h3><p>ลดโอกาสเกิดหรือลดความรุนแรง เช่น ออกกำลังกาย ตรวจสุขภาพประจำปี คาดเข็มขัดนิรภัย ติดตั้งสัญญาณกันไฟไหม้</p></div>
+      <div class="step rv" data-delay="140"><span class="stepn">3</span><h3>รับไว้เอง<small>Retention</small></h3><p>ยอมรับความเสียหายเล็ก ๆ ที่เรารับไหว ด้วยเงินสำรองฉุกเฉิน เช่น ค่ายา ค่าซ่อมรถเล็กน้อย ค่าเสียหายหลักพัน</p></div>
+      <div class="step hi rv" data-delay="210"><span class="stepn">4</span><h3>ถ่ายโอน<small>Transfer</small></h3><p><b>ความเสียหายก้อนใหญ่ที่รับเองไม่ไหว</b> ให้โอนไปยังบริษัทประกันผ่านสัญญา นี่คือหัวใจของการทำประกันชีวิตและสุขภาพ</p></div>
+    </div>
+    <div class="mx rv">
+      <h3>ตารางตัดสินใจ: ความถี่ × ความรุนแรง</h3>
+      <div class="mxg">
+        <div class="mc h"></div><div class="mc h">ความเสียหายน้อย</div><div class="mc h">ความเสียหายสูง</div>
+        <div class="mc h">เกิดบ่อย</div>
+        <div class="mc g1"><b>ลด / ควบคุม</b><span>เช่น ค่ารักษาเล็กน้อย ค่าซ่อมบำรุง</span></div>
+        <div class="mc g3"><b>หลีกเลี่ยง</b><span>เช่น กิจกรรมอันตรายสูง พฤติกรรมเสี่ยง</span></div>
+        <div class="mc h">เกิดไม่บ่อย</div>
+        <div class="mc g2"><b>รับไว้เอง</b><span>ใช้เงินสำรองฉุกเฉิน 3–6 เดือน</span></div>
+        <div class="mc g4"><b>ถ่ายโอน 🛡️</b><span>ทำประกันชีวิต / สุขภาพ / โรคร้ายแรง</span></div>
+      </div>
+      <p class="note">🎯 การเสียชีวิตก่อนวัยอันควร ทุพพลภาพ และโรคร้ายแรง = <b>“เกิดไม่บ่อย แต่เสียหายมหาศาล”</b> จึงตกอยู่ในช่องขวาล่างพอดี ซึ่งเป็นช่องเดียวที่การทำประกันคุ้มค่าที่สุดในเชิงเศรษฐศาสตร์</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TRANSFER ============ -->
+<section class="sec" id="transfer">
+  <div class="wrap">
+    <div class="head rv">
+      <span class="eye">05 — Risk Transfer</span>
+      <h2>กลไกการถ่ายโอนความเสี่ยงทำงานอย่างไร</h2>
+      <p>หลักการ “คนจำนวนมากช่วยกันคนละนิด เพื่อคนจำนวนน้อยที่เดือดร้อนจริง” หรือ Law of Large Numbers</p>
+    </div>
+    <div class="flow">
+      <div class="node rv"><div>🙋</div><h3>คุณ (ผู้เอาประกัน)</h3><p>เดิมแบกความเสี่ยงไว้คนเดียว 100%</p></div>
+      <div class="arw rv" data-delay="50"><span>จ่ายเบี้ย</span><i>→</i></div>
+      <div class="node mid rv" data-delay="100"><div>🏦</div><h3>บริษัทประกัน</h3><p>รวมเบี้ยจากคนหลายล้านคนเป็นกองทุนกลาง กระจายความเสี่ยง</p></div>
+      <div class="arw rv" data-delay="150"><span>จ่ายสินไหม</span><i>→</i></div>
+      <div class="node rv" data-delay="200"><div>👨‍👩‍👧</div><h3>ผู้รับประโยชน์</h3><p>ได้รับทุนประกันก้อนใหญ่ทันทีเมื่อเกิดเหตุ</p></div>
+    </div>
+
+    <figure class="imgslot rv empty" data-slot="transfer" data-label="ภาพประกอบ · ถ่ายโอนความเสี่ยง"></figure>
+    <div class="split rv">
+      <div>
+        <h3>ทำไมบริษัทประกันถึงรับความเสี่ยงนี้ไหว</h3>
+        <ul class="pyr">
+          <li><b>1</b> มีผู้เอาประกันหลักล้านคน ทำให้ทำนายอัตราการเคลมได้แม่นยำ</li>
+          <li><b>2</b> ใช้ตารางมรณะและสถิติคำนวณเบี้ยให้สมดุลกับความเสี่ยง</li>
+          <li><b>3</b> นำเบี้ยส่วนใหญ่ไปลงทุนในสินทรัพย์มั่นคงเพื่อสร้างผลตอบแทน</li>
+          <li><b>4</b> ทำประกันภัยต่อ (Reinsurance) กระจายความเสี่ยงออกไปอีกชั้น</li>
+          <li><b>5</b> ถูกกำกับโดย คปภ. ให้ดำรงเงินกองทุนตามกฎหมาย</li>
+        </ul>
+        <p class="note">🔑 หัวใจของเรื่องนี้คือ <b>“แลกความไม่แน่นอนก้อนใหญ่ ด้วยความแน่นอนก้อนเล็ก”</b> — คุณยอมจ่ายเงินจำนวนที่รู้แน่ ๆ เพื่อไม่ต้องเจอกับความเสียหายที่ไม่รู้ว่าจะมาเมื่อไหร่และใหญ่แค่ไหน</p>
+      </div>
+      <div>
+        <div class="board">
+          <div class="board-h"><h4>ตัวอย่างสัดส่วนเบี้ยต่อทุนประกัน</h4><span>เพื่อการศึกษา</span></div>
+          <div class="rows">
+            <div class="row">💵 เบี้ยที่จ่ายต่อปี <em>~12,000 บาท</em></div>
+            <div class="row">📅 เบี้ยเฉลี่ยต่อวัน <em>~33 บาท</em></div>
+            <div class="row">🛡️ ทุนประกันที่ได้รับ <em>~2,000,000 บาท</em></div>
+            <div class="row">⚖️ อัตราส่วนโดยประมาณ <em>1 : 166</em></div>
+          </div>
+          <p class="note">☕ ค่ากาแฟวันละแก้ว ≈ เบี้ยประกันวันละ 33 บาท — ต่างกันตรงที่อย่างหนึ่งหมดไปใน 15 นาที อีกอย่างคุ้มครองครอบครัวคุณ 24 ชั่วโมง</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TYPES ============ -->
+<section class="sec tinted" id="types">
+  <div class="wrap">
+    <div class="head rv">
+      <span class="eye">06 — ประเภทประกัน</span>
+      <h2>เลือกแบบประกันให้ตรงเป้าหมาย</h2>
+      <p>ไม่มีแบบไหน “ดีที่สุด” มีแต่แบบที่ “เหมาะกับสถานการณ์ของคุณที่สุด” ในช่วงเวลานั้น</p>
+    </div>
+    <div class="rv">
+      <div class="tbar" id="tabBar">
+        <button class="tab act" type="button" data-p="p1">🎯 ชั่วระยะเวลา</button>
+        <button class="tab" type="button" data-p="p2">♾️ ตลอดชีพ</button>
+        <button class="tab" type="button" data-p="p3">🏦 สะสมทรัพย์</button>
+        <button class="tab" type="button" data-p="p4">🌴 บำนาญ</button>
+        <button class="tab" type="button" data-p="p5">📊 ยูนิตลิงค์</button>
+      </div>
+      <div>
+        <div class="pan act" id="p1">
+          <h3>Term Life — เบี้ยถูกที่สุด ทุนสูงที่สุด</h3>
+          <p>คุ้มครองเฉพาะช่วงเวลาที่กำหนด เช่น 10, 15 หรือ 20 ปี ถ้าอยู่ครบสัญญาจะไม่ได้เงินคืน แต่แลกมาด้วยเบี้ยที่ถูกมาก เหมาะกับ “ช่วงชีวิตที่ภาระสูงสุด” คือกำลังผ่อนบ้านและลูกยังเล็ก</p>
+          <div class="pan-grid">
+            <ul class="tick">
+              <li>เบี้ยต่ำที่สุดต่อทุนประกัน 1 บาท เหมาะกับงบจำกัด</li>
+              <li>สร้างทุนประกันหลักล้านได้ด้วยเบี้ยหลักพันต่อปี</li>
+              <li>เหมาะมากสำหรับคนเพิ่งเริ่มทำงานและพ่อแม่มือใหม่</li>
+              <li>นิยมทำคู่กับสินเชื่อบ้าน (MRTA) เพื่อปิดหนี้โดยเฉพาะ</li>
+              <li>ข้อจำกัด: ไม่มีมูลค่าเงินสด และเบี้ยจะแพงขึ้นเมื่อต่ออายุตอนแก่</li>
+            </ul>
+            <div class="spec">
+              <div><span>ระยะคุ้มครอง</span><b>10–20 ปี</b></div>
+              <div><span>เบี้ยเทียบกัน</span><b>ต่ำที่สุด</b></div>
+              <div><span>มูลค่าเงินสด</span><b>ไม่มี</b></div>
+              <div><span>เหมาะกับ</span><b>ภาระสูง งบน้อย</b></div>
+            </div>
+          </div>
+        </div>
+        <div class="pan" id="p2">
+          <h3>Whole Life — คุ้มครองยาว สร้างมรดก</h3>
+          <p>คุ้มครองยาวถึงอายุ 90–99 ปี พร้อมสะสมมูลค่าเงินสดในกรมธรรม์ เหมาะกับการวางแผนส่งต่อมรดกและเป็นฐานรองรับสัญญาเพิ่มเติมด้านสุขภาพระยะยาว</p>
+          <div class="pan-grid">
+            <ul class="tick">
+              <li>มีมูลค่าเวนคืนเงินสด ใช้กู้ยืมจากกรมธรรม์ได้ยามจำเป็น</li>
+              <li>เป็นสัญญาหลักที่แนบสัญญาเพิ่มเติมสุขภาพได้ยาวนาน</li>
+              <li>สร้างสภาพคล่องให้กองมรดกที่เป็นที่ดินหรืออสังหาฯ</li>
+              <li>เบี้ยคงที่ตลอดสัญญา ไม่เพิ่มตามอายุ</li>
+              <li>ข้อจำกัด: เบี้ยสูงกว่า Term หลายเท่าที่ทุนประกันเท่ากัน</li>
+            </ul>
+            <div class="spec">
+              <div><span>ระยะคุ้มครอง</span><b>ถึงอายุ 90–99</b></div>
+              <div><span>เบี้ยเทียบกัน</span><b>ปานกลาง–สูง</b></div>
+              <div><span>มูลค่าเงินสด</span><b>มี</b></div>
+              <div><span>เหมาะกับ</span><b>วางแผนมรดก</b></div>
+            </div>
+          </div>
+        </div>
+        <div class="pan" id="p3">
+          <h3>Endowment — ออมพร้อมคุ้มครอง</h3>
+          <p>มีเงินคืนระหว่างสัญญาและเงินก้อนเมื่อครบกำหนด เหมาะกับคนที่ต้องการ “วินัยการออมแบบบังคับ” และผลตอบแทนที่แน่นอนระดับหนึ่ง โดยยังได้ความคุ้มครองชีวิตติดมาด้วย</p>
+          <div class="pan-grid">
+            <ul class="tick">
+              <li>รู้ผลตอบแทนล่วงหน้า ความเสี่ยงต่ำมาก</li>
+              <li>ใช้ลดหย่อนภาษีได้หากระยะสัญญา 10 ปีขึ้นไป</li>
+              <li>เหมาะกับเป้าหมายมีกำหนดเวลา เช่น ค่าเทอมลูกอีก 12 ปี</li>
+              <li>ข้อจำกัด: ผลตอบแทนต่ำกว่าการลงทุน และทุนคุ้มครองไม่สูง</li>
+              <li>ข้อควรระวัง: เวนคืนก่อนกำหนดมักขาดทุน</li>
+            </ul>
+            <div class="spec">
+              <div><span>ระยะสัญญา</span><b>10–25 ปี</b></div>
+              <div><span>เบี้ยเทียบกัน</span><b>สูง</b></div>
+              <div><span>ทุนคุ้มครอง</span><b>ไม่สูงนัก</b></div>
+              <div><span>เหมาะกับ</span><b>ออมมีเป้าหมาย</b></div>
+            </div>
+          </div>
+        </div>
+        <div class="pan" id="p4">
+          <h3>Annuity — สร้างเงินเดือนหลังเกษียณ</h3>
+          <p>เปลี่ยนเงินก้อนที่สะสมไว้ ให้กลายเป็นกระแสเงินสดรายปีตั้งแต่อายุ 55 หรือ 60 ปี ไปจนถึงอายุ 85–90 ปี ออกแบบมาแก้ปัญหาที่น่ากลัวที่สุดของวัยเกษียณคือ <b>“อายุยืนกว่าเงินที่มี”</b></p>
+          <div class="pan-grid">
+            <ul class="tick">
+              <li>การันตีรายได้ที่แน่นอน ไม่ผันผวนตามตลาดหุ้น</li>
+              <li>ลดหย่อนภาษีเพิ่มได้ตามเกณฑ์ประกันบำนาญ</li>
+              <li>ป้องกันความเสี่ยงจากการใช้เงินหมดก่อนเสียชีวิต</li>
+              <li>เหมาะกับคนที่ไม่มีบำนาญราชการหรือกองทุนเลี้ยงชีพ</li>
+              <li>ข้อจำกัด: สภาพคล่องต่ำ ถอนก่อนกำหนดเสียประโยชน์มาก</li>
+            </ul>
+            <div class="spec">
+              <div><span>เริ่มรับเงิน</span><b>อายุ 55/60</b></div>
+              <div><span>รับถึง</span><b>อายุ 85–90</b></div>
+              <div><span>ความเสี่ยง</span><b>ต่ำมาก</b></div>
+              <div><span>เหมาะกับ</span><b>วางแผนเกษียณ</b></div>
+            </div>
+          </div>
+        </div>
+        <div class="pan" id="p5">
+          <h3>Unit Linked — ยืดหยุ่นสูง ปรับได้ตามชีวิต</h3>
+          <p>แยกส่วน “ความคุ้มครอง” กับส่วน “การลงทุน” ออกจากกันอย่างโปร่งใส ปรับทุนประกันขึ้นลงได้ เลือกกองทุนได้เอง แต่ต้องแลกมาด้วยความเสี่ยงจากการลงทุนที่ผู้เอาประกันรับเอง</p>
+          <div class="pan-grid">
+            <ul class="tick">
+              <li>เห็นค่าใช้จ่ายและค่าธรรมเนียมชัดเจนแยกรายการ</li>
+              <li>ปรับเบี้ยและทุนประกันได้ตามช่วงชีวิตที่เปลี่ยนไป</li>
+              <li>หยุดพักชำระเบี้ยได้หากมูลค่าบัญชีเพียงพอ</li>
+              <li>ข้อจำกัด: ผลตอบแทนไม่การันตี มูลค่าอาจลดลงได้</li>
+              <li>ต้องมีใบอนุญาต IC ในการเสนอขาย และผู้ซื้อควรเข้าใจการลงทุน</li>
+            </ul>
+            <div class="spec">
+              <div><span>ความยืดหยุ่น</span><b>สูงที่สุด</b></div>
+              <div><span>ความเสี่ยง</span><b>ผู้เอาประกันรับ</b></div>
+              <div><span>ผลตอบแทน</span><b>ไม่การันตี</b></div>
+              <div><span>เหมาะกับ</span><b>คนเข้าใจการลงทุน</b></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <figure class="imgslot rv empty" data-slot="types" data-label="ภาพประกอบ · ประเภทประกัน"></figure>
+    <div class="head rv" style="margin-top:4rem;margin-bottom:1.6rem">
+      <span class="eye">สัญญาเพิ่มเติม</span>
+      <h2 style="font-size:clamp(1.4rem,3vw,2rem)">Riders — ตัวเสริมที่มักสำคัญกว่าสัญญาหลัก</h2>
+      <p>สัญญาหลักคุ้มครอง “การจากไป” แต่สัญญาเพิ่มเติมคุ้มครอง “การอยู่ต่อแบบมีค่าใช้จ่ายมหาศาล” ซึ่งเกิดบ่อยกว่ามาก</p>
+    </div>
+    <div class="riders rv">
+      <div class="rider"><h4>🏥 ค่ารักษาพยาบาล (HS/HB)</h4><p>จ่ายค่าห้อง ค่าผ่าตัด ค่ายา ตามจริงหรือเหมาจ่าย ลดภาระค่ารักษาที่พุ่งขึ้นทุกปี</p><span class="chip">ใช้บ่อยที่สุด</span></div>
+      <div class="rider"><h4>🎗️ โรคร้ายแรง (CI)</h4><p>จ่ายเงินก้อนทันทีเมื่อตรวจพบโรคที่ระบุ เช่น มะเร็ง หัวใจ หลอดเลือดสมอง ใช้เป็นค่ารักษาและทดแทนรายได้ช่วงพักฟื้น</p><span class="chip">เงินก้อนทันที</span></div>
+      <div class="rider"><h4>♿ ทุพพลภาพ (TPD/WP)</h4><p>คุ้มครองกรณีพิการถาวรจนทำงานไม่ได้ บางแบบยกเว้นการชำระเบี้ยให้ตลอดสัญญา</p><span class="chip">มักถูกมองข้าม</span></div>
+      <div class="rider"><h4>🚑 อุบัติเหตุ (PA)</h4><p>เพิ่มทุนกรณีเสียชีวิตหรือสูญเสียอวัยวะจากอุบัติเหตุ เบี้ยถูกมากเมื่อเทียบกับความคุ้มครอง</p><span class="chip">เบี้ยถูก</span></div>
+      <div class="rider"><h4>👶 คุ้มครองผู้ชำระเบี้ย (PB)</h4><p>สำหรับกรมธรรม์ของลูก หากพ่อแม่ผู้ชำระเบี้ยจากไป บริษัทจะชำระเบี้ยแทนจนครบสัญญา</p><span class="chip">สำหรับครอบครัว</span></div>
+      <div class="rider"><h4>💊 ชดเชยรายวัน (HB)</h4><p>จ่ายเงินชดเชยรายวันทุกวันที่นอนโรงพยาบาล ใช้ทดแทนรายได้ที่หายไปสำหรับฟรีแลนซ์และเจ้าของกิจการ</p><span class="chip">ทดแทนรายได้</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CALCULATOR ============ -->
+<section class="sec" id="calc">
+  <div class="wrap">
+    <div class="head">
+      <span class="eye">07 — เครื่องมือ</span>
+      <h2>คำนวณ “ทุนประกันที่ควรมี” ด้วยหลัก DIME</h2>
+      <p><b>D</b>ebt หนี้สิน · <b>I</b>ncome รายได้ · <b>M</b>ortgage ที่อยู่อาศัย · <b>E</b>ducation การศึกษา — <b>ลากแถบเลื่อน</b>ให้ตรงกับสถานการณ์ของคุณ หรือพิมพ์ตัวเลขลงช่องโดยตรงก็ได้ (พิมพ์เกินสุดแถบได้)</p>
+    </div>
+    <div class="calc">
+      <form class="cform" id="calcForm" autocomplete="off" novalidate>
+        <label>รายได้ต่อเดือน (บาท)
+          <small>รายได้สุทธิที่ครอบครัวพึ่งพาอยู่จริง</small>
+          <input type="text" id="income" value="45,000" data-money inputmode="decimal" autocomplete="off" data-min="0" data-max="20000000" data-scale="log"></label>
+        <label>จำนวนปีที่ต้องการดูแลครอบครัว
+          <small>แนะนำ 10 ปี หรือจนลูกคนเล็กเรียนจบ</small>
+          <input type="number" id="years" value="10" min="5" max="30" step="1" inputmode="decimal" data-min="5" data-max="30" data-step="1"></label>
+        <label>หนี้สินรวม บ้าน/รถ/บัตร (บาท)
+          <small>ยอดคงเหลือทั้งหมดที่ยังต้องผ่อน</small>
+          <input type="text" id="debt" value="2,400,000" data-money inputmode="decimal" autocomplete="off" data-min="0" data-max="100000000" data-scale="log"></label>
+        <label>ค่าการศึกษาบุตรที่ต้องเตรียม (บาท)
+          <small>ประเมินคร่าว ๆ ต่อคนตั้งแต่ปัจจุบันถึงปริญญาตรี</small>
+          <input type="text" id="edu" value="1,000,000" data-money inputmode="decimal" autocomplete="off" data-min="0" data-max="20000000" data-scale="log"></label>
+        <label>ค่าใช้จ่ายก้อนสุดท้าย (บาท)
+          <small>ค่าจัดงาน ค่ารักษาระยะสุดท้าย ภาษี/ค่าจัดการมรดก ใส่ 0 ได้ถ้าไม่ต้องการรวม</small>
+          <input type="text" id="final" value="200,000" data-money inputmode="decimal" autocomplete="off" data-min="0" data-max="120000000" data-scale="log"></label>
+        <label>สินทรัพย์สภาพคล่อง + ทุนประกันเดิม (บาท)
+          <small>เงินฝาก กองทุน ทอง และทุนประกันที่มีอยู่แล้ว</small>
+          <input type="text" id="asset" value="500,000" data-money inputmode="decimal" autocomplete="off" data-min="0" data-max="100000000000" data-scale="log"></label>
+
+        <div class="adv" id="advWrap">
+          <label class="advtog">
+            <input type="checkbox" id="advOn">
+            <span><b>คิดเงินเฟ้อและผลตอบแทนของเงินก้อน</b> (โหมดขั้นสูง)
+              <small>DIME แบบง่ายคูณรายได้ตรง ๆ ซึ่งมองข้ามสองอย่างพร้อมกัน คือค่าครองชีพที่แพงขึ้นทุกปี
+              และเงินก้อนที่ครอบครัวได้รับก็งอกเงยได้ระหว่างทาง เปิดโหมดนี้เพื่อคิดเป็น “มูลค่าปัจจุบัน” ที่ตรงความจริงกว่า</small>
+            </span>
+          </label>
+          <div class="advg" id="advFields" hidden>
+            <label>เงินเฟ้อค่าครองชีพต่อปี (%)
+              <small>ค่าใช้จ่ายครอบครัวจะแพงขึ้นปีละเท่าไร</small>
+              <input type="number" id="infl" value="3" min="0" max="20" step="0.1" inputmode="decimal" data-min="0" data-max="15" data-step="0.1"></label>
+            <label>ผลตอบแทนคาดหวังของเงินก้อน (%)
+              <small>ครอบครัวนำเงินสินไหมไปพักไว้ที่ใด ได้ผลตอบแทนราวเท่าไร</small>
+              <input type="number" id="ret" value="4" min="0" max="20" step="0.1" inputmode="decimal" data-min="0" data-max="15" data-step="0.1"></label>
+          </div>
+        </div>
+
+        <div id="stale">⚠️ ค่าเปลี่ยนแล้ว — กดปุ่มคำนวณเพื่ออัปเดตผลลัพธ์</div>
+        <div id="errbox"></div>
+        <div class="cbtns">
+          <button class="btn btn-p btn-lg" type="submit" id="calcBtn">🧮 คำนวณทุนประกัน</button>
+          <button class="btn btn-gh" type="button" id="resetBtn">รีเซ็ต</button>
+        </div>
+      </form>
+
+      <div class="cout">
+        <span class="lbl">ทุนประกันที่แนะนำ</span>
+        <div id="sumOut">—</div>
+        <div id="ratio">—</div>
+        <div class="bars">
+          <div class="brow"><span>ทดแทนรายได้</span><div class="track"><i id="bInc"></i></div><b id="oInc">0</b></div>
+          <div class="brow"><span>ปิดหนี้สิน</span><div class="track"><i id="bDebt"></i></div><b id="oDebt">0</b></div>
+          <div class="brow"><span>ทุนการศึกษา</span><div class="track"><i id="bEdu"></i></div><b id="oEdu">0</b></div>
+          <div class="brow" id="rowFinal"><span>ค่าใช้จ่ายก้อนสุดท้าย</span><div class="track"><i id="bFinal"></i></div><b id="oFinal">0</b></div>
+          <div class="brow mn"><span>หักสินทรัพย์เดิม</span><div class="track"><i id="bAsset"></i></div><b id="oAsset">0</b></div>
+        </div>
+        <div id="cmpBox" hidden>
+          <div class="cmpr"><span>DIME แบบง่าย (ไม่คิดเงินเฟ้อ)</span><b id="cmpSimple">—</b></div>
+          <div class="cmpr on"><span>คิดมูลค่าปัจจุบัน (โหมดขั้นสูง)</span><b id="cmpPv">—</b></div>
+          <p id="cmpNote"></p>
+        </div>
+        <div id="formula">—</div>
+        <p id="hint">ตัวเลขนี้เป็นการประเมินเบื้องต้นเพื่อการศึกษา ควรปรึกษานักวางแผนการเงินก่อนตัดสินใจจริง</p>
+        <p id="stamp">—</p>
+      </div>
+    </div>
+
+    <div class="split rv" style="margin-top:3rem">
+      <div>
+        <h3>อ่านผลลัพธ์อย่างไรให้ถูกต้อง</h3>
+        <ul class="pyr">
+          <li><b>ต่ำกว่า 5 เท่าของรายได้ต่อปี</b> ความคุ้มครองน้อยเกินไปสำหรับคนมีภาระ</li>
+          <li><b>10–15 เท่าของรายได้ต่อปี</b> ระดับที่นักวางแผนการเงินส่วนใหญ่แนะนำ</li>
+          <li><b>มากกว่า 20 เท่า</b> เหมาะกับคนมีหนี้สูงมากหรือมีผู้อยู่ในอุปการะหลายคน</li>
+          <li><b>เบี้ยส่วนคุ้มครองราว 5–10%</b> ของรายได้ทั้งปี และรวมทุกกรมธรรม์ไม่ควรเกิน 10–15% แม้นับแบบสะสมทรัพย์/บำนาญด้วย</li>
+        </ul>
+        <p class="note">📎 หลัก DIME เป็นแนวทางเบื้องต้น หากต้องการความละเอียดสูงควรใช้วิธี Needs Analysis ที่คิดเงินเฟ้อ อัตราคิดลด และรายได้ของคู่สมรสร่วมด้วย</p>
+      </div>
+      <div>
+        <h3 style="margin-bottom:1rem">เช็กลิสต์ก่อนตัดสินใจซื้อ</h3>
+        <div class="chk" id="chkList">
+          <label><input type="checkbox"><span>รู้ว่าตัวเองต้องการทุนประกันเท่าไร และคำนวณมาแล้ว</span></label>
+          <label><input type="checkbox"><span>เปรียบเทียบอย่างน้อย 3 บริษัท ในแบบประกันชนิดเดียวกัน</span></label>
+          <label><input type="checkbox"><span>อ่านข้อยกเว้นความคุ้มครองครบทุกข้อ โดยเฉพาะ 2 ปีแรก</span></label>
+          <label><input type="checkbox"><span>แถลงข้อมูลสุขภาพตามจริงทั้งหมด ไม่ปิดบัง</span></label>
+          <label><input type="checkbox"><span>มั่นใจว่าจ่ายเบี้ยไหวตลอดสัญญา ไม่กระทบเงินสำรองฉุกเฉิน</span></label>
+          <label><input type="checkbox"><span>ระบุชื่อผู้รับประโยชน์ชัดเจน และแจ้งให้ครอบครัวรู้ว่ากรมธรรม์เก็บไว้ที่ไหน</span></label>
+          <label><input type="checkbox"><span>ตรวจสอบใบอนุญาตตัวแทน/นายหน้ากับ คปภ. แล้ว</span></label>
+          <label><input type="checkbox"><span>เข้าใจสิทธิ Free Look Period — ขอยกเลิกได้ 15 วันหลังรับกรมธรรม์ (30 วันถ้าซื้อทางโทรศัพท์)</span></label>
+        </div>
+        <div id="chkBar"><i></i></div>
+        <div id="chkTxt">เลือกไปแล้ว 0 จาก 8 ข้อ</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MYTHS ============ -->
+<section class="sec tinted" id="myth">
+  <div class="wrap">
+    <div class="head rv">
+      <span class="eye">08 — Myth Busting</span>
+      <h2>8 ความเข้าใจผิด ที่ทำให้คนไทยไม่มีประกัน</h2>
+      <p>คลิกที่การ์ดเพื่อดูคำตอบ 👆</p>
+    </div>
+    <div class="myths rv" id="mythBox">
+      <div class="myth"><span class="tog">▼</span><div class="mq"><em aria-hidden="true">❝</em><span>“ยังหนุ่มยังแข็งแรง ไว้แก่กว่านี้ค่อยทำ”</span></div><div class="ma"><p>เบี้ยประกันคำนวณจากอายุที่สมัคร ไม่ใช่อายุปัจจุบัน เริ่มตอน 25 ปีอาจจ่ายเบี้ยครึ่งเดียวของคนเริ่มตอน 40 ปี ที่สำคัญกว่านั้นคือ สุขภาพที่ดีวันนี้อาจไม่ดีในอีก 10 ปี และหากตรวจพบโรคก่อนสมัคร บริษัทมีสิทธิปฏิเสธหรือเพิ่มเบี้ยได้</p></div></div>
+      <div class="myth"><span class="tog">▼</span><div class="mq"><em aria-hidden="true">❝</em><span>“ยังโสด ไม่มีใครต้องดูแล”</span></div><div class="ma"><p>ถ้าคุณมีพ่อแม่ที่จะต้องรับผิดชอบค่าใช้จ่ายงานศพ หรือมีหนี้ที่มีคนค้ำประกันอยู่ ความเสี่ยงนั้นยังคงอยู่ อีกทั้งการทำตอนโสดคือการล็อกเบี้ยถูกไว้ล่วงหน้า สำหรับวันที่คุณมีครอบครัวในอนาคต</p></div></div>
+      <div class="myth"><span class="tog">▼</span><div class="mq"><em aria-hidden="true">❝</em><span>“มีประกันกลุ่มบริษัทแล้ว เพียงพอ”</span></div><div class="ma"><p>ประกันกลุ่มมักให้ทุนประกันเพียง 1–3 เท่าของเงินเดือน ซึ่งไม่พอปิดหนี้บ้าน และที่สำคัญที่สุดคือ <b>ความคุ้มครองหายไปทันทีในวันที่คุณลาออก ถูกเลิกจ้าง หรือเกษียณ</b> ซึ่งมักเป็นช่วงที่คุณต้องการมันที่สุด</p></div></div>
+      <div class="myth"><span class="tog">▼</span><div class="mq"><em aria-hidden="true">❝</em><span>“ประกันคือการลงทุนที่ผลตอบแทนแย่”</span></div><div class="ma"><p>ถูกครึ่งเดียว เพราะประกันชีวิตไม่ได้มีหน้าที่สร้างผลตอบแทนสูงสุด หน้าที่ของมันคือ <b>คุ้มครอง</b> การเอาไปเทียบ IRR กับหุ้นจึงเป็นการเทียบผิดหมวด ควรแยกให้ชัด ประกันไว้กันความเสี่ยง การลงทุนไว้สร้างผลตอบแทน</p></div></div>
+      <div class="myth"><span class="tog">▼</span><div class="mq"><em aria-hidden="true">❝</em><span>“บริษัทประกันหาทางไม่จ่ายอยู่แล้ว”</span></div><div class="ma"><p>เคสที่ถูกปฏิเสธส่วนใหญ่มาจาก 2 สาเหตุคือ <b>แถลงสุขภาพไม่ตรงความจริง</b> และ <b>เข้าข้อยกเว้นในกรมธรรม์</b> กรมธรรม์มาตรฐานส่วนใหญ่มีเงื่อนไข <b>“ไม่โต้แย้งความไม่สมบูรณ์ของสัญญา” เมื่อกรมธรรม์มีผลบังคับเกิน 2 ปี</b> (เป็นเงื่อนไขในสัญญา ไม่ใช่ตัวบทกฎหมาย) ส่วนตามประมวลกฎหมายแพ่งและพาณิชย์ มาตรา 865 สิทธิบอกล้างสัญญาที่เป็นโมฆียะจะระงับเมื่อพ้น <b>1 เดือนนับแต่บริษัททราบมูล</b> หรือ <b>5 ปีนับแต่วันทำสัญญา</b> แล้วแต่อย่างใดถึงก่อน และมี คปภ. เป็นหน่วยงานรับเรื่องร้องเรียน</p></div></div>
+      <div class="myth"><span class="tog">▼</span><div class="mq"><em aria-hidden="true">❝</em><span>“เบี้ยแพง จ่ายไม่ไหวหรอก”</span></div><div class="ma"><p>คนส่วนใหญ่นึกถึงประกันสะสมทรัพย์ที่เบี้ยหลักหมื่น แต่หากเป้าหมายคือ “ความคุ้มครอง” ล้วน ๆ ประกันแบบชั่วระยะเวลาสามารถให้ทุน 1–2 ล้านบาท ด้วยเบี้ยระดับหลักพันบาทต่อปีสำหรับคนอายุน้อย</p></div></div>
+      <div class="myth"><span class="tog">▼</span><div class="mq"><em aria-hidden="true">❝</em><span>“มีเงินเก็บเยอะแล้ว ไม่ต้องทำ”</span></div><div class="ma"><p>ต้องถามต่อว่าเงินเก็บนั้น <b>พอครอบคลุมหนี้ทั้งหมด บวกค่าใช้จ่ายครอบครัวอีก 10 ปี บวกค่าการศึกษาลูก และยังเหลือให้ทายาทหรือไม่</b> หากคำตอบคือพอจริง คุณอาจรับความเสี่ยงเองได้ (Self-insure) แต่คนส่วนใหญ่ยังไม่ถึงจุดนั้น</p></div></div>
+      <div class="myth"><span class="tog">▼</span><div class="mq"><em aria-hidden="true">❝</em><span>“พูดถึงเรื่องตายมันอัปมงคล”</span></div><div class="ma"><p>การวางแผนไม่ได้เร่งให้เกิดเหตุ เหมือนการคาดเข็มขัดนิรภัยไม่ได้ทำให้รถชน สิ่งที่อัปมงคลกว่าคือการปล่อยให้คนที่เรารักต้องเผชิญวิกฤตทางการเงิน ในวันที่พวกเขาเปราะบางที่สุด</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CLAIM PROCESS ============ -->
+<section class="sec" id="claim">
+  <div class="wrap">
+    <div class="head rv">
+      <span class="eye">09 — ขั้นตอนจริง</span>
+      <h2>ตั้งแต่สมัครจนถึงวันที่ครอบครัวได้รับเงิน</h2>
+      <p>รู้กระบวนการล่วงหน้า ช่วยให้คุณเตรียมเอกสารถูกและครอบครัวไม่สับสนในวันที่ยากที่สุด</p>
+    </div>
+    <div class="steps">
+      <div class="step rv"><span class="stepn">1</span><h3>สมัครและแถลงสุขภาพ<small>Application</small></h3><p>กรอกใบคำขอและแถลงประวัติสุขภาพ <b>ตามความจริงทุกข้อ</b> จุดนี้คือสาเหตุอันดับหนึ่งของการถูกปฏิเสธสินไหมในภายหลัง</p></div>
+      <div class="step rv" data-delay="70"><span class="stepn">2</span><h3>พิจารณารับประกัน<small>Underwriting</small></h3><p>บริษัทประเมินความเสี่ยงจากอายุ อาชีพ สุขภาพ อาจขอตรวจสุขภาพเพิ่ม ผลลัพธ์มี 3 แบบ คือ รับปกติ รับแบบเพิ่มเบี้ย หรือปฏิเสธ</p></div>
+      <div class="step rv" data-delay="140"><span class="stepn">3</span><h3>รับกรมธรรม์ + Free Look<small>Policy Issued</small></h3><p>ตรวจสอบความถูกต้องทุกหน้า หากไม่ตรงตามที่ตกลง <b>มีสิทธิขอยกเลิกและรับเบี้ยคืน</b> โดยทั่วไป <b>15 วัน</b> นับแต่วันได้รับกรมธรรม์ และ <b>30 วัน</b> หากซื้อผ่านการขายทางโทรศัพท์ (ยึดตามที่ระบุในกรมธรรม์ฉบับของตน)</p></div>
+      <div class="step hi rv" data-delay="210"><span class="stepn">4</span><h3>เรียกร้องสินไหม<small>Claim</small></h3><p>ผู้รับประโยชน์ยื่นเอกสาร เช่น ใบมรณบัตร สำเนาบัตรประชาชน และกรมธรรม์ เงื่อนไขกรมธรรม์มาตรฐานกำหนดให้บริษัทจ่ายภายใน <b>15 วัน</b> นับแต่ได้รับหลักฐานครบถ้วน และขยายเวลาได้หากมีเหตุต้องสอบสวนเพิ่มเติม</p></div>
+    </div>
+    <figure class="imgslot rv empty" data-slot="claim" data-label="ภาพประกอบ · ขั้นตอนการเคลม"></figure>
+    <p class="note rv" style="margin-top:2rem">
+      🗂️ <b>สิ่งที่ควรทำวันนี้:</b> ถ่ายรูปหน้าแรกของกรมธรรม์ทุกฉบับเก็บไว้ในโทรศัพท์ แล้วบอกคู่สมรสหรือคนที่ไว้ใจว่า
+      “ถ้าเกิดอะไรขึ้นกับพี่ ให้เปิดแฟ้มนี้” — เพราะประกันที่ไม่มีใครรู้ว่ามีอยู่ มีค่าเท่ากับไม่ได้ทำ
+    </p>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="sec tinted" id="faq">
+  <div class="narrow">
+    <div class="head rv"><span class="eye">10 — FAQ</span><h2>คำถามที่พบบ่อย</h2></div>
+    <div class="acc rv">
+      <details open><summary>ควรจ่ายเบี้ยประกันปีละเท่าไรจึงเหมาะสม</summary><p>แนวทางทั่วไปคือเบี้ยส่วน “ความคุ้มครอง” ราว 5–10% ของรายได้ทั้งปี และเมื่อรวมแบบสะสมทรัพย์หรือบำนาญเข้าไปด้วยก็ไม่ควรเกิน 10–15% ที่สำคัญคือต้องไม่กระทบเงินสำรองฉุกเฉินหรือค่าใช้จ่ายจำเป็น หากจ่ายแล้วรู้สึกตึงมือทุกเดือน แปลว่าซื้อเกินตัว ควรลดทุนลงหรือเปลี่ยนไปใช้แบบชั่วระยะเวลาแทน</p></details>
+      <details><summary>ทำประกันแล้วเสียชีวิตใน 2 ปีแรก จะได้เงินไหม</summary><p>ได้ หากแถลงข้อมูลสุขภาพครบถ้วนตามความจริง ยกเว้นกรณีที่เข้าข้อยกเว้นตามกฎหมาย เช่น ฆ่าตัวตายภายใน 1 ปีนับแต่วันทำสัญญา หรือถูกผู้รับประโยชน์ฆ่าโดยเจตนา เมื่อกรมธรรม์บังคับเกิน 2 ปี เงื่อนไขมาตรฐานในกรมธรรม์กำหนดให้บริษัทไม่โต้แย้งความไม่สมบูรณ์ของสัญญา (และตามมาตรา 865 สิทธิบอกล้างจะระงับเมื่อพ้น 5 ปีนับแต่วันทำสัญญา) โปรดตรวจถ้อยคำในกรมธรรม์ของตนเองประกอบ</p></details>
+      <details><summary>เปลี่ยนงานหรือย้ายประเทศ กรมธรรม์ยังคุ้มครองไหม</summary><p>กรมธรรม์ส่วนตัวยังคุ้มครองต่อเนื่องตราบที่ยังชำระเบี้ย แต่หากเปลี่ยนไปทำอาชีพที่เสี่ยงสูงขึ้น เช่น จากพนักงานออฟฟิศไปทำงานบนที่สูง ควรแจ้งบริษัททราบ เพราะอาจมีผลต่อเบี้ยและความคุ้มครองบางส่วน</p></details>
+      <details><summary>จ่ายเบี้ยไม่ไหวกลางทาง ต้องทำอย่างไร</summary><p>อย่าเพิ่งปล่อยให้ขาดอายุ มีทางเลือกหลายทาง เช่น ใช้สิทธิกู้อัตโนมัติเพื่อชำระเบี้ย (APL) แปลงเป็นกรมธรรม์ใช้เงินสำเร็จ ขยายเวลา หรือลดทุนประกันลง ควรติดต่อบริษัทก่อนครบกำหนดผ่อนผัน 30–31 วัน</p></details>
+      <details><summary>ควรระบุผู้รับประโยชน์เป็นใคร</summary><p>ควรระบุชื่อบุคคลให้ชัดเจนพร้อมความสัมพันธ์ และควรระบุมากกว่าหนึ่งคนหรือกำหนดสัดส่วนไว้ หากไม่ระบุเลย เงินสินไหมจะตกเข้ากองมรดกและต้องผ่านกระบวนการจัดการมรดก ซึ่งใช้เวลานานกว่ามาก</p></details>
+      <details><summary>ควรทบทวนกรมธรรม์เมื่อไร</summary><p>ทุก 2–3 ปี หรือทันทีเมื่อชีวิตเปลี่ยน เช่น แต่งงาน มีบุตร ซื้อบ้าน เปลี่ยนงาน รายได้เพิ่มขึ้นมาก หรือหย่าร้าง เพราะทุนประกันที่เคยพอเมื่อ 5 ปีก่อน อาจไม่พอกับภาระวันนี้แล้ว</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="sec" style="padding-top:0">
+  <div class="wrap">
+    <figure class="imgslot rv empty" data-slot="closing" data-label="ภาพประกอบ · ปิดท้าย"></figure>
+  </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section class="cta">
+  <div class="wrap rv">
+    <h2>ความเสี่ยงไม่เคยนัดล่วงหน้า<br>แต่คุณเตรียมตัวล่วงหน้าได้</h2>
+    <p style="opacity:.94;max-width:56ch;margin:.6rem auto 0">สิ่งที่ดีที่สุดที่คุณทำให้ครอบครัวได้ในวันนี้ อาจไม่ใช่การหาเงินให้มากขึ้น แต่คือการทำให้แน่ใจว่าเงินที่หามาจะไม่หายไปพร้อมกับคุณ</p>
+    <div class="cta-row">
+      <a class="btn btn-w btn-lg" href="quote.html">ขอรับข้อเสนอเบื้องต้น →</a>
+      <a class="btn btn-o btn-lg" style="border-color:#fff;color:#fff" href="health.html">🩺 ต่อด้วยเรื่องสุขภาพ &amp; โรคร้ายแรง</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="foot">
+  <div class="wrap foot-g">
+    <div>
+      <a class="brand" href="index.html" style="color:#fff"><span class="mark">🛡️</span><span>2Provi<b>Group</b></span></a>
+      <p>เว็บไซต์ให้ความรู้ด้านการบริหารความเสี่ยงและการประกันชีวิต จัดทำเพื่อการศึกษาเท่านั้น ไม่ใช่คำแนะนำการลงทุน และไม่ใช่การเสนอขายกรมธรรม์</p>
+    </div>
+    <div><h4>ในหน้านี้</h4><a href="#story">ถ้าวันนั้นมาถึง</a><a href="#cost">ต้นทุนของการไม่มี</a><a href="#risk">บริหารความเสี่ยง</a><a href="#types">ประเภทประกัน</a><a href="#calc">คำนวณทุนประกัน</a><a href="#faq">คำถามพบบ่อย</a></div>
+    <div>
+      <h4>ไปหน้าอื่น</h4>
+      <a href="index.html">หน้าหลัก</a>
+      <a href="health.html">สุขภาพ &amp; โรคร้ายแรง</a>
+      <a href="retire.html">วางแผนเกษียณ</a>
+      <a href="education.html">การศึกษาบุตร</a>
+      <a href="quote.html">ขอรับข้อเสนอ</a>
+      <a href="/aboutme/">ทีมที่ปรึกษา</a><a href="join.html">สมัครเป็นตัวแทน</a>
+    </div>
+    <div>
+      <h4>ติดต่อเรา</h4>
+      <a href="https://2provi.com" target="_blank" rel="noopener">🌐 2provi.com</a>
+      <a href="mailto:2provi@gmail.com">✉️ 2provi@gmail.com</a>
+      <p style="margin-top:.6rem">ติดต่อผ่านเว็บไซต์และอีเมลเท่านั้น</p>
+    </div>
+  </div>
+  <div class="wrap foot-b">
+    © 2026 2Provi Group · v5.4 · จัดทำเพื่อการศึกษา · ข้อมูลอ้างอิงควรตรวจสอบกับ คปภ. และบริษัทประกันโดยตรง<br>
+    <a href="privacy-policy.html" style="display:inline;color:#9fc3ea;text-decoration:underline">นโยบายความเป็นส่วนตัว</a>
+  </div>
+</footer>
+
+<button id="toTop" type="button" aria-label="กลับขึ้นด้านบน">↑</button>
+
+<!-- ============ SCRIPT ============ -->
+<script src="/js/page-money.js"></script>
+</body>
+</html>

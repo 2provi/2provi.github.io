@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="th" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ไม่พบหน้านี้ | 2Provi Group</title>
+<meta name="description" content="ไม่พบหน้าที่คุณกำลังมองหาบนเว็บไซต์ 2Provi Group — เลือกจากเมนูด้านล่างเพื่อไปยังหน้าที่ต้องการ">
+<meta name="robots" content="noindex, follow">
+<meta name="theme-color" content="#0b4a8f">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230b4a8f'/%3E%3Cpath d='M16 6 9 8.6v5.2c0 4.3 2.9 8.1 7 9.5 4.1-1.4 7-5.2 7-9.5V8.6L16 6Z' fill='%2338bdf8'/%3E%3Cpath d='m12.8 15.4 2.2 2.2 4.2-4.2' fill='none' stroke='%23fff' stroke-width='2.1' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+
+<!-- ธีมถูกทาก่อนหน้าจะวาด กันอาการกระพริบขาวตอนเปิดในโหมดมืด -->
+<script>
+(function(){
+  var t="";
+  try{ t=localStorage.getItem("ls-theme")||""; }catch(e){}
+  if(t!=="dark"&&t!=="light"){
+    try{ t=window.matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light"; }catch(e){ t="light"; }
+  }
+  document.documentElement.setAttribute("data-theme",t);
+})();
+</script>
+<link rel="stylesheet" href="/css/core.css">
+<link rel="stylesheet" href="/css/page-404.css">
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="/">
+      <span class="mark">
+        <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M12 2 4 5v6c0 5 3.4 9.4 8 11 4.6-1.6 8-6 8-11V5l-8-3Z"/><path d="m9 12 2 2 4-4"/>
+        </svg>
+      </span>
+      <span>2Provi<b>Group</b></span>
+    </a>
+    <nav class="links" id="menu"><a href="/">หน้าหลัก</a><a href="/aboutme/">ทีมงาน</a><a href="/quote.html">ขอรับข้อเสนอ</a></nav>
+    <div class="acts">
+      <button class="ibtn" id="themeBtn" type="button" aria-label="สลับโหมดสี" title="สลับโหมดสว่าง/มืด">🌙</button>
+      <a class="btn btn-p nosm" href="/">กลับหน้าหลัก</a>
+      <button class="burger" id="burger" type="button" aria-label="เปิดเมนู" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main class="nf">
+  <div class="aur"><i></i><i></i><i></i></div>
+  <div class="grid-bg"></div>
+  <div class="wrap nf-in">
+    <div class="nf-code" aria-hidden="true">404</div>
+    <span class="pill">🧭 PAGE NOT FOUND</span>
+    <h1>ไม่พบหน้าที่คุณกำลังมองหา</h1>
+    <p class="lead">หน้านี้อาจถูกย้าย เปลี่ยนชื่อ หรือยังอยู่ระหว่างจัดทำ
+      ลองเลือกจากปลายทางยอดนิยมด้านล่างได้เลย</p>
+
+    <div class="cta-row nf-row">
+      <a class="btn btn-p btn-lg" href="/">กลับหน้าหลัก</a>
+      <a class="btn btn-o btn-lg" href="/quote.html">ขอรับข้อเสนอเบื้องต้น <span>→</span></a>
+    </div>
+
+    <div class="nf-grid">
+      <a href="/money.html"><span class="ico">🛡️</span><b>ประกันชีวิต</b><small>คำนวณทุนประกันแบบ DIME</small></a>
+      <a href="/health.html"><span class="ico">🩺</span><b>สุขภาพ &amp; โรคร้ายแรง</b><small>คำนวณวงเงินค่ารักษาที่ควรมี</small></a>
+      <a href="/retire.html"><span class="ico">🌱</span><b>วางแผนเกษียณ</b><small>คำนวณเงินก้อนวันเกษียณ</small></a>
+      <a href="/education.html"><span class="ico">🎓</span><b>การศึกษาบุตร</b><small>คำนวณค่าเทอมอนุบาล–ปริญญาตรี</small></a>
+      <a href="/aboutme/"><span class="ico">👥</span><b>ทีมที่ปรึกษา</b><small>รู้จักคนที่จะคุยกับคุณ</small></a>
+      <a href="/fin-irr-calculator/"><span class="ico">🧮</span><b>เครื่องมือการเงิน</b><small>IRR · FNA · แผนการออม</small></a>
+    </div>
+
+    <p class="nf-help">ถ้าเข้ามาจากลิงค์ที่เคยใช้ได้แล้วเจอหน้านี้ แจ้งเราได้ที่
+      <a href="mailto:2provi@gmail.com">2provi@gmail.com</a></p>
+  </div>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-b" style="border-top:0">
+    © 2026 2Provi Group · จัดทำเพื่อการศึกษา<br>
+    <a href="/privacy-policy.html" style="display:inline;color:#9fc3ea;text-decoration:underline">นโยบายความเป็นส่วนตัว</a>
+  </div>
+</footer>
+
+<script src="/js/core.js"></script>
+</body>
+</html>
