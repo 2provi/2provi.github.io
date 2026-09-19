@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Disallow Thank-you page (ไม่ให้ Index หน้าขอบคุณเพื่อป้องกันสถิติเพี้ยน)
+Disallow: /life-insurance/thank-you.html
+
+# Sitemap Location
+Sitemap: https://2provi.github.io/sitemap.xml
