@@ -1,5 +1,6 @@
 /* ================= TOKENS ================= */
 :root{
+  --menu-grad:var(--grad);--menu-fg:#fff;   /* สีแถบ "หน้าปัจจุบัน" ในเมนูมือถือ */
   --b900:#04142e;--b800:#072a55;--b700:#0b4a8f;--b600:#1466c4;--b500:#2b8bf2;
   --sky:#38bdf8;--cyan:#22d3ee;--mint:#34d399;--rose:#fb7185;--amber:#fbbf24;
 
@@ -506,6 +507,9 @@ img,svg{display:block;max-width:100%}
 /* ---- โหมดขั้นสูงของเครื่องคำนวณ ---- */
 .adv{grid-column:1/-1;border-top:1px dashed var(--line);padding-top:1rem;margin-top:.2rem}
 .advtog{display:flex;gap:.7rem;align-items:flex-start;cursor:pointer;font-weight:600;font-size:.95rem}
+/* [แก้บั๊ก] .cform label{display:grid} ถูกประกาศทีหลังและเจาะจงกว่า (0,2,0 > 0,1,0)
+   ช่องติ๊ก "โหมดขั้นสูง" จึงหล่นไปอยู่คนละบรรทัดกับข้อความมาตลอด ทั้งจอใหญ่และจอเล็ก */
+.cform label.advtog{display:flex;gap:.7rem;align-items:flex-start}
 .advtog input{width:20px;height:20px;flex:none;margin-top:.25rem;accent-color:var(--b500);cursor:pointer}
 .advtog small{display:block;font-weight:400;font-size:.8rem;color:var(--muted);line-height:1.65;margin-top:.25rem}
 .advg{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:.9rem;margin-top:.9rem}

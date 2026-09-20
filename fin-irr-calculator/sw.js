@@ -9,7 +9,7 @@
    • ฟอนต์ Google       → cache-first     (ไม่ค่อยเปลี่ยน)
    ══════════════════════════════════════════════════════════════ */
 
-const VERSION    = 'v1.0.2';
+const VERSION    = 'v1.0.3';
 const CORE_CACHE = '2provi-core-' + VERSION;
 const RUN_CACHE  = '2provi-runtime-' + VERSION;
 
@@ -22,6 +22,7 @@ const CORE_ASSETS = [
   './savings.html',
   './offline.html',
   './assets/theme.css',
+  './assets/mobile-fix.css',
   './assets/common.js',
   './assets/vendor/html2canvas.min.js',
   './assets/vendor/jspdf.umd.min.js',

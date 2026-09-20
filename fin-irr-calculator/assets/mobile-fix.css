@@ -1,0 +1,83 @@
+/* ══════════════════════════════════════════════════════════════
+   2PROVI Tools — mobile-fix.css
+   ปรับการแสดงผลบนจอเล็กและจอสัมผัส
+
+   ต้องโหลดเป็นไฟล์สุดท้ายของ <head> คือหลัง <style> ในตัวหน้าเอง
+   เพราะกฎในบล็อกนั้นประกาศทีหลัง theme.css ถ้าไปแก้ที่ theme.css
+   อย่างเดียวจะถูกทับ
+   ══════════════════════════════════════════════════════════════ */
+
+/* ── ช่องกรอกข้อมูล ──
+   iOS จะซูมหน้าจอเองทุกครั้งที่โฟกัสช่องที่ตัวอักษรเล็กกว่า 16px
+   ของเดิมตั้งไว้ 15px จึงเด้งซูมทุกช่อง แล้วผู้ใช้ต้องปัดกลับเอง */
+@media (max-width: 1024px), (pointer: coarse) {
+  .input,
+  input[type="text"].input,
+  input[type="number"].input,
+  input[type="date"].input,
+  select.input,
+  textarea.input { font-size: 16px; }
+
+  /* ── ข้อความไทยที่เล็กเกินไป ──
+     ป้ายภาษาอังกฤษตัวพิมพ์ใหญ่ (.eyebrow, .brand-sub) เล็กได้ เพราะอยู่บรรทัดเดียว
+     แต่ภาษาไทยมีสระบน–ล่างและวรรณยุกต์ซ้อนกันถึงสามชั้น พอต่ำกว่า ~12.5px สระจะติดกัน */
+  .kpi-label,
+  .kpi-note,
+  .scroll-hint,
+  .field .help,
+  .muted.small,
+  .field-label,
+  .hero-note,
+  .tool-feats span,
+  .progress-top span,
+  .lb,
+  .sub,
+  /* สองตัวนี้ประกาศแบบเจาะจงกว่า (.panel-head .sub / .sum-card .lb)
+     จึงต้องเขียนให้เจาะจงเท่ากันขึ้นไป ไม่งั้นโดนทับ */
+  .panel-head .sub,
+  .sum-card .lb { font-size: 12.8px; line-height: 1.55; }
+
+  /* ── เป้าแตะ ──
+     ลิงก์แถวท้ายหน้าเดิมสูงแค่ 21px นิ้วกดพลาดง่าย */
+  .footer-links a {
+    display: inline-flex; align-items: center;
+    min-height: 38px; padding: 0 6px;
+  }
+}
+
+/* ── จอ 320px (iPhone SE รุ่นเล็ก) ──
+   ชื่อแบรนด์ตั้ง white-space:nowrap ไว้ พอรวมกับปุ่มสลับธีม
+   แถบบนจะกว้างเกินจอจนทั้งหน้าเลื่อนแนวนอนได้ 10px */
+@media (max-width: 360px) {
+  .topbar-inner { gap: 8px; }
+  .brand-text { flex: 1 1 auto; min-width: 0; overflow: hidden; }
+  .brand-name {
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    font-size: 14px;
+  }
+  .brand-mark { width: 34px; height: 34px; flex: 0 0 34px; }
+  .botnav a { font-size: 10.5px; padding: 6px 2px 4px; }
+  .botnav a .ic { font-size: 18px; }
+}
+
+/* ── เผื่อที่ว่างท้ายหน้าให้พ้นแถบล่าง ──
+   ของเดิมเผื่อไว้ 76px ซึ่งพอดีเป๊ะกับความสูงแถบ ทำให้ช่องกรอกอันสุดท้าย
+   เลื่อนขึ้นมาพ้นแถบไม่ได้เลย เพิ่มอีกหน่อยให้มีระยะหายใจ */
+@media (max-width: 760px) {
+  body { padding-bottom: calc(104px + var(--safe-b)); }
+}
+
+/* คำอธิบายในวงเล็บท้ายชื่อช่อง เช่น "(คำนวณอัตโนมัติ ×12)" เดิม 11px */
+@media (max-width: 1024px), (pointer: coarse) {
+  .field label span,
+  label > span { font-size: 12.8px; }
+}
+
+/* หน่วยที่ลอยอยู่ท้ายช่องกรอก เช่น "บาท/เดือน" เดิม 11px */
+@media (max-width: 1024px), (pointer: coarse) {
+  .unit { font-size: 12.5px; }
+}
+
+/* คำอธิบายในวงเล็บท้ายชื่อช่อง เดิมเขียน font-size:11px ไว้ใน style ของแท็กเอง
+   ซึ่ง CSS ทับไม่ได้ จึงย้ายมาเป็นคลาสแทน */
+.lbl-note { font-size: 12.5px; color: var(--text-3); font-weight: 400; }
