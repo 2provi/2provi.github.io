@@ -1,0 +1,219 @@
+/* ══════════════════════════════════════════════════════════════
+   2Provi · teamcta.css — ปุ่ม "ทีมตัวแทนให้บริการ"
+
+   เหตุผลที่แยกเป็นไฟล์เดียว: ปุ่มนี้ต้องขึ้นทุกหน้า แต่แต่ละหน้าใช้ชุด
+   ตัวแปรสีคนละชุด (core.css / health.css / form.css / สไตล์ในหน้าโปรไฟล์)
+   จึงเขียนด้วยค่าสีตรง ๆ ไม่พึ่ง custom property ของหน้าไหนเลย
+   จะได้หน้าตาเหมือนกันหมด กลายเป็น "ปุ่มประจำเว็บ" ที่คนจำได้
+
+   วางตัวสองแบบ
+   · จอกว้าง  — เป็นเม็ดยาเล็กบนแถบหัว ติดอยู่ตลอดเวลาเลื่อน
+   · จอแคบ   — เป็นแถบเต็มความกว้างใต้แถบหัว ไม่ติดหนึบ เลื่อนผ่านไปได้
+               (คนไม่ค่อยกดเมนูสามขีด จึงต้องเห็นตั้งแต่ยังไม่เลื่อน
+                แต่ก็ไม่ควรกินพื้นที่จอค้างไว้ตอนอ่านเนื้อหา)
+   ══════════════════════════════════════════════════════════════ */
+
+:root{
+  /* ปลายอ่อนสุดของไล่เฉดต้องไม่สว่างเกิน #1a72d4 ไม่งั้นตัวหนังสือขาวบนนั้น
+     จะได้ contrast แค่ ~3.4 ซึ่งต่ำกว่าเกณฑ์ 4.5 — ที่ #1a72d4 ได้ 4.77 */
+  --tc-grad:linear-gradient(118deg,#072a55 0%,#0b4a8f 34%,#1466c4 70%,#1a72d4 100%);
+  --tc-glow:0 10px 26px -12px rgba(20,102,196,.75);
+  --tc-glow-hi:0 16px 34px -12px rgba(20,102,196,.9);
+}
+
+/* ───────────────────────── แถบเต็มความกว้าง (จอแคบ) ───────────────────────── */
+.teamcta{
+  display:none;                       /* เปิดใช้ใน media query ด้านล่าง */
+  align-items:center;
+  gap:.85rem;
+  width:min(1180px,100% - 34px);
+  margin:.85rem auto 0;
+  padding:.72rem .9rem .72rem .8rem;
+  border-radius:18px;
+  background:var(--tc-grad);
+  box-shadow:var(--tc-glow);
+  color:#fff;
+  text-decoration:none;
+  position:relative;
+  overflow:hidden;
+  isolation:isolate;
+  -webkit-tap-highlight-color:transparent;
+}
+/* ประกายวิ่งผ่านตอนแตะ/ชี้ ทำให้ดูเป็นปุ่มที่กดได้ ไม่ใช่แค่แถบสี */
+.teamcta::after{
+  content:"";position:absolute;inset:0;z-index:-1;
+  background:linear-gradient(105deg,transparent 30%,rgba(255,255,255,.28) 48%,transparent 66%);
+  transform:translateX(-120%);
+  transition:transform .8s cubic-bezier(.22,.8,.2,1);
+}
+.teamcta:hover::after,.teamcta:focus-visible::after{transform:translateX(120%)}
+.teamcta:active{transform:scale(.988)}
+.teamcta:focus-visible{outline:3px solid #fbbf24;outline-offset:3px}
+
+/* ── กลุ่มรูปตัวแทนซ้อนกัน บอกว่าเป็น "ทีม" ได้เร็วกว่าไอคอนคนเดียว ── */
+.teamcta-faces{display:flex;flex:none;align-items:center}
+.teamcta-faces .tf{
+  width:34px;height:34px;flex:none;
+  display:grid;place-items:center;
+  border-radius:50%;
+  border:2px solid rgba(255,255,255,.92);
+  background:#eaf4ff;
+  color:#0b4a8f;
+  font-style:normal;
+  font-weight:800;
+  font-size:.78rem;
+  letter-spacing:.01em;
+  box-shadow:0 2px 6px rgba(4,20,46,.28);
+}
+.teamcta-faces .tf+.tf{margin-left:-11px}
+.teamcta-faces .tf3{background:#0b4a8f;color:#cfe6ff;font-size:.72rem}
+
+/* ── ข้อความ ── */
+.teamcta-txt{display:flex;flex-direction:column;gap:.1rem;min-width:0;flex:1}
+.teamcta-txt b{
+  display:flex;align-items:center;gap:.4rem;
+  font-size:.97rem;font-weight:800;line-height:1.35;letter-spacing:-.005em;
+}
+.teamcta-txt small{
+  font-size:.79rem;font-weight:500;line-height:1.45;
+  /* เดิมใช้ขาว 88% ซึ่งพอผสมกับพื้นแล้วเหลือ contrast 4.07 ไม่ผ่านเกณฑ์
+     ใช้ขาวเต็มแล้วแยกลำดับด้วยขนาดกับน้ำหนักตัวอักษรแทน */
+  color:#fff;
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+}
+
+/* จุดเขียวกะพริบ สื่อว่า "ตอนนี้มีคนรับเรื่องอยู่" */
+.teamcta-dot{
+  width:8px;height:8px;flex:none;border-radius:50%;
+  background:#4ade80;box-shadow:0 0 0 0 rgba(74,222,128,.7);
+  animation:tcPulse 2.2s ease-out infinite;
+}
+@keyframes tcPulse{
+  0%  {box-shadow:0 0 0 0 rgba(74,222,128,.7)}
+  70% {box-shadow:0 0 0 7px rgba(74,222,128,0)}
+  100%{box-shadow:0 0 0 0 rgba(74,222,128,0)}
+}
+
+.teamcta-go{
+  flex:none;width:30px;height:30px;
+  display:grid;place-items:center;
+  border-radius:50%;
+  background:rgba(255,255,255,.18);
+  font-size:1rem;font-weight:700;
+  transition:transform .3s cubic-bezier(.22,.8,.2,1),background .3s;
+}
+.teamcta:hover .teamcta-go{transform:translateX(4px);background:rgba(255,255,255,.3)}
+
+/* ───────────────────────── เม็ดยาบนแถบหัว (จอกว้าง) ───────────────────────── */
+.teampill{
+  display:none;                       /* เปิดใช้ใน media query ด้านล่าง */
+  align-items:center;gap:.55rem;
+  padding:.5rem .95rem .5rem .55rem;
+  border-radius:999px;
+  background:var(--tc-grad);
+  box-shadow:var(--tc-glow);
+  color:#fff;text-decoration:none;
+  font-weight:800;font-size:.9rem;
+  white-space:nowrap;
+  position:relative;overflow:hidden;isolation:isolate;
+  transition:transform .28s cubic-bezier(.22,.8,.2,1),box-shadow .28s;
+}
+.teampill::after{
+  content:"";position:absolute;inset:0;z-index:-1;
+  background:linear-gradient(105deg,transparent 30%,rgba(255,255,255,.3) 48%,transparent 66%);
+  transform:translateX(-120%);
+  transition:transform .8s cubic-bezier(.22,.8,.2,1);
+}
+.teampill:hover{transform:translateY(-2px);box-shadow:var(--tc-glow-hi);color:#fff}
+.teampill:hover::after{transform:translateX(120%)}
+.teampill:focus-visible{outline:3px solid #fbbf24;outline-offset:3px}
+
+.teampill .tf{
+  width:27px;height:27px;flex:none;
+  display:grid;place-items:center;border-radius:50%;
+  border:2px solid rgba(255,255,255,.92);
+  background:#eaf4ff;color:#0b4a8f;
+  font-style:normal;font-weight:800;font-size:.66rem;
+}
+.teampill .tf+.tf{margin-left:-10px}
+.teampill .tf3{background:#0b4a8f;color:#cfe6ff;font-size:.62rem}
+.teampill .teamcta-dot{width:7px;height:7px}
+.teampill span.teampill-go{
+  display:inline-block;margin-left:.1rem;
+  transition:transform .3s cubic-bezier(.22,.8,.2,1);
+}
+.teampill:hover span.teampill-go{transform:translateX(3px)}
+
+/* ───────────────────────── สลับตามความกว้างจอ ───────────────────────── */
+@media (min-width:981px){
+  .teampill{display:inline-flex}
+  /* จอกว้างมีเม็ดยาบนแถบหัวแล้ว ไม่ต้องมีแถบซ้ำอีก */
+  .teamcta{display:none}
+}
+@media (max-width:980px){
+  .teamcta{display:flex}
+  .teampill{display:none}
+  /* ปุ่มสมัครตัวแทนถูกซ่อนบนจอแคบอยู่แล้ว (.nosm) ไม่ต้องทำอะไรเพิ่ม */
+}
+@media (max-width:420px){
+  .teamcta{gap:.65rem;padding:.65rem .75rem .65rem .7rem;border-radius:16px}
+  .teamcta-faces .tf{width:31px;height:31px;font-size:.72rem}
+  .teamcta-txt b{font-size:.93rem}
+  .teamcta-txt small{font-size:.76rem}
+  .teamcta-go{width:28px;height:28px}
+}
+
+/* หน้าโปรไฟล์จัดเนื้อหากลางจอด้วย flex column แถบจึงต้องบังคับความกว้างเอง
+   ไม่งั้นมันจะกว้างตามเนื้อหาแล้วไม่เต็มแถว */
+body > .teamcta{align-self:stretch;box-sizing:border-box}
+
+/* หน้าฟอร์ม (quote/join/thank-you) กล่องเนื้อหาแคบกว่าหน้าอื่น
+   ให้แถบกว้างเท่ากล่องนั้นจะดูเป็นชุดเดียวกัน */
+.navbar + .teamcta{width:min(1100px,100% - 36px)}
+
+@media (prefers-reduced-motion:reduce){
+  .teamcta::after,.teampill::after{display:none}
+  .teamcta-dot{animation:none}
+}
+
+/* ───────── ลำดับความสำคัญของปุ่มบนแถบหัว (จอกว้าง) ─────────
+   พอมีเม็ดยาทีมงานเป็นปุ่มหลัก ปุ่ม "สมัครเป็นตัวแทน" ที่เป็นสีไล่เฉดเหมือนกัน
+   จะกลายเป็นสองเม็ดสีเดียวกันติดกันแล้วแย่งสายตา จึงลดเป็นปุ่มขอบโปร่ง */
+@media (min-width:981px){
+  .acts .btn.btn-p.nosm{
+    background:none;
+    color:var(--b700,#0b4a8f);
+    border:1.5px solid var(--line,#dceaf9);
+    box-shadow:none;
+  }
+  .acts .btn.btn-p.nosm:hover{
+    background:rgba(20,102,196,.08);
+    border-color:var(--b500,#2b8bf2);
+    color:var(--b700,#0b4a8f);
+    transform:none;
+  }
+  [data-theme="dark"] .acts .btn.btn-p.nosm{
+    color:var(--sky,#38bdf8);
+    border-color:rgba(255,255,255,.18);
+  }
+  [data-theme="dark"] .acts .btn.btn-p.nosm:hover{
+    background:rgba(56,189,248,.12);
+    border-color:var(--sky,#38bdf8);
+    color:var(--sky,#38bdf8);
+  }
+}
+
+
+/* จอแคบมาก บรรทัดรองจะโดนตัดท้ายเป็นจุดไข่ปลา ซ่อนไปเลยอ่านง่ายกว่า */
+@media (max-width:360px){
+  .teamcta-txt small{display:none}
+  .teamcta-txt b{font-size:.95rem}
+}
+
+/* ───────── หน้าที่ไม่มีแถบหัวแบบ .acts ─────────
+   หน้าฟอร์มกับหน้าโปรไฟล์ไม่มีที่ให้วางเม็ดยา พอจอกว้างแล้วแถบถูกซ่อน
+   ปุ่มไปหน้าทีมเลยหายไปทั้งหน้า — หน้าพวกนี้จึงให้แถบโผล่ทุกความกว้าง */
+@media (min-width:981px){
+  .teamcta.always{display:flex;width:min(1100px,100% - 36px)}
+  .teamcta.always .teamcta-txt small{font-size:.83rem}
+}
