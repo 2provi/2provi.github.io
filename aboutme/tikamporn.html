@@ -42,9 +42,13 @@
     </script>
 
     <!-- 🖼️ 3. แก้ Favicon เป็น Raw Path (แก้ปัญหาไอคอนแมวดำ GitHub) -->
-    <link rel="icon" href="/fin-irr-calculator/icons/icon.svg" type="image/svg+xml">
-    <link rel="icon" href="/fin-irr-calculator/icons/favicon-32.png" sizes="32x32" type="image/png">
-    <link rel="apple-touch-icon" href="/fin-irr-calculator/icons/apple-touch-icon.png">
+<!-- ไอคอนเว็บ: ต้องเป็นไฟล์จริงที่มี URL เท่านั้น บอทของ Google ไม่อ่าน data: URI
+     จึงขึ้นเป็นรูปโลกสีเทาในผลค้นหา — favicon.ico วางไว้ที่ root ด้วย
+     เพราะบอทหลายตัวไปหาที่ /favicon.ico ตรง ๆ โดยไม่อ่าน <link> -->
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" sizes="any">
+<link rel="icon" href="/favicon-96.png" type="image/png" sizes="96x96">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
     <!-- Google Fonts & Font Awesome Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
