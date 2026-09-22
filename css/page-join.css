@@ -265,3 +265,171 @@ footer {
         transition: none !important;
       }
     }
+
+/* ══════════════════════════════════════════════════════════════
+   กล่องวิดีโอแนะนำ · วางในพาเนลซ้ายใต้ข้อความเงื่อนไข คปภ.
+
+   เดสก์ท็อป ≥1024px คอลัมน์ซ้ายเหลือที่ว่างใต้ข้อความนั้นราว 434–442px
+   วิดีโอ 16:9 กว้างเต็มคอลัมน์จะสูง ~272px จึงลงพอดีโดยไม่ดันหน้ายาวขึ้น
+   จอแคบคอลัมน์ซ้อนกัน กล่องนี้จะไหลต่อท้ายข้อความเองตามลำดับใน HTML
+
+   พาเนลซ้ายเป็นไล่เฉดน้ำเงินเข้ม ตัวหนังสือขาว กล่องนี้จึงใช้ขอบและพื้น
+   แบบโปร่งเหมือน .info-notice เพื่อให้ดูเป็นชุดเดียวกัน
+   ══════════════════════════════════════════════════════════════ */
+.jvid {
+      position: relative;
+      z-index: 1;
+      margin-top: 20px;
+    }
+/* ป้ายนี้วางบนไล่เฉดช่วงที่สว่างที่สุดของพาเนล วัดพิกเซลจริงแล้วแม้ใช้ขาวล้วน
+   ก็ได้ contrast แค่ 3.87 ไม่ผ่านเกณฑ์ 4.5 แก้ที่สีตัวอักษรไม่ได้เลย
+   จึงทำเป็นเม็ดยาพื้นเข้มโปร่ง ๆ รองไว้ ตัวอักษรขาวได้ 6.08 ขึ้นไป */
+.jvid-lbl {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      margin: 0 0 10px;
+      padding: 5px 13px 5px 11px;
+      color: #fff;
+      border-radius: 999px;
+      background: rgba(3, 26, 48, 0.34);
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+    }
+.jvid-lbl::before {
+      width: 16px;
+      height: 2px;
+      content: "";
+      border-radius: 2px;
+      background: rgba(255, 216, 106, 0.9);
+    }
+
+.jvid-frame {
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 16 / 9;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 16px;
+      background: rgba(3, 32, 58, 0.55);
+      box-shadow: 0 14px 30px -16px rgba(2, 26, 48, 0.85);
+    }
+/* เบราว์เซอร์เก่าที่ไม่รู้จัก aspect-ratio ยังต้องได้กรอบสูงพอดี */
+@supports not (aspect-ratio: 16 / 9) {
+      .jvid-frame {
+        height: 0;
+        padding-bottom: 56.25%;
+      }
+    }
+.jvid-frame iframe {
+      position: absolute;
+      inset: 0;
+      display: block;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+/* ── ภาพปก: ใช้ตอนยังไม่เลื่อนมาถึง และตอนเครื่องบล็อกการเล่นอัตโนมัติ ── */
+.jvid-ph {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      width: 100%;
+      padding: 0;
+      cursor: pointer;
+      border: 0;
+      background: none;
+      place-items: center;
+    }
+.jvid-ph img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+.jvid-ph::after {
+      position: absolute;
+      inset: 0;
+      content: "";
+      background: linear-gradient(180deg, rgba(3, 30, 56, 0.28), rgba(3, 30, 56, 0.55));
+    }
+.jvid-play {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      width: 58px;
+      height: 58px;
+      color: #0b4a8f;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.95);
+      box-shadow: 0 8px 20px -6px rgba(2, 26, 48, 0.7);
+      font-size: 1.15rem;
+      place-items: center;
+      transition: transform 0.28s cubic-bezier(0.22, 0.8, 0.2, 1);
+    }
+.jvid-ph:hover .jvid-play {
+      transform: scale(1.08);
+    }
+.jvid-ph:focus-visible {
+      outline: 3px solid #ffd86a;
+      outline-offset: -3px;
+    }
+
+/* ── ปุ่มเปิด/ปิดเสียง ──
+   เล่นอัตโนมัติพร้อมเสียงทำไม่ได้ เบราว์เซอร์บล็อกไว้ทุกตัว
+   จึงเริ่มด้วยปิดเสียงแล้วให้ปุ่มนี้เป็นทางเปิด — การกดปุ่มนับเป็น
+   user interaction เสียงจึงมาได้ทันที
+   พื้นทึบพอให้ตัวหนังสือขาวผ่านเกณฑ์ contrast บนภาพวิดีโอทุกเฟรม */
+.jvid-sound {
+      position: absolute;
+      right: 10px;
+      bottom: 10px;
+      z-index: 2;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      min-height: 38px;
+      padding: 0 13px;
+      cursor: pointer;
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 999px;
+      background: rgba(3, 26, 48, 0.86);
+      box-shadow: 0 6px 16px -8px rgba(2, 26, 48, 0.9);
+      font-family: inherit;
+      font-size: 0.82rem;
+      font-weight: 600;
+      transition: background 0.25s, transform 0.25s;
+    }
+.jvid-sound:hover {
+      background: rgba(3, 26, 48, 0.96);
+      transform: translateY(-1px);
+    }
+.jvid-sound:focus-visible {
+      outline: 3px solid #ffd86a;
+      outline-offset: 2px;
+    }
+.jvid-sound[hidden] {
+      display: none;
+    }
+
+/* จอแคบ กล่องนี้ไหลต่อท้ายข้อความ คุมระยะห่างไม่ให้ชิดเกินไป */
+@media (max-width: 980px) {
+      .jvid {
+        margin-top: 24px;
+      }
+    }
+@media (max-width: 540px) {
+      .jvid-play {
+        width: 50px;
+        height: 50px;
+      }
+      .jvid-sound {
+        right: 8px;
+        bottom: 8px;
+        padding: 0 11px;
+        font-size: 0.79rem;
+      }
+    }
