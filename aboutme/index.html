@@ -51,6 +51,7 @@
 <link rel="stylesheet" href="/css/core.css">
 <link rel="stylesheet" href="/css/page-aboutme.css">
 <link rel="stylesheet" href="/css/mobile.css">
+<link rel="stylesheet" href="/css/botnav.css">
 </head>
 <body>
 
@@ -232,5 +233,20 @@
 
 <script src="/js/core.js"></script>
 <script src="/js/nav.js"></script>
+
+<!-- ══════════════════════════════════════════════════════════════
+     แถบนำทางล่าง · โผล่เฉพาะจอ ≤980px (มือถือ / iPad แนวตั้ง)
+     ทีมงานย้ายมาอยู่ในนี้แล้ว แถบทีมงานด้านบนจึงถูกซ่อนบนจอแคบ
+     ══════════════════════════════════════════════════════════════ -->
+<nav class="botnav" aria-label="เมนูหลัก (จอแคบ)">
+  <div class="botnav-in">
+    <a class="bn" href="/"><span class="ic" aria-hidden="true">🏠</span>หน้าหลัก</a>
+    <a class="bn" href="/money.html"><span class="ic" aria-hidden="true">🛡️</span>ชีวิต</a>
+    <a class="bn" href="/health.html"><span class="ic" aria-hidden="true">🏥</span>สุขภาพ</a>
+    <a class="bn" href="/fin-irr-calculator/"><span class="ic" aria-hidden="true">🧮</span>คำนวณ</a>
+    <a class="bn" aria-current="page" href="/aboutme/"><span class="ic" aria-hidden="true">👥</span>ทีมงาน</a>
+    <a class="bn bn-cta" href="/quote.html"><span class="ic" aria-hidden="true">📝</span>ขอข้อเสนอ</a>
+  </div>
+</nav>
 </body>
 </html>
