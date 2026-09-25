@@ -278,3 +278,19 @@ body:has(.ck.on) #toTop{opacity:0;pointer-events:none}
   .albar .tick{font-size:.79rem}
   .sld .sld-b{font-size:.79rem}          /* ป้ายตัวเลขบนหัวแถบเลื่อน */
 }
+
+/* ══════════ 16. ปุ่มข้อความยาวบนจอ 320px ══════════
+   .btn มี white-space:nowrap + overflow:hidden อยู่ในตัว พอจอแคบมาก
+   ข้อความจะถูกตัดหายไปเงียบ ๆ โดยไม่มีจุดไข่ปลาบอก
+   ที่เจอคือปุ่ม "ปฏิเสธที่ไม่จำเป็น" ของแถบคุกกี้ (หายไป 10px) และปุ่ม
+   "ต่อด้วยเรื่องสุขภาพ & โรคร้ายแรง" ในหน้า money (หายไป 12px)
+   ปุ่มยินยอมคุกกี้อ่านไม่ครบเป็นเรื่องที่ปล่อยไม่ได้ จึงให้ขึ้นบรรทัดใหม่ได้ */
+@media (max-width:360px){
+  .ck-btns .btn,
+  .cta-row .btn{
+    white-space:normal;
+    line-height:1.35;
+    text-align:center;
+    padding-block:.62rem;
+  }
+}

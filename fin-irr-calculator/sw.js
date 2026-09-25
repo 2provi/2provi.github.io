@@ -9,7 +9,7 @@
    • ฟอนต์ Google       → cache-first     (ไม่ค่อยเปลี่ยน)
    ══════════════════════════════════════════════════════════════ */
 
-const VERSION    = 'v1.0.3';
+const VERSION    = 'v1.0.4';
 const CORE_CACHE = '2provi-core-' + VERSION;
 const RUN_CACHE  = '2provi-runtime-' + VERSION;
 

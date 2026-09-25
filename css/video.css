@@ -1,0 +1,137 @@
+/* ══════════════════════════════════════════════════════════════════════
+   video.css — กรอบวิดีโอ YouTube สำหรับหน้าเนื้อหา
+   (money / health / retire / education)
+
+   ต่างจากกล่องในหน้า join ตรงที่หน้าพวกนี้สลับโหมดสว่าง/มืดได้ และใช้
+   ชุดตัวแปรสีคนละชุดกัน จึงเขียนด้วย fallback ไล่ลงไปทีละชั้น
+     core.css   → --surface --line --text --text2 --sh2
+     health.css → --panel   --line --tx  --tx2   (มืดอย่างเดียว)
+   ท้ายสุดเป็นค่าสีตรง ๆ เผื่อไม่เจอตัวแปรไหนเลย
+
+   ใช้ชื่อคลาส .ytb ไม่ใช่ .jvid ของหน้า join เพื่อไม่ให้ชนกันถ้าวันหนึ่ง
+   มีหน้าที่โหลดทั้งสองไฟล์
+   ══════════════════════════════════════════════════════════════════════ */
+
+/* วางชิดใต้ hero จึงใช้ระยะบางกว่า .sec ปกติ ไม่งั้นจะห่างเกินไป */
+.vidsec{
+  padding:clamp(2.6rem,5.5vw,4.2rem) 0;
+  position:relative;
+}
+.vidsec .head{margin-bottom:1.6rem}
+
+.ytb{
+  max-width:880px;
+  margin-inline:auto;
+}
+
+.ytb-frame{
+  position:relative;
+  overflow:hidden;
+  aspect-ratio:16 / 9;
+  border-radius:18px;
+  border:1px solid var(--line,rgba(255,255,255,.11));
+  background:var(--surface,var(--panel,#0c1e3b));
+  box-shadow:var(--sh2,0 18px 44px -20px rgba(4,20,46,.45));
+}
+/* เบราว์เซอร์เก่าที่ไม่รู้จัก aspect-ratio ยังต้องได้กรอบสูงพอดี */
+@supports not (aspect-ratio: 16 / 9){
+  .ytb-frame{height:0;padding-bottom:56.25%}
+}
+.ytb-frame iframe{
+  position:absolute;
+  inset:0;
+  display:block;
+  width:100%;
+  height:100%;
+  border:0;
+}
+
+/* ── ภาพปก: ใช้ตอนยังไม่เลื่อนมาถึง และตอนเครื่องบล็อกการเล่นอัตโนมัติ ── */
+.ytb-ph{
+  position:absolute;
+  inset:0;
+  display:grid;
+  width:100%;
+  padding:0;
+  cursor:pointer;
+  border:0;
+  background:none;
+  place-items:center;
+}
+.ytb-ph img{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+.ytb-ph::after{
+  position:absolute;
+  inset:0;
+  content:"";
+  background:linear-gradient(180deg,rgba(3,20,42,.22),rgba(3,20,42,.5));
+}
+.ytb-play{
+  position:relative;
+  z-index:1;
+  display:grid;
+  width:68px;
+  height:68px;
+  color:#0b4a8f;
+  border-radius:50%;
+  background:rgba(255,255,255,.96);
+  box-shadow:0 10px 26px -8px rgba(2,26,48,.75);
+  font-size:1.3rem;
+  place-items:center;
+  transition:transform .28s cubic-bezier(.22,.8,.2,1);
+}
+.ytb-ph:hover .ytb-play{transform:scale(1.08)}
+.ytb-ph:focus-visible{outline:3px solid var(--b500,var(--jade,#2b8bf2));outline-offset:-4px}
+
+/* ── ปุ่มเปิด/ปิดเสียง ──
+   เล่นอัตโนมัติพร้อมเสียงทำไม่ได้ เบราว์เซอร์บล็อกไว้ทุกตัว จึงเริ่มด้วย
+   ปิดเสียงแล้วให้ปุ่มนี้เป็นทางเปิด การกดปุ่มนับเป็น user interaction
+   พื้นทึบพอให้ตัวหนังสือขาวผ่านเกณฑ์ contrast บนทุกเฟรมของวิดีโอ */
+.ytb-sound{
+  position:absolute;
+  right:12px;
+  bottom:12px;
+  z-index:2;
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  min-height:40px;
+  padding:0 15px;
+  cursor:pointer;
+  color:#fff;
+  border:1px solid rgba(255,255,255,.3);
+  border-radius:999px;
+  background:rgba(3,26,48,.86);
+  box-shadow:0 6px 16px -8px rgba(2,26,48,.9);
+  font-family:inherit;
+  font-size:.86rem;
+  font-weight:600;
+  transition:background .25s,transform .25s;
+}
+.ytb-sound:hover{background:rgba(3,26,48,.96);transform:translateY(-1px)}
+.ytb-sound:focus-visible{outline:3px solid #fbbf24;outline-offset:2px}
+.ytb-sound[hidden]{display:none}
+
+/* คำบรรยายใต้กรอบ ไว้บอกว่าเปิดเสียงได้ */
+.ytb-note{
+  margin-top:.75rem;
+  text-align:center;
+  font-size:.85rem;
+  color:var(--muted,var(--tx3,#64798f));
+}
+
+@media (max-width:640px){
+  .ytb-frame{border-radius:14px}
+  .ytb-play{width:56px;height:56px;font-size:1.1rem}
+  .ytb-sound{right:9px;bottom:9px;padding:0 12px;font-size:.82rem}
+  .ytb-note{font-size:.82rem}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .ytb-play,.ytb-sound{transition:none}
+}

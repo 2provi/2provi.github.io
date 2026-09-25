@@ -52,6 +52,7 @@
 <link rel="stylesheet" href="/css/page-retire.css">
 <link rel="stylesheet" href="/css/mobile.css">
 <link rel="stylesheet" href="/css/teamcta.css">
+<link rel="stylesheet" href="/css/video.css">
 </head>
 <body>
 
@@ -153,6 +154,37 @@
   </div>
 </section>
 
+<!-- ══════════════════════════════════════════════════════════════
+     วิดีโอแนะนำ · ใส่รหัสวิดีโอที่ data-yt ข้างล่างจุดเดียว
+     รหัสคือส่วนท้าย URL เช่น https://youtu.be/dQw4w9WgXcQ
+     → data-yt="dQw4w9WgXcQ"
+
+     เริ่มเล่นเองแบบปิดเสียง เพราะเบราว์เซอร์ทุกตัวบล็อกการเล่น
+     อัตโนมัติที่มีเสียง ผู้ใช้กดปุ่ม 🔇 เพื่อเปิดเสียงได้
+     ถ้ายังไม่ใส่รหัส ทั้งส่วนนี้จะถูกซ่อนอัตโนมัติ
+     ══════════════════════════════════════════════════════════════ -->
+<section class="sec vidsec" id="video">
+  <div class="wrap">
+    <div class="head rv">
+      <span class="eye">วิดีโอแนะนำ</span>
+      <h2>เกษียณแบบไม่ต้องพึ่งใคร เริ่มยังไงดี</h2>
+      <p>สรุปวิธีประเมินเงินก้อนที่ต้องมี และเครื่องมือที่ช่วยให้เห็นภาพตั้งแต่วันนี้</p>
+    </div>
+
+    <div class="ytb rv" data-yt="VIDEO_ID" data-title="วิดีโอแนะนำเรื่องการวางแผนเกษียณ — 2Provi Group">
+      <div class="ytb-frame">
+        <button class="ytb-ph" type="button" aria-label="เล่นวิดีโอแนะนำเรื่องการวางแผนเกษียณ — 2Provi Group">
+          <img alt="" loading="lazy" decoding="async" />
+          <span class="ytb-play" aria-hidden="true">▶</span>
+        </button>
+        <button class="ytb-sound" type="button" hidden>🔇 เปิดเสียง</button>
+      </div>
+      <p class="ytb-note">วิดีโอเริ่มเล่นแบบปิดเสียง · กดปุ่มมุมขวาล่างเพื่อเปิดเสียง</p>
+    </div>
+  </div>
+</section>
+
+
 <div class="marq" aria-hidden="true">
   <div>
     <span>เกษียณคือรายจ่าย 25–35 ปีที่ไม่มีเงินเดือน</span><span>·</span>
@@ -170,7 +202,7 @@
 <section class="sec dark-sec" id="gap">
   <div class="wrap">
     <div class="head rv">
-      <span class="eye">THE RETIREMENT GAP</span>
+      <span class="eye">ช่องว่างเงินเกษียณ</span>
       <h2>ช่องว่างที่เงียบที่สุด<br>คือช่องว่างระหว่าง “เงินที่มี” กับ “ปีที่ต้องอยู่”</h2>
       <p>คนส่วนใหญ่ประเมินว่าต้องใช้เงินหลังเกษียณ “ไม่เยอะหรอก” เพราะคิดจากรายจ่ายวันนี้
         แต่ลืมว่าเงินจะถูกใช้ในอีก 20–30 ปีข้างหน้า ที่ราคาของทุกอย่างไม่เท่าเดิมแล้ว</p>
@@ -221,7 +253,7 @@
 <section class="sec" id="rule">
   <div class="wrap">
     <div class="head rv">
-      <span class="eye">HOW MUCH IS ENOUGH</span>
+      <span class="eye">ต้องมีเท่าไหร่ถึงจะพอ</span>
       <h2>เงินก้อนเกษียณ “ที่พอ” คำนวณจากอะไร</h2>
       <p>ไม่มีตัวเลขเดียวที่ใช้ได้กับทุกคน เพราะรูปแบบชีวิตต่างกัน
         แต่มีหลักคิดที่ใช้ตั้งต้นได้ และเช็กความสมเหตุสมผลของตัวเลขที่ใครก็ตามเสนอให้คุณ</p>
@@ -281,7 +313,7 @@
 <section class="sec tinted" id="pillars">
   <div class="wrap">
     <div class="head rv">
-      <span class="eye">THREE PILLARS</span>
+      <span class="eye">สามเสาหลักของเงินเกษียณ</span>
       <h2>รายได้หลังเกษียณมาจาก 3 ทาง</h2>
       <p>ความมั่นคงหลังเกษียณไม่ได้มาจากทางเดียว แต่มาจากการมีหลายขาให้ยืน
         ถ้าขาหนึ่งสั่น อีกสองขายังรับไหว</p>
@@ -327,7 +359,7 @@
 <section class="sec" id="calc">
   <div class="wrap">
     <div class="head rv">
-      <span class="eye">RETIREMENT CALCULATOR</span>
+      <span class="eye">เครื่องคำนวณเงินเกษียณ</span>
       <h2>คำนวณเงินก้อนเกษียณของคุณ</h2>
       <p>เลื่อนแถบหรือพิมพ์ตัวเลขลงไป ผลลัพธ์จะอัปเดตทันที
         ทุกอย่างคำนวณในเครื่องของคุณ ไม่มีการส่งข้อมูลออกไปไหน</p>
@@ -453,7 +485,7 @@
 <section class="sec tinted" id="steps">
   <div class="wrap">
     <div class="head rv">
-      <span class="eye">START TODAY</span>
+      <span class="eye">เริ่มวันนี้</span>
       <h2>4 ขั้นที่เริ่มได้ตั้งแต่เดือนนี้</h2>
       <p>ไม่ต้องรอเงินเดือนขึ้น ไม่ต้องรอปีหน้า — สิ่งที่มีค่าที่สุดในการวางแผนเกษียณคือ “เวลา” ซึ่งลดลงทุกวัน</p>
     </div>
@@ -520,7 +552,7 @@
 <section class="sec" id="faq">
   <div class="wrap narrow">
     <div class="head rv">
-      <span class="eye">FAQ</span>
+      <span class="eye">คำถามที่พบบ่อย</span>
       <h2>คำถามที่คนวางแผนเกษียณถามบ่อย</h2>
     </div>
     <div class="acc rv">
@@ -605,5 +637,6 @@
 <script src="/js/core.js"></script>
 <script src="/js/page-retire.js"></script>
 <script src="/js/nav.js"></script>
+<script src="/js/video.js"></script>
 </body>
 </html>

@@ -53,6 +53,7 @@ window.LS_IMAGES = {
 <link rel="stylesheet" href="/css/health.css">
 <link rel="stylesheet" href="/css/mobile.css">
 <link rel="stylesheet" href="/css/teamcta.css">
+<link rel="stylesheet" href="/css/video.css">
 </head>
 <body>
 
@@ -159,6 +160,37 @@ window.LS_IMAGES = {
     </div>
   </div>
 </section>
+
+<!-- ══════════════════════════════════════════════════════════════
+     วิดีโอแนะนำ · ใส่รหัสวิดีโอที่ data-yt ข้างล่างจุดเดียว
+     รหัสคือส่วนท้าย URL เช่น https://youtu.be/dQw4w9WgXcQ
+     → data-yt="dQw4w9WgXcQ"
+
+     เริ่มเล่นเองแบบปิดเสียง เพราะเบราว์เซอร์ทุกตัวบล็อกการเล่น
+     อัตโนมัติที่มีเสียง ผู้ใช้กดปุ่ม 🔇 เพื่อเปิดเสียงได้
+     ถ้ายังไม่ใส่รหัส ทั้งส่วนนี้จะถูกซ่อนอัตโนมัติ
+     ══════════════════════════════════════════════════════════════ -->
+<section class="sec vidsec" id="video">
+  <div class="wrap">
+    <div class="head rv">
+      <span class="eye">วิดีโอแนะนำ</span>
+      <h2>ค่ารักษาวันนี้ แพงกว่าที่คิดแค่ไหน</h2>
+      <p>สรุปภาพรวมค่ารักษาพยาบาล มาตรฐานประกันสุขภาพแบบใหม่ และสิ่งที่ควรดูก่อนเลือกแผน</p>
+    </div>
+
+    <div class="ytb rv" data-yt="VIDEO_ID" data-title="วิดีโอแนะนำเรื่องประกันสุขภาพและโรคร้ายแรง — 2Provi Group">
+      <div class="ytb-frame">
+        <button class="ytb-ph" type="button" aria-label="เล่นวิดีโอแนะนำเรื่องประกันสุขภาพและโรคร้ายแรง — 2Provi Group">
+          <img alt="" loading="lazy" decoding="async" />
+          <span class="ytb-play" aria-hidden="true">▶</span>
+        </button>
+        <button class="ytb-sound" type="button" hidden>🔇 เปิดเสียง</button>
+      </div>
+      <p class="ytb-note">วิดีโอเริ่มเล่นแบบปิดเสียง · กดปุ่มมุมขวาล่างเพื่อเปิดเสียง</p>
+    </div>
+  </div>
+</section>
+
 
 <!-- ══════════ 01 ค่ารักษาวันนี้ ══════════ -->
 <section class="sec" id="cost">
@@ -325,7 +357,7 @@ window.LS_IMAGES = {
       <div class="card v">
         <div class="ic" aria-hidden="true">🔀</div>
         <h3>ตัวเลือกลดเบี้ยที่ต้องเข้าใจ</h3>
-        <p><b>Deductible</b> คือความรับผิดส่วนแรกที่เราจ่ายเองก่อน ส่วน <b>Co-payment</b> คือการร่วมจ่ายเป็นสัดส่วน
+        <p><b>Deductible</b> คือความรับผิดส่วนแรกที่เราจ่ายเองก่อน ส่วน <b>ร่วมจ่าย (Co-payment)</b> คือการร่วมจ่ายเป็นสัดส่วน
           เช่นบริษัทจ่าย 70% เราจ่าย 30% ทั้งสองแบบแลกมาด้วยเบี้ยที่ถูกลง
           เหมาะกับคนที่มีสวัสดิการรองรับส่วนแรกอยู่แล้ว</p>
       </div>
@@ -591,7 +623,7 @@ window.LS_IMAGES = {
 <section class="sec" id="faq">
   <div class="narrow">
     <div class="head mid rv">
-      <span class="eye">08 — FAQ</span>
+      <span class="eye">08 — คำถามที่พบบ่อย</span>
       <h2>คำถามที่พบบ่อย</h2>
     </div>
     <div class="acc rv">
@@ -678,5 +710,6 @@ window.LS_IMAGES = {
 
 <script src="/js/page-health.js"></script>
 <script src="/js/nav.js"></script>
+<script src="/js/video.js"></script>
 </body>
 </html>

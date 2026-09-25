@@ -692,3 +692,29 @@ span[data-pdf-replica] {
   background: #f1f5f9; border: 1px solid #cbd5e1; color: #0f172a;
   overflow: hidden; white-space: nowrap; vertical-align: middle;
 }
+
+/* ── 3c. ลิงก์กลับเว็บหลัก / ทีมตัวแทน ─────────────────────────
+   เครื่องมือชุดนี้อยู่คนละโฟลเดอร์กับเว็บหลัก เดิมมีแค่ปุ่ม Home เล็ก ๆ
+   ที่ปนอยู่กับเมนูสลับเครื่องมือ และบนมือถือ .nav ถูกซ่อนทั้งแถว
+   ทำให้ไม่มีทางกลับ 2provi.com เลย จึงแยกสองลิงก์นี้เป็นกลุ่มของตัวเอง
+   คั่นด้วยเส้น และเพิ่มเข้าไปในแถบล่างของมือถือด้วย */
+.nav-site {
+  color: var(--text) !important;
+  background: var(--surface-2);
+  border-color: var(--border) !important;
+}
+.nav-site:hover { border-color: var(--accent) !important; background: var(--accent-tint); }
+.nav-sep {
+  width: 1px; height: 22px; flex: 0 0 1px;
+  background: var(--border); margin-inline: 5px;
+}
+
+/* แถบล่างของมือถือมี 6 ช่องแล้ว บีบระยะให้พอดีจอแคบ */
+@media (max-width: 400px) {
+  .botnav a { padding: 7px 2px 5px; font-size: 10.5px; gap: 1px; }
+  .botnav a .ic { font-size: 17px; }
+}
+@media (max-width: 340px) {
+  .botnav a { font-size: 9.8px; }
+  .botnav a .ic { font-size: 16px; }
+}

@@ -52,6 +52,7 @@
 <link rel="stylesheet" href="/css/page-education.css">
 <link rel="stylesheet" href="/css/mobile.css">
 <link rel="stylesheet" href="/css/teamcta.css">
+<link rel="stylesheet" href="/css/video.css">
 </head>
 <body>
 
@@ -153,6 +154,37 @@
   </div>
 </section>
 
+<!-- ══════════════════════════════════════════════════════════════
+     วิดีโอแนะนำ · ใส่รหัสวิดีโอที่ data-yt ข้างล่างจุดเดียว
+     รหัสคือส่วนท้าย URL เช่น https://youtu.be/dQw4w9WgXcQ
+     → data-yt="dQw4w9WgXcQ"
+
+     เริ่มเล่นเองแบบปิดเสียง เพราะเบราว์เซอร์ทุกตัวบล็อกการเล่น
+     อัตโนมัติที่มีเสียง ผู้ใช้กดปุ่ม 🔇 เพื่อเปิดเสียงได้
+     ถ้ายังไม่ใส่รหัส ทั้งส่วนนี้จะถูกซ่อนอัตโนมัติ
+     ══════════════════════════════════════════════════════════════ -->
+<section class="sec vidsec" id="video">
+  <div class="wrap">
+    <div class="head rv">
+      <span class="eye">วิดีโอแนะนำ</span>
+      <h2>ค่าเทอมลูก เตรียมตั้งแต่วันนี้ทันไหม</h2>
+      <p>สรุปค่าใช้จ่ายการศึกษาตั้งแต่อนุบาลถึงปริญญาตรี และวิธีทยอยเตรียมแบบไม่กดดันตัวเอง</p>
+    </div>
+
+    <div class="ytb rv" data-yt="VIDEO_ID" data-title="วิดีโอแนะนำเรื่องการวางแผนการศึกษาบุตร — 2Provi Group">
+      <div class="ytb-frame">
+        <button class="ytb-ph" type="button" aria-label="เล่นวิดีโอแนะนำเรื่องการวางแผนการศึกษาบุตร — 2Provi Group">
+          <img alt="" loading="lazy" decoding="async" />
+          <span class="ytb-play" aria-hidden="true">▶</span>
+        </button>
+        <button class="ytb-sound" type="button" hidden>🔇 เปิดเสียง</button>
+      </div>
+      <p class="ytb-note">วิดีโอเริ่มเล่นแบบปิดเสียง · กดปุ่มมุมขวาล่างเพื่อเปิดเสียง</p>
+    </div>
+  </div>
+</section>
+
+
 <div class="marq" aria-hidden="true">
   <div>
     <span>เปิดเทอม 2569 เงินสะพัด 6.63 หมื่นล้าน สูงสุดในรอบ 17 ปี</span><span>·</span>
@@ -170,7 +202,7 @@
 <section class="sec dark-sec" id="reality">
   <div class="wrap">
     <div class="head rv">
-      <span class="eye">THE REAL NUMBER</span>
+      <span class="eye">ตัวเลขจริงที่ต้องเตรียม</span>
       <h2>ค่าเทอมที่คุณเห็นวันนี้<br>ไม่ใช่ราคาที่คุณจะจ่ายจริง</h2>
       <p>เพราะเงินที่ต้องจ่าย อยู่ในอนาคต ไม่ใช่วันนี้ — และการศึกษาเป็นหนึ่งในไม่กี่อย่าง
         ที่ราคาขึ้นเร็วกว่าค่าครองชีพทั่วไปเกือบทุกปี</p>
@@ -217,7 +249,7 @@
 <section class="sec" id="levels">
   <div class="wrap">
     <div class="head rv">
-      <span class="eye">COST BY LEVEL</span>
+      <span class="eye">ค่าใช้จ่ายแยกตามระดับชั้น</span>
       <h2>แต่ละช่วงชั้น ใช้เงินประมาณเท่าไร</h2>
       <p>ตัวเลขอ้างอิงปีการศึกษา 2569 เป็นช่วงกว้าง ๆ เพื่อให้เห็นขนาด
         ของจริงต่างกันมากตามโรงเรียน จังหวัด และหลักสูตร</p>
@@ -270,7 +302,7 @@
 <section class="sec tinted" id="calc">
   <div class="wrap">
     <div class="head rv">
-      <span class="eye">EDUCATION CALCULATOR</span>
+      <span class="eye">เครื่องคำนวณค่าการศึกษา</span>
       <h2>คำนวณเงินค่าการศึกษาของลูกคุณ</h2>
       <p>เลือกแนวโรงเรียนที่วางไว้ แล้วปรับตัวเลขให้ตรงกับของจริง
         ระบบจะไล่คำนวณค่าใช้จ่ายทุกปีจนลูกเรียนจบ พร้อมบอกว่าต้องออมเดือนละเท่าไร</p>
@@ -390,7 +422,7 @@
 <section class="sec" id="ways">
   <div class="wrap">
     <div class="head rv">
-      <span class="eye">HOW TO FUND IT</span>
+      <span class="eye">เตรียมเงินก้อนนี้ได้ยังไง</span>
       <h2>3 วิธีเตรียมเงินค่าการศึกษา</h2>
       <p>ไม่มีวิธีไหนดีที่สุดในทุกสถานการณ์ — แต่ละวิธีแลกกันคนละอย่าง
         คนส่วนใหญ่ใช้มากกว่าหนึ่งวิธีผสมกัน</p>
@@ -479,7 +511,7 @@
 <section class="sec tinted" id="steps">
   <div class="wrap">
     <div class="head rv">
-      <span class="eye">START TODAY</span>
+      <span class="eye">เริ่มวันนี้</span>
       <h2>4 ขั้นที่ทำได้ตั้งแต่เดือนนี้</h2>
     </div>
     <div class="steps">
@@ -511,7 +543,7 @@
 <section class="sec" id="faq">
   <div class="wrap narrow">
     <div class="head rv">
-      <span class="eye">FAQ</span>
+      <span class="eye">คำถามที่พบบ่อย</span>
       <h2>คำถามที่พ่อแม่ถามบ่อย</h2>
     </div>
     <div class="acc rv">
@@ -595,5 +627,6 @@
 <script src="/js/core.js"></script>
 <script src="/js/page-education.js"></script>
 <script src="/js/nav.js"></script>
+<script src="/js/video.js"></script>
 </body>
 </html>
