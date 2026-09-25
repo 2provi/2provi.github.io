@@ -1,0 +1,115 @@
+/* ══════════════════════════════════════════════════════════════════════
+   botnav.css — แถบนำทางล่างแบบแอป (มือถือ / iPad แนวตั้ง)
+
+   ยืมแนวทางมาจากแถบล่างของ fin-irr-calculator แต่เขียนด้วยตัวแปรสีของ
+   เว็บหลัก จึงสลับโหมดสว่าง/มืดตามหน้าได้
+     core.css   → --surface --line --text --muted --b600 --b700
+     health.css → --panel   --line --tx   --tx3   --jade
+   มี fallback เป็นค่าสีตรง ๆ ท้ายสุด เผื่อหน้าไหนไม่มีตัวแปรครบ
+
+   จุดตัด 980px = เส้นแบ่งมือถือ/เดสก์ท็อปเดิมของเว็บ (.tools ซ่อน,
+   .teampill โผล่ที่ 981px) ครอบคลุม iPad แนวตั้งเกือบทุกรุ่น
+   (10.2" = 810, Air = 820, Pro 11" = 834) ส่วน Pro 12.9" แนวตั้ง 1024
+   จะได้เลย์เอาต์เดสก์ท็อปซึ่งเหมาะกว่าอยู่แล้ว
+   ══════════════════════════════════════════════════════════════════════ */
+
+.botnav{
+  display:none;                       /* เปิดใช้ใน media query ด้านล่าง */
+  position:fixed;
+  left:0;
+  right:0;
+  bottom:0;
+  z-index:200;                        /* สูงกว่า #toTop (140) ต่ำกว่าแถบคุกกี้ (300) */
+  padding:6px max(8px,env(safe-area-inset-left))
+          calc(6px + env(safe-area-inset-bottom))
+          max(8px,env(safe-area-inset-right));
+  background:rgba(253,254,255,.93);
+  -webkit-backdrop-filter:saturate(180%) blur(20px);
+  backdrop-filter:saturate(180%) blur(20px);
+  border-top:1px solid var(--line,rgba(255,255,255,.11));
+}
+/* เบราว์เซอร์ที่ไม่รู้จัก color-mix หรือ backdrop-filter ต้องได้พื้นทึบ
+   ไม่งั้นตัวหนังสือจะทับเนื้อหาที่เลื่อนผ่านข้างหลัง */
+[data-theme="dark"] .botnav{background:rgba(9,24,48,.93)}
+/* เบราว์เซอร์ที่ไม่รองรับ backdrop-filter ต้องได้พื้นทึบ ไม่งั้นเนื้อหา
+   ที่เลื่อนผ่านข้างหลังจะทะลุขึ้นมาปนกับตัวหนังสือ */
+@supports not (backdrop-filter:blur(4px)){
+  .botnav{background:#fdfeff}
+  [data-theme="dark"] .botnav{background:#091830}
+}
+
+.botnav-in{
+  display:flex;
+  max-width:620px;
+  margin:0 auto;
+}
+
+.botnav a{
+  flex:1;
+  min-width:0;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:2px;
+  padding:7px 3px 5px;
+  border-radius:12px;
+  text-decoration:none;
+  font-size:11px;
+  font-weight:600;
+  line-height:1.3;
+  white-space:nowrap;
+  transition:color .2s,background .2s;
+  -webkit-tap-highlight-color:transparent;
+}
+.botnav a .ic{
+  font-size:19px;
+  line-height:1.15;
+  transition:transform .25s cubic-bezier(.22,.8,.2,1);
+}
+.botnav a:active{background:rgba(127,150,180,.16)}
+.botnav a:focus-visible{outline:2px solid currentColor;outline-offset:-2px}
+.botnav a[aria-current="page"] .ic{transform:translateY(-1px) scale(1.06)}
+
+/* ── สีตัวอักษร ──
+   กำหนดตรง ๆ ทั้งสองธีมแทนการอ้างตัวแปรของหน้า เพราะแต่ละหน้าใช้ชุด
+   ตัวแปรคนละชุดและบางค่าพอมาอยู่บนพื้นแถบนี้แล้ว contrast ไม่ผ่าน
+   (เช่น --muted #64798f ได้ 4.47 เฉียดเกณฑ์ 4.5, --b600 #1466c4 บนพื้น
+   มืดได้แค่ 3.00, --amber #fbbf24 บนพื้นสว่างได้ 1.66)
+   ค่าที่ใช้ด้านล่างวัดแล้วผ่าน 4.5 ทุกช่อง ทุกธีม */
+.botnav a{color:#566d86}
+.botnav a[aria-current="page"]{color:#0b4a8f}
+.botnav a.bn-cta{color:#8f5400}
+
+[data-theme="dark"] .botnav a{color:#9db3d1}
+[data-theme="dark"] .botnav a[aria-current="page"]{color:#5cc9fb}
+[data-theme="dark"] .botnav a.bn-cta{color:#fbbf24}
+
+@media (max-width:980px){
+  .botnav{display:block}
+
+  /* เว้นที่ให้แถบล่าง ไม่งั้นฟุตเตอร์กับเนื้อหาท้ายหน้าจะถูกบัง */
+  body{padding-bottom:calc(78px + env(safe-area-inset-bottom))}
+
+  /* ปุ่มกลับขึ้นบนกับแถบคุกกี้ต้องขยับขึ้นมาให้พ้นแถบ */
+  #toTop{bottom:calc(88px + env(safe-area-inset-bottom))}
+  .ck{bottom:calc(88px + env(safe-area-inset-bottom))}
+
+  /* แถบทีมงานด้านบนคงไว้ตามเดิมตามที่คุณพ่อขอ — ไม่ซ่อน
+     คลาส has-bot ยังติดอยู่ที่ markup เผื่อใช้เป็นจุดเกาะในอนาคต */
+}
+
+@media (max-width:380px){
+  .botnav a{font-size:10.2px;padding:6px 2px 4px}
+  .botnav a .ic{font-size:17.5px}
+}
+@media (max-width:340px){
+  .botnav a{font-size:9.6px}
+  .botnav a .ic{font-size:16px}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .botnav a,.botnav a .ic{transition:none}
+}
+@media print{
+  .botnav{display:none !important}
+}
