@@ -9,7 +9,7 @@
    • ฟอนต์ Google       → cache-first     (ไม่ค่อยเปลี่ยน)
    ══════════════════════════════════════════════════════════════ */
 
-const VERSION    = 'v1.0.4';
+const VERSION    = 'v1.0.6';
 const CORE_CACHE = '2provi-core-' + VERSION;
 const RUN_CACHE  = '2provi-runtime-' + VERSION;
 
@@ -27,7 +27,7 @@ const CORE_ASSETS = [
   './assets/vendor/html2canvas.min.js',
   './assets/vendor/jspdf.umd.min.js',
   './manifest.webmanifest',
-  './icons/icon.svg',
+  './icons/favicon-32.png',
   './icons/icon-192.png',
   './icons/icon-512.png',
   './icons/apple-touch-icon.png'
@@ -113,6 +113,29 @@ self.addEventListener('fetch', (event) => {
   }
 
   if (!sameOrigin) return;
+
+  /* ── รูปภาพนิ่ง (โลโก้ / ไอคอน): cache-first ไม่ยิงซ้ำเบื้องหลัง ──
+     ไฟล์กลุ่มนี้เปลี่ยนพร้อม VERSION ของ sw.js อยู่แล้ว ถ้าปล่อยให้ตกไป
+     ใช้ stale-while-revalidate ด้านล่าง ไฟล์โลโก้ต้นฉบับ (~1.3MB) จะถูก
+     โหลดใหม่เบื้องหลังทุกครั้งที่เปิดหน้า เปลืองเน็ตผู้ใช้เปล่า ๆ
+     ค้นจากทุกถังแคช เพราะไอคอนชุดหลักถูกเก็บไว้ใน CORE_CACHE ตั้งแต่ติดตั้ง */
+  if (/\.(png|ico|jpe?g|webp|svg)$/i.test(url.pathname)) {
+    event.respondWith((async () => {
+      const cached = await caches.match(req, { ignoreSearch: true });
+      if (cached) return cached;
+      try {
+        const res = await fetch(req);
+        if (res && res.status === 200 && res.type === 'basic') {
+          const cache = await caches.open(RUN_CACHE);
+          cache.put(req, res.clone());
+        }
+        return res;
+      } catch (e) {
+        return new Response('', { status: 504 });
+      }
+    })());
+    return;
+  }
 
   /* ── ไฟล์ในเว็บเอง: stale-while-revalidate ── */
   event.respondWith((async () => {

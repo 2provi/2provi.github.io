@@ -26,7 +26,7 @@
 <meta name="twitter:image" content="https://2provi.com/assets/og-image.jpg">
 <meta name="twitter:image:alt" content="2Provi Group — ประกันชีวิต เพื่อคนที่คุณรัก">
 
-<link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+<link rel="icon" href="icons/icon-192.png" type="image/png" sizes="192x192">
 <link rel="icon" href="icons/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
 <link rel="manifest" href="manifest.webmanifest">
@@ -120,13 +120,14 @@
   .pwa-status.is-ready .dot { background: var(--green); box-shadow: 0 0 0 3px rgba(16,185,129,.18); }
 </style>
 <link rel="stylesheet" href="assets/mobile-fix.css">
+<link rel="stylesheet" href="/css/logo-zoom.css">
 </head>
 <body>
 
 <header class="topbar">
   <div class="topbar-inner">
     <a class="brand" href="index.html">
-      <span class="brand-mark" aria-hidden="true">2P</span>
+      <span class="brand-mark"><img src="/assets/logo-mark.png" width="43" height="43" alt="" loading="eager" decoding="async"></span>
       <span class="brand-text">
         <span class="brand-name">2PROVI Financial Solution Tools</span>
         <span class="brand-sub">ฑิฆัมพร วีรวิทยาเศรษฐ์ · ฝ่าย 18 สาขาธนบุรี</span>
@@ -260,6 +261,7 @@
 </nav>
 
 <script src="assets/common.js"></script>
+<script src="/js/logo-zoom.js"></script>
 <script>
 (function () {
   var btn = document.getElementById('pwaInstallBtn');
