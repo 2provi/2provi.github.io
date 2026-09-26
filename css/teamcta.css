@@ -169,7 +169,7 @@ body > .teamcta{align-self:stretch;box-sizing:border-box}
 
 /* หน้าฟอร์ม (quote/join/thank-you) กล่องเนื้อหาแคบกว่าหน้าอื่น
    ให้แถบกว้างเท่ากล่องนั้นจะดูเป็นชุดเดียวกัน */
-.navbar + .teamcta{width:min(1100px,100% - 36px)}
+.navbar ~ .teamcta{width:min(1100px,100% - 36px)}
 
 @media (prefers-reduced-motion:reduce){
   .teamcta::after,.teampill::after{display:none}
@@ -219,20 +219,33 @@ body > .teamcta{align-self:stretch;box-sizing:border-box}
 }
 
 /* ══════════════════════════════════════════════════════════════
-   ปักหมุดแถบทีมงานบนจอแคบ
+   แถบทีมงานบนจอแคบ — เต็มความกว้าง แต่ "เลื่อนไปกับเนื้อหา"
 
-   เดิมแถบนี้ไหลไปกับเนื้อหา พอเลื่อนลงก็หายไปเลย ทั้งที่จุดประสงค์
-   ของมันคือให้เห็นได้ตลอดจากทุกหน้า จึงเปลี่ยนเป็นปักหมุดใต้แถบหัว
+   [แก้บั๊ก] เคยลองปักหมุด (position:sticky top:67px) ให้เห็นตลอดเวลา
+   แต่มีปัญหาสองข้อ
+     1. ค่า top:67px ผูกกับความสูงแถบหัวของเดิม พอ nav2.css เปลี่ยน
+        .nav-in เป็น min-height:80px ค่านี้ก็ผิดทันที แถบเลยเหลื่อม
+        ซ้อนใต้แถบหัวแทนที่จะต่อกันพอดี
+     2. แถบหัว (sticky) + แถบทีม (sticky) + แถบเมนูล่าง (fixed) กินความสูง
+        จอมือถือรวมกันเกิน 200px เหลือที่อ่านเนื้อหาน้อยเกินไป
 
-   ใช้ z-index ต่ำกว่า .nav (150) เพื่อให้เมนูสามขีดตอนกางออกมา
-   ทับแถบนี้ได้ ไม่ใช่ถูกแถบบัง
+   จุดประสงค์ "ให้เห็นได้ทุกหน้า" ยังอยู่ครบ เพราะแถบโผล่ใต้แถบหัวตั้งแต่
+   ยังไม่เลื่อน และจอกว้างมีเม็ดยา .teampill ที่ติดไปกับแถบหัวอยู่แล้ว
+   จึงกลับมาให้มันไหลไปกับเนื้อหาตามดีไซน์เดิม
    ══════════════════════════════════════════════════════════════ */
 @media (max-width:980px){
-  /* หน้าที่ใช้ <header class="nav"> — สูง 67px และ sticky ทุกความกว้าง */
-  header.nav + .teamcta{
-    position:sticky;
-    top:67px;
-    z-index:130;
+  /* หน้าที่ใช้ <header class="nav">
+
+     [แก้บั๊ก] เดิมเขียน header.nav + .teamcta (พี่น้องที่ติดกันเท่านั้น)
+     พอแถบเมนูข้างใหม่แทรก <aside class="siderail"> กับ <div class="siderail-veil">
+     ไว้ระหว่าง </header> กับแถบทีม ตัวเลือก + ก็เลิกตรงเงื่อนไขเงียบ ๆ
+     แถบจึงหลุดกลับไปเป็นเม็ดยาขอบมนมีระยะขอบ .85rem แทนแถบเต็มความกว้าง
+     เปลี่ยนเป็น ~ (พี่น้องตัวไหนก็ได้ที่อยู่หลัง) จะไม่พังอีกเวลาแทรกอะไรเพิ่ม */
+  header.nav ~ .teamcta{
+    /* relative ไม่ใช่ static — relative ยังไหลไปกับเนื้อหาเหมือนกัน แต่คงเป็น
+       จุดอ้างอิงให้ ::after (ประกายวิ่งผ่าน ที่ใช้ position:absolute;inset:0)
+       ถ้าใช้ static ประกายจะไปอ้างอิงบล็อกอื่นแล้วตำแหน่งเพี้ยน */
+    position:relative;
     width:100%;
     margin:0;
     border-radius:0;
@@ -241,30 +254,19 @@ body > .teamcta{align-self:stretch;box-sizing:border-box}
     box-shadow:0 10px 20px -16px rgba(2,26,48,.95);
   }
 
-  /* หน้าฟอร์ม (quote/join) ใช้ <nav class="navbar"> — เต็มความกว้างเหมือนกัน
-     แต่ยังไม่ปักหมุด เพราะตัวแถบหัวเองก็ยังไม่ปักหมุดที่ความกว้างนี้ */
-  .navbar + .teamcta{
+  /* หน้าฟอร์ม (quote/join) ใช้ <nav class="navbar"> — เต็มความกว้างเหมือนกัน */
+  .navbar ~ .teamcta{
+    position:relative;
     width:100%;
     margin:0;
     border-radius:0;
     padding:.58rem max(17px,env(safe-area-inset-right)) .58rem max(17px,env(safe-area-inset-left));
   }
 
-  /* แถบสูงขึ้นจากเดิม ลิงก์กระโดดในหน้า (#calc #faq ฯลฯ) ต้องเผื่อระยะเพิ่ม
-     ไม่งั้นหัวข้อจะไปหลบอยู่ใต้แถบ */
-  html{scroll-padding-top:139px}
-}
-
-/* .navbar ถูกทำให้ปักหมุดที่ ≤640px (ดู mobile.css) แถบทีมจึงตามไปด้วย
-   navbar ใช้ z-index 50 อันนี้จึงต้องต่ำกว่า */
-@media (max-width:640px){
-  .navbar + .teamcta{
-    position:sticky;
-    top:61px;
-    z-index:40;
-    box-shadow:0 10px 20px -16px rgba(2,26,48,.95);
-  }
-  html{scroll-padding-top:133px}
+  /* ไม่ปักหมุดแล้ว ลิงก์กระโดดในหน้า (#calc #faq ฯลฯ) จึงเผื่อแค่แถบหัว
+     ค่าจริงถูกกำหนดใน nav2.css ที่โหลดทีหลัง (128px) บรรทัดนี้กันไว้เผื่อ
+     หน้าที่ยังไม่ได้โหลด nav2.css */
+  html{scroll-padding-top:96px}
 }
 
 /* หน้า thank-you ไม่มีแถบหัว และแถบทีมอยู่ท้ายหน้าอยู่แล้ว ปล่อยไว้ตามเดิม */
