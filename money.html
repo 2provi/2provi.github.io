@@ -31,9 +31,9 @@
      จึงขึ้นเป็นรูปโลกสีเทาในผลค้นหา — favicon.ico วางไว้ที่ root ด้วย
      เพราะบอทหลายตัวไปหาที่ /favicon.ico ตรง ๆ โดยไม่อ่าน <link> -->
 <link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
 <link rel="icon" href="/favicon-96.png" type="image/png" sizes="96x96">
 <link rel="icon" href="/icon-192.png" type="image/png" sizes="192x192">
-<link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <meta name="color-scheme" content="light dark">
 
@@ -64,6 +64,7 @@ window.LS_IMAGES = {
 <link rel="stylesheet" href="/css/teamcta.css">
 <link rel="stylesheet" href="/css/botnav.css">
 <link rel="stylesheet" href="/css/video.css">
+<link rel="stylesheet" href="/css/logo-zoom.css">
 </head>
 <body>
 
@@ -73,11 +74,7 @@ window.LS_IMAGES = {
 <header class="nav" id="nav">
   <div class="wrap nav-in">
     <a class="brand" href="index.html">
-      <span class="mark">
-        <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M12 2 4 5v6c0 5 3.4 9.4 8 11 4.6-1.6 8-6 8-11V5l-8-3Z"/><path d="m9 12 2 2 4-4"/>
-        </svg>
-      </span>
+      <span class="mark"><img src="/assets/logo-mark.png" width="40" height="40" alt="" loading="eager" decoding="async"></span>
       <span>2Provi<b>Group</b></span>
     </a>
     <nav class="links" id="menu">
@@ -752,7 +749,7 @@ window.LS_IMAGES = {
 <footer class="foot">
   <div class="wrap foot-g">
     <div>
-      <a class="brand" href="index.html" style="color:#fff"><span class="mark">🛡️</span><span>2Provi<b>Group</b></span></a>
+      <a class="brand" href="index.html" style="color:#fff"><span class="mark"><img src="/assets/logo-mark.png" width="40" height="40" alt="" loading="eager" decoding="async"></span><span>2Provi<b>Group</b></span></a>
       <p>เว็บไซต์ให้ความรู้ด้านการบริหารความเสี่ยงและการประกันชีวิต จัดทำเพื่อการศึกษาเท่านั้น ไม่ใช่คำแนะนำการลงทุน และไม่ใช่การเสนอขายกรมธรรม์</p>
     </div>
     <div><h4>ในหน้านี้</h4><a href="#story">ถ้าวันนั้นมาถึง</a><a href="#cost">ต้นทุนของการไม่มี</a><a href="#risk">บริหารความเสี่ยง</a><a href="#types">ประเภทประกัน</a><a href="#calc">คำนวณทุนประกัน</a><a href="#faq">คำถามพบบ่อย</a></div>
@@ -784,6 +781,7 @@ window.LS_IMAGES = {
 <script src="/js/page-money.js"></script>
 <script src="/js/nav.js"></script>
 <script src="/js/video.js"></script>
+<script src="/js/logo-zoom.js"></script>
 
 <!-- ══════════════════════════════════════════════════════════════
      แถบนำทางล่าง · โผล่เฉพาะจอ ≤980px (มือถือ / iPad แนวตั้ง)

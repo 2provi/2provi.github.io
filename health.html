@@ -31,9 +31,9 @@
      จึงขึ้นเป็นรูปโลกสีเทาในผลค้นหา — favicon.ico วางไว้ที่ root ด้วย
      เพราะบอทหลายตัวไปหาที่ /favicon.ico ตรง ๆ โดยไม่อ่าน <link> -->
 <link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
 <link rel="icon" href="/favicon-96.png" type="image/png" sizes="96x96">
 <link rel="icon" href="/icon-192.png" type="image/png" sizes="192x192">
-<link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <meta name="color-scheme" content="dark light">
 
@@ -55,6 +55,7 @@ window.LS_IMAGES = {
 <link rel="stylesheet" href="/css/teamcta.css">
 <link rel="stylesheet" href="/css/botnav.css">
 <link rel="stylesheet" href="/css/video.css">
+<link rel="stylesheet" href="/css/logo-zoom.css">
 </head>
 <body>
 
@@ -63,9 +64,7 @@ window.LS_IMAGES = {
 <header class="nav" id="nav">
   <div class="wrap nav-in">
     <a class="brand" href="index.html">
-      <span class="mark" aria-hidden="true">
-        <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h4l2-5 4 10 2.5-6L17 12h5"/></svg>
-      </span>
+      <span class="mark"><img src="/assets/logo-mark.png" width="40" height="40" alt="" loading="eager" decoding="async"></span>
       <span>2Provi<i>Group</i></span>
     </a>
     <nav class="links" id="menu" aria-label="เมนูหลัก">
@@ -671,9 +670,7 @@ window.LS_IMAGES = {
   <div class="wrap foot-g">
     <div>
       <a class="brand" href="index.html">
-        <span class="mark" aria-hidden="true">
-          <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h4l2-5 4 10 2.5-6L17 12h5"/></svg>
-        </span>
+        <span class="mark"><img src="/assets/logo-mark.png" width="40" height="40" alt="" loading="eager" decoding="async"></span>
         <span>2Provi<i>Group</i></span>
       </a>
       <p>หน้าให้ความรู้เรื่องประกันสุขภาพและโรคร้ายแรง จัดทำเพื่อการศึกษาเท่านั้น
@@ -712,6 +709,7 @@ window.LS_IMAGES = {
 <script src="/js/page-health.js"></script>
 <script src="/js/nav.js"></script>
 <script src="/js/video.js"></script>
+<script src="/js/logo-zoom.js"></script>
 
 <!-- ══════════════════════════════════════════════════════════════
      แถบนำทางล่าง · โผล่เฉพาะจอ ≤980px (มือถือ / iPad แนวตั้ง)
