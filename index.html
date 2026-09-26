@@ -94,12 +94,13 @@
   document.documentElement.setAttribute("data-theme",t);
 })();
 </script>
-<link rel="stylesheet" href="/css/core.css">
-<link rel="stylesheet" href="/css/page-index.css">
-<link rel="stylesheet" href="/css/mobile.css">
-<link rel="stylesheet" href="/css/teamcta.css">
-<link rel="stylesheet" href="/css/botnav.css">
-<link rel="stylesheet" href="/css/logo-zoom.css">
+<link rel="stylesheet" href="/css/core.css?v=20260926b">
+<link rel="stylesheet" href="/css/page-index.css?v=20260926b">
+<link rel="stylesheet" href="/css/mobile.css?v=20260926b">
+<link rel="stylesheet" href="/css/teamcta.css?v=20260926b">
+<link rel="stylesheet" href="/css/botnav.css?v=20260926b">
+<link rel="stylesheet" href="/css/logo-zoom.css?v=20260926b">
+<link rel="stylesheet" href="/css/nav2.css?v=20260926b">
 </head>
 <body>
 
@@ -111,7 +112,7 @@
       <span class="mark"><img src="/assets/logo-mark.png" width="40" height="40" alt="" loading="eager" decoding="async"></span>
       <span>2Provi<b>Group</b></span>
     </a>
-    <nav class="links" id="menu"><a href="#tools">เครื่องมือ</a><a href="#why-us">ทำไมต้อง 2Provi</a><a href="#process">ขั้นตอน</a><a href="#articles">สาระน่ารู้</a></nav>
+    <nav class="tools tools-in" id="xnav" aria-label="เมนูข้ามหน้า"><a href="index.html" class="home cur" aria-current="page">🏠 หน้าหลัก</a><a href="money.html" class="">🛡️ ประกันชีวิต</a><a href="health.html" class="">🩺 สุขภาพ</a><a href="retire.html" class="">🌱 วางแผนเกษียณ</a><a href="education.html" class="">🎓 การศึกษาบุตร</a><a href="/aboutme/">👥 ทีมงาน</a><a href="quote.html" class="askq">ขอรับข้อเสนอเบื้องต้น <span>→</span></a></nav>
     <div class="acts">
       <button class="ibtn" id="themeBtn" type="button" aria-label="สลับโหมดสี" title="สลับโหมดสว่าง/มืด">🌙</button>
       <a class="teampill" href="/aboutme/">
@@ -124,10 +125,16 @@
       <button class="burger" id="burger" type="button" aria-label="เปิดเมนู" aria-expanded="false"><span></span><span></span><span></span></button>
     </div>
   </div>
-  <div class="tools">
-    <nav class="wrap tools-in" aria-label="เมนูข้ามหน้า"><a href="index.html" class="home cur" aria-current="page">🏠 หน้าหลัก</a><a href="money.html" class="">🛡️ ประกันชีวิต</a><a href="health.html" class="">🩺 สุขภาพ</a><a href="retire.html" class="">🌱 วางแผนเกษียณ</a><a href="education.html" class="">🎓 การศึกษาบุตร</a><a href="/aboutme/">👥 ทีมงาน</a><a href="quote.html" class="askq">ขอรับข้อเสนอเบื้องต้น <span>→</span></a></nav>
-  </div>
 </header>
+
+<!-- แถบหัวข้อในหน้า · พับเก็บได้ด้วยปุ่มสามขีดบนแถบหัว -->
+<aside class="siderail" id="siderail" aria-hidden="true">
+  <div class="siderail-in">
+    <p class="siderail-h">หัวข้อในหน้านี้</p>
+    <nav class="links" id="menu"><a href="#tools">เครื่องมือ</a><a href="#why-us">ทำไมต้อง 2Provi</a><a href="#process">ขั้นตอน</a><a href="#articles">สาระน่ารู้</a></nav>
+  </div>
+</aside>
+<div class="siderail-veil" id="railVeil" hidden></div>
 
 <!-- แถบลัดไปหน้าทีมตัวแทน · โผล่ทุกหน้า เพราะคนส่วนใหญ่ไม่กดเมนูสามขีดดู -->
 <a class="teamcta has-bot" href="/aboutme/">
@@ -170,13 +177,15 @@
 
     <div class="art rv" data-delay="140">
       <div class="hero-logo"><img src="/assets/logo-hero.png" width="224" height="224" alt="" loading="eager" decoding="async"></div>
-      <div class="ph hero-ph" data-ico="👨‍👩‍👧">
-        <img
-          src="https://images.unsplash.com/photo-1609220136736-443140cffec6?auto=format&fit=crop&w=1000&q=85"
-          alt="ครอบครัวมีความสุขร่วมกัน" loading="lazy">
+      <div class="art-stage">
+        <div class="ph hero-ph" data-ico="👨‍👩‍👧">
+          <img
+            src="https://images.unsplash.com/photo-1609220136736-443140cffec6?auto=format&fit=crop&w=1000&q=85"
+            alt="ครอบครัวมีความสุขร่วมกัน" loading="lazy">
+        </div>
+        <div class="tagA">🛡️ คุ้มครองครบ</div>
+        <div class="tagB">📈 วางแผนเป็นระบบ</div>
       </div>
-      <div class="tagA">🛡️ คุ้มครองครบ</div>
-      <div class="tagB">📈 วางแผนเป็นระบบ</div>
     </div>
   </div>
 </section>
@@ -420,10 +429,11 @@
 
 <button id="toTop" type="button" aria-label="กลับขึ้นด้านบน">↑</button>
 
-<script src="/js/core.js"></script>
-<script src="/js/page-index.js"></script>
-<script src="/js/nav.js"></script>
-<script src="/js/logo-zoom.js"></script>
+<script src="/js/core.js?v=20260926b"></script>
+<script src="/js/page-index.js?v=20260926b"></script>
+<script src="/js/nav.js?v=20260926b"></script>
+<script src="/js/logo-zoom.js?v=20260926b"></script>
+<script src="/js/siderail.js?v=20260926b"></script>
 
 <!-- ══════════════════════════════════════════════════════════════
      แถบนำทางล่าง · โผล่เฉพาะจอ ≤980px (มือถือ / iPad แนวตั้ง)

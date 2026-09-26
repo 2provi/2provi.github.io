@@ -48,13 +48,14 @@
   document.documentElement.setAttribute("data-theme",t);
 })();
 </script>
-<link rel="stylesheet" href="/css/core.css">
-<link rel="stylesheet" href="/css/page-retire.css">
-<link rel="stylesheet" href="/css/mobile.css">
-<link rel="stylesheet" href="/css/teamcta.css">
-<link rel="stylesheet" href="/css/botnav.css">
-<link rel="stylesheet" href="/css/video.css">
-<link rel="stylesheet" href="/css/logo-zoom.css">
+<link rel="stylesheet" href="/css/core.css?v=20260926b">
+<link rel="stylesheet" href="/css/page-retire.css?v=20260926b">
+<link rel="stylesheet" href="/css/mobile.css?v=20260926b">
+<link rel="stylesheet" href="/css/teamcta.css?v=20260926b">
+<link rel="stylesheet" href="/css/botnav.css?v=20260926b">
+<link rel="stylesheet" href="/css/video.css?v=20260926b">
+<link rel="stylesheet" href="/css/logo-zoom.css?v=20260926b">
+<link rel="stylesheet" href="/css/nav2.css?v=20260926b">
 </head>
 <body>
 
@@ -66,7 +67,7 @@
       <span class="mark"><img src="/assets/logo-mark.png" width="40" height="40" alt="" loading="eager" decoding="async"></span>
       <span>2Provi<b>Group</b></span>
     </a>
-    <nav class="links" id="menu"><a href="#gap">ช่องว่างเกษียณ</a><a href="#rule">ต้องมีเท่าไร</a><a href="#pillars">3 เสาหลัก</a><a href="#calc">คำนวณ</a><a href="#steps">เริ่มวันนี้</a><a href="#faq">คำถามพบบ่อย</a></nav>
+    <nav class="tools tools-in" id="xnav" aria-label="เมนูข้ามหน้า"><a href="index.html" class="home">🏠 หน้าหลัก</a><a href="money.html" class="">🛡️ ประกันชีวิต</a><a href="health.html" class="">🩺 สุขภาพ</a><a href="retire.html" class="cur" aria-current="page">🌱 วางแผนเกษียณ</a><a href="education.html" class="">🎓 การศึกษาบุตร</a><a href="/aboutme/">👥 ทีมงาน</a><a href="quote.html" class="askq">ขอรับข้อเสนอเบื้องต้น <span>→</span></a></nav>
     <div class="acts">
       <button class="ibtn" id="themeBtn" type="button" aria-label="สลับโหมดสี" title="สลับโหมดสว่าง/มืด">🌙</button>
       <a class="teampill" href="/aboutme/">
@@ -79,10 +80,16 @@
       <button class="burger" id="burger" type="button" aria-label="เปิดเมนู" aria-expanded="false"><span></span><span></span><span></span></button>
     </div>
   </div>
-  <div class="tools">
-    <nav class="wrap tools-in" aria-label="เมนูข้ามหน้า"><a href="index.html" class="home">🏠 หน้าหลัก</a><a href="money.html" class="">🛡️ ประกันชีวิต</a><a href="health.html" class="">🩺 สุขภาพ</a><a href="retire.html" class="cur" aria-current="page">🌱 วางแผนเกษียณ</a><a href="education.html" class="">🎓 การศึกษาบุตร</a><a href="/aboutme/">👥 ทีมงาน</a><a href="quote.html" class="askq">ขอรับข้อเสนอเบื้องต้น <span>→</span></a></nav>
-  </div>
 </header>
+
+<!-- แถบหัวข้อในหน้า · พับเก็บได้ด้วยปุ่มสามขีดบนแถบหัว -->
+<aside class="siderail" id="siderail" aria-hidden="true">
+  <div class="siderail-in">
+    <p class="siderail-h">หัวข้อในหน้านี้</p>
+    <nav class="links" id="menu"><a href="#gap">ช่องว่างเกษียณ</a><a href="#rule">ต้องมีเท่าไร</a><a href="#pillars">3 เสาหลัก</a><a href="#calc">คำนวณ</a><a href="#steps">เริ่มวันนี้</a><a href="#faq">คำถามพบบ่อย</a></nav>
+  </div>
+</aside>
+<div class="siderail-veil" id="railVeil" hidden></div>
 
 <!-- แถบลัดไปหน้าทีมตัวแทน · โผล่ทุกหน้า เพราะคนส่วนใหญ่ไม่กดเมนูสามขีดดู -->
 <a class="teamcta has-bot" href="/aboutme/">
@@ -125,30 +132,32 @@
 
     <div class="art rv" data-delay="140">
       <div class="hero-logo"><img src="/assets/logo-hero.png" width="224" height="224" alt="" loading="eager" decoding="async"></div>
-      <div class="board">
-        <div class="board-h">
-          <h4><span class="dot"></span>เส้นทางเงินก้อนเกษียณ</h4>
-          <span>สะสม → ใช้จ่าย</span>
+      <div class="art-stage">
+        <div class="board">
+          <div class="board-h">
+            <h4><span class="dot"></span>เส้นทางเงินก้อนเกษียณ</h4>
+            <span>สะสม → ใช้จ่าย</span>
+          </div>
+          <div class="chart" aria-hidden="true">
+            <i style="height:14%;animation-delay:.04s"></i>
+            <i style="height:26%;animation-delay:.10s"></i>
+            <i style="height:40%;animation-delay:.16s"></i>
+            <i style="height:57%;animation-delay:.22s"></i>
+            <i style="height:78%;animation-delay:.28s"></i>
+            <i style="height:100%;animation-delay:.34s"></i>
+            <i style="height:80%;animation-delay:.40s;opacity:.6"></i>
+            <i style="height:58%;animation-delay:.46s;opacity:.6"></i>
+            <i style="height:34%;animation-delay:.52s;opacity:.6"></i>
+            <i style="height:12%;animation-delay:.58s;opacity:.6"></i>
+          </div>
+          <div class="rows">
+            <div class="row">💼 ช่วงสะสม <em>อายุ 30–60</em></div>
+            <div class="row">🌴 ช่วงใช้จ่าย <em>อายุ 60–90</em></div>
+            <div class="row">⚠️ จุดที่เงินมักหมดก่อน <em>อายุ 75–80</em></div>
+          </div>
+          <div class="tagA">📈 ดอกเบี้ยทบต้น</div>
+          <div class="tagB">⏳ เวลาคือต้นทุน</div>
         </div>
-        <div class="chart" aria-hidden="true">
-          <i style="height:14%;animation-delay:.04s"></i>
-          <i style="height:26%;animation-delay:.10s"></i>
-          <i style="height:40%;animation-delay:.16s"></i>
-          <i style="height:57%;animation-delay:.22s"></i>
-          <i style="height:78%;animation-delay:.28s"></i>
-          <i style="height:100%;animation-delay:.34s"></i>
-          <i style="height:80%;animation-delay:.40s;opacity:.6"></i>
-          <i style="height:58%;animation-delay:.46s;opacity:.6"></i>
-          <i style="height:34%;animation-delay:.52s;opacity:.6"></i>
-          <i style="height:12%;animation-delay:.58s;opacity:.6"></i>
-        </div>
-        <div class="rows">
-          <div class="row">💼 ช่วงสะสม <em>อายุ 30–60</em></div>
-          <div class="row">🌴 ช่วงใช้จ่าย <em>อายุ 60–90</em></div>
-          <div class="row">⚠️ จุดที่เงินมักหมดก่อน <em>อายุ 75–80</em></div>
-        </div>
-        <div class="tagA">📈 ดอกเบี้ยทบต้น</div>
-        <div class="tagB">⏳ เวลาคือต้นทุน</div>
       </div>
     </div>
   </div>
@@ -634,11 +643,12 @@
 
 <button id="toTop" type="button" aria-label="กลับขึ้นด้านบน">↑</button>
 
-<script src="/js/core.js"></script>
-<script src="/js/page-retire.js"></script>
-<script src="/js/nav.js"></script>
-<script src="/js/video.js"></script>
-<script src="/js/logo-zoom.js"></script>
+<script src="/js/core.js?v=20260926b"></script>
+<script src="/js/page-retire.js?v=20260926b"></script>
+<script src="/js/nav.js?v=20260926b"></script>
+<script src="/js/video.js?v=20260926b"></script>
+<script src="/js/logo-zoom.js?v=20260926b"></script>
+<script src="/js/siderail.js?v=20260926b"></script>
 
 <!-- ══════════════════════════════════════════════════════════════
      แถบนำทางล่าง · โผล่เฉพาะจอ ≤980px (มือถือ / iPad แนวตั้ง)

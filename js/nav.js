@@ -18,6 +18,11 @@
     var burger= D.getElementById("burger");
     if(!menu || !strip || menu.querySelector(".xp")) return;
 
+    /* โครงใหม่: ลิงก์ข้ามหน้าย้ายขึ้นไปอยู่บนแถบหัวแล้ว และเห็นครบทุกความกว้าง
+       ส่วน #menu กลายเป็นแถบหัวข้อในหน้าที่อยู่ด้านข้าง การโคลนลิงก์ข้ามหน้า
+       เข้าไปอีกชุดจึงซ้ำซ้อนและทำให้แถบข้างรกโดยเปล่าประโยชน์ */
+    if(D.querySelector(".nav-in .tools-in") || D.getElementById("siderail")) return;
+
     var box = D.createElement("div");
     box.className = "xp";
 

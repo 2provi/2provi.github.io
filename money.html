@@ -58,13 +58,14 @@ window.LS_IMAGES = {
   // "story": { "src": "images/story.jpg", "caption": "คำบรรยายใต้ภาพ" }
 };
 </script>
-<link rel="stylesheet" href="/css/core.css">
-<link rel="stylesheet" href="/css/page-money.css">
-<link rel="stylesheet" href="/css/mobile.css">
-<link rel="stylesheet" href="/css/teamcta.css">
-<link rel="stylesheet" href="/css/botnav.css">
-<link rel="stylesheet" href="/css/video.css">
-<link rel="stylesheet" href="/css/logo-zoom.css">
+<link rel="stylesheet" href="/css/core.css?v=20260926b">
+<link rel="stylesheet" href="/css/page-money.css?v=20260926b">
+<link rel="stylesheet" href="/css/mobile.css?v=20260926b">
+<link rel="stylesheet" href="/css/teamcta.css?v=20260926b">
+<link rel="stylesheet" href="/css/botnav.css?v=20260926b">
+<link rel="stylesheet" href="/css/video.css?v=20260926b">
+<link rel="stylesheet" href="/css/logo-zoom.css?v=20260926b">
+<link rel="stylesheet" href="/css/nav2.css?v=20260926b">
 </head>
 <body>
 
@@ -77,15 +78,7 @@ window.LS_IMAGES = {
       <span class="mark"><img src="/assets/logo-mark.png" width="40" height="40" alt="" loading="eager" decoding="async"></span>
       <span>2Provi<b>Group</b></span>
     </a>
-    <nav class="links" id="menu">
-      <a href="#story">ถ้าวันนั้นมาถึง</a>
-      <a href="#cost">ต้นทุนของการไม่มี</a>
-      <a href="#risk">บริหารความเสี่ยง</a>
-      <a href="#types">ประเภท</a>
-      <a href="#calc">คำนวณ</a>
-      <a href="#myth">ความเข้าใจผิด</a>
-      <a href="#faq">คำถามพบบ่อย</a>
-    </nav>
+    <nav class="tools tools-in" id="xnav" aria-label="เมนูข้ามหน้า"><a href="index.html" class="home">🏠 หน้าหลัก</a><a href="money.html" class="cur" aria-current="page">🛡️ ประกันชีวิต</a><a href="health.html" class="">🩺 สุขภาพ</a><a href="retire.html" class="">🌱 วางแผนเกษียณ</a><a href="education.html" class="">🎓 การศึกษาบุตร</a><a href="/aboutme/">👥 ทีมงาน</a><a href="quote.html" class="askq">ขอรับข้อเสนอเบื้องต้น <span>→</span></a></nav>
     <div class="acts">
       <button class="ibtn" id="themeBtn" type="button" aria-label="สลับโหมดสี" title="สลับโหมดสว่าง/มืด">🌙</button>
       <a class="teampill" href="/aboutme/">
@@ -98,10 +91,24 @@ window.LS_IMAGES = {
       <button class="burger" id="burger" type="button" aria-label="เปิดเมนู" aria-expanded="false"><span></span><span></span><span></span></button>
     </div>
   </div>
-  <div class="tools">
-    <nav class="wrap tools-in" aria-label="เมนูข้ามหน้า"><a href="index.html" class="home">🏠 หน้าหลัก</a><a href="money.html" class="cur" aria-current="page">🛡️ ประกันชีวิต</a><a href="health.html" class="">🩺 สุขภาพ</a><a href="retire.html" class="">🌱 วางแผนเกษียณ</a><a href="education.html" class="">🎓 การศึกษาบุตร</a><a href="/aboutme/">👥 ทีมงาน</a><a href="quote.html" class="askq">ขอรับข้อเสนอเบื้องต้น <span>→</span></a></nav>
-  </div>
 </header>
+
+<!-- แถบหัวข้อในหน้า · พับเก็บได้ด้วยปุ่มสามขีดบนแถบหัว -->
+<aside class="siderail" id="siderail" aria-hidden="true">
+  <div class="siderail-in">
+    <p class="siderail-h">หัวข้อในหน้านี้</p>
+    <nav class="links" id="menu">
+    <a href="#story">ถ้าวันนั้นมาถึง</a>
+    <a href="#cost">ต้นทุนของการไม่มี</a>
+    <a href="#risk">บริหารความเสี่ยง</a>
+    <a href="#types">ประเภท</a>
+    <a href="#calc">คำนวณ</a>
+    <a href="#myth">ความเข้าใจผิด</a>
+    <a href="#faq">คำถามพบบ่อย</a>
+    </nav>
+  </div>
+</aside>
+<div class="siderail-veil" id="railVeil" hidden></div>
 
 <!-- แถบลัดไปหน้าทีมตัวแทน · โผล่ทุกหน้า เพราะคนส่วนใหญ่ไม่กดเมนูสามขีดดู -->
 <a class="teamcta has-bot" href="/aboutme/">
@@ -141,21 +148,23 @@ window.LS_IMAGES = {
     </div>
     <div class="art rv" data-delay="150">
       <div class="hero-logo"><img src="/assets/logo-hero.png" width="224" height="224" alt="" loading="eager" decoding="async"></div>
-      <span class="tagA">📈 วางแผนระยะยาว</span>
-      <span class="tagB">💙 คุ้มครองคนที่รัก</span>
-      <div class="board">
-        <div class="board-h"><h4>แผนคุ้มครองของคุณ</h4><span><i class="dot"></i>กำลังคุ้มครอง</span></div>
-        <div class="chart">
-          <i style="height:34%;animation-delay:.05s"></i><i style="height:52%;animation-delay:.12s"></i>
-          <i style="height:44%;animation-delay:.19s"></i><i style="height:68%;animation-delay:.26s"></i>
-          <i style="height:58%;animation-delay:.33s"></i><i style="height:84%;animation-delay:.40s"></i>
-          <i style="height:100%;animation-delay:.47s"></i>
-        </div>
-        <div class="rows">
-          <div class="row">🏠 ภาระหนี้บ้าน <em>คุ้มครองแล้ว</em></div>
-          <div class="row">🎓 ทุนการศึกษาบุตร <em>คุ้มครองแล้ว</em></div>
-          <div class="row">⚕️ ค่ารักษาโรคร้ายแรง <em>คุ้มครองแล้ว</em></div>
-          <div class="row">👵 ค่าเลี้ยงดูพ่อแม่ <em>คุ้มครองแล้ว</em></div>
+      <div class="art-stage">
+        <span class="tagA">📈 วางแผนระยะยาว</span>
+        <span class="tagB">💙 คุ้มครองคนที่รัก</span>
+        <div class="board">
+          <div class="board-h"><h4>แผนคุ้มครองของคุณ</h4><span><i class="dot"></i>กำลังคุ้มครอง</span></div>
+          <div class="chart">
+            <i style="height:34%;animation-delay:.05s"></i><i style="height:52%;animation-delay:.12s"></i>
+            <i style="height:44%;animation-delay:.19s"></i><i style="height:68%;animation-delay:.26s"></i>
+            <i style="height:58%;animation-delay:.33s"></i><i style="height:84%;animation-delay:.40s"></i>
+            <i style="height:100%;animation-delay:.47s"></i>
+          </div>
+          <div class="rows">
+            <div class="row">🏠 ภาระหนี้บ้าน <em>คุ้มครองแล้ว</em></div>
+            <div class="row">🎓 ทุนการศึกษาบุตร <em>คุ้มครองแล้ว</em></div>
+            <div class="row">⚕️ ค่ารักษาโรคร้ายแรง <em>คุ้มครองแล้ว</em></div>
+            <div class="row">👵 ค่าเลี้ยงดูพ่อแม่ <em>คุ้มครองแล้ว</em></div>
+          </div>
         </div>
       </div>
     </div>
@@ -780,10 +789,11 @@ window.LS_IMAGES = {
 <button id="toTop" type="button" aria-label="กลับขึ้นด้านบน">↑</button>
 
 <!-- ============ SCRIPT ============ -->
-<script src="/js/page-money.js"></script>
-<script src="/js/nav.js"></script>
-<script src="/js/video.js"></script>
-<script src="/js/logo-zoom.js"></script>
+<script src="/js/page-money.js?v=20260926b"></script>
+<script src="/js/nav.js?v=20260926b"></script>
+<script src="/js/video.js?v=20260926b"></script>
+<script src="/js/logo-zoom.js?v=20260926b"></script>
+<script src="/js/siderail.js?v=20260926b"></script>
 
 <!-- ══════════════════════════════════════════════════════════════
      แถบนำทางล่าง · โผล่เฉพาะจอ ≤980px (มือถือ / iPad แนวตั้ง)

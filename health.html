@@ -50,14 +50,15 @@ window.LS_IMAGES = {
   // "opening": { "src": "images/hospital.jpg", "caption": "คำบรรยายใต้ภาพ" }
 };
 </script>
-<link rel="stylesheet" href="/css/health.css">
-<link rel="stylesheet" href="/css/mobile.css">
-<link rel="stylesheet" href="/css/teamcta.css">
-<link rel="stylesheet" href="/css/botnav.css">
-<link rel="stylesheet" href="/css/video.css">
-<link rel="stylesheet" href="/css/logo-zoom.css">
+<link rel="stylesheet" href="/css/health.css?v=20260926b">
+<link rel="stylesheet" href="/css/mobile.css?v=20260926b">
+<link rel="stylesheet" href="/css/teamcta.css?v=20260926b">
+<link rel="stylesheet" href="/css/botnav.css?v=20260926b">
+<link rel="stylesheet" href="/css/video.css?v=20260926b">
+<link rel="stylesheet" href="/css/logo-zoom.css?v=20260926b">
+<link rel="stylesheet" href="/css/nav2.css?v=20260926b">
 </head>
-<body>
+<body class="hs">
 
 <div id="prog"><b></b></div>
 
@@ -67,15 +68,7 @@ window.LS_IMAGES = {
       <span class="mark"><img src="/assets/logo-mark.png" width="40" height="40" alt="" loading="eager" decoding="async"></span>
       <span>2Provi<i>Group</i></span>
     </a>
-    <nav class="links" id="menu" aria-label="เมนูหลัก">
-      <a href="#cost">ค่ารักษาวันนี้</a>
-      <a href="#bill">บิลโรงพยาบาล</a>
-      <a href="#plans">เลือกแบบไหน</a>
-      <a href="#standard">มาตรฐานใหม่</a>
-      <a href="#ci">โรคร้ายแรง</a>
-      <a href="#calc">คำนวณ</a>
-      <a href="#faq">คำถามพบบ่อย</a>
-    </nav>
+    <nav class="tools tools-in" id="xnav" aria-label="เมนูข้ามหน้า"><a href="index.html" class="home">🏠 หน้าหลัก</a><a href="money.html" class="">🛡️ ประกันชีวิต</a><a href="health.html" class="cur" aria-current="page">🩺 สุขภาพ</a><a href="retire.html" class="">🌱 วางแผนเกษียณ</a><a href="education.html" class="">🎓 การศึกษาบุตร</a><a href="/aboutme/">👥 ทีมงาน</a><a href="quote.html" class="askq">ขอรับข้อเสนอเบื้องต้น <span>→</span></a></nav>
     <div class="acts">
       <button class="ibtn" id="themeBtn" type="button" aria-label="สลับโหมดสี" title="สลับโหมดสว่าง/มืด">🌙</button>
       <a class="teampill" href="/aboutme/">
@@ -88,10 +81,24 @@ window.LS_IMAGES = {
       <button class="burger" id="burger" type="button" aria-label="เปิดเมนู" aria-expanded="false"><span></span><span></span><span></span></button>
     </div>
   </div>
-  <div class="tools">
-    <nav class="wrap tools-in" aria-label="เมนูข้ามหน้า"><a href="index.html" class="home">🏠 หน้าหลัก</a><a href="money.html" class="">🛡️ ประกันชีวิต</a><a href="health.html" class="cur" aria-current="page">🩺 สุขภาพ</a><a href="retire.html" class="">🌱 วางแผนเกษียณ</a><a href="education.html" class="">🎓 การศึกษาบุตร</a><a href="/aboutme/">👥 ทีมงาน</a><a href="quote.html" class="askq">ขอรับข้อเสนอเบื้องต้น <span>→</span></a></nav>
-  </div>
 </header>
+
+<!-- แถบหัวข้อในหน้า · พับเก็บได้ด้วยปุ่มสามขีดบนแถบหัว -->
+<aside class="siderail" id="siderail" aria-hidden="true">
+  <div class="siderail-in">
+    <p class="siderail-h">หัวข้อในหน้านี้</p>
+    <nav class="links" id="menu" aria-label="เมนูหลัก">
+    <a href="#cost">ค่ารักษาวันนี้</a>
+    <a href="#bill">บิลโรงพยาบาล</a>
+    <a href="#plans">เลือกแบบไหน</a>
+    <a href="#standard">มาตรฐานใหม่</a>
+    <a href="#ci">โรคร้ายแรง</a>
+    <a href="#calc">คำนวณ</a>
+    <a href="#faq">คำถามพบบ่อย</a>
+    </nav>
+  </div>
+</aside>
+<div class="siderail-veil" id="railVeil" hidden></div>
 
 <!-- แถบลัดไปหน้าทีมตัวแทน · โผล่ทุกหน้า เพราะคนส่วนใหญ่ไม่กดเมนูสามขีดดู -->
 <a class="teamcta has-bot" href="/aboutme/">
@@ -125,43 +132,60 @@ window.LS_IMAGES = {
       </div>
     </div>
 
-    <div class="rv" data-delay="160">
+    <div class="art rv" data-delay="160">
       <div class="hero-logo"><img src="/assets/logo-hero.png" width="224" height="224" alt="" loading="eager" decoding="async"></div>
-      <div class="stage floaty">
-        <div class="stage-h">
-          <h4>สัญญาณชีพของเงินเก็บ</h4>
-          <span><i class="dot"></i> กำลังเฝ้าระวัง</span>
+      <div class="art-stage">
+        <span class="tagA">🏥 ค่ารักษาเพิ่มทุกปี</span>
+        <span class="tagB">💚 วางแผนไว้ อุ่นใจกว่า</span>
+        <div class="stage floaty">
+          <div class="stage-h">
+            <h4>สัญญาณชีพของเงินเก็บ</h4>
+            <span><i class="dot"></i> กำลังเฝ้าระวัง</span>
+          </div>
+          <svg class="art-ecg" viewBox="0 0 460 250" role="img" aria-label="กราฟคลื่นหัวใจที่ค่อย ๆ ราบลงพร้อมยอดเงินเก็บที่ลดลง">
+            <defs>
+              <linearGradient id="ecgG" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0" stop-color="#2ee6a8"/><stop offset=".55" stop-color="#22d3ee"/><stop offset="1" stop-color="#fb7185"/>
+              </linearGradient>
+              <linearGradient id="fillG" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#2ee6a8" stop-opacity=".28"/><stop offset="1" stop-color="#2ee6a8" stop-opacity="0"/>
+              </linearGradient>
+            </defs>
+            <g stroke="currentColor" opacity=".12">
+              <line x1="0" y1="60" x2="460" y2="60"/><line x1="0" y1="110" x2="460" y2="110"/>
+              <line x1="0" y1="160" x2="460" y2="160"/><line x1="0" y1="210" x2="460" y2="210"/>
+            </g>
+            <path d="M0 210 L40 210 L60 160 L100 160 L120 210 L460 210 Z" fill="url(#fillG)" opacity=".5"/>
+            <path class="beat glow" fill="none" stroke="url(#ecgG)" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"
+              d="M0 150 H52 l14 -46 l16 96 l15 -104 l14 54 h44 l12 -34 l14 62 l13 -46 h40 l16 -26 l14 44 l12 -22 h46 l18 22 l14 -12 h96"/>
+            <path class="beat" fill="none" stroke="url(#ecgG)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"
+              d="M0 150 H52 l14 -46 l16 96 l15 -104 l14 54 h44 l12 -34 l14 62 l13 -46 h40 l16 -26 l14 44 l12 -22 h46 l18 22 l14 -12 h96"/>
+            <circle cx="430" cy="138" r="6" fill="#fb7185"><animate attributeName="r" values="5;9;5" dur="1.7s" repeatCount="indefinite"/></circle>
+          </svg>
+          <div class="billbars" style="margin-top:1.2rem">
+            <div class="bb"><span class="nm">เงินเก็บเริ่มต้น</span><span class="tk"><i data-w="100"></i></span><span class="pc">100%</span></div>
+            <div class="bb b"><span class="nm">หลังผ่าตัดครั้งแรก</span><span class="tk"><i data-w="58"></i></span><span class="pc">58%</span></div>
+            <div class="bb a"><span class="nm">หลังรักษาต่อเนื่อง 1 ปี</span><span class="tk"><i data-w="17"></i></span><span class="pc">17%</span></div>
+          </div>
+          <p style="font-size:.79rem;color:var(--tx3);margin-top:.9rem">ภาพจำลองเพื่อการศึกษา · ไม่ใช่สถิติเฉพาะราย</p>
         </div>
-        <svg class="art-ecg" viewBox="0 0 460 250" role="img" aria-label="กราฟคลื่นหัวใจที่ค่อย ๆ ราบลงพร้อมยอดเงินเก็บที่ลดลง">
-          <defs>
-            <linearGradient id="ecgG" x1="0" y1="0" x2="1" y2="0">
-              <stop offset="0" stop-color="#2ee6a8"/><stop offset=".55" stop-color="#22d3ee"/><stop offset="1" stop-color="#fb7185"/>
-            </linearGradient>
-            <linearGradient id="fillG" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0" stop-color="#2ee6a8" stop-opacity=".28"/><stop offset="1" stop-color="#2ee6a8" stop-opacity="0"/>
-            </linearGradient>
-          </defs>
-          <g stroke="currentColor" opacity=".12">
-            <line x1="0" y1="60" x2="460" y2="60"/><line x1="0" y1="110" x2="460" y2="110"/>
-            <line x1="0" y1="160" x2="460" y2="160"/><line x1="0" y1="210" x2="460" y2="210"/>
-          </g>
-          <path d="M0 210 L40 210 L60 160 L100 160 L120 210 L460 210 Z" fill="url(#fillG)" opacity=".5"/>
-          <path class="beat glow" fill="none" stroke="url(#ecgG)" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"
-            d="M0 150 H52 l14 -46 l16 96 l15 -104 l14 54 h44 l12 -34 l14 62 l13 -46 h40 l16 -26 l14 44 l12 -22 h46 l18 22 l14 -12 h96"/>
-          <path class="beat" fill="none" stroke="url(#ecgG)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"
-            d="M0 150 H52 l14 -46 l16 96 l15 -104 l14 54 h44 l12 -34 l14 62 l13 -46 h40 l16 -26 l14 44 l12 -22 h46 l18 22 l14 -12 h96"/>
-          <circle cx="430" cy="138" r="6" fill="#fb7185"><animate attributeName="r" values="5;9;5" dur="1.7s" repeatCount="indefinite"/></circle>
-        </svg>
-        <div class="billbars" style="margin-top:1.2rem">
-          <div class="bb"><span class="nm">เงินเก็บเริ่มต้น</span><span class="tk"><i data-w="100"></i></span><span class="pc">100%</span></div>
-          <div class="bb b"><span class="nm">หลังผ่าตัดครั้งแรก</span><span class="tk"><i data-w="58"></i></span><span class="pc">58%</span></div>
-          <div class="bb a"><span class="nm">หลังรักษาต่อเนื่อง 1 ปี</span><span class="tk"><i data-w="17"></i></span><span class="pc">17%</span></div>
-        </div>
-        <p style="font-size:.79rem;color:var(--tx3);margin-top:.9rem">ภาพจำลองเพื่อการศึกษา · ไม่ใช่สถิติเฉพาะราย</p>
       </div>
     </div>
   </div>
 </section>
+
+<div class="marq" aria-hidden="true">
+  <div>
+    <span>ค่ารักษาพยาบาลไทยเงินเฟ้อปีละ ~10%</span><span>·</span>
+    <span>โรคร้ายแรงไม่ได้พรากชีวิตทันที แต่พรากเงินเก็บไปเรื่อย ๆ</span><span>·</span>
+    <span>ค่าห้องผู้ป่วยในโรงพยาบาลเอกชนขยับทุกปี</span><span>·</span>
+    <span>วงเงินที่พอเมื่อสิบปีก่อน วันนี้อาจไม่พอแล้ว</span><span>·</span>
+    <span>ค่ารักษาพยาบาลไทยเงินเฟ้อปีละ ~10%</span><span>·</span>
+    <span>โรคร้ายแรงไม่ได้พรากชีวิตทันที แต่พรากเงินเก็บไปเรื่อย ๆ</span><span>·</span>
+    <span>ค่าห้องผู้ป่วยในโรงพยาบาลเอกชนขยับทุกปี</span><span>·</span>
+    <span>วงเงินที่พอเมื่อสิบปีก่อน วันนี้อาจไม่พอแล้ว</span><span>·</span>
+  </div>
+</div>
 
 <!-- ══════════════════════════════════════════════════════════════
      วิดีโอแนะนำ · ใส่รหัสวิดีโอที่ data-yt ข้างล่างจุดเดียว
@@ -708,10 +732,11 @@ window.LS_IMAGES = {
 
 <button id="toTop" type="button" aria-label="กลับขึ้นด้านบน">↑</button>
 
-<script src="/js/page-health.js"></script>
-<script src="/js/nav.js"></script>
-<script src="/js/video.js"></script>
-<script src="/js/logo-zoom.js"></script>
+<script src="/js/page-health.js?v=20260926b"></script>
+<script src="/js/nav.js?v=20260926b"></script>
+<script src="/js/video.js?v=20260926b"></script>
+<script src="/js/logo-zoom.js?v=20260926b"></script>
+<script src="/js/siderail.js?v=20260926b"></script>
 
 <!-- ══════════════════════════════════════════════════════════════
      แถบนำทางล่าง · โผล่เฉพาะจอ ≤980px (มือถือ / iPad แนวตั้ง)
