@@ -169,7 +169,8 @@ html.lbx-open body{overflow:hidden}
 
 .hero-logo{
   display:flex;
-  justify-content:flex-end;   /* ชิดขวาตามที่ขอ */
+  /* กึ่งกลางคอลัมน์ขวา — ตรงกับจุดที่คุณพ่อวงไว้ในภาพ (ห่างจากที่วง 11px) */
+  justify-content:center;
   align-items:center;
   margin:0 0 22px;
   line-height:0;
@@ -177,15 +178,15 @@ html.lbx-open body{overflow:hidden}
 }
 
 .hero-logo img{
-  width:128px;
-  height:128px;
+  width:224px;
+  height:224px;
   display:block;
   border-radius:50%;
   /* ไฟล์โลโก้เป็นวงกลมมุมโปร่ง — รองพื้นขาวจาง ๆ ไว้ให้ขอบวงคมบนพื้นไล่สี */
   background:rgba(255,255,255,.9);
   box-shadow:
-    0 18px 38px -16px rgba(8,38,74,.55),
-    0 0 0 1px rgba(255,255,255,.75);
+    0 26px 54px -20px rgba(8,38,74,.5),
+    0 0 0 1px rgba(255,255,255,.7);
   cursor:zoom-in;
   transition:transform .3s cubic-bezier(.22,.8,.2,1), box-shadow .3s;
   animation:hero-logo-float 6.5s ease-in-out infinite;
@@ -194,7 +195,7 @@ html.lbx-open body{overflow:hidden}
 .hero-logo img:hover{
   transform:translateY(-5px) scale(1.04);
   box-shadow:
-    0 26px 48px -18px rgba(8,38,74,.62),
+    0 34px 64px -22px rgba(8,38,74,.58),
     0 0 0 1px rgba(255,255,255,.9);
 }
 
@@ -209,17 +210,18 @@ html.lbx-open body{overflow:hidden}
 [data-theme="dark"] .hero-logo img{
   background:rgba(255,255,255,.95);
   box-shadow:
-    0 20px 42px -16px rgba(0,0,0,.7),
-    0 0 0 1px rgba(255,255,255,.28);
+    0 28px 58px -20px rgba(0,0,0,.66),
+    0 0 0 1px rgba(255,255,255,.26);
 }
 
-/* ── ย่อตามความกว้างจอ ── */
+/* ── ย่อตามความกว้างจอ ──
+   คอลัมน์ขวากว้าง ~532px ตายตัว ขนาดจึงลดตามพื้นที่แนวตั้งที่เหลือเป็นหลัก */
 @media (max-width:1400px){
-  .hero-logo img{width:112px;height:112px}
+  .hero-logo img{width:192px;height:192px}
 }
 @media (max-width:1200px){
   .hero-logo{margin-bottom:18px}
-  .hero-logo img{width:96px;height:96px}
+  .hero-logo img{width:160px;height:160px}
 }
 
 /* ≤980px กรอบภาพเลื่อนลงไปใต้ข้อความแล้ว พื้นที่ตรงนั้นไม่ใช่ "ช่องว่าง"
