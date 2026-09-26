@@ -156,7 +156,9 @@
   }
 
   function boot() {
-    var marks = document.querySelectorAll(".mark, .brand-mark");
+    /* .mark / .brand-mark = ตราบนแถบหัวและฟุตเตอร์
+       .hero-logo         = โลโก้ในช่องว่างฝั่งขวาของ hero */
+    var marks = document.querySelectorAll(".mark, .brand-mark, .hero-logo");
     for (var i = 0; i < marks.length; i++) wire(marks[i]);
   }
 

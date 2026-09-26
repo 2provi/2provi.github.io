@@ -462,7 +462,11 @@ img,svg{display:block;max-width:100%}
 }
 @media (max-width:980px){
   .hero-g,.split,.calc,.story,.pan-grid{grid-template-columns:1fr}
-  .art{max-width:520px;margin-inline:auto}
+  /* [แก้บั๊ก] margin-inline:auto ทำให้ grid item เลิกยืดเต็มช่อง แล้วหดตาม
+     ความกว้างตามธรรมชาติของลูกแทน — .ph/.board ข้างในใช้ความกว้างเป็น %
+     ซึ่งไม่นับเป็นความกว้างตามธรรมชาติ กรอบภาพจึงเหลือแค่ ~16px บนจอแคบ
+     ทุกรุ่น ต้องใส่ width:100% กำกับไว้ด้วย */
+  .art{max-width:520px;margin-inline:auto;width:100%}
   .scale{grid-template-columns:1fr}
   .vs{writing-mode:horizontal-tb;letter-spacing:.2em;padding:.5rem}
   .links{position:absolute;top:100%;left:0;right:0;flex-direction:column;background:var(--surface);

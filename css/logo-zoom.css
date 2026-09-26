@@ -155,3 +155,133 @@ html.lbx-open body{overflow:hidden}
 @media print{
   .lbx{display:none !important}
 }
+
+/* ══════════════════════════════════════════════════════════════════════
+   โลโก้ในช่องว่างฝั่งขวาของ hero (เหนือกรอบภาพ/การ์ด)
+
+   คอลัมน์ขวาของ hero สั้นกว่าคอลัมน์ซ้ายเสมอ (ซ้ายมีหัวเรื่อง + ย่อหน้า +
+   ปุ่ม + การ์ดตัวเลข) จึงเหลือที่ว่างด้านบนราว 75-180px แล้วแต่หน้า
+   เอาโลโก้มาวางชิดขวาตรงนั้น ไม่เบียดเนื้อหาเดิมและไม่ดันกรอบภาพลง
+
+   ชิดขวาเพราะป้ายลอย .tagA / .stage-h ของแต่ละหน้าเกาะอยู่มุมซ้ายบนของ
+   กรอบภาพ ถ้าวางชิดซ้ายจะซ้อนกัน
+   ══════════════════════════════════════════════════════════════════════ */
+
+.hero-logo{
+  display:flex;
+  justify-content:flex-end;   /* ชิดขวาตามที่ขอ */
+  align-items:center;
+  margin:0 0 22px;
+  line-height:0;
+  flex:0 0 auto;
+}
+
+.hero-logo img{
+  width:128px;
+  height:128px;
+  display:block;
+  border-radius:50%;
+  /* ไฟล์โลโก้เป็นวงกลมมุมโปร่ง — รองพื้นขาวจาง ๆ ไว้ให้ขอบวงคมบนพื้นไล่สี */
+  background:rgba(255,255,255,.9);
+  box-shadow:
+    0 18px 38px -16px rgba(8,38,74,.55),
+    0 0 0 1px rgba(255,255,255,.75);
+  cursor:zoom-in;
+  transition:transform .3s cubic-bezier(.22,.8,.2,1), box-shadow .3s;
+  animation:hero-logo-float 6.5s ease-in-out infinite;
+}
+
+.hero-logo img:hover{
+  transform:translateY(-5px) scale(1.04);
+  box-shadow:
+    0 26px 48px -18px rgba(8,38,74,.62),
+    0 0 0 1px rgba(255,255,255,.9);
+}
+
+/* ลอยขึ้นลงเบา ๆ ให้เข้ากับการ์ด .floaty ที่หน้าอื่นใช้อยู่
+   ระยะแค่ 6px และรอบละ 6.5 วิ — พอรู้สึกว่ามีชีวิต แต่ไม่ดึงสายตา */
+@keyframes hero-logo-float{
+  0%,100%{translate:0 0}
+  50%    {translate:0 -6px}
+}
+
+/* โหมดมืด: วงขาวสว่างเกินไปถ้าไม่ลดความเข้มของเงา */
+[data-theme="dark"] .hero-logo img{
+  background:rgba(255,255,255,.95);
+  box-shadow:
+    0 20px 42px -16px rgba(0,0,0,.7),
+    0 0 0 1px rgba(255,255,255,.28);
+}
+
+/* ── ย่อตามความกว้างจอ ── */
+@media (max-width:1400px){
+  .hero-logo img{width:112px;height:112px}
+}
+@media (max-width:1200px){
+  .hero-logo{margin-bottom:18px}
+  .hero-logo img{width:96px;height:96px}
+}
+
+/* ≤980px กรอบภาพเลื่อนลงไปใต้ข้อความแล้ว พื้นที่ตรงนั้นไม่ใช่ "ช่องว่าง"
+   อีกต่อไป โลโก้จึงย้ายไปอยู่บนแถบทีมงานแทน (ดูหัวข้อถัดไป) */
+@media (max-width:980px){
+  .hero-logo{display:none}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .hero-logo img{animation:none;transition:none}
+  .hero-logo img:hover{transform:none}
+}
+
+@media print{
+  .hero-logo{display:none}
+}
+
+/* ══════════════════════════════════════════════════════════════════════
+   โลโก้บนแถบ "ทีมตัวแทนผู้ให้บริการ" (จอแคบ)
+
+   บนจอแคบแถบนี้กินเต็มความกว้างและปักหมุดอยู่ใต้แถบหัว ฝั่งขวามีที่ว่าง
+   ข้างลูกศร → พอดี เอาโลโก้มาวางตรงนั้นแทนที่จะอยู่ใน hero
+   ทำให้เห็นโลโก้ตลอดเวลาที่เลื่อนอ่าน ไม่ใช่เห็นแค่ตอนอยู่บนสุด
+
+   ไม่ผูกกับระบบกดขยาย เพราะทั้งแถบเป็นลิงก์ไปหน้าทีมงานอยู่แล้ว
+   ถ้ากดแล้วเด้งเป็นรูปใหญ่แทนที่จะพาไปหน้าทีม จะงงมากกว่าได้ประโยชน์
+   ══════════════════════════════════════════════════════════════════════ */
+.teamcta-logo{
+  display:none;                      /* เปิดใช้เฉพาะจอแคบด้านล่าง */
+  flex:none;
+  width:34px;
+  height:34px;
+  border-radius:50%;
+  background:rgba(255,255,255,.96);
+  /* วงแหวนขาวบาง ๆ ให้โลโก้ลอยออกจากพื้นไล่เฉดน้ำเงินของแถบ */
+  box-shadow:
+    0 2px 8px rgba(4,20,46,.35),
+    0 0 0 1.5px rgba(255,255,255,.55);
+  object-fit:contain;
+}
+
+@media (max-width:980px){
+  .teamcta-logo{display:block}
+  /* เว้นช่องระหว่างข้อความกับกลุ่มโลโก้+ลูกศรให้ชัดขึ้นอีกนิด */
+  .teamcta{gap:.7rem}
+}
+
+@media (max-width:420px){
+  .teamcta-logo{width:30px;height:30px}
+}
+@media (max-width:360px){
+  /* จอแคบมากตัดบรรทัดรองไปแล้ว (teamcta.css) โลโก้ยังพอมีที่อยู่ */
+  .teamcta-logo{width:28px;height:28px}
+  .teamcta{gap:.55rem}
+}
+@media (max-width:340px){
+  /* แคบสุดที่ยังเจอในเครื่องจริง (iPhone SE รุ่นแรก 320px)
+     ย่อลงอีกนิดแทนการซ่อน จะได้เห็นโลโก้ครบทุกเครื่อง */
+  .teamcta-logo{width:26px;height:26px}
+  .teamcta{gap:.45rem}
+}
+
+@media print{
+  .teamcta-logo{display:none}
+}
