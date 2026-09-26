@@ -96,6 +96,15 @@
 [data-theme="dark"] .botnav a[aria-current="page"]{color:#5cc9fb}
 [data-theme="dark"] .botnav a.bn-cta{color:#fbbf24}
 
+/* พอเพิ่มแถบนี้ในหน้า quote แล้ว ช่อง "ขอรับข้อเสนอ" กลายเป็นหน้าปัจจุบัน
+   แต่มันมีคลาส bn-cta อยู่ด้วย และสองกฎนี้ค่าความจำเพาะเท่ากัน (0,2,1)
+   ตัวที่อยู่ทีหลังในไฟล์คือ bn-cta จึงชนะ — ผลคือยืนอยู่บนหน้า quote แล้ว
+   ช่องนั้นยังเป็นสีเหลืองเหมือนตอนอยู่หน้าอื่น แยกไม่ออกว่าอยู่หน้าไหน
+   กฎนี้จำเพาะกว่า (0,3,1) จึงชนะทั้งคู่ ให้สีหน้าปัจจุบันมาก่อนเสมอ
+   วิธีนี้ทำให้ markup ของแถบล่างเหมือนกันเป๊ะทั้ง 7 หน้า แก้ที่เดียวจบ */
+.botnav a.bn-cta[aria-current="page"]{color:#0b4a8f}
+[data-theme="dark"] .botnav a.bn-cta[aria-current="page"]{color:#5cc9fb}
+
 @media (max-width:980px){
   .botnav{display:block}
 

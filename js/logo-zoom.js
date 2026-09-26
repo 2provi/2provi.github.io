@@ -168,3 +168,79 @@
     boot();
   }
 })();
+
+/* ══════════════════════════════════════════════════════════════════════
+   ปักหมุด — วัดความสูงแถบที่ติดอยู่บนยอดจอ แล้วเขียนลงตัวแปร CSS
+
+   ทำไมต้องวัดด้วย JS
+   ─────────────────
+   แถบทีมงานปักหมุดใต้แถบหัว (teamcta.css ใช้ top:var(--navh)) แต่ความสูง
+   แถบหัวไม่ได้มีค่าเดียว วัดของจริงได้ 4 ค่า
+
+     header.nav + nav2.css   index money health retire education   81px
+     header.nav เปล่า ๆ       privacy-policy                        67px
+     nav.navbar              quote join ≤640px                     61px
+     nav.navbar              quote join 768–980px                  83px
+
+   เขียนเลขตายตัวใน CSS จึงผิดอย่างน้อยหนึ่งกรณีเสมอ และเคยผิดมาแล้ว
+   (top:67px ค้างไว้ตอน nav2.css เปลี่ยนแถบหัวเป็น 81px แถบเลยเหลื่อม)
+   วัดจาก getBoundingClientRect ทีเดียวจบ แก้ CSS ตรงไหนก็ตามเองอัตโนมัติ
+
+   เขียนสองตัวแปร
+     --navh     ความสูงแถบหัว          → teamcta.css ใช้เป็น top ของแถบทีม
+     --stickyh  ผลรวมของทุกแถบที่ปักจริง → ใช้เป็น scroll-padding-top
+                 ให้ลิงก์กระโดดในหน้า (#calc #faq) ไม่ตกไปหลบใต้แถบ
+
+   วางไว้ไฟล์นี้เพราะ logo-zoom.js ถูกโหลดในทุกหน้าที่มีแถบทีมงานพอดี
+   (index money health retire education quote join privacy-policy
+    thank-you) การแยกไฟล์ใหม่จะต้องไปเพิ่ม <script> อีก 9 หน้าโดยไม่ได้
+   อะไรเพิ่ม ถ้าวันหลังไฟล์นี้ใหญ่เกินไปค่อยแยกออกมาเป็น stickytop.js
+   ══════════════════════════════════════════════════════════════════════ */
+(function () {
+  "use strict";
+
+  var root = document.documentElement;
+
+  function sync() {
+    var head = document.querySelector("header.nav, nav.navbar");
+    var bar = document.querySelector(".teamcta");
+    var stuck = 0;
+    var hh = 0;
+
+    if (head) {
+      hh = head.getBoundingClientRect().height;
+      root.style.setProperty("--navh", Math.round(hh) + "px");
+      if (getComputedStyle(head).position === "sticky") stuck += hh;
+    }
+
+    /* นับเฉพาะแถบที่ปักจริงและมองเห็นจริง ณ ความกว้างนี้
+       จอกว้างแถบทีมถูกซ่อน (display:none) และ ≥981px ก็ไม่ได้ปัก
+       ถ้านับรวมไปด้วยระยะกระโดดจะเกินจนหัวข้อลอยต่ำผิดที่ */
+    if (bar) {
+      var cs = getComputedStyle(bar);
+      if (cs.display !== "none" && cs.position === "sticky") {
+        stuck += bar.getBoundingClientRect().height;
+      }
+    }
+
+    root.style.setProperty("--stickyh", Math.round(stuck) + "px");
+  }
+
+  sync();
+
+  /* หมุนจอ/ย่อขยายหน้าต่างแล้วความสูงเปลี่ยน ต้องวัดใหม่
+     ฟอนต์กับรูปโหลดเสร็จทีหลังก็ทำให้แถบสูงขึ้นได้ จึงวัดซ้ำตอน load */
+  window.addEventListener("resize", sync, { passive: true });
+  window.addEventListener("orientationchange", sync, false);
+  window.addEventListener("load", sync, false);
+
+  /* เผื่อความสูงเปลี่ยนเองโดยไม่ได้เกิดจากการย่อขยายจอ
+     เช่น ป้ายในแถบตกบรรทัด หรือมีการแก้ CSS ในอนาคต */
+  if (window.ResizeObserver) {
+    var ro = new ResizeObserver(sync);
+    var head0 = document.querySelector("header.nav, nav.navbar");
+    var bar0 = document.querySelector(".teamcta");
+    if (head0) ro.observe(head0);
+    if (bar0) ro.observe(bar0);
+  }
+})();

@@ -46,6 +46,7 @@
 <link rel="stylesheet" href="/css/page-quote.css?v=20260926b">
 <link rel="stylesheet" href="/css/mobile.css?v=20260926b">
 <link rel="stylesheet" href="/css/teamcta.css?v=20260926b">
+<link rel="stylesheet" href="/css/botnav.css?v=20260926b">
 <link rel="stylesheet" href="/css/logo-zoom.css?v=20260926b">
 </head>
 
@@ -236,5 +237,23 @@
 
 <script src="/js/page-quote.js?v=20260926b"></script>
 <script src="/js/logo-zoom.js?v=20260926b"></script>
+
+<!-- ══════════════════════════════════════════════════════════════
+     แถบเมนูล่างแบบแอป (จอแคบ)
+
+     ชุดลิงก์และลำดับต้องตรงกับแถบบนของเดสก์ท็อปและกับอีก 5 หน้า
+     ไม่งั้นคนที่เข้ามาหน้านี้จากแถบล่างจะหาทางกลับไม่เจอ
+     ══════════════════════════════════════════════════════════════ -->
+<nav class="botnav" aria-label="เมนูหลัก (จอแคบ)">
+  <div class="botnav-in">
+    <a class="bn" href="/"><span class="ic" aria-hidden="true">🏠</span>หน้าแรก</a>
+    <a class="bn" href="/money.html"><span class="ic" aria-hidden="true">🛡️</span>ชีวิต</a>
+    <a class="bn" href="/health.html"><span class="ic" aria-hidden="true">🏥</span>สุขภาพ</a>
+    <a class="bn" href="/retire.html"><span class="ic" aria-hidden="true">🌱</span>เกษียณ</a>
+    <a class="bn" href="/education.html"><span class="ic" aria-hidden="true">🎓</span>การศึกษา</a>
+    <a class="bn bn-cta" aria-current="page" href="/quote.html"><span class="ic" aria-hidden="true">📝</span><span class="bl"><span class="bw">ขอรับ</span><wbr><span class="bw">ข้อเสนอ</span></span></a>
+    <a class="bn" href="/join.html"><span class="ic" aria-hidden="true">🤝</span><span class="bl"><span class="bw">สมัคร</span><wbr><span class="bw">ตัวแทน</span></span></a>
+  </div>
+</nav>
 </body>
 </html>
