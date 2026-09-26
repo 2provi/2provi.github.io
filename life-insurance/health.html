@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<!-- ══════════════════════════════════════════════════════════════════
+     ป้ายบอกทางของ URL เดิมที่ย้ายไปแล้ว
+
+     GitHub Pages ทำ 301 ฝั่งเซิร์ฟเวอร์ไม่ได้ จึงใช้สามชั้นช่วยกัน
+       1) canonical  บอก Google ว่าตัวจริงอยู่ที่ไหน (ต้องเป็น URL เต็ม)
+       2) meta refresh 0 วินาที  Google นับเป็น redirect
+       3) location.replace  ให้เบราว์เซอร์ไปทันทีแบบไม่ทิ้งประวัติ
+          ผู้ใช้กดย้อนกลับแล้วจะไม่วนกลับมาหน้านี้อีก
+
+     ปลายทางใช้ path แบบ /xxx.html ไม่ใส่ชื่อโดเมน จะได้ทำงานถูกทั้งบน
+     2provi.com และตอนเปิดทดสอบในเครื่อง
+     ไม่ใส่ noindex เพราะจะไปขวาง Google ไม่ให้เห็นสัญญาณ canonical
+     ══════════════════════════════════════════════════════════════════ -->
+<link rel="canonical" href="https://2provi.com/health.html">
+<meta http-equiv="refresh" content="0; url=/health.html">
+<title>ย้ายไปที่ใหม่แล้ว — ประกันสุขภาพ &amp; โรคร้ายแรง | 2Provi Group</title>
+<meta name="description" content="หน้านี้ย้ายไปที่ 2provi.com/health.html แล้ว">
+
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/favicon-96.png" type="image/png" sizes="96x96">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{min-height:100svh;display:grid;place-items:center;padding:24px;
+    font-family:"Kanit","Prompt",system-ui,-apple-system,"Segoe UI",sans-serif;
+    color:#0a1729;background:linear-gradient(160deg,#f4f9ff,#e8f2ff)}
+  .box{max-width:520px;text-align:center;background:#fff;border:1px solid #dceaf9;
+    border-radius:22px;padding:38px 30px;box-shadow:0 18px 44px -20px rgba(4,20,46,.28)}
+  .mark{width:58px;height:58px;margin:0 auto 18px;display:grid;place-items:center}
+  .mark img{width:100%;height:100%;display:block}
+  h1{font-size:1.25rem;font-weight:700;line-height:1.45;margin-bottom:10px}
+  p{color:#33475f;font-size:.95rem;line-height:1.7;margin-bottom:22px}
+  a.go{display:inline-flex;align-items:center;gap:.5rem;min-height:46px;padding:0 22px;
+    border-radius:999px;text-decoration:none;font-weight:700;color:#fff;
+    background:linear-gradient(120deg,#0b4a8f,#1466c4 60%,#2b8bf2);
+    box-shadow:0 12px 26px -12px rgba(20,102,196,.8)}
+  a.go:hover{filter:brightness(1.06)}
+</style>
+</head>
+<body>
+  <div class="box">
+    <div class="mark"><img src="/assets/logo-mark.png" width="58" height="58" alt=""></div>
+    <h1>หน้านี้ย้ายไปที่อยู่ใหม่แล้วค่ะ</h1>
+    <p>ระบบกำลังพาไปหน้า <b>ประกันสุขภาพ &amp; โรคร้ายแรง</b> โดยอัตโนมัติ<br>
+       ถ้าไม่ไปเองภายใน 2–3 วินาที กดปุ่มด้านล่างได้เลย</p>
+    <a class="go" href="/health.html">ไปที่หน้าใหม่ →</a>
+  </div>
+<script>location.replace("/health.html");</script>
+</body>
+</html>
