@@ -1,0 +1,157 @@
+/* ══════════════════════════════════════════════════════════════════════
+   logo-zoom.css — กดโลโก้บนแถบหัวแล้วขยายดูเต็มใบ
+
+   รูปที่ใช้บนแถบหัวคือโลโก้เต็มวง (มีวงแหวนตัวหนังสือครบ) ย่อลงมาเหลือ
+   40px ตัวหนังสือรอบวงจึงอ่านไม่ออก ส่วนนี้ทำให้กดแล้วเห็นไฟล์ต้นฉบับ
+   ขนาดเต็มได้
+
+   z-index 1000 = สูงกว่าทุกอย่างในเว็บ
+   (.ck แถบคุกกี้ 300 > .botnav 200 > .nav 150 > #toTop 140)
+   ══════════════════════════════════════════════════════════════════════ */
+
+/* ── ตัวโลโก้บนแถบหัว/ฟุตเตอร์ ── */
+.mark.is-zoomable,
+.brand-mark.is-zoomable{
+  cursor:zoom-in;
+}
+.mark.is-zoomable img,
+.brand-mark.is-zoomable img{
+  transition:transform .22s cubic-bezier(.22,.8,.2,1);
+}
+.mark.is-zoomable:hover img,
+.brand-mark.is-zoomable:hover img{
+  transform:scale(1.07);
+}
+
+/* ปุ่มสำหรับคนที่ใช้คีย์บอร์ด/โปรแกรมอ่านหน้าจอ
+   ซ่อนสายตาไว้ แต่พอ tab มาถึงจะโผล่ขึ้นมาให้เห็นว่ากดได้ */
+.logo-zoom-key{
+  position:absolute;
+  width:1px;height:1px;
+  margin:-1px;padding:0;border:0;
+  overflow:hidden;
+  clip:rect(0 0 0 0);
+  clip-path:inset(50%);
+  white-space:nowrap;
+  background:#0b4a8f;color:#fff;
+  border-radius:10px;
+  font:600 13px/1.4 inherit;
+}
+.logo-zoom-key:focus-visible{
+  position:static;
+  width:auto;height:auto;
+  margin:0 0 0 .5rem;padding:.4rem .7rem;
+  overflow:visible;
+  clip:auto;clip-path:none;
+  outline:2px solid #fff;outline-offset:2px;
+}
+
+/* ── ฉากดำเต็มจอ ── */
+.lbx{
+  position:fixed;
+  inset:0;
+  z-index:1000;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:max(18px,env(safe-area-inset-top))
+          max(18px,env(safe-area-inset-right))
+          max(18px,env(safe-area-inset-bottom))
+          max(18px,env(safe-area-inset-left));
+  background:rgba(4,14,28,.90);
+  -webkit-backdrop-filter:blur(8px);
+  backdrop-filter:blur(8px);
+  opacity:0;
+  animation:lbx-in .22s ease forwards;
+}
+.lbx[hidden]{display:none}
+
+@keyframes lbx-in{to{opacity:1}}
+
+.lbx-fig{
+  margin:0;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:.85rem;
+  max-width:100%;
+  max-height:100%;
+  transform:scale(.94);
+  animation:lbx-pop .28s cubic-bezier(.22,.8,.2,1) forwards;
+}
+@keyframes lbx-pop{to{transform:scale(1)}}
+
+.lbx-fig img{
+  display:block;
+  width:auto;height:auto;
+  max-width:min(88vw,760px);
+  /* เผื่อที่ให้คำบรรยายกับปุ่มปิด */
+  max-height:calc(100vh - 170px);
+  max-height:calc(100dvh - 170px);
+  border-radius:50%;
+  background:#fff;
+  box-shadow:0 30px 70px -28px rgba(0,0,0,.85);
+}
+
+.lbx-cap{
+  color:#dbe7f7;
+  font-size:.86rem;
+  font-weight:600;
+  letter-spacing:.01em;
+  text-align:center;
+  text-shadow:0 1px 2px rgba(0,0,0,.6);
+}
+.lbx-cap a{color:#7cc4ff}
+
+/* กำลังโหลดไฟล์ต้นฉบับ (ราว 1.3MB โหลดตอนกดครั้งแรกเท่านั้น) */
+.lbx-load{
+  width:54px;height:54px;
+  border-radius:50%;
+  border:3px solid rgba(255,255,255,.25);
+  border-top-color:#7cc4ff;
+  animation:lbx-spin .8s linear infinite;
+}
+@keyframes lbx-spin{to{transform:rotate(360deg)}}
+
+.lbx-close{
+  position:absolute;
+  top:max(14px,env(safe-area-inset-top));
+  right:max(14px,env(safe-area-inset-right));
+  width:46px;height:46px;
+  display:flex;align-items:center;justify-content:center;
+  border:1px solid rgba(255,255,255,.28);
+  border-radius:50%;
+  background:rgba(10,24,44,.72);
+  color:#fff;
+  font-size:21px;line-height:1;
+  cursor:pointer;
+  -webkit-tap-highlight-color:transparent;
+  transition:background .18s,transform .18s;
+}
+.lbx-close:hover{background:rgba(24,48,80,.9);transform:rotate(90deg)}
+.lbx-close:focus-visible{outline:2px solid #7cc4ff;outline-offset:3px}
+
+/* กันหน้าเลื่อนขณะเปิดฉาก และกันหน้ากระตุกตอนแถบเลื่อนหาย */
+html.lbx-open,
+html.lbx-open body{overflow:hidden}
+
+@media (max-width:480px){
+  .lbx-fig img{max-width:92vw}
+  .lbx-cap{font-size:.8rem}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .lbx,.lbx-fig,.lbx-close,
+  .mark.is-zoomable img,.brand-mark.is-zoomable img{
+    animation:none !important;
+    transition:none !important;
+  }
+  .lbx{opacity:1}
+  .lbx-fig{transform:none}
+  .mark.is-zoomable:hover img,
+  .brand-mark.is-zoomable:hover img{transform:none}
+}
+
+@media print{
+  .lbx{display:none !important}
+}

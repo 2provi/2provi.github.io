@@ -724,3 +724,10 @@ html{scroll-padding-top:142px}
    จึงให้ใช้ --sky (เฉดอ่อนของสีประจำหน้า) แทนในโหมดมืดทุกโทน */
 [data-theme="dark"] .eye{color:var(--sky)}
 [data-theme="dark"] .pyr b{color:var(--sky)}
+
+/* ── โลโก้ 2ProviGroup บนแถบหัวและฟุตเตอร์ ──
+   ไฟล์โลโก้เป็นวงกลมขาวมุมโปร่ง ถ้าปล่อยพื้นไล่เฉดของ .mark ไว้
+   สีจะโผล่ตามมุมจนดูเลอะ จึงเอาพื้นออกแล้วให้รูปเต็มกรอบแทน */
+.mark{background:none;border-radius:50%;padding:0;overflow:hidden;
+  box-shadow:0 6px 18px -8px rgba(var(--a6),.55)}
+.mark img{width:100%;height:100%;display:block;object-fit:contain}

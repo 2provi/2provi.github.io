@@ -143,3 +143,9 @@ body.imgedit .imgbar{display:flex}
    สีคงที่ทั้งสองโหมด เพราะเป็นปุ่มกระทำหลัก ไม่ใช่ลิงก์นำทาง */
 /* [แก้บั๊ก] เดิมตั้งชื่อคลาสปุ่มนี้ว่า .quote ซึ่งชนกับ .quote ของกล่องคำพูด
    ทำให้เครื่องหมาย ❝ ขนาด 5.5rem ทะลุมาทับตัวหนังสือบนปุ่ม จึงเปลี่ยนเป็น .askq */
+
+/* หน้านี้ประกาศ .mark ซ้ำอีกชุดและโหลดทีหลัง core.css จึงต้องล้างพื้น
+   ไล่เฉดซ้ำตรงนี้ ไม่งั้นสีจะโผล่ตามมุมโปร่งของไฟล์โลโก้ */
+.mark{background:none;border-radius:50%;padding:0;overflow:hidden;
+  box-shadow:0 6px 18px -8px rgba(20,102,196,.55)}
+.mark img{width:100%;height:100%;display:block;object-fit:contain}

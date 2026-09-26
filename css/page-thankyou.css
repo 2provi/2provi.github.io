@@ -197,3 +197,8 @@
         border-radius: 23px;
       }
     }
+
+/* หน้านี้ประกาศ .brand-mark ซ้ำและโหลดทีหลัง form.css จึงต้องล้างพื้นซ้ำ */
+.brand-mark{background:none;border-radius:50%;padding:0;overflow:hidden;
+  box-shadow:0 6px 18px -8px rgba(11,74,143,.5)}
+.brand-mark img{width:100%;height:100%;display:block;object-fit:contain}
