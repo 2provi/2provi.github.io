@@ -728,7 +728,11 @@
     fab.id="imgFab"; fab.type="button"; fab.title="โหมดจัดการรูปภาพ";
     fab.setAttribute("aria-label","เปิด/ปิดโหมดจัดการรูปภาพ");
     fab.textContent="🖼️";
-    D.body.appendChild(fab);
+    /* [เอาออก] ปุ่มลอย 🖼️ "โหมดจัดการรูปภาพ" เป็นเครื่องมือของเจ้าของเว็บ
+       ไม่ใช่ของผู้เข้าชม แต่เดิมถูกแสดงให้ทุกคนเห็น จึงไม่แนบเข้าหน้าเว็บแล้ว
+       โค้ดส่วนที่เหลือยังทำงานปกติ รูปที่ตั้งไว้ใน window.LS_IMAGES ยังขึ้นเหมือนเดิม
+       ถ้าต้องการใช้เครื่องมือนี้อีก ให้เอาเครื่องหมายคอมเมนต์ออกจากสองบรรทัดล่าง */
+    /* D.body.appendChild(fab); */
 
     var panel=D.createElement("div");
     panel.id="imgPanel";
@@ -744,7 +748,7 @@
         '<button type="button" class="mini" id="imgClose">ปิด</button>'+
       '</div>'+
       '<div id="imgQuota"></div>';
-    D.body.appendChild(panel);
+    /* D.body.appendChild(panel); */
 
     function code(){
       var out={}, k;

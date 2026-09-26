@@ -61,6 +61,18 @@
   transition:color .2s,background .2s;
   -webkit-tap-highlight-color:transparent;
 }
+/* ── ป้ายที่ยาวเกินหนึ่งช่อง ──
+   ภาษาไทยไม่มีช่องว่างระหว่างคำ เบราว์เซอร์จึงตัดตามพจนานุกรมของมันเอง
+   ได้ผลเป็น "ขอรับข้อ / เสนอ" ซึ่งอ่านแล้วสะดุด
+   ห่อแต่ละคำด้วย inline-block คำนั้นจะกลายเป็นก้อนเดียวที่ตัดข้างในไม่ได้
+   เหลือจุดตัดเดียวคือ <wbr> ระหว่างก้อน ได้ "ขอรับ / ข้อเสนอ" ตามต้องการ
+   จอกว้างพอ ทั้งสองก้อนก็ยังอยู่บรรทัดเดียวเหมือนเดิม
+
+   .bl ครอบไว้อีกชั้นเพราะ .botnav a เป็น flex container ถ้าปล่อย .bw เป็น
+   ลูกตรง ๆ มันจะกลายเป็น flex item คนละแถว แล้วห่างกันตลอดเวลา */
+.botnav a .bl{display:block;text-align:center}
+.botnav a .bw{display:inline-block}
+
 .botnav a .ic{
   font-size:19px;
   line-height:1.15;
@@ -87,24 +99,50 @@
 @media (max-width:980px){
   .botnav{display:block}
 
-  /* เว้นที่ให้แถบล่าง ไม่งั้นฟุตเตอร์กับเนื้อหาท้ายหน้าจะถูกบัง */
-  body{padding-bottom:calc(78px + env(safe-area-inset-bottom))}
+  /* เว้นที่ให้แถบล่าง ไม่งั้นฟุตเตอร์กับเนื้อหาท้ายหน้าจะถูกบัง
+     7 ช่องและป้ายที่ตกได้สองบรรทัดทำให้แถบสูงกว่าเดิมราว 10px */
+  body{padding-bottom:calc(90px + env(safe-area-inset-bottom))}
 
   /* ปุ่มกลับขึ้นบนกับแถบคุกกี้ต้องขยับขึ้นมาให้พ้นแถบ */
-  #toTop{bottom:calc(88px + env(safe-area-inset-bottom))}
-  .ck{bottom:calc(88px + env(safe-area-inset-bottom))}
+  #toTop{bottom:calc(100px + env(safe-area-inset-bottom))}
+  .ck{bottom:calc(100px + env(safe-area-inset-bottom))}
 
   /* แถบทีมงานด้านบนคงไว้ตามเดิมตามที่คุณพ่อขอ — ไม่ซ่อน
      คลาส has-bot ยังติดอยู่ที่ markup เผื่อใช้เป็นจุดเกาะในอนาคต */
 }
 
+/* ── 7 ช่องบนจอแคบ ──
+   เดิมมี 6 ช่องและบังคับ white-space:nowrap ได้สบาย พอเพิ่มเป็น 7 ช่อง
+   ตามชุดเดียวกับแถบบนของเดสก์ท็อป ป้ายยาวอย่าง "ขอรับข้อเสนอ" กับ
+   "สมัครตัวแทน" ไม่พอในช่องละ ~45px จึงยอมให้ตกบรรทัดได้แทนการตัดคำทิ้ง
+   แถบสูงขึ้นเล็กน้อยแต่ยังอ่านออกครบทุกช่อง */
+@media (max-width:640px){
+  .botnav a{
+    white-space:normal;
+    /* ภาษาไทยไม่มีช่องว่างระหว่างคำ ถ้าปล่อยให้เบราว์เซอร์ตัดเอง จะตัดกลางคำ
+       เป็น "ขอรับข้อ / เสนอ"  ใช้ keep-all กันไว้ แล้วใส่ <wbr> ใน HTML
+       ตรงจุดที่ควรขึ้นบรรทัดใหม่จริง ๆ คือ "ขอรับ / ข้อเสนอ" */
+    word-break:keep-all;
+    overflow-wrap:normal;
+    line-height:1.2;
+    hyphens:none;
+    /* สองบรรทัดต้องอยู่กึ่งกลางกันพอดี ไม่ชิดซ้าย */
+    text-align:center;
+  }
+  .botnav a .ic{align-self:center}
+}
+@media (max-width:480px){
+  .botnav a{font-size:10.4px;padding:6px 1px 4px;gap:1px}
+  .botnav a .ic{font-size:17px}
+  .botnav{padding-inline:max(4px,env(safe-area-inset-left)) max(4px,env(safe-area-inset-right))}
+}
 @media (max-width:380px){
-  .botnav a{font-size:10.2px;padding:6px 2px 4px}
-  .botnav a .ic{font-size:17.5px}
+  .botnav a{font-size:9.8px;padding:5px 1px 4px}
+  .botnav a .ic{font-size:16px}
 }
 @media (max-width:340px){
-  .botnav a{font-size:9.6px}
-  .botnav a .ic{font-size:16px}
+  .botnav a{font-size:9.2px}
+  .botnav a .ic{font-size:15px}
 }
 
 @media (prefers-reduced-motion:reduce){

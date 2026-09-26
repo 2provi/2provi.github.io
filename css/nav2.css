@@ -111,13 +111,13 @@
   background:#2b3f57;
   transition:transform .3s cubic-bezier(.22,.8,.2,1),opacity .3s;
 }
-[data-theme="dark"] .burger{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.2)}
-[data-theme="dark"] .burger:hover{background:rgba(255,255,255,.14)}
+/* [แก้บั๊ก] เดิมบังคับสีอ่อนให้หน้าสุขภาพด้วยคลาส .hs เพราะคิดว่าหน้านั้น
+   พื้นมืดตลอด ที่จริงหน้าสุขภาพสลับโหมดสว่าง/มืดได้เหมือนหน้าอื่น
+   พอผู้ใช้อยู่โหมดสว่าง ขีดสีขาวจึงหายไปกับพื้นขาว
+   ตอนนี้ผูกสีกับ data-theme อย่างเดียว ทุกหน้าจึงถูกต้องทั้งสองโหมด */
+[data-theme="dark"] .burger{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.22)}
+[data-theme="dark"] .burger:hover{background:rgba(255,255,255,.15)}
 [data-theme="dark"] .burger span{background:#e6effb}
-/* หน้าสุขภาพเป็นพื้นมืดตลอด ไม่ได้ใช้ data-theme */
-body.hs .burger,
-.hs .burger{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.2)}
-.hs .burger span{background:#e6effb}
 
 .burger.on span:nth-child(1){transform:translateY(7px) rotate(45deg)}
 .burger.on span:nth-child(2){opacity:0;transform:scaleX(.4)}
@@ -288,7 +288,15 @@ html{scroll-padding-top:86px}
    ส่วนสีเขียวมิ้นต์ ตัวการ์ด และกราฟคลื่นหัวใจของหน้าสุขภาพคงไว้ตามเดิม
    ══════════════════════════════════════════════════════════════════════ */
 
-.hero-g{grid-template-columns:1.06fr .94fr;gap:3rem;align-items:center}
+.hero-g{
+  grid-template-columns:1.06fr .94fr;
+  gap:3rem;
+  /* [แก้บั๊ก] เดิมเป็น center ทำให้แต่ละคอลัมน์ถูกจัดกึ่งกลางตามความสูงของ
+     คอลัมน์ที่สูงกว่า หน้าที่เนื้อหายาวไม่เท่ากันจึงเริ่มต้นคนละระดับ
+     วัดจากขอบล่างแถบหัว: ป้ายหัวเรื่องอยู่ที่ 76 / 210 / 64 / 113 px
+     เปลี่ยนเป็น start ทุกหน้าจึงเริ่มที่ระดับเดียวกันพอดี */
+  align-items:start;
+}
 .hero{padding-top:4rem}
 /* box-sizing:border-box ทำให้ min-height นับรวม padding ค่านี้จึงเป็นความสูงรวม */
 .nav-in{padding-block:.7rem;min-height:80px}
@@ -335,4 +343,40 @@ html{scroll-padding-top:86px}
 
 @media (prefers-reduced-motion:reduce){
   .hs .tagA,.hs .tagB,.hs .marq div{animation:none}
+}
+
+/* ══════════════════════════════════════════════════════════════════════
+   ให้ระยะในส่วน hero ของสี่หน้าเนื้อหาตรงกันทุกบรรทัด
+
+   หลังตั้ง align-items:start แล้ว ป้ายหัวเรื่อง หัวเรื่อง โลโก้ และการ์ด
+   เริ่มที่ระดับเดียวกันทุกหน้าแล้ว แต่ย่อหน้านำกับแถวปุ่มยังเหลื่อมกัน
+   เพราะหัวเรื่องของแต่ละหน้ายาวไม่เท่ากัน (2 หรือ 3 บรรทัด) และย่อหน้านำ
+   ก็ 2-4 บรรทัด
+
+   จองความสูงขั้นต่ำเท่าหน้าที่ยาวที่สุด หน้าที่สั้นกว่าจะมีช่องว่างเสริม
+   ให้ลงล็อกพอดีกัน ทำเฉพาะจอที่เป็นสองคอลัมน์ (>980px) เพราะจอแคบ
+   คอลัมน์เรียงลงมาอยู่แล้ว ไม่มีอะไรให้เทียบ
+
+   ค่าที่ใช้: หัวเรื่อง line-height 1.3em สูงสุด 3 บรรทัด = 3.9em
+             ย่อหน้านำ line-height 1.78em สูงสุด 4 บรรทัด = 7.12em
+   ══════════════════════════════════════════════════════════════════════ */
+/* ตั้งค่าตัวอักษรและระยะขอบของ hero ให้ตรงกันทุกหน้าก่อน
+   health.css ใช้ค่าต่างจาก core.css อยู่หลายจุด ทำให้เหลื่อมกัน 3-6px
+     ป้ายหัวเรื่อง  ตัวอักษร 13.28 vs 13.6 · ระยะล่าง 20.8 vs 0
+     หัวเรื่อง      ระยะบน 0 vs 17.6 · ระยะล่าง 17.6 vs 14.4 · lh 1.24 vs 1.3
+     ย่อหน้านำ      ตัวอักษร 18.56 vs 17.6 · lh 1.8 vs 1.78
+     แถวปุ่ม        ระยะบน 28.8 vs 30.4
+   ยึดค่าของ core.css เป็นหลัก */
+/* ป้ายหัวเรื่องเป็น inline-flex จึงถูกจัดตาม baseline ของบรรทัด
+   อีโมจิคนละตัวมี baseline ไม่เท่ากัน ป้ายเลยเริ่มต่างกัน 5-6px ในแต่ละหน้า
+   บังคับให้ชิดบนของบรรทัดแทน ทุกหน้าจึงเริ่มที่ระดับเดียวกัน */
+body.topic .hero .pill{font-size:.85rem;margin:0;vertical-align:top}
+body.topic .hero h1{margin:1.1rem 0 .9rem;line-height:1.3}
+body.topic .hero .lead{font-size:1.1rem;line-height:1.78;margin:0}
+body.topic .hero .cta-row{margin:1.9rem 0}
+
+@media (min-width:981px){
+  /* จองความสูงขั้นต่ำเท่าหน้าที่ยาวที่สุด หน้าที่สั้นกว่าจึงลงล็อกพอดีกัน */
+  body.topic .hero h1{min-height:3.9em}
+  body.topic .hero .lead{min-height:7.12em}
 }

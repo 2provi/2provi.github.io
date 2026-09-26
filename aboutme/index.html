@@ -53,6 +53,7 @@
 <link rel="stylesheet" href="/css/mobile.css?v=20260926b">
 <link rel="stylesheet" href="/css/botnav.css?v=20260926b">
 <link rel="stylesheet" href="/css/logo-zoom.css?v=20260926b">
+<link rel="stylesheet" href="/css/nav2.css?v=20260926b">
 </head>
 <body>
 
@@ -64,17 +65,23 @@
       <span class="mark"><img src="/assets/logo-mark.png" width="40" height="40" alt="" loading="eager" decoding="async"></span>
       <span>2Provi<b>Group</b></span>
     </a>
-    <nav class="links" id="menu"><a href="#team">ทีมที่ปรึกษา</a><a href="#values">แนวทางของเรา</a><a href="#contact">ติดต่อ</a></nav>
+    <nav class="tools tools-in" id="xnav" aria-label="เมนูข้ามหน้า"><a href="/" class="home">🏠 หน้าหลัก</a><a href="/money.html">🛡️ ประกันชีวิต</a><a href="/health.html">🩺 สุขภาพ</a><a href="/retire.html">🌱 วางแผนเกษียณ</a><a href="/education.html">🎓 การศึกษาบุตร</a><a href="/aboutme/" class="cur" aria-current="page">👥 ทีมงาน</a><a href="/quote.html" class="askq">ขอรับข้อเสนอเบื้องต้น <span>→</span></a></nav>
     <div class="acts">
       <button class="ibtn" id="themeBtn" type="button" aria-label="สลับโหมดสี" title="สลับโหมดสว่าง/มืด">🌙</button>
       <a class="btn btn-p nosm" href="/join.html">สมัครเป็นตัวแทน</a>
       <button class="burger" id="burger" type="button" aria-label="เปิดเมนู" aria-expanded="false"><span></span><span></span><span></span></button>
     </div>
   </div>
-  <div class="tools">
-    <nav class="wrap tools-in" aria-label="เมนูข้ามหน้า"><a href="/" class="home">🏠 หน้าหลัก</a><a href="/money.html">🛡️ ประกันชีวิต</a><a href="/health.html">🩺 สุขภาพ</a><a href="/retire.html">🌱 วางแผนเกษียณ</a><a href="/education.html">🎓 การศึกษาบุตร</a><a href="/aboutme/" class="cur" aria-current="page">👥 ทีมงาน</a><a href="/quote.html" class="askq">ขอรับข้อเสนอเบื้องต้น <span>→</span></a></nav>
-  </div>
 </header>
+
+<!-- แถบหัวข้อในหน้า · พับเก็บได้ด้วยปุ่มสามขีดบนแถบหัว -->
+<aside class="siderail" id="siderail" aria-hidden="true">
+  <div class="siderail-in">
+    <p class="siderail-h">หัวข้อในหน้านี้</p>
+    <nav class="links" id="menu"><a href="#team">ทีมที่ปรึกษา</a><a href="#values">แนวทางของเรา</a><a href="#contact">ติดต่อ</a></nav>
+  </div>
+</aside>
+<div class="siderail-veil" id="railVeil" hidden></div>
 
 <!-- ============ HERO ============ -->
 <section class="abhero" id="top">
@@ -211,7 +218,7 @@
     </div>
     <div>
       <h4>ไปหน้าอื่น</h4>
-      <a href="/money.html">ประกันชีวิต</a><a href="/health.html">สุขภาพ &amp; โรคร้ายแรง</a><a href="/retire.html">วางแผนเกษียณ</a><a href="/education.html">การศึกษาบุตร</a><a href="/quote.html">ขอรับข้อเสนอ</a><a href="/join.html">สมัครเป็นตัวแทน</a>
+      <a href="/money.html">ประกันชีวิต</a><a href="/health.html">สุขภาพ &amp; โรคร้ายแรง</a><a href="/retire.html">วางแผนเกษียณ</a><a href="/education.html">การศึกษาบุตร</a><a href="/quote.html"><span class="bl"><span class="bw">ขอรับ</span><wbr><span class="bw">ข้อเสนอ</span></span></a><a href="/join.html">สมัครเป็นตัวแทน</a>
     </div>
     <div>
       <h4>ติดต่อเรา</h4>
@@ -231,6 +238,7 @@
 <script src="/js/core.js?v=20260926b"></script>
 <script src="/js/nav.js?v=20260926b"></script>
 <script src="/js/logo-zoom.js?v=20260926b"></script>
+<script src="/js/siderail.js?v=20260926b"></script>
 
 <!-- ══════════════════════════════════════════════════════════════
      แถบนำทางล่าง · โผล่เฉพาะจอ ≤980px (มือถือ / iPad แนวตั้ง)
@@ -238,12 +246,13 @@
      ══════════════════════════════════════════════════════════════ -->
 <nav class="botnav" aria-label="เมนูหลัก (จอแคบ)">
   <div class="botnav-in">
-    <a class="bn" href="/"><span class="ic" aria-hidden="true">🏠</span>หน้าหลัก</a>
+    <a class="bn" href="/"><span class="ic" aria-hidden="true">🏠</span>หน้าแรก</a>
     <a class="bn" href="/money.html"><span class="ic" aria-hidden="true">🛡️</span>ชีวิต</a>
     <a class="bn" href="/health.html"><span class="ic" aria-hidden="true">🏥</span>สุขภาพ</a>
-    <a class="bn" href="/fin-irr-calculator/"><span class="ic" aria-hidden="true">🧮</span>คำนวณ</a>
-    <a class="bn" aria-current="page" href="/aboutme/"><span class="ic" aria-hidden="true">👥</span>ทีมงาน</a>
-    <a class="bn bn-cta" href="/quote.html"><span class="ic" aria-hidden="true">📝</span>ขอข้อเสนอ</a>
+    <a class="bn" href="/retire.html"><span class="ic" aria-hidden="true">🌱</span>เกษียณ</a>
+    <a class="bn" href="/education.html"><span class="ic" aria-hidden="true">🎓</span>การศึกษา</a>
+    <a class="bn bn-cta" href="/quote.html"><span class="ic" aria-hidden="true">📝</span><span class="bl"><span class="bw">ขอรับ</span><wbr><span class="bw">ข้อเสนอ</span></span></a>
+    <a class="bn" href="/join.html"><span class="ic" aria-hidden="true">🤝</span><span class="bl"><span class="bw">สมัคร</span><wbr><span class="bw">ตัวแทน</span></span></a>
   </div>
 </nav>
 </body>

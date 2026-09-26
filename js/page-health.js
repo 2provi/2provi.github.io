@@ -450,7 +450,10 @@ run("images",function(){
   fab.id="imgFab";fab.type="button";fab.textContent="🖼️";
   fab.setAttribute("aria-label","เปิด/ปิดโหมดจัดการรูปภาพ");
   fab.title="โหมดจัดการรูปภาพ";
-  D.body.appendChild(fab);
+  /* [เอาออก] ปุ่มลอย 🖼️ "โหมดจัดการรูปภาพ" เป็นเครื่องมือของเจ้าของเว็บ
+     ไม่ใช่ของผู้เข้าชม จึงไม่แนบเข้าหน้าเว็บแล้ว
+     รูปที่ตั้งไว้ใน window.LS_IMAGES ยังขึ้นเหมือนเดิม */
+  /* D.body.appendChild(fab); */
 
   var panel=D.createElement("div");panel.id="imgPanel";
   panel.innerHTML='<h4>🖼️ โหมดจัดการรูปภาพ</h4>'+
@@ -460,7 +463,7 @@ run("images",function(){
     '<div class="prow"><button type="button" class="mini" id="imgCopy">📋 คัดลอกโค้ด</button>'+
     '<button type="button" class="mini del" id="imgClear">ล้างรูปทั้งหมด</button>'+
     '<button type="button" class="mini" id="imgClose">ปิด</button></div><div id="imgQuota"></div>';
-  D.body.appendChild(panel);
+  /* D.body.appendChild(panel); */
 
   function code(){
     var out={};
