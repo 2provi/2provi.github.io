@@ -102,7 +102,6 @@
     left:50%;
     top:50%;
     transform:translate(-50%,-50%);
-    display:block;
     /* กันไม่ให้ยาวจนชนโลโก้หรือปุ่มฝั่งขวา ที่เหลือตัดเป็นจุดไข่ปลา */
     max-width:calc(100% - 215px);
     overflow:hidden;
@@ -112,6 +111,14 @@
     font-weight:800;
     letter-spacing:-.01em;
     line-height:1;
+    /* [แก้บั๊ก] ตัวอักษรสูงแค่ 15px ซึ่งเป็นเป้าแตะที่เล็กเกินเกณฑ์ WCAG 2.2
+       (ขั้นต่ำ 24px) ขยายพื้นที่กดแนวตั้งโดยไม่ขยับตำแหน่งที่ตามองเห็น
+       เพราะจัดกึ่งกลางด้วย translate อยู่แล้ว */
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    min-height:34px;
+    padding-inline:6px;
     color:var(--text,var(--tx,#0a1729));
     text-decoration:none;
   }

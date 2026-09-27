@@ -446,6 +446,15 @@ run("images",function(){
     render(fig);
   });
 
+  /* ══════════════════════════════════════════════════════════════
+     [แก้บั๊ก] เครื่องมือจัดการรูปของเจ้าของเว็บ — ปิดไว้
+     (เหตุผลเดียวกับ page-money.js) รอบก่อนคอมเมนต์แค่ appendChild
+     แต่โค้ดที่เหลือยังไปเรียก getElementById ของแผงที่ไม่เคยถูกแนบ
+     แล้วโยน TypeError ทุกครั้งที่เปิดหน้า
+     ══════════════════════════════════════════════════════════════ */
+  return;
+
+  /* eslint-disable no-unreachable */
   var fab=D.createElement("button");
   fab.id="imgFab";fab.type="button";fab.textContent="🖼️";
   fab.setAttribute("aria-label","เปิด/ปิดโหมดจัดการรูปภาพ");

@@ -51,6 +51,7 @@
 <link rel="stylesheet" href="/css/core.css?v=20260926b">
 <link rel="stylesheet" href="/css/page-aboutme.css?v=20260926b">
 <link rel="stylesheet" href="/css/mobile.css?v=20260926b">
+<link rel="stylesheet" href="/css/teamcta.css?v=20260927b">
 <link rel="stylesheet" href="/css/botnav.css?v=20260926b">
 <link rel="stylesheet" href="/css/logo-zoom.css?v=20260926b">
 <link rel="stylesheet" href="/css/nav2.css?v=20260926b">
@@ -65,12 +66,20 @@
       <span class="mark"><img src="/assets/logo-mark.png" width="40" height="40" alt="" loading="eager" decoding="async"></span>
       <span>2Provi<b>Group</b></span>
     </a>
-    <nav class="tools tools-in" id="xnav" aria-label="เมนูข้ามหน้า"><a href="/" class="home">🏠 หน้าหลัก</a><a href="/money.html">🛡️ ประกันชีวิต</a><a href="/health.html">🩺 สุขภาพ</a><a href="/retire.html">🌱 วางแผนเกษียณ</a><a href="/education.html">🎓 การศึกษาบุตร</a><a href="/aboutme/" class="cur" aria-current="page">👥 ทีมงาน</a><a href="/quote.html" class="askq">ขอรับข้อเสนอเบื้องต้น <span>→</span></a></nav>
+    <!-- ชื่อเว็บกลางแถบ โผล่เฉพาะจอแคบ ที่ซึ่งชื่อข้างโลโก้ถูกซ่อนไป -->
+    <a class="navmid" href="/">2Provi<b>Group</b></a>
     <div class="acts">
       <button class="ibtn" id="themeBtn" type="button" aria-label="สลับโหมดสี" title="สลับโหมดสว่าง/มืด">🌙</button>
-      <a class="btn btn-p nosm" href="/join.html">สมัครเป็นตัวแทน</a>
+      <a class="teampill" href="/aboutme/">
+        <span class="teamcta-faces" aria-hidden="true"><i class="tf">ฑ</i><i class="tf">ก</i><i class="tf tf3">ป</i></span>
+        <span>ทีมตัวแทนผู้ให้บริการ</span>
+        <span class="teamcta-dot" aria-hidden="true"></span>
+        <span class="teampill-go" aria-hidden="true">›</span>
+      </a>
       <button class="burger" id="burger" type="button" aria-label="เปิดเมนู" aria-expanded="false"><span></span><span></span><span></span></button>
     </div>
+    <!-- แถวที่สอง (จอกว้าง) — วางหลัง .acts เพื่อให้ลำดับการกด Tab ตรงกับสายตา -->
+    <nav class="tools tools-in" id="xnav" aria-label="เมนูข้ามหน้า"><a href="/" class="home">🏠 หน้าหลัก</a><a href="/money.html" class="">🛡️ ประกันชีวิต</a><a href="/health.html" class="">🩺 สุขภาพ</a><a href="/retire.html" class="">🌱 วางแผนเกษียณ</a><a href="/education.html" class="">🎓 การศึกษาบุตร</a><a href="/aboutme/" class="cur" aria-current="page">👥 ทีมงาน</a><span class="navcta"><a href="/quote.html" class="askq">ขอรับข้อเสนอเบื้องต้น <span>→</span></a><a href="/join.html" class="askq">สมัครเป็นตัวแทน <span>→</span></a></span></nav>
   </div>
 </header>
 
@@ -229,7 +238,7 @@
   </div>
   <div class="wrap foot-b">
     © 2026 2Provi Group · จัดทำเพื่อการศึกษา · ข้อมูลอ้างอิงควรตรวจสอบกับ คปภ. และบริษัทประกันโดยตรง<br>
-    <a href="/privacy-policy.html" style="display:inline;color:#9fc3ea;text-decoration:underline">นโยบายความเป็นส่วนตัว</a>
+    <a href="/privacy-policy.html" style="color:#9fc3ea;text-decoration:underline">นโยบายความเป็นส่วนตัว</a>
   </div>
 </footer>
 
