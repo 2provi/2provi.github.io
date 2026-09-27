@@ -61,6 +61,20 @@
       }
     }
 
+    /* ── หน้าที่ไม่มีใครผูกปุ่มสามขีดให้ ──
+       อีก 5 หน้าโหลด core.js / page-*.js ซึ่งผูก #burger กับคลาส .open
+       ของ #menu ไว้แล้ว แต่หน้าฟอร์ม (quote / join) ใช้ form.css เป็นฐาน
+       ไม่ได้โหลด core.js เลย ปุ่มจึงไม่มีใครรับงาน กดแล้วเงียบ
+       หน้าพวกนั้นเขียน data-rail="self" ไว้ที่ <aside> เพื่อบอกว่า
+       "ให้สคริปต์นี้เป็นคนคุมเอง" — ระบุชัดดีกว่าให้เดาว่ามีคนผูกไว้หรือยัง */
+    if (rail.getAttribute("data-rail") === "self") {
+      burger.addEventListener("click", function () {
+        var open = menu.classList.toggle("open");
+        burger.setAttribute("aria-expanded", open ? "true" : "false");
+        paint();
+      }, false);
+    }
+
     /* core.js / page-*.js เป็นคนเติมและถอดคลาส .open ที่ #menu
        จึงเฝ้าดูแอตทริบิวต์ class แทนการผูกปุ่มซ้ำ */
     if (window.MutationObserver) {

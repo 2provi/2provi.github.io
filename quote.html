@@ -45,24 +45,55 @@
 <link rel="stylesheet" href="/css/form.css?v=20260926b">
 <link rel="stylesheet" href="/css/page-quote.css?v=20260926b">
 <link rel="stylesheet" href="/css/mobile.css?v=20260926b">
+<link rel="stylesheet" href="/css/navtop.css?v=20260927a">
 <link rel="stylesheet" href="/css/teamcta.css?v=20260926b">
 <link rel="stylesheet" href="/css/botnav.css?v=20260926b">
 <link rel="stylesheet" href="/css/logo-zoom.css?v=20260926b">
+<link rel="stylesheet" href="/css/nav2.css?v=20260927a">
 </head>
 
 <body>
-  <nav class="navbar">
-    <div class="container nav-inner">
-      <a href="index.html" class="brand">
-        <span class="brand-mark"><img src="/assets/logo-mark.png" width="43" height="43" alt="" loading="eager" decoding="async"></span>
-        <span>2Provi Group</span>
+<header class="nav" id="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="index.html">
+      <span class="mark"><img src="/assets/logo-mark.png" width="40" height="40" alt="" loading="eager" decoding="async"></span>
+      <span>2Provi<b>Group</b></span>
+    </a>
+    <!-- ชื่อเว็บกลางแถบ โผล่เฉพาะจอแคบ ที่ซึ่งชื่อข้างโลโก้ถูกซ่อนไป -->
+    <a class="navmid" href="index.html">2Provi<b>Group</b></a>
+    <nav class="tools tools-in" id="xnav" aria-label="เมนูข้ามหน้า"><a href="index.html" class="home">🏠 หน้าหลัก</a><a href="money.html" class="">🛡️ ประกันชีวิต</a><a href="health.html" class="">🩺 สุขภาพ</a><a href="retire.html" class="">🌱 วางแผนเกษียณ</a><a href="education.html" class="">🎓 การศึกษาบุตร</a><a href="/aboutme/" class="">👥 ทีมงาน</a><a href="quote.html" class="askq cur" aria-current="page">ขอรับข้อเสนอเบื้องต้น <span>→</span></a><a href="join.html" class="askq">สมัครเป็นตัวแทน <span>→</span></a></nav>
+    <div class="acts">
+      <a class="teampill" href="/aboutme/">
+        <span class="teamcta-faces" aria-hidden="true"><i class="tf">ฑ</i><i class="tf">ก</i><i class="tf tf3">ป</i></span>
+        <span>ทีมตัวแทนผู้ให้บริการ</span>
+        <span class="teamcta-dot" aria-hidden="true"></span>
+        <span class="teampill-go" aria-hidden="true">›</span>
       </a>
-     <a href="https://2provi.com" class="nav-contact">2provi.com</a>
+      <button class="burger" id="burger" type="button" aria-label="เปิดเมนู" aria-expanded="false"><span></span><span></span><span></span></button>
     </div>
-  </nav>
+  </div>
+</header>
+<!-- เมนูข้างของหน้าฟอร์ม: หน้าพวกนี้ไม่มีหัวข้อย่อยในหน้า จึงใส่รายการข้ามหน้าแทน
+     เพื่อให้ปุ่มสามขีดบนจอแคบมีอะไรให้เปิดเหมือนอีก 5 หน้า -->
+<aside class="siderail" id="siderail" aria-hidden="true" data-rail="self">
+  <div class="siderail-in">
+    <p class="siderail-h">ไปหน้าอื่น</p>
+    <nav class="links" id="menu">
+      <a href="index.html">🏠 หน้าหลัก</a>
+      <a href="money.html">🛡️ ประกันชีวิต</a>
+      <a href="health.html">🩺 สุขภาพ</a>
+      <a href="retire.html">🌱 วางแผนเกษียณ</a>
+      <a href="education.html">🎓 การศึกษาบุตร</a>
+      <a href="/aboutme/">👥 ทีมงาน</a>
+      <a href="quote.html" class="act" aria-current="page">ขอรับข้อเสนอเบื้องต้น</a>
+      <a href="join.html">สมัครเป็นตัวแทน</a>
+    </nav>
+  </div>
+</aside>
+<div class="siderail-veil" id="railVeil" hidden></div>
 
 <!-- แถบลัดไปหน้าทีมตัวแทน · โผล่ทุกหน้า เพราะคนส่วนใหญ่ไม่กดเมนูสามขีดดู -->
-<a class="teamcta always" href="/aboutme/">
+<a class="teamcta" href="/aboutme/">
   <span class="teamcta-faces" aria-hidden="true"><i class="tf">ฑ</i><i class="tf">ก</i><i class="tf tf3">ป</i></span>
   <span class="teamcta-txt">
     <b>ทีมตัวแทนผู้ให้บริการ <span class="teamcta-dot"></span></b>
@@ -237,6 +268,7 @@
 
 <script src="/js/page-quote.js?v=20260926b"></script>
 <script src="/js/logo-zoom.js?v=20260926b"></script>
+<script src="/js/siderail.js?v=20260927a"></script>
 
 <!-- ══════════════════════════════════════════════════════════════
      แถบเมนูล่างแบบแอป (จอแคบ)

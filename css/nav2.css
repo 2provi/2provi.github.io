@@ -43,6 +43,81 @@
 /* แถบหัวเหลือแถวเดียว จึงไม่ต้องมี position:static ที่เคยใช้ยึด .links */
 .nav-in{position:relative}
 
+/* ══════════════════════════════════════════════════════════════════════
+   ปุ่มเหลืองสองตัวท้ายแถบ — "ขอรับข้อเสนอเบื้องต้น" กับ "สมัครเป็นตัวแทน"
+
+   .tools a.askq มี margin-left:auto อยู่ ซึ่งเดิมมีตัวเดียวจึงทำหน้าที่
+   ดันไปชิดขวาสุดของแถบ พอมีสองตัว ตัวที่สองจะดันตัวเองอีกรอบจนสองปุ่ม
+   แยกจากกันคนละมุม ต้องยกเลิก auto ของตัวที่สองแล้วให้ติดกันเป็นคู่
+   ══════════════════════════════════════════════════════════════════════ */
+.nav-in > .tools.tools-in a.askq + a.askq{margin-left:.3rem}
+/* ตัวหลังเป็นปลายทางสุดท้ายของเส้นทาง จึงให้เข้มกว่าเล็กน้อยเพื่อไล่ลำดับสายตา
+   สีพื้นยังอยู่ในโทนเดียวกัน ตัวหนังสือ #3a1d00 บน #f8b617 วัดได้ 7.9:1 */
+.nav-in > .tools.tools-in a.askq + a.askq{
+  background:linear-gradient(120deg,#e8890a,#f8b617);
+}
+.nav-in > .tools.tools-in a.askq + a.askq:hover{
+  background:linear-gradient(120deg,#d87f06,#f0ad10);
+}
+/* พอยืนอยู่บนหน้า quote หรือ join ปุ่มนั้นเป็นหน้าปัจจุบัน ต้องเปลี่ยนเป็น
+   สีเดียวกับลิงก์หน้าปัจจุบันตัวอื่น ไม่งั้นแยกไม่ออกว่าอยู่หน้าไหน
+   (กฎ .tools a.askq ใน core.css อยู่หลัง .tools a.cur จึงชนะไปโดยปริยาย) */
+.nav-in > .tools.tools-in a.askq.cur,
+.nav-in > .tools.tools-in a.askq + a.askq.cur{
+  background:var(--grad,linear-gradient(120deg,#0b4a8f,#2b8bf2));
+  color:#fff;
+  box-shadow:0 8px 18px -10px rgba(11,74,143,.9);
+}
+
+/* ══════════════════════════════════════════════════════════════════════
+   ชื่อเว็บกลางแถบ (จอแคบ)
+
+   จอแคบ ชื่อ "2ProviGroup" ข้างโลโก้ถูกซ่อน (กฎ ≤1249px ด้านล่าง) เหลือ
+   แต่รูปวงกลมซึ่งไม่ได้บอกว่านี่เว็บอะไร จึงเอาชื่อมาไว้กลางแถบแทน
+
+   ใช้ absolute + translate ไม่ใช่ margin:auto เพราะฝั่งซ้าย (โลโก้ 40px)
+   กับฝั่งขวา (ปุ่มธีม 44 + สามขีด 42) กว้างไม่เท่ากัน ถ้าใช้ flex มันจะ
+   ไปอยู่กึ่งกลาง "ที่ว่างที่เหลือ" ซึ่งเยื้องจากกึ่งกลางจอจริง
+   ══════════════════════════════════════════════════════════════════════ */
+.navmid{display:none}
+@media (max-width:980px){
+  .navmid{
+    position:absolute;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%);
+    display:block;
+    /* กันไม่ให้ยาวจนชนโลโก้หรือปุ่มฝั่งขวา ที่เหลือตัดเป็นจุดไข่ปลา */
+    max-width:calc(100% - 215px);
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+    font-size:1.06rem;
+    font-weight:800;
+    letter-spacing:-.01em;
+    line-height:1;
+    color:var(--text,var(--tx,#0a1729));
+    text-decoration:none;
+  }
+  .navmid b{color:var(--b500,var(--jade,#2b8bf2));font-weight:800}
+  [data-theme="dark"] .navmid{color:#eaf3ff}
+  [data-theme="dark"] .navmid b{color:#38bdf8}
+  /* หน้าสุขภาพพื้นมืดตลอดเวลา ไม่ได้ผูกกับ data-theme */
+  .hs .navmid{color:#eaf3ff}
+  .hs .navmid b{color:#5eead4}
+}
+/* จอแคบ .tools ถูกซ่อน (mobile.css) จึงไม่มีอะไรดัน .acts ไปขวาอีกแล้ว
+   ต้องดันเอง ไม่งั้นปุ่มธีมกับสามขีดจะไปกองอยู่ติดโลโก้ฝั่งซ้าย */
+@media (max-width:980px){
+  .nav-in > .acts{margin-left:auto}
+}
+@media (max-width:400px){
+  .navmid{font-size:.96rem;max-width:calc(100% - 195px)}
+}
+@media (max-width:340px){
+  .navmid{font-size:.9rem;max-width:calc(100% - 180px)}
+}
+
 /* ── ความกว้างของแถบหัว ──
    .wrap เดิมคุมไว้ที่ 1180px ซึ่งพอดีสำหรับเนื้อหาที่อ่านเป็นบรรทัด
    แต่แถบหัวตอนนี้ต้องใส่ทั้งชื่อแบรนด์ เมนูข้ามหน้า 7 ลิงก์ เม็ดยาทีมงาน

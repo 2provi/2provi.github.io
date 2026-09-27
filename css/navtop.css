@@ -1,0 +1,182 @@
+/* ══════════════════════════════════════════════════════════════════════
+   navtop.css — แถบนำทางบน สำหรับหน้าที่ไม่ได้โหลด core.css
+
+   ทำไมต้องมีไฟล์นี้
+   ────────────────
+   หน้า quote / join ใช้ form.css เป็นฐาน ไม่ได้โหลด core.css จึงไม่มี
+   สไตล์ของ .nav .brand .tools .acts .btn .ibtn เลยสักตัว พอเปลี่ยนมาใช้
+   แถบเดียวกับอีก 5 หน้า จึงต้องมีไฟล์นี้จ่ายสไตล์ฐานให้
+
+   เขียนด้วยค่าสีตรง ๆ ไม่พึ่งตัวแปรของ core.css (มี var() พร้อม fallback
+   ไว้เผื่อหน้าที่มีตัวแปรอยู่แล้ว) ตามแบบเดียวกับ teamcta.css / botnav.css
+   จะได้เป็น "แถบประจำเว็บ" ที่หน้าตาเหมือนกันหมดไม่ว่าโหลดไฟล์ไหนเป็นฐาน
+
+   ใช้คู่กับ nav2.css ที่จัดเลย์เอาต์และทำเมนูข้าง — โหลด navtop.css ก่อน
+   ══════════════════════════════════════════════════════════════════════ */
+
+/* ───────────────────────── ตัวแถบ ───────────────────────── */
+.nav{
+  position:sticky;
+  top:0;
+  z-index:150;
+  background:var(--glass,rgba(255,255,255,.82));
+  border-bottom:1px solid transparent;
+  transition:box-shadow .35s,border-color .35s,background .4s;
+}
+@supports (backdrop-filter:blur(10px)){
+  .nav{backdrop-filter:blur(18px) saturate(160%)}
+}
+.nav.stuck{
+  border-color:var(--line,#dceaf9);
+  box-shadow:0 10px 30px -24px rgba(4,20,46,.7);
+}
+.nav .wrap{width:min(1180px,92%);margin-inline:auto}
+.nav-in{
+  display:flex;
+  align-items:center;
+  gap:.7rem;
+  padding:.7rem 0;
+  position:relative;
+}
+
+/* ───────────────────────── โลโก้ + ชื่อ ───────────────────────── */
+/* หน้าฟอร์มมี .brand ของตัวเองอยู่แล้ว (form.css) ต้องเขียนทับให้ตรงกับ
+   อีก 5 หน้า ไม่งั้นโลโก้จะคนละขนาดคนละระยะ */
+.nav .brand{
+  display:flex;
+  align-items:center;
+  gap:.6rem;
+  font-size:1.22rem;
+  font-weight:800;
+  color:var(--text,#0a1729);
+  text-decoration:none;
+  flex:none;
+}
+.nav .brand b{color:var(--b500,#2b8bf2);font-weight:800}
+.nav .mark{
+  display:grid;
+  place-items:center;
+  width:40px;
+  height:40px;
+  border-radius:12px;
+  background:var(--grad,linear-gradient(120deg,#0b4a8f,#2b8bf2));
+  color:#fff;
+  flex:none;
+  overflow:hidden;
+  box-shadow:0 8px 20px -10px rgba(11,74,143,.9);
+}
+.nav .mark img{width:100%;height:100%;object-fit:contain;display:block}
+
+/* ───────────────────────── แถบลิงก์ข้ามหน้า ───────────────────────── */
+.tools{border-top:1px solid var(--line,#dceaf9)}
+.tools-in{
+  display:flex;
+  gap:.3rem;
+  padding:.42rem 0;
+  overflow-x:auto;
+  scrollbar-width:none;
+  -ms-overflow-style:none;
+}
+.tools-in::-webkit-scrollbar{display:none}
+.tools a{
+  flex:none;
+  display:inline-flex;
+  align-items:center;
+  gap:.4rem;
+  padding:.42rem .9rem;
+  border-radius:999px;
+  font-size:.85rem;
+  font-weight:700;
+  color:var(--muted,#64798f);
+  text-decoration:none;
+  white-space:nowrap;
+  transition:color .25s,background .25s,transform .25s cubic-bezier(.22,.8,.2,1);
+}
+.tools a:hover{color:var(--b600,#1466c4);background:rgba(43,139,242,.13);transform:translateY(-1px)}
+.tools a.cur{
+  background:var(--grad,linear-gradient(120deg,#0b4a8f,#2b8bf2));
+  color:#fff;
+  box-shadow:0 8px 18px -10px rgba(11,74,143,.9);
+}
+.tools a.cur:hover{color:#fff;transform:none}
+.tools a.home{border:1.5px solid var(--line,#dceaf9)}
+.tools a.home:hover{border-color:var(--b500,#2b8bf2)}
+
+/* สีประจำหน้าปลายทางตอนชี้เมาส์ ช่วยให้จำได้ว่าสีไหนคือหน้าไหน */
+.tools a[href="money.html"]:hover    {color:#0b4a8f;background:rgba(43,139,242,.14)}
+.tools a[href="health.html"]:hover   {color:#046f52;background:rgba(16,185,129,.15)}
+.tools a[href="retire.html"]:hover   {color:#5b21b6;background:rgba(139,92,246,.16)}
+.tools a[href="education.html"]:hover{color:#9f1239;background:rgba(225,29,72,.13)}
+
+/* ปุ่มสีเหลืองสองตัวท้ายแถบ (ขอรับข้อเสนอ / สมัครตัวแทน)
+   สีพื้นอ่อนสุด #fbbf24 กับตัวหนังสือ #3a1d00 วัดได้ 8.6:1 ผ่านสบาย */
+.tools a.askq{
+  background:linear-gradient(120deg,#f59e0b,#fbbf24);
+  color:#3a1d00;
+  box-shadow:0 8px 18px -10px rgba(245,158,11,.95);
+}
+.tools a.askq:hover{
+  color:#3a1d00;
+  background:linear-gradient(120deg,#ea8c04,#f8b617);
+  transform:translateY(-1px);
+  box-shadow:0 10px 22px -10px rgba(245,158,11,1);
+}
+.tools a.askq span{display:inline-block;transition:transform .3s cubic-bezier(.22,.8,.2,1)}
+.tools a.askq:hover span{transform:translateX(4px)}
+
+/* ───────────────────────── ปุ่มฝั่งขวา ───────────────────────── */
+.acts{display:flex;align-items:center;gap:.5rem}
+.ibtn{
+  width:44px;
+  height:44px;
+  border-radius:50%;
+  border:1px solid var(--line,#dceaf9);
+  background:var(--surface,#fff);
+  color:var(--text,#0a1729);
+  cursor:pointer;
+  font-size:1.15rem;
+  line-height:1;
+  display:grid;
+  place-items:center;
+  flex:none;
+  transition:transform .4s cubic-bezier(.22,.8,.2,1),background .3s,border-color .3s;
+}
+.ibtn:hover{transform:rotate(-25deg) scale(1.12);border-color:var(--b500,#2b8bf2)}
+.ibtn:active{transform:scale(.92)}
+
+.nav .btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:.55rem;
+  padding:.85rem 1.6rem;
+  border-radius:999px;
+  border:0;
+  font-family:inherit;
+  font-size:1rem;
+  font-weight:700;
+  text-decoration:none;
+  cursor:pointer;
+  white-space:nowrap;
+  transition:transform .3s cubic-bezier(.22,.8,.2,1),box-shadow .3s,background .3s,color .3s,border-color .3s;
+}
+.nav .btn-p{
+  background:var(--grad,linear-gradient(120deg,#0b4a8f,#2b8bf2));
+  color:#fff;
+  box-shadow:0 14px 30px -12px rgba(11,74,143,.75);
+}
+.nav .btn-p:hover{transform:translateY(-3px)}
+
+/* หน้าฟอร์มมีลิงก์ 2provi.com เดิมอยู่ในแถบ ตอนนี้ย้ายมาใช้แถบใหม่แล้ว
+   ถ้ายังหลงเหลืออยู่ที่ไหนก็ไม่ให้มันไปแย่งที่ในแถบ */
+.nav .nav-contact{display:none}
+
+/* ───────────────────────── จอแคบ ─────────────────────────
+   [แก้บั๊ก] mobile.css มีกฎ .tools{display:none} ที่ ≤980px อยู่แล้ว แต่
+   ไฟล์นี้โหลดทีหลังและมี .tools-in{display:flex} ค่าความจำเพาะเท่ากัน
+   (0,1,0) ตัวที่มาทีหลังจึงชนะ ลิงก์ข้ามหน้าเลยไม่ยอมซ่อนเฉพาะหน้าฟอร์ม
+   (อีก 5 หน้าไม่เป็น เพราะ core.css โหลดก่อน mobile.css)
+   เขียนกฎจำเพาะกว่าไว้ท้ายไฟล์ จะได้ตรงกันทั้ง 7 หน้า */
+@media (max-width:980px){
+  .nav .tools.tools-in{display:none}
+}

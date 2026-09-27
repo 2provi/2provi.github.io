@@ -58,6 +58,13 @@
   background:none;
   place-items:center;
 }
+/* [แก้บั๊ก] ปุ่ม play ค้างทับวิดีโอที่กำลังเล่น
+   สคริปต์ซ่อนภาพปกด้วย ph.hidden = true ซึ่งพึ่งกฎ [hidden]{display:none}
+   ของเบราว์เซอร์เอง แต่กฎนั้นอยู่ใน user-agent stylesheet ส่วน
+   .ytb-ph{display:grid} ด้านบนเป็น author stylesheet ซึ่งมาก่อนเสมอ
+   ไม่ว่าค่าความจำเพาะจะเท่าไร ผลคือตั้ง hidden แล้วปุ่มก็ยังโผล่อยู่
+   (.ytb-sound ด้านล่างมีกฎนี้อยู่แล้ว แต่ .ytb-ph ตกหล่นไป) */
+.ytb-ph[hidden]{display:none}
 .ytb-ph img{
   position:absolute;
   inset:0;
