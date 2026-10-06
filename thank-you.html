@@ -1,8 +1,20 @@
 <!DOCTYPE html>
-<html lang="th">
+<html lang="th" data-theme="light">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- THEME PRE-PAINT : อ่านธีมที่บันทึกไว้ก่อนวาดหน้า กันจอกระพริบ -->
+  <meta name="theme-color" content="#0b4a8f">
+  <script>
+  (function(){
+    var t="";
+    try{ t=localStorage.getItem("ls-theme")||""; }catch(e){}
+    if(t!=="dark"&&t!=="light"){
+      try{ t=window.matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light"; }catch(e){ t="light"; }
+    }
+    document.documentElement.setAttribute("data-theme",t);
+  })();
+  </script>
   <title>ขอบคุณสำหรับข้อมูล | 2Provi Group</title>
 
 <!-- Open Graph · ภาพย่อเวลาแปะลิงก์ใน Facebook / LINE / X -->
@@ -42,6 +54,7 @@
     rel="stylesheet"
   />
 
+<link rel="stylesheet" href="/css/core.css?v=20261005">
 <link rel="stylesheet" href="/css/page-thankyou.css?v=20260926b">
 <link rel="stylesheet" href="/css/mobile.css?v=20260926b">
 <link rel="stylesheet" href="/css/teamcta.css?v=20260926b">
@@ -118,5 +131,6 @@
 </a>
 
 <script src="/js/logo-zoom.js?v=20260926b"></script>
+<script src="/js/theme.js?v=20261005"></script>
 </body>
 </html>

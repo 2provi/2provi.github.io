@@ -442,3 +442,27 @@ footer {
         font-size: 0.79rem;
       }
     }
+
+/* ══════════════════════════════════════════════════════════════
+   โหมดมืด (join) — ทับสีสว่างที่ฮาร์ดโค้ดไว้ ให้เข้ากับพื้นมืด
+   ══════════════════════════════════════════════════════════════ */
+[data-theme="dark"] .edu-card,
+[data-theme="dark"] .choice-card { background: #0a1830; }
+/* รางสไลเดอร์การศึกษา: ส่วนที่ยังไม่เลือกเป็นสีเข้ม */
+[data-theme="dark"] .edu-track {
+  background: linear-gradient(90deg,
+    var(--blue) 0%, var(--blue) var(--p, 50%),
+    #1d3358 var(--p, 50%), #1d3358 100%);
+}
+[data-theme="dark"] .edu-slider::-moz-range-track { background: #1d3358; }
+[data-theme="dark"] .edu-slider::-webkit-slider-thumb { background: #0c1e3b; }
+[data-theme="dark"] .edu-slider::-moz-range-thumb { background: #0c1e3b; }
+/* กล่องแจ้งข้อผิดพลาด */
+[data-theme="dark"] .form-error {
+  border-color: rgba(255, 133, 133, .4);
+  color: #ff9d9d;
+  background: rgba(155, 44, 44, .18);
+}
+[data-theme="dark"] .form-error a { color: #ff9d9d; }
+[data-theme="dark"] footer { color: #93aacb; }
+[data-theme="dark"] .foot-links { border-bottom-color: #22365c; }

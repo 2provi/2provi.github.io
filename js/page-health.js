@@ -10,22 +10,6 @@ function numOf(id){var e=D.getElementById(id);if(!e)return 0;
   var v=Number(String(e.value).replace(/[,\s]/g,""));return isFinite(v)&&v>=0?v:0}
 function setT(id,s){var e=D.getElementById(id);if(e)e.textContent=s}
 
-/* ── ธีม (ใช้คีย์เดียวกับหน้าหลัก จึงจำค่าข้ามหน้าได้) ── */
-run("theme",function(){
-  var btn=D.getElementById("themeBtn"),meta=$1('meta[name="theme-color"]');
-  function get(){return ROOT.getAttribute("data-theme")==="dark"?"dark":"light"}
-  function set(m){
-    var t=m==="dark"?"dark":"light";
-    ROOT.setAttribute("data-theme",t);
-    if(btn){btn.textContent=t==="dark"?"☀️":"🌙";
-      btn.setAttribute("aria-label",t==="dark"?"สลับเป็นโหมดสว่าง":"สลับเป็นโหมดมืด")}
-    if(meta)meta.setAttribute("content",t==="dark"?"#04060d":"#f4f7fd");
-    try{localStorage.setItem("ls-theme",t)}catch(e){}
-  }
-  if(btn)btn.addEventListener("click",function(){set(get()==="dark"?"light":"dark")},false);
-  set(get());
-});
-
 /* ── เมนู ── */
 run("menu",function(){
   var b=D.getElementById("burger"),m=D.getElementById("menu");

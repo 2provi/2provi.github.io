@@ -120,3 +120,7 @@ footer {
         grid-column: auto;
       }
     }
+
+/* ── โหมดมืด (quote) ── */
+[data-theme="dark"] footer { color: #93aacb; }
+[data-theme="dark"] .foot-links { border-bottom-color: #22365c; }

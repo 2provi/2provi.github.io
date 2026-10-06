@@ -247,3 +247,42 @@ input:focus,
 .brand-mark{background:none;border-radius:50%;padding:0;overflow:hidden;
   box-shadow:0 6px 18px -8px rgba(11,74,143,.5)}
 .brand-mark img{width:100%;height:100%;display:block;object-fit:contain}
+
+/* ══════════════════════════════════════════════════════════════
+   โหมดมืด — เพิ่มภายหลังให้หน้าฟอร์ม (quote / join) เข้ากับทั้งเว็บ
+   ตัวแปรชุดนี้ทับค่าที่ :root ด้านบน เมื่อ <html data-theme="dark">
+   ══════════════════════════════════════════════════════════════ */
+[data-theme="dark"] {
+  --navy: #eaf3ff;
+  --text: #c2d5ee;
+  --muted: #93aacb;
+  --white: #0c1e3b;
+  --border: #22365c;
+  --shadow: 0 22px 55px -24px rgba(0, 0, 0, .72);
+}
+[data-theme="dark"] body {
+  background:
+    radial-gradient(circle at 10% 10%, rgba(43, 139, 242, .14), transparent 24%),
+    radial-gradient(circle at 94% 88%, rgba(52, 211, 153, .10), transparent 24%),
+    linear-gradient(135deg, #040d1e, #07152c 45%, #06122a);
+}
+[data-theme="dark"] .quote-wrapper { border-color: rgba(255, 255, 255, .06); }
+/* แผงฟ้าด้านซ้ายเข้มลงเล็กน้อยให้เข้ากับพื้นมืด (ตัวหนังสือขาวอยู่แล้ว) */
+[data-theme="dark"] .intro-panel { background: linear-gradient(145deg, #0a4a78, #0d6ca0); }
+/* ช่องกรอก: พื้นเข้ม ตัวอักษรสว่าง เส้นขอบเข้ม */
+[data-theme="dark"] input,
+[data-theme="dark"] select,
+[data-theme="dark"] textarea {
+  background: #0a1830;
+  color: var(--text);
+  border-color: var(--border);
+}
+[data-theme="dark"] input::placeholder,
+[data-theme="dark"] textarea::placeholder { color: #6b8099; }
+[data-theme="dark"] input:focus,
+[data-theme="dark"] select:focus,
+[data-theme="dark"] textarea:focus {
+  border-color: #38bdf8;
+  box-shadow: 0 0 0 4px rgba(56, 189, 248, .18);
+}
+[data-theme="dark"] .required { color: #ff8585; }

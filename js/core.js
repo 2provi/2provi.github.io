@@ -13,55 +13,6 @@
   function $(s,p){ return Array.prototype.slice.call((p||D).querySelectorAll(s)); }
   function run(name,fn){ try{ fn(); }catch(err){ console.error("[2Provi] "+name+":",err); } }
 
-  run("theme", function(){
-    var btn = D.getElementById("themeBtn");
-    var meta = $1('meta[name="theme-color"]');
-
-    function get(){
-      return ROOT.getAttribute("data-theme")==="dark" ? "dark" : "light";
-    }
-    function set(mode){
-      var t = (mode==="dark") ? "dark" : "light";
-      ROOT.setAttribute("data-theme", t);
-      if(btn){
-        btn.textContent = (t==="dark") ? "☀️" : "🌙";
-        btn.setAttribute("aria-label", t==="dark" ? "สลับเป็นโหมดสว่าง" : "สลับเป็นโหมดมืด");
-        btn.setAttribute("title",      t==="dark" ? "สลับเป็นโหมดสว่าง" : "สลับเป็นโหมดมืด");
-      }
-      if(meta) meta.setAttribute("content", t==="dark" ? "#040d1e" : "#0b4a8f");
-      try{ localStorage.setItem("ls-theme", t); }catch(e){}
-      console.log("[2Provi Group] theme =", t);
-      return t;
-    }
-    function toggle(){ set(get()==="dark" ? "light" : "dark"); }
-
-    /* ผูก 2 ชั้น: ปุ่มโดยตรง + delegation ที่ document (กันปุ่มถูกแทนที่) */
-    if(btn) btn.addEventListener("click", function(e){ e.preventDefault(); toggle(); }, false);
-    D.addEventListener("click", function(e){
-      var t = e.target;
-      while(t && t!==D){
-        if(t.id==="themeBtn" && t!==btn){ toggle(); return; }
-        t = t.parentNode;
-      }
-    }, false);
-
-    /* sync ปุ่มกับสถานะเริ่มต้น (ไม่เขียน localStorage ซ้ำถ้าไม่จำเป็น) */
-    set(get());
-
-    /* ตามระบบปฏิบัติการ เฉพาะกรณีผู้ใช้ยังไม่เคยเลือกเอง */
-    try{
-      var mq = W.matchMedia("(prefers-color-scheme:dark)");
-      var handler = function(e){
-        var saved=null; try{ saved=localStorage.getItem("ls-theme"); }catch(x){}
-        if(saved!=="dark" && saved!=="light") set(e.matches?"dark":"light");
-      };
-      if(mq.addEventListener) mq.addEventListener("change",handler);
-      else if(mq.addListener) mq.addListener(handler);
-    }catch(e){}
-
-    W.LStheme = { get:get, set:set, toggle:toggle };
-  });
-
   run("reveal", function(){
     var items=$(".rv");
     if(!items.length || !("IntersectionObserver" in W)) return;

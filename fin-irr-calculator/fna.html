@@ -391,6 +391,14 @@
               <span class="unit">ปี (A)</span>
             </span>
           </div>
+          <div class="field">
+            <label for="retInflation">เงินเฟ้อคาดการณ์ (ไม่บังคับ)</label>
+            <span class="input-wrap">
+              <input class="input" type="number" id="retInflation" data-calc="retire" min="0" max="20" step="0.5" placeholder="เช่น 3" inputmode="decimal">
+              <span class="unit">% ต่อปี</span>
+            </span>
+            <div class="help">ปรับค่าใช้จ่ายให้เป็นมูลค่า ณ วันเกษียณ</div>
+          </div>
         </div>
       </div>
     </div>
@@ -430,8 +438,12 @@
           </div>
         </div>
         <div class="calc-row" style="margin-top:8px;border-top:1px dashed var(--border)">
-          <span class="lbl"><strong>รวมค่าใช้จ่ายต่อปี (B)</strong></span>
+          <span class="lbl"><strong>รวมค่าใช้จ่ายต่อปี (B)</strong> <span style="font-weight:400;font-size:.85em;color:var(--muted)">(มูลค่าปัจจุบัน)</span></span>
           <span class="num" id="r_retPerYear">—</span>
+        </div>
+        <div class="calc-row" id="retInflatedRow" style="display:none">
+          <span class="lbl">ค่าใช้จ่าย/ปี ณ วันเกษียณ <span id="retInflNote" style="font-weight:400;font-size:.85em;color:var(--muted)"></span></span>
+          <span class="num" id="r_retInflated">—</span>
         </div>
       </div>
     </div>
@@ -441,7 +453,7 @@
       <div class="panel-body stack">
         <div>
           <div class="calc-row">
-            <span class="lbl">รวมเงินที่ต้องการ (A) × (B)</span>
+            <span class="lbl">รวมเงินที่ต้องการ = ปีหลังเกษียณ (A) × ค่าใช้จ่ายต่อปี</span>
             <span class="num" id="r_retTotal">—</span>
           </div>
           <div class="calc-row">
@@ -834,7 +846,28 @@
     });
 
     byId('r_retPerYear').textContent = money(B) + ' บาท/ปี';
-    const total = A * B;
+
+    /* ปรับเงินเฟ้อ: นำค่าใช้จ่ายวันนี้ไปเป็นมูลค่า ณ วันเกษียณ
+       (ทบตามจำนวนปีที่เหลือก่อนเกษียณ = retireAge − อายุปัจจุบัน) */
+    const inf = (parseFloat(byId('retInflation').value) || 0) / 100;
+    const yearsLeft = (isFinite(age) && isFinite(rAge) && rAge > age) ? (rAge - age) : 0;
+    const applyInf = inf > 0 && yearsLeft > 0;
+    const Bfut = applyInf ? B * Math.pow(1 + inf, yearsLeft) : B;
+
+    const row = byId('retInflatedRow');
+    if (applyInf) {
+      row.style.display = '';
+      byId('r_retInflated').textContent = money(Bfut) + ' บาท/ปี';
+      byId('retInflNote').textContent = '(เงินเฟ้อ ' + (inf * 100) + '% × ' + yearsLeft + ' ปี)';
+    } else {
+      row.style.display = 'none';
+      if (inf > 0 && yearsLeft === 0) {
+        byId('yearsToRetire').textContent =
+          'กรอกอายุปัจจุบันและอายุเกษียณให้ครบ เพื่อให้คำนวณเงินเฟ้อถึงวันเกษียณได้';
+      }
+    }
+
+    const total = A * Bfut;
     byId('r_retTotal').textContent = money(total) + ' บาท';
     const need = total - num(byId('retHave').value);
     needs.retire = need;

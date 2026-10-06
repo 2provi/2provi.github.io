@@ -504,15 +504,19 @@
     const type = byId('g-type').value;
     const r = rate / 100;
 
+    /* คิดให้ตรงกับโหมด "ออมรายเดือน" เป๊ะ: อัตราต่อเดือน = r/12 (ทบต้นรายเดือน)
+       และฝากต้นงวด (annuity-due) เงินต้นเริ่มต้นก็ทบต้นรายเดือนเช่นกัน
+       ยอดที่แนะนำจึงนำไปกรอกในโหมดรายเดือนแล้วได้ตรงเป้าพอดี (ต่างเพียงปัดเศษ) */
     function saveFor(y) {
-      const fvInitial = initial * Math.pow(1 + r, y);
-      const remain = goal - fvInitial;
-      if (remain <= 0) return 0;
       if (type === 'monthly') {
-        const rM = r > 0 ? Math.pow(1 + r, 1 / 12) - 1 : 0;
-        return rM > 0 ? remain * rM / (Math.pow(1 + rM, y * 12) - 1) : remain / (y * 12);
+        const rM = r / 12, N = y * 12;
+        const remain = goal - initial * Math.pow(1 + rM, N);
+        if (remain <= 0) return 0;
+        return rM > 0 ? remain * rM / ((Math.pow(1 + rM, N) - 1) * (1 + rM)) : remain / N;
       }
-      return r > 0 ? remain * r / (Math.pow(1 + r, y) - 1) : remain / y;
+      const remain = goal - initial * Math.pow(1 + r, y);
+      if (remain <= 0) return 0;
+      return r > 0 ? remain * r / ((Math.pow(1 + r, y) - 1) * (1 + r)) : remain / y;
     }
 
     const save = saveFor(years);

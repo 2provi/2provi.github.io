@@ -1,8 +1,20 @@
 <!DOCTYPE html>
-<html lang="th">
+<html lang="th" data-theme="light">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- THEME PRE-PAINT : อ่านธีมที่บันทึกไว้ก่อนวาดหน้า กันจอกระพริบ -->
+  <meta name="theme-color" content="#0b4a8f">
+  <script>
+  (function(){
+    var t="";
+    try{ t=localStorage.getItem("ls-theme")||""; }catch(e){}
+    if(t!=="dark"&&t!=="light"){
+      try{ t=window.matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light"; }catch(e){ t="light"; }
+    }
+    document.documentElement.setAttribute("data-theme",t);
+  })();
+  </script>
   <meta
     name="description"
     content="สมัครเป็นตัวแทนประกันชีวิตกับ 2Provi Group — แจ้งข้อมูลเบื้องต้นเพื่อให้ทีมงานติดต่อกลับและอธิบายเส้นทางการเริ่มต้นอาชีพ"
@@ -45,6 +57,7 @@
     rel="stylesheet"
   />
 
+<link rel="stylesheet" href="/css/core.css?v=20261005">
 <link rel="stylesheet" href="/css/form.css?v=20260926b">
 <link rel="stylesheet" href="/css/page-join.css?v=20260926b">
 <link rel="stylesheet" href="/css/mobile.css?v=20260926b">
@@ -65,6 +78,8 @@
     <!-- ชื่อเว็บกลางแถบ โผล่เฉพาะจอแคบ ที่ซึ่งชื่อข้างโลโก้ถูกซ่อนไป -->
     <a class="navmid" href="index.html">2Provi<b>Group</b></a>
     <div class="acts">
+      <button class="ibtn" id="themeBtn" type="button" aria-label="สลับโหมดสี" title="สลับโหมดสว่าง/มืด">🌙</button>
+
       <a class="teampill" href="/aboutme/">
         <span class="teamcta-faces" aria-hidden="true"><i class="tf">ฑ</i><i class="tf">ก</i><i class="tf tf3">ป</i></span>
         <span>ทีมตัวแทนผู้ให้บริการ</span>
@@ -408,5 +423,6 @@
     <a class="bn" aria-current="page" href="/join.html"><span class="ic" aria-hidden="true">🤝</span><span class="bl"><span class="bw">สมัคร</span><wbr><span class="bw">ตัวแทน</span></span></a>
   </div>
 </nav>
+<script src="/js/theme.js?v=20261005"></script>
 </body>
 </html>
